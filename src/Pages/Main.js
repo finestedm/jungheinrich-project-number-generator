@@ -3,8 +3,10 @@ import { Container, Button, FloatingLabel, Form, Row, Col } from 'react-bootstra
 import { Link } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import projectData from '../data.json'
 
 export default function Main() {
+
 
     const [name, setName] = useState('')
     const isNameValid = (name) => name.length < 3
@@ -19,14 +21,17 @@ export default function Main() {
         if (isNameValid && user !== '') {
             setProjectNumber(5281123)
             navigator.clipboard.writeText(projectNumber)
-            console.log({
+            const newProjectData = {
                 projectNumber: projectNumber,
                 name: name,
                 location: location,
                 description: description,
                 user: user
-            })
+            }
+            projectData = { ...projectData, newProjectData }
+            console.log(projectData)
         } else {
+            
             setButtonText('Nie wpisano wymaganych danych!')
             setButtonVariant('danger')
             setTimeout(() => {
