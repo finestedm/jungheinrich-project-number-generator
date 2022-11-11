@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body, html {
+    font-family: 'Roboto Slab', serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+.navbar {
+    background-color: #3c464b;
+}
+
+.nav-main__logo {
+    fill: white;
+    height: 35px !important;
+    width: 200px !important;
+}
