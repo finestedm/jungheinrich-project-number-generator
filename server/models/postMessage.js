@@ -5,7 +5,7 @@ const postSchema = mongoose.Schema({
     location: String,
     description: String,
     user: String,
-    projectNumber: String,
+    projectNumber: Number,
     createdAt: {
         type: Date,
         default: new Date()

@@ -11,7 +11,7 @@ export default function App() {
     <BrowserRouter as={Container} className='App'>
       <Header></Header>
       <Routes>
-        <Route index element={<Main />} />
+        <Route index element={<Main/>} />
         <Route path='/archive' element={<Archive/>} />
       </Routes>
     </BrowserRouter>

@@ -15,3 +15,15 @@ body, html {
     height: 35px !important;
     width: 200px !important;
 }
+
+body{
+    height: 100vh
+}
+
+#root {
+    height: 100%;
+}
+
+.card-footer {
+    background-color: #eaeff1;
+}

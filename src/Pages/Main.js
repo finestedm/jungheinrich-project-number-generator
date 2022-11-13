@@ -23,17 +23,18 @@ export default function Main() {
 
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.posts)
-
+    
     useEffect(() => {
         dispatch(getPosts())
     }, [dispatch]);
 
     async function submitNewProject(e) {
         if (isCustomerValid && user) {
-            setProjectNumber(5281123)
-            navigator.clipboard.writeText(projectNumber)
+            const newProjectNumber = posts[0].projectNumber + 1
+            setProjectNumber(newProjectNumber)
+            navigator.clipboard.writeText(newProjectNumber)
             const newProjectData = {
-                projectNumber: projectNumber,
+                projectNumber: newProjectNumber,
                 customer: customer,
                 location: location,
                 description: description,
@@ -51,7 +52,7 @@ export default function Main() {
     }
 
     return (
-        <Container className='text-center h-100 gap-3 d-grid p-4'>
+        <Container className='main text-center h-75 gap-3 d-grid p-4'>
             <h2>Hello Main</h2>
             <Form id='project-details' as={Row} className='justify-content-between gap-3 needs-validation' noValidate>
                 <TextField
@@ -91,7 +92,7 @@ export default function Main() {
             </Form>
 
             <Row>
-                <Button type='submit' form='project-details' variant={buttonVariant} className='mt-5 p-4' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
+                <Button type='submit' form='project-details' variant={buttonVariant} className='mt-5 p-4 border border-dark' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
             </Row>
             
             <Row>
@@ -107,9 +108,9 @@ export default function Main() {
             </Row>
 
             <Row>
-            <Link to='/archive'>
-                <Button variant='outline-secondary' className='btn p-3 mt-5'> Wyświetl archiwum projektów </Button>
-            </Link>
+                <Link to='/archive'>
+                    <Button variant='outline-secondary' className='btn p-3 mt-5'> Wyświetl archiwum projektów </Button>
+                </Link>
             </Row>
         </Container>
     )
