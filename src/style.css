@@ -45,12 +45,28 @@ body{
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
 }
 
-.edit-button {
-    opacity: .5;
+.edit-button,
+.copy-button {
     transition: all .2s ease;
-
+    border-color:rgba(0, 0, 0) !important;
+    opacity: 0;
 }
 
-.edit-button:hover {
-    opacity: 1;
+.card:hover .edit-button,
+.card:hover .copy-button {
+    opacity: .55 ;
+}
+
+.card:hover .edit-button:hover,
+.card:hover .copy-button:hover
+ {
+    opacity: .95;
+}
+
+.card-header {
+    transition: all .2s ease;
+}
+
+.card:hover .card-header {
+    background-color: #ffb900 ;
 }

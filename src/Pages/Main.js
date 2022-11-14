@@ -5,12 +5,12 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useDispatch } from 'react-redux'
 import { getPosts, createPost } from '../actions/posts'
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
+import { users as options } from '../data/users';
 
 export default function Main() {
 
     const [customer, setCustomer] = useState('')
-    const isCustomerValid = (customer) => customer.length < 3
     const [location, setLocation] = useState('')
     const [description, setDescription] = useState('')
     const [user, setUser] = useState('')
@@ -20,6 +20,9 @@ export default function Main() {
     const [postData, setPostData] = useState({
         user: '', customer: '', description: '', location: '', projectNumber: ''
     })
+    function isCustomerValid() {
+        return customer.length > 3
+    }
 
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.posts)
@@ -28,8 +31,9 @@ export default function Main() {
         dispatch(getPosts())
     }, [dispatch]);
 
-    async function submitNewProject(e) {
-        if (isCustomerValid && user) {
+    async function submitNewProject() {
+        if (isCustomerValid() && user) {
+            console.log(isCustomerValid())
             const newProjectNumber = posts[0].projectNumber + 1
             setProjectNumber(newProjectNumber)
             navigator.clipboard.writeText(newProjectNumber)
@@ -47,13 +51,12 @@ export default function Main() {
             setTimeout(() => {
                 setButtonText('Generuj nowy nr projektu')
                 setButtonVariant('warning')
-            }, 3000);
+            }, 2000);
         }
     }
 
     return (
-        <Container className='main text-center h-75 gap-3 d-grid p-4'>
-            <h2>Hello Main</h2>
+        <Container className='main text-center gap-3 d-grid p-4'>
             <Form id='project-details' as={Row} className='justify-content-between gap-3 needs-validation' noValidate>
                 <TextField
                     required
@@ -61,7 +64,7 @@ export default function Main() {
                     variant="outlined"
                     label="Nazwa klienta"
                     minLength={3}
-                    error={isCustomerValid(customer)}
+                    error={!isCustomerValid()}
                     onChange={(e) => setCustomer(e.target.value)}
                 />
 
@@ -82,14 +85,13 @@ export default function Main() {
                 />
 
                 <Autocomplete
-                    required
                     fullWidth
                     disablePortal
                     id="combo-box-demo"
                     options={options}
                     className='p-0'
                     isOptionEqualToValue={(option, value) => option.id === value.id}
-                    renderInput={(params) => <TextField {...params} label="Użytkownik" />}
+                    renderInput={(params) => <TextField required {...params} label="Użytkownik" />}
                     onChange={(e, value) => value === null ? setUser('') : setUser(value.value)}
                     sx={{backgroundColor: 'white'}}
 
@@ -97,7 +99,7 @@ export default function Main() {
             </Form>
 
             <Row>
-                <Button type='submit' form='project-details' variant={buttonVariant} className='mt-5 p-4' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
+                <Button type='submit' form='project-details' variant={buttonVariant} className='submit-button mt-5 p-4' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
             </Row>
             
             <Row>
@@ -114,16 +116,12 @@ export default function Main() {
             </Row>
 
             <Row>
-                <Link to='/archive'>
-                    <Button variant='outline-secondary' className='btn p-3 mt-5'> Wyświetl archiwum projektów </Button>
-                </Link>
+                <Col>
+                    <Link  className='col-3' to='/archive'>
+                        <Button variant='outline-secondary' className='btn p-3 mt-5'> Wyświetl archiwum projektów </Button>
+                    </Link>
+                </Col>
             </Row>
         </Container>
     )
 }
-
-const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-]
