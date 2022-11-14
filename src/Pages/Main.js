@@ -57,7 +57,8 @@ export default function Main() {
             <Form id='project-details' as={Row} className='justify-content-between gap-3 needs-validation' noValidate>
                 <TextField
                     required
-                    id="outlined-name"
+                    className='main--input'
+                    variant="outlined"
                     label="Nazwa klienta"
                     minLength={3}
                     error={isCustomerValid(customer)}
@@ -65,14 +66,16 @@ export default function Main() {
                 />
 
                 <TextField
-                    id="outlined-name"
+                    className='main--input'
+                    variant="outlined"
                     label="Miejscowość"
                     onChange={(e) => setLocation(e.target.value)}
                 />
 
                 <TextField
+                    className='main--input'
                     fullWidth
-                    id="outlined-name"
+                    variant="outlined"
                     label="Opis projektu"
                     onChange={(e) => setDescription(e.target.value)}
 
@@ -88,21 +91,24 @@ export default function Main() {
                     isOptionEqualToValue={(option, value) => option.id === value.id}
                     renderInput={(params) => <TextField {...params} label="Użytkownik" />}
                     onChange={(e, value) => value === null ? setUser('') : setUser(value.value)}
+                    sx={{backgroundColor: 'white'}}
+
                 />
             </Form>
 
             <Row>
-                <Button type='submit' form='project-details' variant={buttonVariant} className='mt-5 p-4 border border-dark' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
+                <Button type='submit' form='project-details' variant={buttonVariant} className='mt-5 p-4' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
             </Row>
             
             <Row>
                 <TextField
                     fullWidth
-                    className='output-field'
-                    id="outlined"
+                    className='main--output'
+                    variant="outlined"
                     label="Nr projektu"
                     readOnly
                     value={projectNumber}
+                    sx={{backgroundColor: 'white'}}
                     onClick={(e) => navigator.clipboard.writeText(e.target.value)}
                 />
             </Row>
