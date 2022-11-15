@@ -12,23 +12,33 @@ export default function Archive() {
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.posts)
     const [showModal, setShowModal] = useState(false)
-    
+    const [postData, setPostData] = useState(false)
+
     useEffect(() => {
         dispatch(getPosts())
     }, [dispatch]);
 
-    const [postToEdit, setPostToEdit] = useState(null);
+    const [postToEditId, setPostToEditId] = useState(null);
+
+    const postToEdit = useSelector((state) => postToEditId ? state.posts.find((p) => p._id === postToEditId) : null)
+
+    useEffect(() => {
+        if (postToEdit) {
+            setPostData(postToEdit)
+            setShowModal(true)
+        }
+    }, [postToEdit]);
+
 
     function toggleModalVisible(id) {
-        setPostToEdit(id)    // i finished here. we have id, now implement function to find single post by this id so the data can be fetched into text forms in post edit modal
-        setShowModal(true)
+        setPostToEditId(id)    // i finished here. we have id, now implement function to find single post by this id so the data can be fetched into text forms in post edit modal
     }
 
     return (
         <Container className='main mt-4'>
             <Row className='d-inline-flex align-items-center col-4'>najnowsze<ArrowDown className='col-1' size={16}/></Row>
-            {posts.map(post => <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEdit={setPostToEdit} post={post} />)}
-            <EditPostModal postToEdit={postToEdit} setShowModal={setShowModal} showModal={showModal} />
+            {posts.map(post => <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />)}
+            {postToEdit && <EditPostModal postToEdit={postToEdit} setShowModal={setShowModal} showModal={showModal} />}
         </Container>
     )
 }
