@@ -8,7 +8,7 @@ import Main from "./Pages/Main";
 
 export default function App() {
   return (
-    <BrowserRouter as={Container} className='App'>
+    <BrowserRouter basename={process.env.PUBLIC_URL} as={Container} className='App'>
       <Header></Header>
       <Routes>
         <Route index element={<Main/>} />
