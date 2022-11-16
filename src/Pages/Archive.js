@@ -35,7 +35,7 @@ export default function Archive() {
     }
 
     return (
-        <Container className='main mt-4'>
+        <Container className='main mt-4 p-4'>
             <Row className='d-inline-flex align-items-center col-4'>najnowsze<ArrowDown className='col-1' size={16}/></Row>
             {posts.map(post => <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />)}
             {postToEdit && <EditPostModal postToEdit={postToEdit} setShowModal={setShowModal} showModal={showModal} />}

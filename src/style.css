@@ -18,11 +18,13 @@ body, html {
 
 body{
     height: 100vh;
+    min-height: -webkit-fill-available;
     background-color: #eaeff1;
 }
 
 #root {
     height: 100%;
+    height: -webkit-fill-available;
     background-color: #eaeff1;
 
 }
