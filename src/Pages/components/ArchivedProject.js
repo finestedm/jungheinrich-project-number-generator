@@ -12,9 +12,23 @@ export default function ArchivedProject(props) {
                 <ClipboardPlus className='copy-button p-1 me-auto ms-1' data-toggle="tooltip" size={25} title='Kopiuj numer projektu'/>
                 <Pencil className='edit-button p-1' data-toggle="tooltip" title='Edytuj ten wpis' onClick={() => toggleModalVisible(post._id)} size={25}/>
             </Card.Header>
-            <Card.Body className='d-flex'>
-                <Card.Title className='col-3 col-lg-2'>{post.customer} <h6>{post.location}</h6></Card.Title>
-                <Card.Text>{post.description}</Card.Text>
+            <Card.Body className='gap-2'>
+                <Row>
+                    <Col md={4} lg={3}>
+                        <Card.Title>
+                            <p className='text-muted small fw-normal m-0'>Klient:</p>
+                            {post.customer}
+                            {post.location && <p className='text-muted small m-0 fs-6 fw-normal mt-3'>Lokalizacja:</p>}
+                            <h6>{post.location}</h6>
+                        </Card.Title>
+                    </Col>
+                    <Col>
+                        <Card.Text>
+                            {post.description && <p className='text-muted small m-0 fs-6'>Opis:</p>}
+                            {post.description}
+                        </Card.Text>
+                    </Col>
+                </Row>
             </Card.Body>
             <Card.Footer className="card-footer border-top"> <p className="text-capitalize fs-6 m-0">{post.user}</p></Card.Footer>
         </Card>

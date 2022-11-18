@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPosts, updatePost } from '../actions/posts'
 import ArchivedProject from './components/ArchivedProject';
-import { Container, Row } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import EditPostModal from './components/EditPostModal'
 import { ArrowDown } from 'react-bootstrap-icons';
 
@@ -35,8 +35,11 @@ export default function Archive() {
     }
 
     return (
-        <Container className='main mt-4 p-4'>
-            <Row className='d-inline-flex align-items-center col-4'>najnowsze<ArrowDown className='col-1' size={16}/></Row>
+        <Container className='main mt-4 p-4 '>
+            <Row className='text-left'>
+                <Col>najnowsze</Col>
+                <Col xs={1}><ArrowDown size={16} /></Col>
+            </Row>
             {posts.map(post => <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />)}
             {postToEdit && <EditPostModal postToEdit={postToEdit} setShowModal={setShowModal} showModal={showModal} />}
         </Container>

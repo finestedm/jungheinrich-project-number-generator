@@ -72,7 +72,7 @@ export default function Main() {
     }
 
     return (
-        <Container className='main text-center gap-3 d-grid p-4'>
+        <Container className='main text-center d-grid mt-4 px-4 align-items-center '>
             <Form id='project-details' as={Row} className='justify-content-between gap-3 needs-validation' noValidate>
                 <TextField
                     required
@@ -105,7 +105,7 @@ export default function Main() {
                     onChange={(e) => setDescription(e.target.value)}
 
                 />
-
+ 
                 <Autocomplete
                     fullWidth
                     disablePortal
@@ -114,15 +114,15 @@ export default function Main() {
                     className='p-0'
                     value={user}
                     isOptionEqualToValue={(option, value) => option.id === value.id}
-                    renderInput={(params) => <TextField required {...params} label="Użytkownik" />}
-                    onChange={(e, value) => value === null ? setUser('') : setUser(value.value)}
+                    renderInput={(params) => <TextField error={user === ''} required {...params} label="Użytkownik" />}
+                    onChange={(e, value) => value === null ? setUser('') : setUser(value)}
                     sx={{backgroundColor: 'white'}}
 
                 />
             </Form>
 
             <Row>
-                <Button type='submit' form='project-details' variant={buttonVariant} className='submit-button mt-5 p-4' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
+                <Button type='submit' form='project-details' variant={buttonVariant} className='submit-button p-4 fs-4 fw-bolder' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
             </Row>
             
             <Row>
@@ -141,7 +141,7 @@ export default function Main() {
             <Row>
                 <Col>
                     <Link  className='col-3' to='/archive'>
-                        <Button variant='outline-secondary' className='btn p-3 mt-5'> Wyświetl archiwum projektów </Button>
+                        <Button variant='outline-secondary' className='btn p-3'> Wyświetl archiwum projektów </Button>
                     </Link>
                 </Col>
             </Row>
