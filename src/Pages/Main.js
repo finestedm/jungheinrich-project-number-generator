@@ -17,9 +17,8 @@ export default function Main() {
     const [projectNumber, setProjectNumber] = useState('')
     const [buttonText, setButtonText] = useState('Generuj nowy nr projektu')
     const [buttonVariant, setButtonVariant] = useState('warning')
-    const [postData, setPostData] = useState({
-        user: '', customer: '', description: '', location: '', projectNumber: ''
-    })
+    const [postsData, setPostsData] = useState([])
+
     function isCustomerValid() {
         return customer.length > 3
     }
@@ -31,10 +30,26 @@ export default function Main() {
         dispatch(getPosts())
     }, [dispatch]);
 
+    useEffect(() => {
+        setPostsData(posts)
+    }, [posts]);
+
+    function cleanInputs() {
+        setCustomer('')
+        setLocation('')
+        setUser('')
+        setDescription('')
+    }
+
+    function searchLastProjectNumber() {
+        let highestValue = 0;
+        postsData.forEach(post => post.projectNumber > highestValue ? highestValue = post.projectNumber : {})
+        return highestValue
+    }
+
     async function submitNewProject() {
         if (isCustomerValid() && user) {
-            console.log(isCustomerValid())
-            const newProjectNumber = posts[0].projectNumber + 1
+            const newProjectNumber = (searchLastProjectNumber() +1)
             setProjectNumber(newProjectNumber)
             navigator.clipboard.writeText(newProjectNumber)
             const newProjectData = {
@@ -45,6 +60,7 @@ export default function Main() {
                 user: user
             }
             dispatch(createPost({ ...newProjectData }))
+            cleanInputs()
         } else {
             setButtonText('Nie wpisano wymaganych danych!')
             setButtonVariant('danger')
@@ -65,13 +81,18 @@ export default function Main() {
                     label="Nazwa klienta"
                     minLength={3}
                     error={!isCustomerValid()}
-                    onChange={(e) => setCustomer(e.target.value)}
+                    value={customer}
+                    onChange={(e) => {
+                        setCustomer(e.target.value)
+                    }
+                    }
                 />
 
                 <TextField
                     className='main--input'
                     variant="outlined"
                     label="Miejscowość"
+                    value={location}
                     onChange={(e) => setLocation(e.target.value)}
                 />
 
@@ -80,6 +101,7 @@ export default function Main() {
                     fullWidth
                     variant="outlined"
                     label="Opis projektu"
+                    value={description}
                     onChange={(e) => setDescription(e.target.value)}
 
                 />
@@ -90,6 +112,7 @@ export default function Main() {
                     id="combo-box-demo"
                     options={options}
                     className='p-0'
+                    value={user}
                     isOptionEqualToValue={(option, value) => option.id === value.id}
                     renderInput={(params) => <TextField required {...params} label="Użytkownik" />}
                     onChange={(e, value) => value === null ? setUser('') : setUser(value.value)}
