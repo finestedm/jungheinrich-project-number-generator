@@ -10,7 +10,7 @@ export default function App() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL} as={Container} className='App'>
       <Header></Header>
-      <Routes>
+      <Routes >
         <Route index element={<Main/>} />
         <Route path='/archive' element={<Archive/>} />
       </Routes>

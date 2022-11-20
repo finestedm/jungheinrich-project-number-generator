@@ -12,13 +12,12 @@ export default function Archive() {
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.posts)
     const [showModal, setShowModal] = useState(false)
-    const [postData, setPostData] = useState(false)
+    const [postData, setPostData] = useState(null)
+    const [postToEditId, setPostToEditId] = useState(null);
 
     useEffect(() => {
         dispatch(getPosts())
     }, [dispatch]);
-
-    const [postToEditId, setPostToEditId] = useState(null);
 
     const postToEdit = useSelector((state) => postToEditId ? state.posts.find((p) => p._id === postToEditId) : null)
 
@@ -27,11 +26,10 @@ export default function Archive() {
             setPostData(postToEdit)
             setShowModal(true)
         }
-    }, [postToEdit]);
-
-
+    }, [postToEdit, setPostToEditId]);
+   
     function toggleModalVisible(id) {
-        setPostToEditId(id)    // i finished here. we have id, now implement function to find single post by this id so the data can be fetched into text forms in post edit modal
+        setPostToEditId(id);
     }
 
     return (
@@ -41,7 +39,7 @@ export default function Archive() {
                 <Col xs={1}><ArrowDown size={16} /></Col>
             </Row>
             {posts.map(post => <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />)}
-            {postToEdit && <EditPostModal postToEdit={postToEdit} setShowModal={setShowModal} showModal={showModal} />}
+            {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
         </Container>
     )
 }

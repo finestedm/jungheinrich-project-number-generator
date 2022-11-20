@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Modal, Button } from 'react-bootstrap'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import moment from 'moment'
 import { users as options } from '../../data/users';
+import { updatePost } from "../../actions/posts";
+import { useDispatch } from 'react-redux'
+
 
 
 export default function EditPostModal(props) {
-    const { showModal, setShowModal, postToEdit } = props
-    const { customer, user, location, projectNumber, createdAt } = postToEdit
+    const { showModal, setShowModal, postData, setPostData, setPostToEditId } = props
+    const { _id, customer, user, location, projectNumber, createdAt } = postData
+    const dispatch = useDispatch()
+
     return (
         <Modal show={showModal} onHide={() => setShowModal(false)}>
             <Modal.Header closeButton>
@@ -30,6 +35,7 @@ export default function EditPostModal(props) {
                     variant="outlined"
                     label="Nazwa klienta"
                     value={customer}
+                    onChange={(e) => setPostData({...postData, customer: e.target.value})}
                     sx={{backgroundColor: 'white'}}
                 />
                 <TextField
@@ -38,6 +44,7 @@ export default function EditPostModal(props) {
                     variant="outlined"
                     label="Miejscowość"
                     value={location}
+                    onChange={(e) => setPostData({...postData, location: e.target.value})}
                     sx={{backgroundColor: 'white'}}
                 />
                 <Autocomplete
@@ -47,6 +54,9 @@ export default function EditPostModal(props) {
                     options={options}
                     value={user}
                     className='className="text-capitalize'
+                    onInputChange={(e, newInputValue) => {
+                        setPostData({...postData, user: newInputValue})
+                    }}
                     isOptionEqualToValue={(option, value) => option.id === value.id}
                     renderInput={(params) => <TextField required {...params} label="Użytkownik" />}
                     sx={{ backgroundColor: 'white' }}
@@ -54,10 +64,19 @@ export default function EditPostModal(props) {
             </Modal.Body>
             <Modal.Footer >
                 <p > Utworzono: {moment(createdAt).fromNow()}</p>
-                <Button variant="warning" onClick={() => setShowModal(false)}>
+                <Button variant="warning" onClick={() => {
+                    dispatch(updatePost(_id, postData))
+                    setPostToEditId(null)
+                    setShowModal(false)
+                }
+                }>
                     Zapisz zmiany
                 </Button>
-                <Button variant="secondary" onClick={() => setShowModal(false)}>
+                <Button variant="secondary" onClick={() => {
+                    setShowModal(false)
+                    setPostToEditId(null)
+                }
+                }>
                     Anuluj
                 </Button>
             </Modal.Footer>
