@@ -9,7 +9,7 @@ export default function ArchivedProject(props) {
         <Card as={Row} className="my-4 border border-0" >
             <Card.Header className='border border-0 d-flex justify-content-between align-items-center'>
                 <p className="text-capitalize fs-5 m-0">{post.projectNumber}</p>
-                <ClipboardPlus className='copy-button p-1 me-auto ms-1' data-toggle="tooltip" size={25} title='Kopiuj numer projektu'/>
+                <ClipboardPlus className='copy-button p-1 me-auto ms-1' data-toggle="tooltip" size={25} title='Kopiuj numer projektu' onClick={() => navigator.clipboard.writeText(post.projectNumber)}/>
                 <Pencil className='edit-button p-1' data-toggle="tooltip" title='Edytuj ten wpis' onClick={() => toggleModalVisible(post._id)} size={25}/>
             </Card.Header>
             <Card.Body className='gap-2'>
