@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Row, Col } from 'react-bootstrap'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import moment from 'moment'
@@ -62,23 +62,28 @@ export default function EditPostModal(props) {
                     sx={{ backgroundColor: 'white' }}
                 />
             </Modal.Body>
-            <Modal.Footer >
-                <p > Utworzono: {moment(createdAt).fromNow()}</p>
-                <Button variant="warning" onClick={() => {
-                    dispatch(updatePost(_id, postData))
-                    setPostToEditId(null)
-                    setShowModal(false)
-                }
-                }>
-                    Zapisz zmiany
-                </Button>
-                <Button variant="secondary" onClick={() => {
-                    setShowModal(false)
-                    setPostToEditId(null)
-                }
-                }>
-                    Anuluj
-                </Button>
+            <Modal.Footer as={Row} className='justify-content-between d-flex align-items-center'>
+                <Col md={5} className="me-auto">
+                    Utworzono: {moment(createdAt).fromNow()}
+                </Col>
+                <Col className='text-end'>
+                    <Button
+                        className='mx-2'
+                        variant="warning"
+                        onClick={() => {
+                        dispatch(updatePost(_id, postData))
+                        setPostToEditId(null)
+                        setShowModal(false)
+                    }}>
+                        Zapisz zmiany
+                    </Button>
+                    <Button variant="secondary" onClick={() => {
+                        setShowModal(false)
+                        setPostToEditId(null)
+                    }}>
+                        Anuluj
+                    </Button>
+                </Col>
             </Modal.Footer>
         </Modal>
     )
