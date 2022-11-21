@@ -62,8 +62,8 @@ export default function EditPostModal(props) {
                     sx={{ backgroundColor: 'white' }}
                 />
             </Modal.Body>
-            <Modal.Footer as={Row} className='justify-content-between d-flex align-items-center'>
-                <Col md={5} className="me-auto">
+            <Modal.Footer className='justify-content-between d-flex align-items-center'>
+                <Col xs={12} md={5} className="me-auto">
                     Utworzono: {moment(createdAt).fromNow()}
                 </Col>
                 <Col className='text-end'>
