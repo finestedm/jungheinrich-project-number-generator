@@ -5,6 +5,8 @@ import ArchivedProject from './components/ArchivedProject';
 import { Container, Row, Col, Spinner } from 'react-bootstrap'
 import EditPostModal from './components/EditPostModal'
 import { ArrowDown } from 'react-bootstrap-icons';
+import PaginatedItems from './components/PaginatedItems';
+
 
 
 export default function Archive() {
@@ -38,9 +40,10 @@ export default function Archive() {
                 <Col>najnowsze</Col>
                 <Col xs={1}><ArrowDown size={16} /></Col>
             </Row>
-            {posts.length === 0 && <Spinner animation='border' variant='warning'/>}
+            <PaginatedItems></PaginatedItems>
+            {/* {posts.length === 0 && <Spinner animation='border' variant='warning'/>}
             {posts.map(post => <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />)}
-            {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
+            {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />} */}
         </Container>
     )
 }
