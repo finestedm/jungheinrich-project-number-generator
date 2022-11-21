@@ -1,9 +1,11 @@
 import React from "react";
-import { Container, Row, Col, Button, Card } from 'react-bootstrap';
+import { Container, Row, Col, Button, Card, Image, Figure} from 'react-bootstrap';
 import { Pencil, ClipboardPlus } from 'react-bootstrap-icons';
+import {users} from '../../data/users'
 
 export default function ArchivedProject(props) {
     const { setPostToEdit, toggleModalVisible, post } = props
+    const searchedUser = users.filter(user => user.value === post.user)[0]
     
     return  (
         <Card as={Row} className="my-4 border border-0" >
@@ -30,7 +32,10 @@ export default function ArchivedProject(props) {
                     </Col>
                 </Row>
             </Card.Body>
-            <Card.Footer className="card-footer border-top"> <p className="text-capitalize fs-6 m-0">{post.user}</p></Card.Footer>
+            <Card.Footer className="card-footer d-flex align-items-center border-top gap-2">
+                {(searchedUser && searchedUser.photo) && <Image src={searchedUser.photo} roundedCircle style={{ height: '2.2rem' }} />}
+                <p className="text-capitalize fs-6 m-0">{post.user}</p>
+            </Card.Footer>
         </Card>
     )
 }

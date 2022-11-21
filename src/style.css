@@ -79,3 +79,7 @@ body{
 .card:hover .card-header {
     background-color: #ffb900 ;
 }
+
+.TextField-without-border-radius fieldset {
+    border-radius: 0;
+  }

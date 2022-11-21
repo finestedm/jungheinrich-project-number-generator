@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPosts, updatePost } from '../actions/posts'
 import ArchivedProject from './components/ArchivedProject';
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Spinner } from 'react-bootstrap'
 import EditPostModal from './components/EditPostModal'
 import { ArrowDown } from 'react-bootstrap-icons';
 
@@ -38,6 +38,7 @@ export default function Archive() {
                 <Col>najnowsze</Col>
                 <Col xs={1}><ArrowDown size={16} /></Col>
             </Row>
+            {posts.length === 0 && <Spinner animation='border' variant='warning'/>}
             {posts.map(post => <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />)}
             {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
         </Container>
