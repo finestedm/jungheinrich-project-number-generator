@@ -26,14 +26,11 @@ body{
 
 #root {
     height: 100%;
-    height: -webkit-fill-available;
     background-color: #eaeff1;
-
 }
 
 .main {
-    height: 85%;
-    height: -webkit-fill-available;
+    height: 90%;
 }
 
 .card-footer {
@@ -79,7 +76,3 @@ body{
 .card:hover .card-header {
     background-color: #ffb900 ;
 }
-
-.TextField-without-border-radius fieldset {
-    border-radius: 0;
-  }

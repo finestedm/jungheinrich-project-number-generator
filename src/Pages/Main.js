@@ -72,8 +72,8 @@ export default function Main() {
     }
 
     return (
-        <Container className='main text-center d-grid mt-4 px-4 align-items-center '>
-            <Form id='project-details' as={Row} className='justify-content-between gap-3 needs-validation' noValidate>
+        <Container className='main text-center d-grid mt-3 px-4 align-items-center '>
+            <Form id='project-details' as={Row} className='justify-content-between gap-3 mb-3 needs-validation' noValidate>
                 <TextField
                     required
                     className='main--input'
@@ -122,13 +122,13 @@ export default function Main() {
             </Form>
 
             <Row>
-                <Button type='submit' form='project-details' variant={buttonVariant} className='submit-button p-4 fs-4 fw-bolder' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
+                <Button type='submit' form='project-details' variant={buttonVariant} className='submit-button p-4 fs-4 mb-3 fw-bolder' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
             </Row>
             
             <Row>
                 <TextField
                     fullWidth
-                    className='main--output'
+                    className='main--output mb-3 '
                     variant="outlined"
                     label="Nr projektu"
                     readOnly
@@ -141,7 +141,7 @@ export default function Main() {
             <Row>
                 <Col>
                     <Link  className='col-3' to='/archive'>
-                        <Button variant='outline-secondary' className='btn p-3'> Wyświetl archiwum projektów </Button>
+                        <Button variant='outline-secondary' className='btn p-3 mb-3 '> Wyświetl archiwum projektów </Button>
                     </Link>
                 </Col>
             </Row>
