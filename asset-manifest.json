@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/jungheinrich-project-number-generator/static/css/main.8757e949.css",
-    "main.js": "/jungheinrich-project-number-generator/static/js/main.af3fa443.js",
+    "main.css": "/jungheinrich-project-number-generator/static/css/main.c5eeab40.css",
+    "main.js": "/jungheinrich-project-number-generator/static/js/main.75ce7d43.js",
+    "static/media/RP.jfif": "/jungheinrich-project-number-generator/static/media/RP.cddd5227892ce7917c34.jfif",
+    "static/media/KN.jfif": "/jungheinrich-project-number-generator/static/media/KN.6ca084a5ff60f697b8f4.jfif",
     "index.html": "/jungheinrich-project-number-generator/index.html",
-    "main.8757e949.css.map": "/jungheinrich-project-number-generator/static/css/main.8757e949.css.map",
-    "main.af3fa443.js.map": "/jungheinrich-project-number-generator/static/js/main.af3fa443.js.map"
+    "main.c5eeab40.css.map": "/jungheinrich-project-number-generator/static/css/main.c5eeab40.css.map",
+    "main.75ce7d43.js.map": "/jungheinrich-project-number-generator/static/js/main.75ce7d43.js.map"
   },
   "entrypoints": [
-    "static/css/main.8757e949.css",
-    "static/js/main.af3fa443.js"
+    "static/css/main.c5eeab40.css",
+    "static/js/main.75ce7d43.js"
   ]
 }
