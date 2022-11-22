@@ -61,6 +61,7 @@ export default function Main() {
             }
             dispatch(createPost({ ...newProjectData }))
             cleanInputs()
+            console.log(posts)
         } else {
             setButtonText('Nie wpisano wymaganych danych!')
             setButtonVariant('danger')
@@ -115,7 +116,7 @@ export default function Main() {
                     value={user}
                     isOptionEqualToValue={(option, value) => option.id === value.id}
                     renderInput={(params) => <TextField error={user === ''} required {...params} label="Użytkownik" />}
-                    onChange={(e, value) => value === null ? setUser('') : setUser(value)}
+                    onChange={(e, value) => value === null ? setUser('') : setUser(value.value)}
                     sx={{backgroundColor: 'white'}}
 
                 />
