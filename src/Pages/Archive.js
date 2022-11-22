@@ -7,8 +7,6 @@ import EditPostModal from './components/EditPostModal'
 import { ArrowDown } from 'react-bootstrap-icons';
 import PaginatedItems from './components/PaginatedItems';
 
-
-
 export default function Archive() {
 
     const dispatch = useDispatch();
@@ -40,10 +38,10 @@ export default function Archive() {
                 <Col>najnowsze</Col>
                 <Col xs={1}><ArrowDown size={16} /></Col>
             </Row>
-            <PaginatedItems></PaginatedItems>
-            {/* {posts.length === 0 && <Spinner animation='border' variant='warning'/>}
-            {posts.map(post => <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />)}
-            {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />} */}
+            <PaginatedItems toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId}></PaginatedItems>
+            {posts.length === 0 && <Spinner animation='border' variant='warning' />}
+            {/*{posts.map(post => <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} post={post} />)} */}
+            {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
         </Container>
     )
 }

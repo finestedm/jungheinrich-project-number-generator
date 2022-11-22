@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Button, Card, Image, Figure} from 'react-bootstrap';
+import { Row, Col, Card, Image} from 'react-bootstrap';
 import { Pencil, ClipboardPlus } from 'react-bootstrap-icons';
 import {users} from '../../data/users'
 

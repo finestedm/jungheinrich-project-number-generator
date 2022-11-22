@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
+import {  Row, Col} from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux'
 import ArchivedProject from './ArchivedProject';
 
-function Items({ currentItems }) {
+function Items({ currentItems, toggleModalVisible, setPostToEditId}) {
     return (
       <>
-            {currentItems &&
-                currentItems.map((post) => (
-                    <ArchivedProject  key={post._id}  post={post} />
-                ))}
+        {currentItems &&
+            currentItems.map((post) => (
+                <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />
+        ))}
       </>
     );
   }
 
-export default function PaginatedItems() {
+export default function PaginatedItems(props) {
+    const { toggleModalVisible, setPostToEditId } = props
+
     const posts = useSelector((state) => state.posts)
     // Here we use item offsets; we could also use page offsets
     // following the API or data you're working with.
@@ -39,16 +42,19 @@ export default function PaginatedItems() {
   
     return (
         <>
-        <Items currentItems={currentItems} />
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel="next >"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
-          pageCount={pageCount}
-          previousLabel="< previous"
-          renderOnZeroPageCount={null}
-        />
+        <Items currentItems={currentItems} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} />
+            <Row>
+                <ReactPaginate
+                    className='paginator text-center d-flex justify-content-center'
+                    breakLabel="..."
+                    nextLabel=">"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={5}
+                    pageCount={pageCount}
+                    previousLabel="<"
+                    renderOnZeroPageCount={null}
+                />
+            </Row>
       </>
     );
 }

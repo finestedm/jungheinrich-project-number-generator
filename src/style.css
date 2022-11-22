@@ -76,3 +76,34 @@ body{
 .card:hover .card-header {
     background-color: #ffb900 ;
 }
+
+.paginator {
+    list-style: none;
+}
+
+.paginator>li {
+    height: 2rem;
+    width: auto;
+    padding: .5rem .75rem;
+    margin: .5rem;
+    border-radius: .2rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    color: var(--bs-dark)
+}
+
+.paginator>li * {
+    text-decoration: none;
+    color: var(--bs-dark)
+}
+
+.selected {
+    background-color: var(--bs-yellow) !important;
+    font-weight: 700;
+}
+
+.disabled {
+    visibility:collapse !important;
+    width: 0px;
+}
