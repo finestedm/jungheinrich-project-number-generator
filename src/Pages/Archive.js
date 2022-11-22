@@ -5,7 +5,7 @@ import ArchivedProject from './components/ArchivedProject';
 import { Container, Row, Col, Spinner } from 'react-bootstrap'
 import EditPostModal from './components/EditPostModal'
 import { ArrowDown } from 'react-bootstrap-icons';
-import PaginatedItems from './components/PaginatedItems';
+import PaginatedItems from './PaginatedItems';
 
 export default function Archive() {
 
