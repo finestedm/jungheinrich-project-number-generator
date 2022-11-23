@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux'
 
 export default function EditPostModal(props) {
     const { showModal, setShowModal, postData, setPostData, setPostToEditId } = props
-    const { _id, customer, user, location, projectNumber, createdAt } = postData
+    const { _id, customer, user, location, projectNumber, createdAt, description } = postData
     const dispatch = useDispatch()
 
     return (
@@ -45,6 +45,17 @@ export default function EditPostModal(props) {
                     label="Miejscowość"
                     value={location}
                     onChange={(e) => setPostData({...postData, location: e.target.value})}
+                    sx={{backgroundColor: 'white'}}
+                />
+                <TextField
+                    fullWidth
+                    multiline
+                    className='edit-post-modal--input mb-3'
+                    variant="outlined"
+                    maxRows={4}
+                    label="Opis"
+                    value={description}
+                    onChange={(e) => setPostData({...postData, description: e.target.value})}
                     sx={{backgroundColor: 'white'}}
                 />
                 <Autocomplete

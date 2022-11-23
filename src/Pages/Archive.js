@@ -34,13 +34,8 @@ export default function Archive() {
 
     return (
         <Container className='main mt-4 p-4 '>
-            <Row className='text-left'>
-                <Col>najnowsze</Col>
-                <Col xs={1}><ArrowDown size={16} /></Col>
-            </Row>
-            <PaginatedItems toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId}></PaginatedItems>
+            <PaginatedItems toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
             {posts.length === 0 && <Spinner animation='border' variant='warning' />}
-            {/*{posts.map(post => <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} post={post} />)} */}
             {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
         </Container>
     )

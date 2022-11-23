@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import {  Row, Col} from 'react-bootstrap';
+import {  Row, Col, Table} from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux'
 import ArchivedProject from './components/ArchivedProject';
 
 function Items({ currentItems, toggleModalVisible, setPostToEditId}) {
     return (
-      <>
-        {currentItems &&
+        currentItems &&
             currentItems.map((post) => (
-                <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />
-        ))}
-      </>
+            <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />
+        ))
     );
   }
+  
 
 export default function PaginatedItems(props) {
-    const { toggleModalVisible, setPostToEditId } = props
+    const { toggleModalVisible, setPostToEditId, itemsPerPage} = props
 
     const posts = useSelector((state) => state.posts)
     // Here we use item offsets; we could also use page offsets
@@ -27,35 +26,51 @@ export default function PaginatedItems(props) {
     // Simulate fetching items from another resources.
     // (This could be items from props; or items loaded in a local state
     // from an API endpoint with useEffect and useState)
-    const endOffset = itemOffset + 10;
+    const endOffset = itemOffset + itemsPerPage;
     const currentItems = posts.slice(itemOffset, endOffset);
-    const pageCount = Math.ceil(posts.length / 10);
+    const pageCount = Math.ceil(posts.length / itemsPerPage);
   
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {
-      const newOffset = (event.selected * 10) % posts.length;
+      const newOffset = (event.selected * itemsPerPage) % posts.length;
       console.log(
         `User requested page number ${event.selected}, which is offset ${newOffset}`
       );
       setItemOffset(newOffset);
     };
   
+     
     return (
-        <>
-        <Items currentItems={currentItems} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} />
-            <Row>
-                <ReactPaginate
-                    className='paginator text-center d-flex justify-content-center'
-                    breakLabel="..."
-                    nextLabel=">"
-                    onPageChange={handlePageClick}
-                    pageRangeDisplayed={5}
-                    pageCount={pageCount}
-                    previousLabel="<"
-                    renderOnZeroPageCount={null}
-                />
-            </Row>
-      </>
+      <Row className='h-100'>
+        <Table hover>
+            <thead>
+              <tr style={{height: '3rem'}}>
+                <th>Numer Projektu</th>
+                <th>Klient</th>
+                <th>Miejscowość</th>
+                <th className='d-none d-lg-table-cell'>Opis</th>
+                <th className='d-none d-md-table-cell'>Handlowiec</th>
+                <th className='d-none d-md-table-cell'>Utworzono</th>
+              </tr>
+            </thead>
+            <tbody className="table-group-divider">
+              <Items currentItems={currentItems} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} />
+            </tbody>
+          </Table>
+        <Col className='mt-auto'>
+          <ReactPaginate
+              className='paginator text-center d-flex justify-content-center'
+              breakLabel="..."
+              nextLabel=">"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={2}
+              marginPagesDisplayed={2}
+              pageCount={pageCount}
+              previousLabel="<"
+              renderOnZeroPageCount={null}
+          />
+        </Col>
+      </Row>
     );
 }
 
