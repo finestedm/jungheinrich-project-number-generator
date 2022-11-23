@@ -83,6 +83,19 @@ td {
     max-width: 20ch;
 }
 
+@media screen and (max-width: 500px) {
+    .table * {
+        font-size: small;
+    }
+    td.table--customer,
+    td.table--location {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 16ch;
+    }
+  }
+
 tr {
     line-height: 1.75rem;
 }

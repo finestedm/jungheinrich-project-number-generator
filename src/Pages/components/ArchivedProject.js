@@ -42,9 +42,9 @@ export default function ArchivedProject(props) {
 
     return (
         <tr onClick={() => toggleModalVisible(post._id)}>
-            <td className='striped'><span className="strong">{projectNumber}</span></td>
-            <td>{customer}</td>
-            <td>{location}</td>
+            <td><span className="strong">{projectNumber}</span></td>
+            <td className="table--customer">{customer}</td>
+            <td className="table--location">{location}</td>
             <td className='d-none d-lg-table-cell'>{description}</td>
             <td className='d-none d-md-table-cell'>
                 <div className='d-flex align-items-center'>
