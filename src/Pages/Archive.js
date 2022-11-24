@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPosts, updatePost } from '../actions/posts'
 import ArchivedProject from './components/ArchivedProject';
-import { Container, Row, Col, Spinner } from 'react-bootstrap'
+import { Container, Row, Col, Spinner, Card } from 'react-bootstrap'
 import EditPostModal from './components/EditPostModal'
 import { ArrowDown } from 'react-bootstrap-icons';
 import PaginatedItems from './PaginatedItems';
@@ -33,9 +33,9 @@ export default function Archive() {
     }
 
     return (
-        <Container className='main mt-4 p-4 '>
-            <PaginatedItems toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
+        <Container className='main my-5 px-4 '>
             {posts.length === 0 && <Spinner animation='border' variant='warning' />}
+            <PaginatedItems toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
             {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
         </Container>
     )

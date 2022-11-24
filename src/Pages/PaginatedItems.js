@@ -41,10 +41,10 @@ export default function PaginatedItems(props) {
   
      
     return (
-      <Row className='h-100'>
+      <Row>
         <Table hover>
             <thead>
-              <tr style={{height: '3rem'}}>
+              <tr className='table--head' style={{height: '3rem'}}>
                 <th>Numer Projektu</th>
                 <th>Klient</th>
                 <th>Miejscowość</th>
@@ -53,23 +53,27 @@ export default function PaginatedItems(props) {
                 <th className='d-none d-md-table-cell'>Utworzono</th>
               </tr>
             </thead>
-            <tbody className="table-group-divider">
+            <tbody>
               <Items currentItems={currentItems} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} />
-            </tbody>
-          </Table>
-        <Col className='mt-auto'>
-          <ReactPaginate
-              className='paginator text-center d-flex justify-content-center'
-              breakLabel="..."
-              nextLabel=">"
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={2}
-              marginPagesDisplayed={2}
-              pageCount={pageCount}
-              previousLabel="<"
-              renderOnZeroPageCount={null}
-          />
-        </Col>
+          </tbody>
+          <tfoot className='table--foot'>
+            <tr>
+              <td colspan="6">
+                <ReactPaginate
+                  className='paginator d-flex justify-content-center text-center'
+                  breakLabel="..."
+                  nextLabel=">"
+                  onPageChange={handlePageClick}
+                  pageRangeDisplayed={2}
+                  marginPagesDisplayed={2}
+                  pageCount={pageCount}
+                  previousLabel="<"
+                  renderOnZeroPageCount={null}
+                />
+              </td>
+            </tr>
+          </tfoot>
+        </Table>     
       </Row>
     );
 }

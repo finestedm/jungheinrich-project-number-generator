@@ -52,7 +52,7 @@ export default function ArchivedProject(props) {
                     {user}
                 </div>
             </td>
-            <td className='d-none d-md-table-cell'>{moment(createdAt).format("H:M, D.M.YYYY")} r.</td>
+            <td className='d-none d-md-table-cell'>{moment(createdAt).format("D.M.YYYY")} r., <span className='weak'>{moment(createdAt).format("H:M")}</span></td>
         </tr>
     )
 
