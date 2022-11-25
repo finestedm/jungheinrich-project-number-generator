@@ -58,7 +58,7 @@ export default function PaginatedItems(props) {
           </tbody>
           <tfoot className='table--foot'>
             <tr>
-              <td colspan="6">
+              <td colSpan="6">
                 <ReactPaginate
                   className='paginator d-flex justify-content-center text-center'
                   breakLabel="..."
