@@ -6,6 +6,8 @@ import { Container, Row, Col, Spinner, Card } from 'react-bootstrap'
 import EditPostModal from './components/EditPostModal'
 import { ArrowDown } from 'react-bootstrap-icons';
 import PaginatedItems from './PaginatedItems';
+import SearchBar from './components/SearchBar';
+import searchPosts from './components/searchPosts';
 
 export default function Archive() {
 
@@ -14,6 +16,7 @@ export default function Archive() {
     const [showModal, setShowModal] = useState(false)
     const [postData, setPostData] = useState(null)
     const [postToEditId, setPostToEditId] = useState(null);
+    const [searchedPhrase, setSearchedPhrase] = useState('')
 
     useEffect(() => {
         dispatch(getPosts())
@@ -32,8 +35,16 @@ export default function Archive() {
         setPostToEditId(id);
     }
 
+    function requestSearchedPosts() {
+        searchPosts(searchedPhrase)
+    }
+
     return (
         <Container className='main my-5 px-4 '>
+            <Row className='d-flex'>
+                Wyszukiwarka
+                <SearchBar searchedPhrase={searchedPhrase} setSearchedPhrase={setSearchedPhrase} requestSearchedPosts={requestSearchedPosts} />
+            </Row>
             {posts.length === 0 && <Spinner animation='border' variant='warning' />}
             <PaginatedItems toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
             {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
