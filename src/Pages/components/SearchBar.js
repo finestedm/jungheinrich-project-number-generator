@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Row, Col, Form } from 'react-bootstrap'
+import { Button, Row, Col, Form, InputGroup } from 'react-bootstrap'
+import { CgSearch } from 'react-icons/cg'
+import {TiDeleteOutline} from 'react-icons/ti'
+
 
 export default function SearchBar(props) {
     const {searchedPhrase, setSearchedPhrase, requestSearchedPosts} = props
     return (
-        <Col className='mb-3'>
-            <Form className='d-flex'>
+        <Col className='col-4'>
+            <InputGroup className='d-flex' size='sm'>
                 <Form.Control
                     className='main--search-input'
                     variant="outlined"
-                    placeholder="Wyszukaj"
+                    placeholder="Szukaj projektu"
                     value={searchedPhrase}
                     onChange={(e) => setSearchedPhrase(e.target.value)}
                     onKeyDown={(e) => {
@@ -19,8 +22,9 @@ export default function SearchBar(props) {
                         }
                     }}
                 />
-                <Button onClick={() => requestSearchedPosts()}>Szukaj</Button>
-            </Form>
+                {/* <Button variant='outline-secondary bg-white border border-none' onClick={{}}><TiDeleteOutline /></Button> */}
+                <Button variant='warning' onClick={() => requestSearchedPosts()}><CgSearch /></Button>
+            </InputGroup>
         </Col>
     )
 }

@@ -41,11 +41,13 @@ export default function Archive() {
 
     return (
         <Container className='main my-5 px-4 '>
-            <Row className='d-flex'>
-                Wyszukiwarka
+            <Row>
+                {posts.length === 0 && <Spinner animation='border' variant='warning' />}
+            </Row>
+            <Row className='d-flex align-items-middle justify-content-between search-container py-4 px-2 text-end'>
+                <h3 className='col-auto text-light main--heading'>Projekty</h3>
                 <SearchBar searchedPhrase={searchedPhrase} setSearchedPhrase={setSearchedPhrase} requestSearchedPosts={requestSearchedPosts} />
             </Row>
-            {posts.length === 0 && <Spinner animation='border' variant='warning' />}
             <PaginatedItems toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
             {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
         </Container>
