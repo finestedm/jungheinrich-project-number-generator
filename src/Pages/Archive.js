@@ -44,8 +44,8 @@ export default function Archive() {
             <Row>
                 {posts.length === 0 && <Spinner animation='border' variant='warning' />}
             </Row>
-            <Row className='d-flex align-items-middle justify-content-between search-container py-4 px-2 text-end'>
-                <h3 className='col-auto text-light main--heading'>Projekty</h3>
+            <Row className='d-flex align-items-end justify-content-between search-container py-5 px-2 text-end'>
+                <h3 className='col-auto main--heading'>Projekty</h3>
                 <SearchBar searchedPhrase={searchedPhrase} setSearchedPhrase={setSearchedPhrase} requestSearchedPosts={requestSearchedPosts} />
             </Row>
             <PaginatedItems toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />

@@ -88,7 +88,7 @@ export default function EditPostModal(props) {
                     }}>
                         Zapisz zmiany
                     </Button>
-                    <Button variant="secondary" onClick={() => {
+                    <Button variant="outline-secondary" onClick={() => {
                         setShowModal(false)
                         setPostToEditId(null)
                     }}>

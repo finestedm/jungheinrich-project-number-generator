@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Button, FloatingLabel, Form, Row, Col } from 'react-bootstrap'
+import { Container, Button, FloatingLabel, Form, Row, Col, InputGroup } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 import { getPosts, createPost } from '../actions/posts'
 import { useSelector } from 'react-redux'
 import { users as options } from '../data/users';
+import { IoCopyOutline } from 'react-icons/io5';
 
 export default function Main() {
 
@@ -127,7 +128,7 @@ export default function Main() {
             </Row>
             
             <Row>
-                <TextField
+                {/* <TextField
                     fullWidth
                     className='main--output mb-3 '
                     variant="outlined"
@@ -136,7 +137,18 @@ export default function Main() {
                     value={projectNumber}
                     sx={{backgroundColor: 'white'}}
                     onClick={(e) => navigator.clipboard.writeText(e.target.value)}
-                />
+                /> */}
+                <InputGroup className='project-number-output p-0' >
+                    <Form.Control
+                        readOnly
+                        className=''
+                        variant="outlined"
+                        size='lg'
+                        placeholder='...'
+                        value={projectNumber}
+                    />
+                    <Button variant="warning" onClick={(e) => navigator.clipboard.writeText(e.target.value)}><IoCopyOutline/></Button>
+                </InputGroup>
             </Row>
 
             <Row>

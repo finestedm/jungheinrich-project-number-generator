@@ -74,10 +74,6 @@ body{
     visibility: hidden !important;
 }
 
-.edit-button:hover{
-    scale: 1.15;
-}
-
 td {
     white-space: nowrap;
     overflow: hidden;
@@ -126,7 +122,7 @@ tr:hover:not(thead>tr) td {
 }
 
 .table--head {
-    background-color: hsl(200, 11%, 30%);
+    background-color: hsl(0, 0%, 96%);
     color: #858f95;
     line-height: 3.25rem;
 }
@@ -171,21 +167,48 @@ tr>td:last-child {
 }
 
 .search-container {
-    background-color: #3c464b;
+    background-color: hsl(0, 0%, 100%);
     border-radius: 1rem 1rem 0 0;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.07);
+    border-bottom: 1px solid #dee2e6;
+}
+
+.search-container>h3 {
+    color:#3c464b;
+    font-weight: 600;
+    letter-spacing: -1px;
 }
 
 .main--search-input {
-    border: 2px solid #5d6b72c2;
-    background-color: #2a3134;
-    color: hsl(203, 7%, 65%);
+    border: 2px solid #f0f0f0;
+    background-color: #f0f0f0;
+    color: hsl(203, 7%, 60%);
     font-weight: 500;
+    border-radius: .5rem;
+}
+
+.main--search-input::placeholder {
+    color: hsl(203, 7%, 70%);
 }
 
 .main--search-input:hover,
 .main--search-input:focus {
     border-width: 2px;
-    background-color: #2a3134;
-    color: hsl(203, 7%, 65%);
+    border-color: #cbdae4;
+    background-color: hsl(0, 0%, 94%);
+    color: hsl(198, 14%, 50%);
     font-weight: 500;
+}
+
+.project-number-output {
+    height: 3.75rem;
+}
+
+.project-number-output>* {
+    font-size: 1.75rem;
+}
+
+.search-input--icon {
+    position: relative;
+    top: -2px
 }

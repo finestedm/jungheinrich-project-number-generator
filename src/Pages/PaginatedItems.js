@@ -45,7 +45,7 @@ export default function PaginatedItems(props) {
         <Table hover>
             <thead>
               <tr className='table--head' style={{height: '3rem'}}>
-                <th>Numer Projektu</th>
+                <th>Numer </th>
                 <th>Klient</th>
                 <th>Miejscowość</th>
                 <th className='d-none d-lg-table-cell'>Opis</th>
