@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Row, Col, Form, InputGroup } from 'react-bootstrap'
-import { CgSearch } from 'react-icons/cg'
 import {IoSearch} from 'react-icons/io5'
 
 
 export default function SearchBar(props) {
     const {searchedPhrase, setSearchedPhrase, requestSearchedPosts} = props
     return (
-        <Col md={6} lg={4}>
+        <Col xs={6} md={5} lg={3} className='main--search-bar'>
             <InputGroup className='d-flex' >
-                <Button variant='outline-secondary bg-white border border-none' onClick={{}}><IoSearch className='search-input--icon' /></Button>
+                <Button variant='outline-secondary bg-white border border-none' onClick={requestSearchedPosts}><IoSearch className='search-input--icon' /></Button>
                 <Form.Control
                     className='main--search-input text-end'
                     variant="outlined"

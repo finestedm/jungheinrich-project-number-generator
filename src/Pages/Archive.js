@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPosts, updatePost } from '../actions/posts'
 import ArchivedProject from './components/ArchivedProject';
-import { Container, Row, Col, Spinner, Card } from 'react-bootstrap'
+import { Container, Row, Col, Spinner, Card, Table } from 'react-bootstrap'
 import EditPostModal from './components/EditPostModal'
 import { ArrowDown } from 'react-bootstrap-icons';
 import PaginatedItems from './PaginatedItems';
@@ -17,6 +17,7 @@ export default function Archive() {
     const [postData, setPostData] = useState(null)
     const [postToEditId, setPostToEditId] = useState(null);
     const [searchedPhrase, setSearchedPhrase] = useState('')
+    const [filteredPosts, setFilteredPosts] = useState({})
 
     useEffect(() => {
         dispatch(getPosts())
@@ -35,20 +36,33 @@ export default function Archive() {
         setPostToEditId(id);
     }
 
-    function requestSearchedPosts() {
-        searchPosts(searchedPhrase)
-    }
+    useEffect(() => {
+        searchedPhrase.length >= 3 && setFilteredPosts(searchPosts(posts, searchedPhrase))
+        searchedPhrase === '' && setFilteredPosts({})
+    }, [posts, searchedPhrase])
 
     return (
         <Container className='main my-5 px-4 '>
-            <Row>
-                {posts.length === 0 && <Spinner animation='border' variant='warning' />}
-            </Row>
             <Row className='d-flex align-items-end justify-content-between search-container py-5 px-2 text-end'>
                 <h3 className='col-auto main--heading'>Projekty</h3>
-                <SearchBar searchedPhrase={searchedPhrase} setSearchedPhrase={setSearchedPhrase} requestSearchedPosts={requestSearchedPosts} />
+                <SearchBar searchedPhrase={searchedPhrase} setSearchedPhrase={setSearchedPhrase} />
             </Row>
-            <PaginatedItems toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
+            {
+                posts.length === 0 ?
+                <Spinner animation='border' variant='warning' /> :
+                (searchedPhrase.length > 2 && filteredPosts.length === 0) ?
+                    <Row>
+                        <Table className='text-center'>
+                                <thead>
+                                    <tr>
+                                        <th><h4 className='p-4'>Brak wyników</h4></th>
+                                    </tr>
+                                </thead>        
+                        </Table>
+                    </Row> :
+                    <PaginatedItems posts={(filteredPosts.length > 0) ? filteredPosts : posts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
+            }
+
             {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
         </Container>
     )

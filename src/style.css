@@ -210,5 +210,9 @@ tr>td:last-child {
 
 .search-input--icon {
     position: relative;
-    top: -2px
+    top: -1px
+}
+
+.main--search-bar {
+    min-width: 200px;
 }

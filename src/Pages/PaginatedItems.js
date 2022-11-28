@@ -16,9 +16,8 @@ function Items({ currentItems, toggleModalVisible, setPostToEditId}) {
   
 
 export default function PaginatedItems(props) {
-    const { toggleModalVisible, setPostToEditId, itemsPerPage} = props
+    const { toggleModalVisible, setPostToEditId, itemsPerPage, posts} = props
 
-    const posts = useSelector((state) => state.posts)
     // Here we use item offsets; we could also use page offsets
     // following the API or data you're working with.
     const [itemOffset, setItemOffset] = useState(0);
