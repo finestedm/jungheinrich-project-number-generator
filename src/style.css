@@ -78,7 +78,7 @@ td {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 20ch;
+    max-width: 18ch;
 }
 
 @media screen and (max-width: 500px) {
@@ -200,6 +200,17 @@ tr>td:last-child {
     font-weight: 500;
 }
 
+.main--search-bar .btn {
+    background-color: hsl(0, 0%, 94%) !important;
+    border: none !important;
+    color: hsl(203, 7%, 70%);
+}
+
+.search-input--icon {
+    position: relative;
+    top: -2px
+}
+
 .project-number-output {
     height: 3.75rem;
 }
@@ -208,10 +219,6 @@ tr>td:last-child {
     font-size: 1.75rem;
 }
 
-.search-input--icon {
-    position: relative;
-    top: -1px
-}
 
 .main--search-bar {
     min-width: 200px;
