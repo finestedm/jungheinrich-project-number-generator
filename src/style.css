@@ -53,7 +53,7 @@ body{
     padding: .5rem .75rem;
     margin: .5rem;
     border-radius: .2rem;
-    border: 2px solid #9096a14d;
+    border: 1px solid #9096a12f;
     background-color: white;
     display: flex;
     align-items: center;
@@ -180,7 +180,7 @@ tr>td:last-child {
 }
 
 .main--search-input {
-    border: 2px solid #f0f0f0;
+    border: 2px solid hsl(0, 0%, 94%);
     background-color: #f0f0f0;
     color: hsl(203, 7%, 60%);
     font-weight: 500;
@@ -206,6 +206,10 @@ tr>td:last-child {
     color: hsl(203, 7%, 70%);
 }
 
+.main--search-bar .btn:hover {
+    color: hsl(198, 14%, 50%);
+}
+
 .search-input--icon {
     position: relative;
     top: -2px
@@ -222,6 +226,7 @@ tr>td:last-child {
 
 .main--search-bar {
     min-width: 200px;
+
 }
 
 .new-post-counter {

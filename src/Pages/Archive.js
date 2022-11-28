@@ -51,11 +51,11 @@ export default function Archive() {
 
     return (
         <Container className='main my-5 px-4 '>
-            <Row className='d-flex align-items-end justify-content-between search-container py-5 px-2 text-end'>
-                <h3 className='col-auto main--heading d-flex align-items-center'>
-                    Projekty
+            <Row className='d-flex align-items-end justify-content-center justify-content-sm-between search-container py-5 px-2 text-end gap-3'>
+                <header className='col-auto main--heading d-flex flex-column flex-md-row align-items-center gap-2'>
+                    <h2 className='m-0'>Projekty</h2>
                     <NewProjectCounter postsThisDay={postsThisDay} />
-                </h3>
+                </header>
                 <SearchBar searchedPhrase={searchedPhrase} setSearchedPhrase={setSearchedPhrase} />
             </Row>
             {
