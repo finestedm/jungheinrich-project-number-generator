@@ -8,20 +8,28 @@ import { ArrowDown } from 'react-bootstrap-icons';
 import PaginatedItems from './PaginatedItems';
 import SearchBar from './components/SearchBar';
 import searchPosts from './components/searchPosts';
+import getPostsNotOlderThan24h from './components/newPostsCounter';
+import NewProjectCounter from './components/NewProjectCounter';
 
 export default function Archive() {
 
     const dispatch = useDispatch();
-    const posts = useSelector((state) => state.posts)
-    const [showModal, setShowModal] = useState(false)
-    const [postData, setPostData] = useState(null)
+    const posts = useSelector((state) => state.posts);
+    const [showModal, setShowModal] = useState(false);
+    const [postData, setPostData] = useState(null);
     const [postToEditId, setPostToEditId] = useState(null);
-    const [searchedPhrase, setSearchedPhrase] = useState('')
-    const [filteredPosts, setFilteredPosts] = useState({})
+    const [searchedPhrase, setSearchedPhrase] = useState('');
+    const [filteredPosts, setFilteredPosts] = useState({});
+    const [postsThisDay, setPostsThisDay] = useState(0)
+
 
     useEffect(() => {
         dispatch(getPosts())
     }, [dispatch]);
+
+    useEffect(() => {
+        setPostsThisDay(getPostsNotOlderThan24h(posts))
+    }, [posts])
 
     const postToEdit = useSelector((state) => postToEditId ? state.posts.find((p) => p._id === postToEditId) : null)
 
@@ -44,7 +52,10 @@ export default function Archive() {
     return (
         <Container className='main my-5 px-4 '>
             <Row className='d-flex align-items-end justify-content-between search-container py-5 px-2 text-end'>
-                <h3 className='col-auto main--heading'>Projekty</h3>
+                <h3 className='col-auto main--heading d-flex align-items-center'>
+                    Projekty
+                    <NewProjectCounter postsThisDay={postsThisDay} />
+                </h3>
                 <SearchBar searchedPhrase={searchedPhrase} setSearchedPhrase={setSearchedPhrase} />
             </Row>
             {

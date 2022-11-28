@@ -216,3 +216,24 @@ tr>td:last-child {
 .main--search-bar {
     min-width: 200px;
 }
+
+.new-post-counter {
+    letter-spacing: -.5px;
+    border-radius: .5rem;
+    color: #3c464b;
+    background-color: #f0f0f0;   
+}
+
+.new-post-counter.active {
+    color: #53a79f;
+    background-color: #ebfbfa;   
+}
+
+light {
+    font-weight: 400;
+}
+
+.new-project-counter-icon {
+    position: relative;
+    top: -.5px
+}
