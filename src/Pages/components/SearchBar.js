@@ -6,7 +6,6 @@ import {IoSearch} from 'react-icons/io5'
 export default function SearchBar(props) {
     const {searchedPhrase, setSearchedPhrase, requestSearchedPosts} = props
     return (
-        <Col xs={6} md={5} lg={3} className='main--search-bar'>
             <InputGroup className='d-flex' >
                 <Button variant='outline-secondary bg-white border border-none' onClick={requestSearchedPosts}><IoSearch className='search-input--icon' /></Button>
                 <Form.Control
@@ -23,6 +22,5 @@ export default function SearchBar(props) {
                     }}
                 />
             </InputGroup>
-        </Col>
     )
 }

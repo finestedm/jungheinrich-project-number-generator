@@ -51,12 +51,12 @@ export default function Archive() {
 
     return (
         <Container className='main my-5 px-4 '>
-            <Row className='d-flex align-items-end justify-content-center justify-content-sm-between search-container py-5 px-2 text-end gap-3'>
-                <header className='col-auto main--heading d-flex flex-column flex-md-row align-items-center gap-2'>
-                    <h2 className='m-0'>Projekty</h2>
-                    <NewProjectCounter postsThisDay={postsThisDay} />
-                </header>
-                <SearchBar searchedPhrase={searchedPhrase} setSearchedPhrase={setSearchedPhrase} />
+            <Row className='d-flex flex-column flex-sm-row align-items-center justify-content-center search-container py-5 px-2 gap-3'>
+                <Col className='col-auto'><h2 className='m-0'>Projekty</h2></Col>
+                <NewProjectCounter postsThisDay={postsThisDay} />
+                <Col  className='ms-md-auto col-auto main--search-bar'>
+                    <SearchBar searchedPhrase={searchedPhrase} setSearchedPhrase={setSearchedPhrase} />
+                </Col>
             </Row>
             {
                 posts.length === 0 ?
