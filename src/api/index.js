@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'https://number-project.herokuapp.com/posts';
+const url = 'https://project-number-generator.onrender.com/posts';
 
 export const fetchPosts = () => axios.get(url);
 export const createPost = (newPost) => axios.post(url, newPost)
