@@ -1,13 +1,13 @@
 export default function searchPosts(posts, searchedPhrase) {
-    let foundPosts = []
-    posts.forEach(post => (Object.values(post)).forEach(value => {
-        if (isNaN(value)) {                                                                         // toLowerCase doesn't work with number so we have to check for NaN, then check if the lowerCased stuff contains searchedPhrase
-            value.toLowerCase().includes(searchedPhrase.toLowerCase()) && foundPosts.push(post);
-        } else {
-            if (value === parseInt(searchedPhrase)) {                                                  // cannot use include as it does not work with number.
-                foundPosts.push(post)
-            }
-        }
-    })) 
+	let foundPosts = []
+	searchedPhrase = searchedPhrase.toString().toLowerCase();
+	const searchedPhraseSplitIntoWords = searchedPhrase.trim().split(/\s+/);
+	posts.forEach(post => {
+		const postInSingleString = (Object.values(post)).join(' ').toLowerCase();
+		searchedPhraseSplitIntoWords.every(word => postInSingleString.includes(word)) && foundPosts.push(post)
+	})
+
+	
     return foundPosts
 }
+

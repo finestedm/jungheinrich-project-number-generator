@@ -23,6 +23,7 @@ export default function Archive() {
 
     useEffect(() => {
         dispatch(getPosts())
+        console.log(posts)
     }, [dispatch]);
 
     useEffect(() => {
