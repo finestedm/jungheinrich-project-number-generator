@@ -3,8 +3,8 @@ import { Modal, Button, Row, Col } from 'react-bootstrap'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import moment from 'moment'
-import { users as options } from '../../data/users';
-import { updatePost } from "../../actions/posts";
+import { users as options } from '../data/users';
+import { updatePost } from "../actions/posts";
 import { useDispatch } from 'react-redux'
 
 

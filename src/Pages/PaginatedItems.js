@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {  Row, Col, Table} from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux'
-import ArchivedProject from './components/ArchivedProject';
+import ArchivedProject from '../components/ArchivedProject';
 
 function Items({ currentItems, toggleModalVisible, setPostToEditId}) {
     return (

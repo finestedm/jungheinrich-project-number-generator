@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Card, Image} from 'react-bootstrap';
-import {users} from '../../data/users'
+import {users} from '../data/users'
 import moment from 'moment'
 
 export default function ArchivedProject(props) {

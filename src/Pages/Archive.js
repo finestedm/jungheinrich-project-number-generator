@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getPosts, updatePost } from '../actions/posts'
-import ArchivedProject from './components/ArchivedProject';
+import { getPosts } from '../actions/posts'
 import { Container, Row, Col, Spinner, Card, Table } from 'react-bootstrap'
-import EditPostModal from './components/EditPostModal'
-import { ArrowDown } from 'react-bootstrap-icons';
+import EditPostModal from '../components/EditPostModal'
 import PaginatedItems from './PaginatedItems';
-import SearchBar from './components/SearchBar';
-import searchPosts from './components/searchPosts';
-import getPostsNotOlderThan24h from './components/newPostsCounter';
-import NewProjectCounter from './components/NewProjectCounter';
+import SearchBar from '../components/SearchBar';
+import searchPosts from '../components/searchPosts';
+import getPostsNotOlderThan24h from '../components/newPostsCounter';
+import NewProjectCounter from '../components/NewProjectCounter';
 
 export default function Archive() {
 
