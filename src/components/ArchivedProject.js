@@ -6,10 +6,11 @@ import moment from 'moment'
 export default function ArchivedProject(props) {
     const { setPostToEdit, toggleModalVisible, post } = props
     const searchedUser = users.filter(user => user.value === post.user)[0]
-    const {projectNumber, user, location, description, customer, createdAt} = post
+    const {projectNumber, user, location, description, customer, createdAt, status} = post
 
     return (
         <tr onClick={() => toggleModalVisible(post._id)}>
+            <td className="table--status">{status && status}</td>
             <td><span className="strong">{projectNumber}</span></td>
             <td className="table--customer">{customer}</td>
             <td className="table--location">{location}</td>
