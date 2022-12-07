@@ -49,7 +49,7 @@ export default function Main() {
     }
 
     async function submitNewProject() {
-        if (isCustomerValid() && user) {
+        if (isCustomerValid() && user && (postsData.length > 0)) {
             const newProjectNumber = (searchLastProjectNumber() +1)
             setProjectNumber(newProjectNumber)
             navigator.clipboard.writeText(newProjectNumber)
