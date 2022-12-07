@@ -119,7 +119,7 @@ tr:hover:not(thead>tr) td {
 
 .table {
     background-color: rgb(255, 255, 255);
-    font-size: .9rem;
+    font-size: .865rem;
     letter-spacing: -.25px;
     color: #4a5960;
     border-radius: 0 0 1rem 1rem !important;
@@ -159,7 +159,7 @@ tr:hover:not(thead>tr) td {
 
 th, 
 td {
-    padding: .5rem 1rem !important;
+    padding: .5rem .675rem !important;
 }
 
 tr>th:first-child, 

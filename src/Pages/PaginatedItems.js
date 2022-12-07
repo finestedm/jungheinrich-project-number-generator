@@ -44,8 +44,8 @@ export default function PaginatedItems(props) {
         <Table hover>
             <thead>
             <tr className='table--head' style={{ height: '3rem' }}> 
-                <th> </th>
-                <th>Numer </th>
+                <th>Status</th>
+                <th>Numer</th>
                 <th>Klient</th>
                 <th>Miejscowość</th>
                 <th className='d-none d-lg-table-cell'>Opis</th>
@@ -58,7 +58,7 @@ export default function PaginatedItems(props) {
           </tbody>
           <tfoot className='table--foot'>
             <tr>
-              <td colSpan="6">
+              <td colSpan="7">
                 <ReactPaginate
                   className='paginator d-flex justify-content-center text-center'
                   breakLabel="..."
