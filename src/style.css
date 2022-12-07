@@ -49,8 +49,10 @@ body{
 
 .paginator>li {
     height: 2rem;
+    min-width: 2rem;
+    display: flex;
+    justify-content: center;
     width: auto;
-    padding: .5rem .75rem;
     margin: .5rem;
     border-radius: .5rem;
     border: 1px solid #9096a12f;
@@ -71,7 +73,11 @@ body{
 }
 
 .disabled {
-    visibility: hidden !important;
+    border: 1px solid #9096a11e !important;
+}
+
+.disabled>a {
+    color: rgba(0, 0, 0, 0.164) !important
 }
 
 td {
@@ -173,7 +179,7 @@ tr>td:last-child {
     border-bottom: 1px solid #dee2e6;
 }
 
-.search-container>h3 {
+.search-container h2 {
     color:#3c464b;
     font-weight: 600;
     letter-spacing: -1px;
