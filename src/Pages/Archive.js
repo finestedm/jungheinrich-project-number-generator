@@ -50,7 +50,7 @@ export default function Archive() {
 
     return (
         <Container className='main my-5 px-4 '>
-            <Row className='d-flex flex-column flex-sm-row align-items-center justify-content-center search-container py-5 px-2 gap-3'>
+            <Row className='d-flex flex-column flex-sm-row align-items-center justify-content-center search-container py-4 px-2 gap-3'>
                 <Col className='col-auto'><h2 className='m-0'>Projekty</h2></Col>
                 <NewProjectCounter postsThisDay={postsThisDay} />
                 <Col  className='ms-md-auto col-auto main--search-bar'>
