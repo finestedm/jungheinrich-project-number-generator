@@ -50,6 +50,7 @@ export default function Main() {
 
     async function submitNewProject() {
         if (isCustomerValid() && user && (postsData.length > 0)) {
+            await dispatch(getPosts());     // checking if the posts were updated since the site was loaded
             const newProjectNumber = (searchLastProjectNumber() + 1)
             setProjectNumber(newProjectNumber)
             navigator.clipboard.writeText(newProjectNumber)
