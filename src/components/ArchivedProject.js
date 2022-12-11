@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Card, Image} from 'react-bootstrap';
 import {users} from '../data/users'
 import moment from 'moment';
-import StatusIndicator from "./StatusIndicator";
+import StatusIndicator from "../components/StatusIndicator";
 
 export default function ArchivedProject(props) {
     const { setPostToEdit, toggleModalVisible, post } = props
@@ -11,7 +11,7 @@ export default function ArchivedProject(props) {
 
     return (
         <tr onClick={() => toggleModalVisible(post._id)}>
-            <td className="table--status">{status !== null ? (<StatusIndicator status={status} />) : 'pies'} </td>
+            <td className="table--status">{status !== null ? (<StatusIndicator status={status} />) : 'brak'} </td>
             <td><span className="strong">{projectNumber}</span></td>
             <td className="table--customer">{customer}</td>
             <td className="table--location">{location}</td>
