@@ -119,7 +119,7 @@ tr:hover:not(thead>tr) td {
 
 .table {
     background-color: rgb(255, 255, 255);
-    font-size: .9rem;
+    font-size: .865rem;
     letter-spacing: -.25px;
     color: #4a5960;
     border-radius: 0 0 1rem 1rem !important;
@@ -159,7 +159,7 @@ tr:hover:not(thead>tr) td {
 
 th, 
 td {
-    padding: .5rem 1rem !important;
+    padding: .5rem .675rem !important;
 }
 
 tr>th:first-child, 
@@ -257,3 +257,36 @@ light {
     position: relative;
     top: -2px
 }
+
+.status-0{
+    color:hsl(45, 100%, 43%);
+    padding: .5rem .75rem;
+    border-radius: 2rem;
+    background-color: hsla(45, 100%, 45%, 0.25);
+}
+
+.status-1{
+    color:hsla(174, 34%, 49%, 1);
+    padding: .5rem .75rem;
+    border-radius: 2rem;
+    background-color: hsla(174, 34%, 49%, 0.25);
+}
+
+.status-2{
+    color:hsla(1, 60%, 46%, 0.8);
+    padding: .5rem .75rem;
+    border-radius: 2rem;
+    background-color: hsla(1, 60%, 46%, 0.25);
+}
+
+.status-3{
+    color: hsla(16, 12%, 57%, 0.8);
+    padding: .5rem .75rem;
+    border-radius: 2rem;
+    background-color: hsla(16, 12%, 57%, 0.25);
+}
+
+.status-undefined {
+    display: none;
+}
+

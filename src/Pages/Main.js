@@ -59,7 +59,8 @@ export default function Main() {
                 customer: customer,
                 location: location,
                 description: description,
-                user: user
+                user: user,
+                status: 0
             }
             dispatch(createPost({ ...newProjectData }))
             cleanInputs()
