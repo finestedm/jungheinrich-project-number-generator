@@ -58,11 +58,9 @@ export default function Archive() {
                 </Col>
             </Row>
             {
-                posts.length === 0 ?
-                    <Spinner animation='border' variant='warning' /> :
-                    (searchedPhrase.length > 2 && filteredPosts.length === 0) ?
-                        <NoSearchResults /> :
-                        <PaginatedItems posts={(filteredPosts.length > 0) ? filteredPosts : posts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
+                (searchedPhrase.length >= 3 && filteredPosts.length === 0) ?
+                    <NoSearchResults /> :
+                    <PaginatedItems posts={(filteredPosts.length > 0) ? filteredPosts : posts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
             }
 
             {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}

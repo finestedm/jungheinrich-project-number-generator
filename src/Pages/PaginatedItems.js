@@ -4,15 +4,18 @@ import {  Row, Col, Table} from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux'
 import ArchivedProject from '../components/ArchivedProject';
+import ArchivedProjectPlaceholder from '../components/ArchivedProjectPlaceholder';
 
-function Items({ currentItems, toggleModalVisible, setPostToEditId}) {
-    return (
-        currentItems &&
-            currentItems.map((post) => (
-            <ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />
-        ))
-    );
-  }
+function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
+  const posts = useSelector((state) => state.posts)
+  return (
+    (currentItems && posts.length > 0) ? 
+      currentItems.map((post) =>
+        (<ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />))
+        :
+        Array(15).fill(<ArchivedProjectPlaceholder />)
+  );
+}
   
 
 export default function PaginatedItems(props) {
@@ -32,9 +35,6 @@ export default function PaginatedItems(props) {
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % posts.length;
-      console.log(
-        `User requested page number ${event.selected}, which is offset ${newOffset}`
-      );
       setItemOffset(newOffset);
     };
   
