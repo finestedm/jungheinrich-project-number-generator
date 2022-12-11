@@ -1,5 +1,7 @@
 import React from "react";
 import { RxCross2, RxClock, RxCrumpledPaper, RxCheckCircled, RxArchive, RxLapTimer } from 'react-icons/rx';
+import { IoTrashBinOutline, IoShareOutline, IoFlashOutline, IoCloseCircleOutline } from 'react-icons/io5';
+
 
 export default function StatusIndicator({status}) {
     const statusClass = `status-${status}`;
@@ -21,11 +23,11 @@ export default function StatusIndicator({status}) {
     const statusIcon = (status) => {
         switch (status) {
             case 0:
-                return <RxLapTimer />;
+                return <IoShareOutline />;
             case 1:
-                return <RxCheckCircled />;
+                return <IoFlashOutline />;
             case 2:
-                return <RxCrumpledPaper />;
+                return <IoCloseCircleOutline />;
             case 3:
                 return <RxArchive />;
             default:
