@@ -8,6 +8,7 @@ import SearchBar from '../components/SearchBar';
 import searchPosts from '../components/searchPosts';
 import getPostsNotOlderThan24h from '../components/newPostsCounter';
 import NewProjectCounter from '../components/NewProjectCounter';
+import NoSearchResults from '../components/NoSearchResults'
 
 export default function Archive() {
 
@@ -58,18 +59,10 @@ export default function Archive() {
             </Row>
             {
                 posts.length === 0 ?
-                <Spinner animation='border' variant='warning' /> :
-                (searchedPhrase.length > 2 && filteredPosts.length === 0) ?
-                    <Row>
-                        <Table className='text-center'>
-                                <thead>
-                                    <tr>
-                                        <th><h4 className='p-4'>Brak wyników</h4></th>
-                                    </tr>
-                                </thead>        
-                        </Table>
-                    </Row> :
-                    <PaginatedItems posts={(filteredPosts.length > 0) ? filteredPosts : posts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
+                    <Spinner animation='border' variant='warning' /> :
+                    (searchedPhrase.length > 2 && filteredPosts.length === 0) ?
+                        <NoSearchResults /> :
+                        <PaginatedItems posts={(filteredPosts.length > 0) ? filteredPosts : posts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
             }
 
             {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
