@@ -37,11 +37,11 @@ export default function StatusIndicator({status}) {
 
     return (
         <span className={statusClass}>
-            <div className="d-none d-lg-inline">
-                {statusDescription(status)}
-            </div>
-            <div className="d-inline d-lg-none">
+            <div  className="d-inline">
                 {statusIcon(status)}
+            </div>
+            <div className="d-none d-lg-inline ms-2">
+                {statusDescription(status)}
             </div>
         </span>
     )

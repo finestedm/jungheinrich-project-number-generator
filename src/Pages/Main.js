@@ -50,7 +50,8 @@ export default function Main() {
 
     async function submitNewProject() {
         if (isCustomerValid() && user && (postsData.length > 0)) {
-            const newProjectNumber = (searchLastProjectNumber() +1)
+            await dispatch(getPosts());     // checking if the posts were updated since the site was loaded
+            const newProjectNumber = (searchLastProjectNumber() + 1)
             setProjectNumber(newProjectNumber)
             navigator.clipboard.writeText(newProjectNumber)
             const newProjectData = {
@@ -63,7 +64,13 @@ export default function Main() {
             }
             dispatch(createPost({ ...newProjectData }))
             cleanInputs()
-            console.log(posts)
+        } else if ((isCustomerValid() && user && (postsData.length === 0))) {
+            setButtonText('Synchronizacja danych. Poczekaj chwilę!')
+            setButtonVariant('danger')
+            setTimeout(() => {
+                setButtonText('Generuj nowy nr projektu')
+                setButtonVariant('warning')
+            }, 2000);
         } else {
             setButtonText('Nie wpisano wymaganych danych!')
             setButtonVariant('danger')
