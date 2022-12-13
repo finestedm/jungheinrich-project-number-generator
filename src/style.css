@@ -221,12 +221,12 @@ tr>td:last-child {
 
 .search-input--search-icon {
     position: relative;
-    top: -1px
+    top: -1.5px
 }
 
 .search-input--delete-icon {
     position: relative;
-    top: -1px
+    top: -1.5px
 }
 
 .project-number-output {
