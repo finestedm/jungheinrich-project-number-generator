@@ -89,14 +89,14 @@ td {
 
 @media screen and (max-width: 500px) {
     .table * {
-        font-size: small;
+        font-size: .75rem;
     }
     td.table--customer,
     td.table--location {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 16ch;
+        max-width: 15ch;
     }
   }
 
@@ -258,7 +258,7 @@ light {
     top: -2px
 }
 
-.status-0{
+.status-0{ 
     color:hsl(45, 100%, 43%);
     padding: .5rem .75rem;
     border-radius: 2rem;
