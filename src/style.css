@@ -219,9 +219,14 @@ tr>td:last-child {
     color: hsl(198, 14%, 50%);
 }
 
-.search-input--icon {
+.search-input--search-icon {
     position: relative;
-    top: -2px
+    top: -1px
+}
+
+.search-input--delete-icon {
+    position: relative;
+    top: -1px
 }
 
 .project-number-output {
@@ -258,7 +263,7 @@ light {
 
 .new-project-counter-icon {
     position: relative;
-    top: -2px
+    top: -1.25px
 }
 
 #status-0{
