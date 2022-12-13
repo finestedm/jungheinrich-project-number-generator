@@ -49,21 +49,25 @@ export default function Archive() {
     }, [posts, searchedPhrase])
 
     return (
-        <Container className='main my-5 px-4 '>
-            <Row className='d-flex flex-column flex-sm-row align-items-center justify-content-center search-container py-4 px-2 gap-3'>
-                <Col className='col-auto'><h2 className='m-0'>Projekty</h2></Col>
-                <NewProjectCounter postsThisDay={postsThisDay} />
-                <Col  className='ms-md-auto col-auto main--search-bar'>
-                    <SearchBar searchedPhrase={searchedPhrase} setSearchedPhrase={setSearchedPhrase} />
-                </Col>
-            </Row>
-            {
-                (searchedPhrase.length >= 3 && filteredPosts.length === 0) ?
-                    <NoSearchResults /> :
-                    <PaginatedItems posts={(filteredPosts.length > 0) ? filteredPosts : posts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
-            }
+        <Container className='main my-5 '>
+            <div className='table-container px-2'>
+                <Row className='d-flex flex-column flex-sm-row align-items-center justify-content-center search-container py-4 px-2 gap-3'>
+                    <Col className='col-auto'>
+                        <h2 className='m-0'>Projekty</h2>
+                    </Col>
+                    <NewProjectCounter postsThisDay={postsThisDay} />
+                    <Col  className='ms-md-auto col-auto main--search-bar'>
+                        <SearchBar searchedPhrase={searchedPhrase} setSearchedPhrase={setSearchedPhrase} />
+                    </Col>
+                </Row>
+                {
+                    (searchedPhrase.length >= 3 && filteredPosts.length === 0) ?
+                        <NoSearchResults /> :
+                        <PaginatedItems posts={(filteredPosts.length > 0) ? filteredPosts : posts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
+                }
 
-            {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
+                {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
+            </div>
         </Container>
     )
 }
