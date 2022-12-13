@@ -19,7 +19,10 @@ export default function SearchBar(props) {
                     if (e.key === 'Enter') {
                         e.preventDefault()
                         requestSearchedPosts()
-                    }}}
+                    } else if (e.key === 'Escape') {
+                        setSearchedPhrase('')
+                    }
+                }}
             />
         </InputGroup>
     )
