@@ -49,7 +49,7 @@ export default function Archive() {
     }, [posts, searchedPhrase])
 
     return (
-        <Container className='main my-5 '>
+        <Container className='main my-5'>
             <div className='table-container px-2'>
                 <Row className='d-flex flex-column flex-sm-row align-items-center justify-content-center search-container py-4 px-2 gap-3'>
                     <Col className='col-auto'>

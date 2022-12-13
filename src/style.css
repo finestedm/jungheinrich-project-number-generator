@@ -101,7 +101,7 @@ td {
   }
 
 tr {
-    line-height: 2.5rem;
+    line-height: 2.4rem;
 }
 
 tr:hover:not(thead>tr) {
@@ -109,7 +109,7 @@ tr:hover:not(thead>tr) {
 }
 
 tr:hover:not(thead>tr):not(tfoot>tr) {
-    background-color: #e1edf5 !important;
+    background-color: hsl(204, 50%, 95%) !important;
     cursor:pointer;
 }
 
@@ -135,7 +135,8 @@ tr:hover:not(thead>tr) td {
 .table--head {
     background-color: hsl(0, 0%, 96%);
     color: #858f95;
-    line-height: 2rem;
+    line-height: 1.25rem;
+    height: 1rem !important;
 }
 /* 
 .table--foot {
@@ -145,7 +146,6 @@ tr:hover:not(thead>tr) td {
 
 .table--head>th {
     font-weight: 500;
-    opacity: .75
 }
 
 .strong {
@@ -154,7 +154,8 @@ tr:hover:not(thead>tr) td {
 }
 
 .weak {
-    color:#7a808d
+    color:#7a808d;
+    font-weight: 300;
 }
 
 .main--card {
@@ -260,35 +261,34 @@ light {
     top: -2px
 }
 
-.status-0{
+#status-0{
     color:hsl(45, 100%, 43%);
-    padding: .5rem .75rem;
     border-radius: 2rem;
-    background-color: hsla(45, 100%, 45%, 0.25);
+    background-color: hsla(45, 100%, 45%, 0.2);
 }
 
-.status-1{
+#status-1{
     color:hsla(174, 34%, 49%, 1);
-    padding: .5rem .75rem;
     border-radius: 2rem;
-    background-color: hsla(174, 34%, 49%, 0.25);
+    background-color: hsla(174, 34%, 49%, 0.2);
 }
 
-.status-2{
+#status-2{
     color:hsla(1, 60%, 46%, 0.8);
-    padding: .5rem .75rem;
     border-radius: 2rem;
-    background-color: hsla(1, 60%, 46%, 0.25);
+    background-color: hsla(1, 60%, 46%, 0.2);
 }
 
-.status-3{
+#status-3{
     color: hsla(16, 12%, 57%, 0.8);
-    padding: .5rem .75rem;
     border-radius: 2rem;
-    background-color: hsla(16, 12%, 57%, 0.25);
+    background-color: hsla(16, 12%, 57%, 0.2);
 }
 
 .status-undefined {
     display: none;
 }
 
+table.table {
+    margin-bottom: 0;
+}

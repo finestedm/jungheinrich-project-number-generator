@@ -2,7 +2,7 @@ import React from "react";
 import { RxCross2, RxClock, RxCrumpledPaper, RxCheckCircled, RxArchive, RxLapTimer } from 'react-icons/rx';
 
 export default function StatusIndicator({status}) {
-    const statusClass = `status-${status}`;
+    const statusId = `status-${status}`;
     const statusDescription = (status) => {
         switch (status) {
             case 0:
@@ -34,13 +34,15 @@ export default function StatusIndicator({status}) {
     }
 
     return (
-        <span className={statusClass}>
-            <div  className="d-inline">
-                {statusIcon(status)}
-            </div>
-            <div className="d-none d-lg-inline ms-2">
-                {statusDescription(status)}
-            </div>
-        </span>
+        <div id={statusId}>
+            <span className='d-flex justify-content-center gap-2'>
+                <div  className="d-inline">
+                    {statusIcon(status)}
+                </div>
+                <div className="d-none d-lg-inline">
+                    {statusDescription(status)}
+                </div>
+            </span>
+        </div>
     )
 }
