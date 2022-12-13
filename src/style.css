@@ -263,25 +263,21 @@ light {
 
 #status-0{
     color:hsl(45, 100%, 43%);
-    border-radius: 2rem;
     background-color: hsla(45, 100%, 45%, 0.2);
 }
 
 #status-1{
     color:hsla(174, 34%, 49%, 1);
-    border-radius: 2rem;
     background-color: hsla(174, 34%, 49%, 0.2);
 }
 
 #status-2{
     color:hsla(1, 60%, 46%, 0.8);
-    border-radius: 2rem;
     background-color: hsla(1, 60%, 46%, 0.2);
 }
 
 #status-3{
     color: hsla(16, 12%, 57%, 0.8);
-    border-radius: 2rem;
     background-color: hsla(16, 12%, 57%, 0.2);
 }
 
