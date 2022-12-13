@@ -1,6 +1,6 @@
 import React from "react";
-import { RxCross2, RxClock, RxCrumpledPaper, RxCheckCircled, RxArchive, RxLapTimer } from 'react-icons/rx';
-import { IoTrashBinOutline, IoShareOutline, IoFlashOutline, IoCloseCircleOutline } from 'react-icons/io5';
+import { RxArchive } from 'react-icons/rx';
+import {  IoShareOutline, IoFlashOutline, IoCloseCircleOutline } from 'react-icons/io5';
 
 
 export default function StatusIndicator({status}) {
