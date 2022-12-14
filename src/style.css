@@ -270,30 +270,30 @@ light {
     top: -2px
 }
 
-.status-0{ 
+#status-0{ 
     color:hsl(45, 100%, 43%);
-    padding: .5rem .75rem;
+    border: 2px solid hsla(45, 100%, 45%, 0.25);
     border-radius: 2rem;
     background-color: hsla(45, 100%, 45%, 0.25);
 }
 
-.status-1{
+#status-1{
     color:hsla(174, 34%, 49%, 1);
-    padding: .5rem .75rem;
+    border: 2px solid hsla(174, 34%, 49%, 0.25);
     border-radius: 2rem;
     background-color: hsla(174, 34%, 49%, 0.25);
 }
 
-.status-2{
+#status-2{
     color:hsla(1, 60%, 46%, 0.8);
-    padding: .5rem .75rem;
+    border: 2px solid hsla(1, 60%, 46%, 0.25);
     border-radius: 2rem;
     background-color: hsla(1, 60%, 46%, 0.25);
 }
 
-.status-3{
+#status-3{
     color: hsla(16, 12%, 57%, 0.8);
-    padding: .5rem .75rem;
+    border: 2px solid hsla(16, 12%, 57%, 0.25);
     border-radius: 2rem;
     background-color: hsla(16, 12%, 57%, 0.25);
 }
