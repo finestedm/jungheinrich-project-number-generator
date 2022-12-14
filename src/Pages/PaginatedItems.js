@@ -62,12 +62,12 @@ export default function PaginatedItems(props) {
                 <ReactPaginate
                   className='paginator d-flex justify-content-center text-center'
                   breakLabel="..."
-                  nextLabel=">"
+                  nextLabel="Następna"
                   onPageChange={handlePageClick}
                   pageRangeDisplayed={2}
                   marginPagesDisplayed={2}
                   pageCount={pageCount}
-                  previousLabel="<"
+                  previousLabel="Wstecz"
                   renderOnZeroPageCount={null}
                 />
               </td>
