@@ -2,7 +2,10 @@ import React from "react";
 import { Row, Col, Card, Image} from 'react-bootstrap';
 import {users} from '../data/users'
 import moment from 'moment';
+import 'moment/locale/pl' 
 import StatusIndicator from "../components/StatusIndicator";
+
+moment.locale('pl');
 
 export default function ArchivedProject(props) {
     const { setPostToEdit, toggleModalVisible, post } = props
@@ -22,7 +25,7 @@ export default function ArchivedProject(props) {
                     {user}
                 </div>
             </td>
-            <td className='d-none d-md-table-cell'>{moment(createdAt).format("D.M.YYYY")} r., <span className='weak d-none d-lg-inline'>{moment(createdAt).format("H:M")}</span></td>
+            <td > {moment(createdAt).fromNow()} </td>
         </tr>
     )
 

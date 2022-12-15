@@ -4,22 +4,13 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import {ToggleButton, ToggleButtonGroup} from '@mui/material/';
 import moment from 'moment'
+import 'moment/locale/pl' 
 import { users as options } from '../data/users';
 import { updatePost } from "../actions/posts";
 import { useDispatch } from 'react-redux'
-import { RxArchive } from 'react-icons/rx';
 import { IoShareOutline, IoFlashOutline, IoCloseCircleOutline } from 'react-icons/io5';
 
-function switchStatusNameToDigit(val) {
-    switch (val) {
-        case 'ofertowany':
-            return 0;
-        case 'realizacja':
-            return 1
-        case 'przegrany':
-            return 2;
-    }
-}
+moment.locale('pl');
 
 export default function EditPostModal(props) {
     const { showModal, setShowModal, postData, setPostData, setPostToEditId } = props
@@ -122,8 +113,8 @@ export default function EditPostModal(props) {
             
             </Modal.Body>
             <Modal.Footer className='justify-content-between d-flex align-items-center'>
-                <Col xs={12} md={5} className="me-auto">
-                    Utworzono: {moment(createdAt).fromNow()}
+                <Col xs={12} md={6} className="me-auto">
+                    <small>Utworzono: {moment(createdAt).format("D.M.YYYY")}, {moment(createdAt).format("H:M")}</small>
                 </Col>
                 <Col className='text-end'>
                     <Button
