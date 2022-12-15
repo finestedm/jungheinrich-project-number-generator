@@ -294,16 +294,42 @@ table.table {
     margin-bottom: 0;
 }
 
+/* modal */
+
 button#status-0{
-    color: hsla(45, 100%, 43%);
+    /* background-color: hsla(45, 100%, 45%, 0.05); */
+    border: 1px solid hsla(45, 100%, 43%, .5);
+    color: hsla(45, 100%, 43%, 0.7);
+}
+
+button#status-0.Mui-selected{
+    background-color: hsla(45, 100%, 45%, 0.2);
+    color:hsl(45, 100%, 43%);
+    border: 1px solid hsl(45, 100%, 43%);
 }
 
 button#status-1{
-    background-color: hsla(174, 34%, 49%, 0.1);
+    /* background-color: hsla(174, 34%, 49%, 0.05); */
+    border: 1px solid hsla(174, 34%, 49%, .5);
+    color:hsla(174, 34%, 49%, 0.7);
+}
+
+button#status-1.Mui-selected{
+    background-color: hsla(174, 34%, 49%, 0.2);
+    color:hsla(174, 34%, 49%, 1);
+    border: 1px solid hsla(174, 34%, 49%, 1);
 }
 
 button#status-2{
-    background-color: hsla(1, 60%, 46%, 0.1);
+    /* background-color: hsla(1, 60%, 46%, 0.05); */
+    border: 1px solid hsla(1, 60%, 46%, 0.5);
+    color:hsla(1, 60%, 46%, 0.7);
+}
+
+button#status-2.Mui-selected{
+    background-color: hsla(1, 60%, 46%, 0.2);
+    color:hsla(1, 60%, 46%, 0.8);
+    border: 1px solid hsla(1, 60%, 46%, 0.8);
 }
 
 button#status-3{
