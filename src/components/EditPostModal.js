@@ -97,17 +97,17 @@ export default function EditPostModal(props) {
                     onChange={(e, val) => {setPostData({ ...postData, status: val })}}
                     aria-label="text alignment"
                     >
-                    <ToggleButton id='status-0' value={0} aria-label="ofertowany" selected={status === 0}>
+                    <ToggleButton className='modal--status-switch' id='status-0' value={0} aria-label="ofertowany" selected={status === 0}>
                         <IoShareOutline size='20' className='me-2' />
-                        ofertowany
+                        <span className='text-capitalize'>ofertowany</span>
                     </ToggleButton>
-                    <ToggleButton id='status-1' value={1} aria-label="realizacja" selected={status === 1}>
+                    <ToggleButton  className='modal--status-switch' id='status-1' value={1} aria-label="realizacja" selected={status === 1}>
                         <IoFlashOutline size='20' className='me-2' />
-                        realizacja
+                        <span className='text-capitalize'>realizacja</span>
                     </ToggleButton>
-                    <ToggleButton id='status-2' value={2} aria-label="przegrany" selected={status === 2}>
+                    <ToggleButton  className='modal--status-switch' id='status-2' value={2} aria-label="przegrany" selected={status === 2}>
                         <IoCloseCircleOutline size='20' className='me-2' />
-                        przegrany
+                        <span className='text-capitalize'>przegrany</span>
                     </ToggleButton>
                 </ToggleButtonGroup>
             

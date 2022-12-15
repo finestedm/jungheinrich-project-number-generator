@@ -313,8 +313,9 @@ span#status-3{
 
 button#status-0{
     /* background-color: hsla(45, 100%, 45%, 0.05); */
-    border: 1px solid hsla(45, 100%, 43%, .5);
-    color: hsla(45, 100%, 43%, 0.7);
+    border: 1px solid hsla(45, 100%, 33%, .5);
+    color: hsla(45, 100%, 33%, 0.7);
+    text-transform: capitalize;
 }
 
 button#status-0.Mui-selected{
@@ -325,8 +326,8 @@ button#status-0.Mui-selected{
 
 button#status-1{
     /* background-color: hsla(174, 34%, 49%, 0.05); */
-    border: 1px solid hsla(174, 34%, 49%, .5);
-    color:hsla(174, 34%, 49%, 0.7);
+    border: 1px solid hsla(174, 34%, 39%, .5);
+    color:hsla(174, 34%, 39%, 0.7);
 }
 
 button#status-1.Mui-selected{
@@ -337,8 +338,8 @@ button#status-1.Mui-selected{
 
 button#status-2{
     /* background-color: hsla(1, 60%, 46%, 0.05); */
-    border: 1px solid hsla(1, 60%, 46%, 0.5);
-    color:hsla(1, 60%, 46%, 0.7);
+    border: 1px solid hsla(1, 60%, 36%, 0.5);
+    color:hsla(1, 60%, 36%, 0.7);
 }
 
 button#status-2.Mui-selected{
@@ -347,6 +348,7 @@ button#status-2.Mui-selected{
     border: 1px solid hsla(1, 60%, 46%, 0.8);
 }
 
-button#status-3{
-    background-color: hsla(16, 12%, 57%, 0.1);
+.modal--status-switch>span {
+    position: relative;
+    top:1px;
 }
