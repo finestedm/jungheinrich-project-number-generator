@@ -230,12 +230,12 @@ tr>td:last-child {
 
 .search-input--search-icon {
     position: relative;
-    top: -1px
+    top: -1.5px
 }
 
 .search-input--delete-icon {
     position: relative;
-    top: -1px
+    top: -1.5px
 }
 
 .project-number-output {
@@ -275,28 +275,28 @@ light {
     top: -1.25px
 }
 
-#status-0{ 
+span#status-0{
     color:hsl(45, 100%, 43%);
     border: 2px solid hsla(45, 100%, 45%, 0.25);
     border-radius: 2rem;
     background-color: hsla(45, 100%, 45%, 0.25);
 }
 
-#status-1{
+span#status-1{
     color:hsla(174, 34%, 49%, 1);
     border: 2px solid hsla(174, 34%, 49%, 0.25);
     border-radius: 2rem;
     background-color: hsla(174, 34%, 49%, 0.25);
 }
 
-#status-2{
+span#status-2{
     color:hsla(1, 60%, 46%, 0.8);
     border: 2px solid hsla(1, 60%, 46%, 0.25);
     border-radius: 2rem;
     background-color: hsla(1, 60%, 46%, 0.25);
 }
 
-#status-3{
+span#status-3{
     color: hsla(16, 12%, 57%, 0.8);
     border: 2px solid hsla(16, 12%, 57%, 0.25);
     border-radius: 2rem;
@@ -307,3 +307,46 @@ light {
     display: none;
 }
 
+
+
+/* modal */
+
+button#status-0{
+    /* background-color: hsla(45, 100%, 45%, 0.05); */
+    border: 1px solid hsla(45, 100%, 43%, .5);
+    color: hsla(45, 100%, 43%, 0.7);
+}
+
+button#status-0.Mui-selected{
+    background-color: hsla(45, 100%, 45%, 0.2);
+    color:hsl(45, 100%, 43%);
+    border: 1px solid hsl(45, 100%, 43%);
+}
+
+button#status-1{
+    /* background-color: hsla(174, 34%, 49%, 0.05); */
+    border: 1px solid hsla(174, 34%, 49%, .5);
+    color:hsla(174, 34%, 49%, 0.7);
+}
+
+button#status-1.Mui-selected{
+    background-color: hsla(174, 34%, 49%, 0.2);
+    color:hsla(174, 34%, 49%, 1);
+    border: 1px solid hsla(174, 34%, 49%, 1);
+}
+
+button#status-2{
+    /* background-color: hsla(1, 60%, 46%, 0.05); */
+    border: 1px solid hsla(1, 60%, 46%, 0.5);
+    color:hsla(1, 60%, 46%, 0.7);
+}
+
+button#status-2.Mui-selected{
+    background-color: hsla(1, 60%, 46%, 0.2);
+    color:hsla(1, 60%, 46%, 0.8);
+    border: 1px solid hsla(1, 60%, 46%, 0.8);
+}
+
+button#status-3{
+    background-color: hsla(16, 12%, 57%, 0.1);
+}
