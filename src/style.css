@@ -266,22 +266,22 @@ light {
     top: -1.25px
 }
 
-#status-0{
+span#status-0{
     color:hsl(45, 100%, 43%);
     background-color: hsla(45, 100%, 45%, 0.2);
 }
 
-#status-1{
+span#status-1{
     color:hsla(174, 34%, 49%, 1);
     background-color: hsla(174, 34%, 49%, 0.2);
 }
 
-#status-2{
+span#status-2{
     color:hsla(1, 60%, 46%, 0.8);
     background-color: hsla(1, 60%, 46%, 0.2);
 }
 
-#status-3{
+span#status-3{
     color: hsla(16, 12%, 57%, 0.8);
     background-color: hsla(16, 12%, 57%, 0.2);
 }
@@ -292,4 +292,20 @@ light {
 
 table.table {
     margin-bottom: 0;
+}
+
+button#status-0{
+    color: hsla(45, 100%, 43%);
+}
+
+button#status-1{
+    background-color: hsla(174, 34%, 49%, 0.1);
+}
+
+button#status-2{
+    background-color: hsla(1, 60%, 46%, 0.1);
+}
+
+button#status-3{
+    background-color: hsla(16, 12%, 57%, 0.1);
 }

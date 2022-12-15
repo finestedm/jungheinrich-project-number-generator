@@ -10,7 +10,16 @@ import { useDispatch } from 'react-redux'
 import { RxArchive } from 'react-icons/rx';
 import { IoShareOutline, IoFlashOutline, IoCloseCircleOutline } from 'react-icons/io5';
 
-
+function switchStatusNameToDigit(val) {
+    switch (val) {
+        case 'ofertowany':
+            return 0;
+        case 'realizacja':
+            return 1
+        case 'przegrany':
+            return 2;
+    }
+}
 
 export default function EditPostModal(props) {
     const { showModal, setShowModal, postData, setPostData, setPostToEditId } = props
@@ -92,19 +101,22 @@ export default function EditPostModal(props) {
                 <ToggleButtonGroup
                     fullWidth
                     size='medium'
-                    value={''}
+                    value={status}
                     exclusive
-                    onChange={''}
+                    onChange={(e, val) => {setPostData({ ...postData, status: val })}}
                     aria-label="text alignment"
                     >
-                    <ToggleButton value="ofertowany" aria-label="ofertowany">
-                        <IoShareOutline size='20' className='me-2' /> ofertowany
+                    <ToggleButton id='status-0' value={0} aria-label="ofertowany" selected={status === 0}>
+                        <IoShareOutline size='20' className='me-2' />
+                        ofertowany
                     </ToggleButton>
-                    <ToggleButton value="realizacja" aria-label="realizacja">
-                        <IoFlashOutline size='20' className='me-2' />realizacja
+                    <ToggleButton id='status-1' value={1} aria-label="realizacja" selected={status === 1}>
+                        <IoFlashOutline size='20' className='me-2' />
+                        realizacja
                     </ToggleButton>
-                    <ToggleButton value="przegrany" aria-label="przegrany">
-                        <IoCloseCircleOutline size='20' className='me-2' />przegrany
+                    <ToggleButton id='status-2' value={2} aria-label="przegrany" selected={status === 2}>
+                        <IoCloseCircleOutline size='20' className='me-2' />
+                        przegrany
                     </ToggleButton>
                 </ToggleButtonGroup>
             
