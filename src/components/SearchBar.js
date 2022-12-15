@@ -8,7 +8,7 @@ export default function SearchBar(props) {
     return (
         <InputGroup>
             <Button variant='outline-secondary bg-white border border-none' onClick={requestSearchedPosts}><IoSearch className='search-input--search-icon' /></Button>
-            {searchedPhrase ? <Button variant='outline-secondary bg-white border border-none' onClick={() => setSearchedPhrase('')}><IoClose className='search-input--delete-icon' /></Button> : ''}
+            {searchedPhrase ? <Button variant='outline-secondary bg-white border border-none' className='search-input--delete' onClick={() => setSearchedPhrase('')}><IoClose className='search-input--delete-icon' /></Button> : ''}
             <Form.Control
                 className='main--search-input text-end'
                 variant="outlined"

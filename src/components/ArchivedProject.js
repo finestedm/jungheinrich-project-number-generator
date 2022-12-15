@@ -25,7 +25,7 @@ export default function ArchivedProject(props) {
                     {user}
                 </div>
             </td>
-            <td > {moment(createdAt).fromNow()} </td>
+            <td className='d-none d-md-table-cell'> {moment(createdAt).fromNow()} </td>
         </tr>
     )
 

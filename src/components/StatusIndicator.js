@@ -1,6 +1,6 @@
 import React from "react";
 import { RxArchive } from 'react-icons/rx';
-import {  IoShareOutline, IoFlashOutline, IoCloseCircleOutline } from 'react-icons/io5';
+import {  IoDocumentTextOutline, IoFlashOutline, IoCloseCircleOutline } from 'react-icons/io5';
 
 
 export default function StatusIndicator({status}) {
@@ -23,7 +23,7 @@ export default function StatusIndicator({status}) {
     const statusIcon = (status) => {
         switch (status) {
             case 0:
-                return <IoShareOutline />;
+                return <IoDocumentTextOutline />;
             case 1:
                 return <IoFlashOutline />;
             case 2:

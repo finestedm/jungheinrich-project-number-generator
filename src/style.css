@@ -144,7 +144,7 @@ tr:hover:not(thead>tr) td {
 .table--head {
     background-color: hsl(0, 0%, 96%);
     color: #858f95;
-    line-height: 2rem;
+    line-height: 1.6rem;
 }
 /* 
 .table--foot {
@@ -154,7 +154,7 @@ tr:hover:not(thead>tr) td {
 
 .table--head>th {
     font-weight: 500;
-    opacity: .75
+    opacity: .7
 }
 
 .strong {
@@ -222,6 +222,10 @@ tr>td:last-child {
     border: 2px solid hsl(0, 0%, 94%) !important;
     border-right: none !important;
     color: hsl(203, 7%, 70%);
+}
+
+.main--search-bar .btn.search-input--delete {
+    border-left: none !important;
 }
 
 .main--search-bar .btn:hover {
@@ -313,38 +317,42 @@ span#status-3{
 
 button#status-0{
     /* background-color: hsla(45, 100%, 45%, 0.05); */
-    border: 1px solid hsla(45, 100%, 33%, .5);
-    color: hsla(45, 100%, 33%, 0.7);
-    text-transform: capitalize;
+    border: 1px solid hsla(45, 100%, 23%, .5);
+    color: hsla(45, 100%, 23%, 0.7);
+    transition: all .25s ease-in;
 }
 
 button#status-0.Mui-selected{
     background-color: hsla(45, 100%, 45%, 0.2);
-    color:hsl(45, 100%, 43%);
+    color:hsl(45, 100%, 33%);
     border: 1px solid hsl(45, 100%, 43%);
 }
 
 button#status-1{
     /* background-color: hsla(174, 34%, 49%, 0.05); */
-    border: 1px solid hsla(174, 34%, 39%, .5);
-    color:hsla(174, 34%, 39%, 0.7);
+    border: 1px solid hsla(174, 34%, 30%, .5);
+    color:hsla(174, 34%, 30%, 0.7);
+    transition: all .25s ease-in;
+
 }
 
 button#status-1.Mui-selected{
     background-color: hsla(174, 34%, 49%, 0.2);
-    color:hsla(174, 34%, 49%, 1);
+    color:hsla(174, 34%, 39%, 1);
     border: 1px solid hsla(174, 34%, 49%, 1);
 }
 
 button#status-2{
     /* background-color: hsla(1, 60%, 46%, 0.05); */
-    border: 1px solid hsla(1, 60%, 36%, 0.5);
-    color:hsla(1, 60%, 36%, 0.7);
+    border: 1px solid hsla(1, 60%, 33%, 0.5);
+    color:hsla(1, 60%, 33%, 0.7);
+    transition: all .25s ease-in;
+
 }
 
 button#status-2.Mui-selected{
     background-color: hsla(1, 60%, 46%, 0.2);
-    color:hsla(1, 60%, 46%, 0.8);
+    color:hsla(1, 60%, 36%, 0.8);
     border: 1px solid hsla(1, 60%, 46%, 0.8);
 }
 

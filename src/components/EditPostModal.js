@@ -8,7 +8,7 @@ import 'moment/locale/pl'
 import { users as options } from '../data/users';
 import { updatePost } from "../actions/posts";
 import { useDispatch } from 'react-redux'
-import { IoShareOutline, IoFlashOutline, IoCloseCircleOutline } from 'react-icons/io5';
+import { IoDocumentTextOutline, IoFlashOutline, IoCloseCircleOutline } from 'react-icons/io5';
 
 moment.locale('pl');
 
@@ -90,15 +90,40 @@ export default function EditPostModal(props) {
                 </div> */}
 
                 <ToggleButtonGroup
+                    className='d-none d-sm-flex'
                     fullWidth
                     size='medium'
                     value={status}
                     exclusive
                     onChange={(e, val) => {setPostData({ ...postData, status: val })}}
-                    aria-label="text alignment"
+                    aria-label="project status"
                     >
                     <ToggleButton className='modal--status-switch' id='status-0' value={0} aria-label="ofertowany" selected={status === 0}>
-                        <IoShareOutline size='20' className='me-2' />
+                        <IoDocumentTextOutline size='20' className='me-2' />
+                        <span className='text-capitalize'>ofertowany</span>
+                    </ToggleButton>
+                    <ToggleButton  className='modal--status-switch' id='status-1' value={1} aria-label="realizacja" selected={status === 1}>
+                        <IoFlashOutline size='20' className='me-2' />
+                        <span className='text-capitalize'>realizacja</span>
+                    </ToggleButton>
+                    <ToggleButton  className='modal--status-switch' id='status-2' value={2} aria-label="przegrany" selected={status === 2}>
+                        <IoCloseCircleOutline size='20' className='me-2' />
+                        <span className='text-capitalize'>przegrany</span>
+                    </ToggleButton>
+                </ToggleButtonGroup>
+
+                <ToggleButtonGroup
+                    className='d-flex d-sm-none'
+                    fullWidth
+                    orientation="vertical"
+                    size='medium'
+                    value={status}
+                    exclusive
+                    onChange={(e, val) => {setPostData({ ...postData, status: val })}}
+                    aria-label="project status"
+                    >
+                    <ToggleButton className='modal--status-switch' id='status-0' value={0} aria-label="ofertowany" selected={status === 0}>
+                        <IoDocumentTextOutline size='20' className='me-2' />
                         <span className='text-capitalize'>ofertowany</span>
                     </ToggleButton>
                     <ToggleButton  className='modal--status-switch' id='status-1' value={1} aria-label="realizacja" selected={status === 1}>
