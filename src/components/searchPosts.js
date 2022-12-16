@@ -1,13 +1,19 @@
+import * as JsSearch from 'js-search';
+
 export default function searchPosts(posts, searchedPhrase) {
-	let foundPosts = []
-	searchedPhrase = searchedPhrase.toString().toLowerCase();
-	const searchedPhraseSplitIntoWords = searchedPhrase.trim().split(/\s+/);
-	posts.forEach(post => {
-		const postInSingleString = (Object.values(post)).join(' ').toLowerCase();
-		searchedPhraseSplitIntoWords.every(word => postInSingleString.includes(word)) && foundPosts.push(post)
-	})
-
 	
-    return foundPosts
+	var search = new JsSearch.Search('_id');
+	search.addIndex('customer');
+	search.addIndex('location');
+	search.addIndex('description')
+	
+	search.addDocuments(posts);
+	
+	if ((searchedPhrase.charAt(0) === '"') && (searchedPhrase.slice(-1) === '"')) {
+		// JsSearch.ExactWordIndexStrategy()	
+		return search.search(searchedPhrase.slice(1, -1))
+	} else {
+		JsSearch.PrefixIndexStrategy()
+		return search.search(searchedPhrase)
+	}
 }
-
