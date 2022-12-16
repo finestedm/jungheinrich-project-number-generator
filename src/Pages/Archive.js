@@ -14,13 +14,16 @@ export default function Archive() {
 
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.posts);
+    const [filters, setFilters] = useState({
+        searchedPhrase: null,
+        status: []
+    });
     const [showModal, setShowModal] = useState(false);
     const [postData, setPostData] = useState(null);
     const [postToEditId, setPostToEditId] = useState(null);
     const [searchedPhrase, setSearchedPhrase] = useState('');
     const [filteredPosts, setFilteredPosts] = useState({});
     const [postsThisDay, setPostsThisDay] = useState(0)
-
 
     useEffect(() => {
         dispatch(getPosts())
@@ -44,9 +47,13 @@ export default function Archive() {
     }
 
     useEffect(() => {
-        searchedPhrase.length >= 3 && setFilteredPosts(searchPosts(posts, searchedPhrase))
+        searchedPhrase.length >= 3 && setFilters({ ...filters, searchedPhrase: searchedPhrase })
         searchedPhrase === '' && setFilteredPosts({})
-    }, [posts, searchedPhrase])
+    }, [searchedPhrase])
+
+    useEffect(() => {
+        setFilteredPosts(searchPosts(posts, filters));
+    }, [posts,  filters])
 
     return (
         <Container className='main my-5'>
