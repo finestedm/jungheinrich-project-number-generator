@@ -360,3 +360,15 @@ button#status-2.Mui-selected{
     position: relative;
     top:1px;
 }
+
+.modal * :not(.modal button *):not(label){
+    color:hsl(200, 11%, 26%)
+}
+
+.modal label{
+    color:hsla(200, 11%, 26%, 0.69)
+}
+
+.modal .MuiFormControl-root * {
+    border-color: hsla(200, 11%, 26%, .25)
+}

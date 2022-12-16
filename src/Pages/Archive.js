@@ -48,7 +48,7 @@ export default function Archive() {
 
     useEffect(() => {
         searchedPhrase.length >= 3 && setFilters({ ...filters, searchedPhrase: searchedPhrase })
-        searchedPhrase === '' && setFilteredPosts({})
+        searchedPhrase === '' && setFilters({ ...filters, searchedPhrase: searchedPhrase })
     }, [searchedPhrase])
 
     useEffect(() => {
