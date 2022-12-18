@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import {  Row, Col, Table} from 'react-bootstrap';
+import {  Row, Col, Table, Dropdown} from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux'
 import ArchivedProject from '../components/ArchivedProject';
 import ArchivedProjectPlaceholder from '../components/ArchivedProjectPlaceholder';
+import StatusToggler from '../components/StatusToggler'
 
 function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
   const posts = useSelector((state) => state.posts)
@@ -44,7 +45,7 @@ export default function PaginatedItems(props) {
         <Table hover>
             <thead>
             <tr className='table--head text-uppercase'> 
-                <th>Status</th>
+                <th><StatusToggler /></th>
                 <th>Numer</th>
                 <th>Klient</th>
                 <th>Lokalizacja</th>

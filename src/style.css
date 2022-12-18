@@ -143,7 +143,6 @@ tr:hover:not(thead>tr) td {
 
 .table--head {
     background-color: hsl(0, 0%, 96%);
-    color: #858f95;
     line-height: 1.6rem;
 }
 /* 
@@ -152,10 +151,21 @@ tr:hover:not(thead>tr) td {
 
 } */
 
-.table--head>th {
-    font-weight: 500;
-    opacity: .7
+
+.table--head>th,
+.table--head>th>*>button {
+    background-color: transparent;
+    border: none;
+    color: #858f95;
+
 }
+
+.table--head>th,
+.table--head>th * {
+    font-weight: 500;
+    font-size: .8rem;
+}
+
 
 .strong {
     font-weight: 600;
