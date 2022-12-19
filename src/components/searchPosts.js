@@ -6,7 +6,7 @@ export default function searchPosts(posts, filters) {
 
 	// const postsFiltered = posts.filter(post => post.status === filters.status[0])
 
-	if (filters.searchedPhrase === null && filters.status.length === 0) {
+	if (filters.searchedPhrase === null) {   // filters.status.length === 0
 		// return postsFiltered
 		return posts
 	} else {

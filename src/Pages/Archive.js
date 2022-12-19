@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector, createStore } from 'react-redux'
 import { getPosts } from '../actions/posts'
 import { Container, Row, Col, Spinner, Card, Table } from 'react-bootstrap'
 import EditPostModal from '../components/EditPostModal'
@@ -16,7 +16,7 @@ export default function Archive() {
     const posts = useSelector((state) => state.posts);
     const [filters, setFilters] = useState({
         searchedPhrase: null,
-        status: []
+        status: [0, 1, 2]
     });
     const [showModal, setShowModal] = useState(false);
     const [postData, setPostData] = useState(null);
@@ -53,7 +53,11 @@ export default function Archive() {
 
     useEffect(() => {
         setFilteredPosts(searchPosts(posts, filters));
-    }, [posts,  filters])
+    }, [posts, filters])
+    
+    function changeStatusInFilters(selectedStatus) {
+        console.log(selectedStatus)
+    }
 
     return (
         <Container className='main my-5'>
@@ -70,7 +74,7 @@ export default function Archive() {
                 {
                     (searchedPhrase.length >= 3 && filteredPosts.length === 0) ?
                         <NoSearchResults /> :
-                        <PaginatedItems posts={(filteredPosts.length > 0) ? filteredPosts : posts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
+                        <PaginatedItems changeStatusInFilters={changeStatusInFilters} filters={filters} posts={(filteredPosts.length > 0) ? filteredPosts : posts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
                 }
 
                 {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}

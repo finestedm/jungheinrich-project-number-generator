@@ -20,7 +20,7 @@ function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
   
 
 export default function PaginatedItems(props) {
-    const { toggleModalVisible, setPostToEditId, itemsPerPage, posts} = props
+    const { toggleModalVisible, setPostToEditId, itemsPerPage, posts, filters, changeStatusInFilters} = props
 
     // Here we use item offsets; we could also use page offsets
     // following the API or data you're working with.
@@ -45,17 +45,17 @@ export default function PaginatedItems(props) {
         <Table hover>
             <thead>
             <tr className='table--head text-uppercase'> 
-                <th><StatusToggler /></th>
-                <th>Numer</th>
-                <th>Klient</th>
-                <th>Lokalizacja</th>
-                <th className='d-none d-lg-table-cell'>Opis</th>
-                <th className='d-none d-md-table-cell'>Handlowiec</th>
-                <th className='d-none d-md-table-cell'>Utworzono</th>
-              </tr>
-            </thead>
-            <tbody>
-              <Items currentItems={currentItems} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} />
+              <th><StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} /></th>
+              <th>Numer</th>
+              <th>Klient</th>
+              <th>Lokalizacja</th>
+              <th className='d-none d-lg-table-cell'>Opis</th>
+              <th className='d-none d-md-table-cell'>Handlowiec</th>
+              <th className='d-none d-md-table-cell'>Utworzono</th>
+            </tr>
+          </thead>
+          <tbody>
+            <Items currentItems={currentItems} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} />
           </tbody>
           <tfoot className='table--foot'>
             <tr>
