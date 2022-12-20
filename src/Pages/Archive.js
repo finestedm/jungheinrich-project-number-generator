@@ -46,17 +46,27 @@ export default function Archive() {
         setPostToEditId(id);
     }
 
-    useEffect(() => {
-        searchedPhrase.length >= 3 && setFilters({ ...filters, searchedPhrase: searchedPhrase })
-        searchedPhrase === '' && setFilters({ ...filters, searchedPhrase: searchedPhrase })
-    }, [searchedPhrase])
+    // useEffect(() => {
+    //     searchedPhrase.length >= 3 && setFilters({ ...filters, searchedPhrase: searchedPhrase })
+    //     searchedPhrase === '' && setFilters({ ...filters, searchedPhrase: searchedPhrase })
+    // }, [filters])
 
     useEffect(() => {
         setFilteredPosts(searchPosts(posts, filters));
     }, [posts, filters])
     
+    function changeSearchedPhrase(text) {
+        text.length >= 3 && setFilters({ ...filters, searchedPhrase: text })
+        text === '' && setFilters({ ...filters, searchedPhrase: text })
+    }
+
     function changeStatusInFilters(selectedStatus) {
-        console.log(selectedStatus)
+        if (filters.status.includes(selectedStatus)) {
+            setFilters({... filters, status: filters.status.filter(item => item !== selectedStatus)})
+        } else {
+            setFilters({... filters, status: [...filters.status, selectedStatus]})
+        }
+        console.log(filters.status)
     }
 
     return (
@@ -68,7 +78,7 @@ export default function Archive() {
                         <NewProjectCounter className='align' postsThisDay={postsThisDay} />
                     </Col>
                     <Col  className='col-auto col-sm-4 main--search-bar mt-auto'>
-                        <SearchBar searchedPhrase={searchedPhrase} setSearchedPhrase={setSearchedPhrase} />
+                        <SearchBar searchedPhrase={filters.searchedPhrase} changeSearchedPhrase={changeSearchedPhrase} />
                     </Col>
                 </Row>
                 {
