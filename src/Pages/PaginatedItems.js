@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import ArchivedProject from '../components/ArchivedProject';
 import ArchivedProjectPlaceholder from '../components/ArchivedProjectPlaceholder';
 import StatusToggler from '../components/StatusToggler'
+import NoSearchResults from '../components/NoSearchResults'
+
 
 function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
   const posts = useSelector((state) => state.posts)
@@ -30,7 +32,7 @@ export default function PaginatedItems(props) {
     // (This could be items from props; or items loaded in a local state
     // from an API endpoint with useEffect and useState)
     const endOffset = itemOffset + itemsPerPage;
-    const currentItems = posts.slice(itemOffset, endOffset);
+    const currentItems = (posts.length > 0) && posts.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(posts.length / itemsPerPage);
   
     // Invoke when user click to request another page.
@@ -54,9 +56,11 @@ export default function PaginatedItems(props) {
               <th className='d-none d-md-table-cell'>Utworzono</th>
             </tr>
           </thead>
-          <tbody>
-            <Items currentItems={currentItems} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} />
-          </tbody>
+
+          {currentItems.length > 0 ?
+            (<tbody>
+              <Items currentItems={currentItems} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} />
+            </tbody>) : <NoSearchResults />}
           <tfoot className='table--foot'>
             <tr>
               <td colSpan="7">

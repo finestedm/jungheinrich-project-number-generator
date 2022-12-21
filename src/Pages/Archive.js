@@ -8,7 +8,6 @@ import SearchBar from '../components/SearchBar';
 import searchPosts from '../components/searchPosts';
 import getPostsNotOlderThan24h from '../components/newPostsCounter';
 import NewProjectCounter from '../components/NewProjectCounter';
-import NoSearchResults from '../components/NoSearchResults'
 
 export default function Archive() {
 
@@ -46,10 +45,7 @@ export default function Archive() {
     }
 
     useEffect(() => {      
-        const activeStatuses = Object.keys(filters.status).filter(status => filters.status[status] === true)
-        let activePosts = posts.filter(post => post.status !== undefined)
-        activePosts = activePosts.filter(post => activeStatuses.includes((post.status).toString()))
-        setFilteredPosts(searchPosts(activePosts, filters));
+        setFilteredPosts(searchPosts(posts, filters));
     }, [posts, filters])
     
     function changeSearchedPhrase(text) {
@@ -83,13 +79,8 @@ export default function Archive() {
                         <SearchBar searchedPhrase={filters.searchedPhrase} changeSearchedPhrase={changeSearchedPhrase} />
                     </Col>
                 </Row>
-                {console.log(filteredPosts)}
-                {
-                    (filters.searchedPhrase.length >= 3 ) ?
-                        <NoSearchResults /> :
-                        <PaginatedItems changeStatusInFilters={changeStatusInFilters} filters={filters} posts={(filteredPosts.length > 0) ? filteredPosts : posts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
-                }
-
+                <PaginatedItems changeStatusInFilters={changeStatusInFilters} filters={filters} posts={filteredPosts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
+                
                 {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
             </div>
         </Container>

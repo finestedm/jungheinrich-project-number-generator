@@ -12,7 +12,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
         
             
         <Dropdown.Menu>
-            <Dropdown.Item className='border-bottom pb-1 d-flex align-items-center'>
+                <Dropdown.Item onClick={() => changeStatusInFilters('all')} className='border-bottom pb-1 d-flex align-items-center'>
                 <Form.Check
                     id='status-all' 
                     value='all'  
@@ -20,12 +20,12 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                     className='d-flex align-items-center gap-2'
                     inline
                     checked={Object.values(filters.status).every(status => status === true)}
-                    label={<span onClick={() => changeStatusInFilters('all')}>{Object.values(filters.status).every(status => status === true) ? 'Odznacz wszytskie' : 'Zaznacz wszytskie'}</span>}
+                    label={<span>{Object.values(filters.status).every(status => status === true) ? 'Odznacz wszytskie' : 'Zaznacz wszytskie'}</span>}
                     name="status"
                     />
             </Dropdown.Item>
                 
-            <Dropdown.Item>
+            <Dropdown.Item onClick={() => changeStatusInFilters(0)}>
                 <Form.Check
                     id='status-0'
                     value='0'    
@@ -33,12 +33,12 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                     onChange={(e) => changeStatusInFilters(e.target.value)}
                     className='d-flex align-items-center gap-2'
                     inline
-                    label={<div onClick={() => changeStatusInFilters(0)}><StatusIndicator status={0} /></div>}
+                    label={<StatusIndicator status={0} />}
                     name="status"
                 />
             </Dropdown.Item>
                 
-            <Dropdown.Item>
+            <Dropdown.Item onClick={() => changeStatusInFilters(1)}>
                 <Form.Check
                     id='status-1'
                     value='1'    
@@ -46,12 +46,12 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                     onChange={(e) => changeStatusInFilters(e.target.value)}
                     className='d-flex align-items-center gap-2'
                     inline
-                    label={<div onClick={() => changeStatusInFilters(1)}><StatusIndicator status={1} /></div>}
+                    label={<StatusIndicator status={1} />}
                     name="status"
                 />
             </Dropdown.Item>
 
-            <Dropdown.Item>
+            <Dropdown.Item onClick={() => changeStatusInFilters(2)}>
                 <Form.Check
                     id='status-2'
                     value='2'    
@@ -59,7 +59,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                     onChange={(e) => changeStatusInFilters(e.target.value)}
                     className='d-flex align-items-center gap-2'
                     inline
-                    label={<div onClick={() => changeStatusInFilters(2)}><StatusIndicator status={2} /></div>}
+                    label={<StatusIndicator status={2} />}
                     name="status"
                 />
             </Dropdown.Item>

@@ -6,26 +6,24 @@ export default function searchPosts(posts, filters) {
 
 	// const postsFiltered = posts.filter(post => post.status === filters.status[0])
 
-	if (filters.searchedPhrase === null || filters.status === '') {   // filters.status.length === 0
-		// return postsFiltered
-		console.log(posts)
-		return posts
-	} else {
+	const activeStatuses = Object.keys(filters.status).filter(status => filters.status[status] === true)
+	let activePosts = posts.filter(post => post.status !== undefined)
+	activePosts = activePosts.filter(post => activeStatuses.includes((post.status).toString()))
 
+	if (!filters.searchedPhrase) {  
+		return activePosts
+	} else {
+		console.log(filters.searchedPhrase, activePosts)
 		var search = new JsSearch.Search('_id');
 		search.addIndex('customer');
 		search.addIndex('location');
 		search.addIndex('description')
 	
 		// search.addDocuments(postsFiltered);
-		search.addDocuments(posts);
-	
-		if ((filters.searchedPhrase.charAt(0) === '"') && (filters.searchedPhrase.slice(-1) === '"')) {
-			// JsSearch.ExactWordIndexStrategy()	
-			return search.search(filters.searchedPhrase.slice(1, -1))
-		} else {
-			JsSearch.PrefixIndexStrategy()
-			return search.search(filters.searchedPhrase)
-		}
+		search.addDocuments(activePosts);
+
+		JsSearch.PrefixIndexStrategy()
+		return search.search(filters.searchedPhrase)
+		
 	}
 }

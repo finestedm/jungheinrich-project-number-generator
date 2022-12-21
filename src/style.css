@@ -387,3 +387,7 @@ button#status-2.Mui-selected{
     position: relative;
     top: -2px
 }
+
+.no-results {
+    line-height: 10rem;
+}
