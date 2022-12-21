@@ -207,11 +207,10 @@ tr>td:last-child {
 }
 
 .main--search-input {
-    border: 2px solid hsl(0, 0%, 94%);
+    border: 1px solid hsl(0, 0%, 87%);
     border-left: none !important;
     background-color: #ffffff;
     color: hsl(203, 7%, 60%);
-    font-weight: 500;
     border-radius: .5rem;
 }
 
@@ -221,15 +220,13 @@ tr>td:last-child {
 
 .main--search-input:hover,
 .main--search-input:focus {
-    border-width: 2px;
-    border-color: #cbdae4;
+    border-width: 1px;
     color: hsl(198, 14%, 50%);
-    font-weight: 500;
 }
 
 .main--search-bar .btn {
     background-color: hsl(0, 0%, 100%) !important;
-    border: 2px solid hsl(0, 0%, 94%) !important;
+    border: 1px solid hsl(0, 0%, 87%) !important;
     border-right: none !important;
     color: hsl(203, 7%, 70%);
 }
@@ -290,29 +287,29 @@ light {
 }
 
 span#status-0{
-    color:hsl(45, 100%, 43%);
-    border: 2px solid hsla(45, 100%, 45%, 0.25);
+    color:hsl(45, 100%, 30%);
+    border: 1px solid hsla(45, 100%, 30%, 0.5);
     border-radius: 2rem;
     background-color: hsla(45, 100%, 45%, 0.25);
 }
 
 span#status-1{
-    color:hsla(174, 34%, 49%, 1);
-    border: 2px solid hsla(174, 34%, 49%, 0.25);
+    color:hsl(174, 34%, 30%);
+    border: 1px solid hsla(174, 34%, 30%, 0.5);
     border-radius: 2rem;
     background-color: hsla(174, 34%, 49%, 0.25);
 }
 
 span#status-2{
-    color:hsla(1, 60%, 46%, 0.8);
-    border: 2px solid hsla(1, 60%, 46%, 0.25);
+    color:hsla(1, 60%, 40%);
+    border: 1px solid hsla(1, 60%, 40%, 0.5);
     border-radius: 2rem;
     background-color: hsla(1, 60%, 46%, 0.25);
 }
 
 span#status-3{
-    color: hsla(16, 12%, 57%, 0.8);
-    border: 2px solid hsla(16, 12%, 57%, 0.25);
+    color: hsla(16, 12%, 57%);
+    border: px solid hsla(16, 12%, 57%, 0.5);
     border-radius: 2rem;
     background-color: hsla(16, 12%, 57%, 0.25);
 }
@@ -390,4 +387,9 @@ button#status-2.Mui-selected{
 
 .no-results {
     line-height: 10rem;
+}
+
+.status-indicator--icon {
+    position: relative;
+    top: -1px;
 }

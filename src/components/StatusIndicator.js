@@ -36,9 +36,9 @@ export default function StatusIndicator({status}) {
     }
 
     return (
-        <div className='Z'>
+        <div>
             <span className='justify-content-center gap-2 py-1 px-2 rounded-pill' id={statusId}>
-                <div  className="d-inline">
+                <div  className="d-inline status-indicator--icon">
                     {statusIcon(status)}
                 </div>
                 <div className="d-none d-lg-inline ms-2">

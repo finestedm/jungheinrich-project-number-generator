@@ -8,6 +8,7 @@ import SearchBar from '../components/SearchBar';
 import searchPosts from '../components/searchPosts';
 import getPostsNotOlderThan24h from '../components/newPostsCounter';
 import NewProjectCounter from '../components/NewProjectCounter';
+import { users } from '../data/users'
 
 export default function Archive() {
 
@@ -15,7 +16,8 @@ export default function Archive() {
     const posts = useSelector((state) => state.posts);
     const [filters, setFilters] = useState({
         searchedPhrase: '',
-        status: { 0: true, 1: true, 2: true }
+        status: { 0: true, 1: true, 2: true },
+        users: users
     });
     const [showModal, setShowModal] = useState(false);
     const [postData, setPostData] = useState(null);
@@ -44,6 +46,8 @@ export default function Archive() {
         setPostToEditId(id);
     }
 
+    console.log(filters)
+
     useEffect(() => {      
         setFilteredPosts(searchPosts(posts, filters));
     }, [posts, filters])
@@ -67,6 +71,7 @@ export default function Archive() {
             setFilters(filtersUpdated)
         }
     }
+    
     return (
         <Container className='main my-5'>
             <div className='table-container px-2'>
