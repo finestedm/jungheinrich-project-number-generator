@@ -382,3 +382,8 @@ button#status-2.Mui-selected{
 .modal .MuiFormControl-root * {
     border-color: hsla(200, 11%, 26%, .25)
 }
+
+.form-check-input {
+    position: relative;
+    top: -2px
+}

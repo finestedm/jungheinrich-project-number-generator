@@ -15,13 +15,12 @@ export default function Archive() {
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.posts);
     const [filters, setFilters] = useState({
-        searchedPhrase: null,
-        status: [0, 1, 2]
+        searchedPhrase: '',
+        status: { 0: true, 1: true, 2: true }
     });
     const [showModal, setShowModal] = useState(false);
     const [postData, setPostData] = useState(null);
     const [postToEditId, setPostToEditId] = useState(null);
-    const [searchedPhrase, setSearchedPhrase] = useState('');
     const [filteredPosts, setFilteredPosts] = useState({});
     const [postsThisDay, setPostsThisDay] = useState(0)
 
@@ -46,29 +45,32 @@ export default function Archive() {
         setPostToEditId(id);
     }
 
-    // useEffect(() => {
-    //     searchedPhrase.length >= 3 && setFilters({ ...filters, searchedPhrase: searchedPhrase })
-    //     searchedPhrase === '' && setFilters({ ...filters, searchedPhrase: searchedPhrase })
-    // }, [filters])
-
-    useEffect(() => {
-        setFilteredPosts(searchPosts(posts, filters));
+    useEffect(() => {      
+        const activeStatuses = Object.keys(filters.status).filter(status => filters.status[status] === true)
+        let activePosts = posts.filter(post => post.status !== undefined)
+        activePosts = activePosts.filter(post => activeStatuses.includes((post.status).toString()))
+        setFilteredPosts(searchPosts(activePosts, filters));
     }, [posts, filters])
     
     function changeSearchedPhrase(text) {
-        text.length >= 3 && setFilters({ ...filters, searchedPhrase: text })
-        text === '' && setFilters({ ...filters, searchedPhrase: text })
+        setFilters({...filters, searchedPhrase: text});
     }
 
     function changeStatusInFilters(selectedStatus) {
-        if (filters.status.includes(selectedStatus)) {
-            setFilters({... filters, status: filters.status.filter(item => item !== selectedStatus)})
+        let statusObject = filters.status;
+        if (selectedStatus === 'all') {
+            let filtersUpdated = (Object.values(statusObject).every(status => status === true)) ? { ...filters, status: { 0: false, 1: false, 2: false } } : { ...filters, status: { 0: true, 1: true, 2: true } }
+            setFilters(filtersUpdated)
+        } else if (filters.status[selectedStatus]) {
+            statusObject = { ...statusObject, [selectedStatus]: false }
+            let filtersUpdated = { ...filters, status: statusObject }
+            setFilters(filtersUpdated)
         } else {
-            setFilters({... filters, status: [...filters.status, selectedStatus]})
+            statusObject = {...statusObject, [selectedStatus]: true}
+            let filtersUpdated = { ...filters, status: statusObject }
+            setFilters(filtersUpdated)
         }
-        console.log(filters.status)
     }
-
     return (
         <Container className='main my-5'>
             <div className='table-container px-2'>
@@ -81,8 +83,9 @@ export default function Archive() {
                         <SearchBar searchedPhrase={filters.searchedPhrase} changeSearchedPhrase={changeSearchedPhrase} />
                     </Col>
                 </Row>
+                {console.log(filteredPosts)}
                 {
-                    (searchedPhrase.length >= 3 && filteredPosts.length === 0) ?
+                    (filters.searchedPhrase.length >= 3 ) ?
                         <NoSearchResults /> :
                         <PaginatedItems changeStatusInFilters={changeStatusInFilters} filters={filters} posts={(filteredPosts.length > 0) ? filteredPosts : posts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
                 }
