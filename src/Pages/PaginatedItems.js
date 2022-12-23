@@ -11,13 +11,15 @@ import NoSearchResults from '../components/NoSearchResults'
 
 function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
   const posts = useSelector((state) => state.posts)
-  return (
-    (currentItems && posts.length > 0) ? 
-      currentItems.map((post) =>
-        (<ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />))
-        :
-        Array(15).fill(<ArchivedProjectPlaceholder />)
-  );
+  
+  if (currentItems && posts.length > 0) {
+    return currentItems.map((post) =>
+      (<ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />))
+  } else if (!currentItems && posts.length > 0) {
+    return <NoSearchResults />
+  } else {
+    return Array(15).fill(<ArchivedProjectPlaceholder />)
+  }
 }
   
 
@@ -57,10 +59,10 @@ export default function PaginatedItems(props) {
             </tr>
           </thead>
 
-          {currentItems.length > 0 ?
-            (<tbody>
+          <tbody>
               <Items currentItems={currentItems} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} />
-            </tbody>) : <NoSearchResults />}
+          </tbody>
+
           <tfoot className='table--foot'>
             <tr>
               <td colSpan="7">

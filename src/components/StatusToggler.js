@@ -51,7 +51,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                     value='1'    
                     checked={filters.status[1]}    
                     onChange={(e) => changeStatusInFilters(e.target.value)}
-                    className='d-flex align-items-center gap-2'
+                    className='d-flex align-items-center gap-2 mt-1'
                     inline
                     label={<StatusIndicator status={1} />}
                     name="status"
@@ -64,7 +64,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                     value='2'    
                     checked={filters.status[2]}    
                     onChange={(e) => changeStatusInFilters(e.target.value)}
-                    className='d-flex align-items-center gap-2'
+                    className='d-flex align-items-center gap-2 mt-1'
                     inline
                     label={<StatusIndicator status={2} />}
                     name="status"
