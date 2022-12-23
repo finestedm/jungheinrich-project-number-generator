@@ -22,7 +22,7 @@ body, html {
 
 body{
     height: 100vh;
-    background-color: hsl(205, 12%, 96%);
+    background-color: hsl(205, 30%, 96%);
 }
 
 #root {
@@ -117,12 +117,62 @@ tr:hover:not(thead>tr) {
     transition: all .1s ;
 }
 
-tr:hover:not(thead>tr):not(tfoot>tr) {
-    cursor:pointer;
+:root{
+    --ps-table-hover-bg: hsl(210, 40%, 97%);
+    --ps-table-hover-color: hsl(215, 36%, 50%);
+    --ps-table-border-color: hsl(210, 30%, 94%);
+    --ps-border-color: hsl(210, 30%, 90%);
+    --ps-border-hover-color: hsl(210, 50%, 80%);
+    --ps-color: hsl(200, 11%, 26%);
+    --ps-table-head-bg: hsl(210, 40%, 98%);
+    --ps-table-head-color: hsl(215, 16%, 47%);
 }
 
-tr:hover:not(thead>tr) td {
-    color: #326680 !important;
+.border {
+	border: var(--bs-border-width) var(--bs-border-style) var(--ps-border-color) !important;
+}
+
+.table-ps {
+	--bs-table-color: var(--bs-body-color);
+	--bs-table-bg: transparent;
+	--bs-table-border-color: var(--ps-table-border-color);
+	--bs-table-accent-bg: transparent;
+	--bs-table-striped-color: var(--bs-body-color);
+	--bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+	--bs-table-active-color: var(--bs-body-color);
+	--bs-table-active-bg: rgba(0, 0, 0, 0.1);
+	--bs-table-hover-color: var(--ps-table-hover-color);
+	--bs-table-hover-bg: var(--ps-table-hover-bg);
+	color: var(--bs-table-color);
+}
+
+.form-control {
+	color: var(--ps-color);
+	background-color: #fff;
+    border: 1px solid var(--ps-border-color)
+
+}
+
+.form-control:hover,
+.form-control:focus {
+	color: var(--ps-table-hover-color);
+	border: 1px solid var(--ps-border-hover-color) !important;
+}
+
+.btn:hover {
+	color: var(--ps-table-hover-color);
+	border-color: var(--ps-border-hover-color) !important;
+}
+
+.table > :not(caption) > * > * {
+	padding: .5rem .5rem;
+	background-color: var(--bs-table-bg);
+	border-bottom-width: 1px;
+	box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+}
+
+tr:hover:not(thead>tr):not(tfoot>tr) {
+    cursor:pointer;
 }
 
 .table-container {
@@ -141,7 +191,7 @@ tr:hover:not(thead>tr) td {
 }
 
 .table--head {
-    background-color: hsl(0, 0%, 96%);
+    background-color: var(--ps-table-head-bg);
     line-height: 1.6rem;
 }
 
@@ -149,7 +199,7 @@ tr:hover:not(thead>tr) td {
 .table--head>th>*>button {
     background-color: transparent;
     border: none;
-    color: #858f95;
+    color: var(--ps-table-head-color);
 
 }
 
@@ -194,42 +244,21 @@ tr>td:last-child {
 }
 
 .search-container h2 {
-    color:#3c464b;
+    color: var(--ps-color);
     font-weight: 600;
     letter-spacing: -1px;
 }
 
 .main--search-input {
-    border: 1px solid hsl(0, 0%, 87%);
     border-left: none !important;
     background-color: #ffffff;
     color: hsl(203, 7%, 60%);
     border-radius: .5rem;
 }
 
-.main--search-input::placeholder {
-    color: hsl(203, 7%, 70%);
-}
-
-.main--search-input:hover,
-.main--search-input:focus {
-    border-width: 1px;
-    color: hsl(198, 14%, 50%);
-}
-
-.main--search-bar .btn {
-    background-color: hsl(0, 0%, 100%) !important;
-    border: 1px solid hsl(0, 0%, 87%) !important;
-    border-right: none !important;
-    color: hsl(203, 7%, 70%);
-}
 
 .main--search-bar .btn.search-input--delete {
     border-left: none !important;
-}
-
-.main--search-bar .btn:hover {
-    color: hsl(198, 14%, 50%);
 }
 
 .search-input--search-icon {
@@ -259,15 +288,15 @@ tr>td:last-child {
 .new-post-counter {
     letter-spacing: -.5px;
     border-radius: .5rem;
-    color: #3c464b;
-    background-color: #f0f0f0;
+    color: var(--ps-table-hover-color);
+    background-color: var(--ps-table-hover-bg);
     font-weight: 600;
   
 }
 
 .new-post-counter.active {
-    color: #53a79f;
-    background-color: #ebfbfa;   
+    color:hsl(174, 34%, 40%);
+    background-color: hsla(174, 65%, 64%, 0.25);
 }
 
 light {
@@ -389,4 +418,14 @@ button#status-2.Mui-selected{
 
 .status-description {
     font-weight: 500;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+	color: var(--bs-dropdown-link-hover-color);
+	background-color: var(--ps-table-hover-bg);
+}
+
+.dropdown-menu {
+	border: var(--bs-dropdown-border-width) solid var(--ps-table-border-color);
+	border-radius: var(--bs-dropdown-border-radius);
 }

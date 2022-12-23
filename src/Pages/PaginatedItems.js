@@ -44,9 +44,9 @@ export default function PaginatedItems(props) {
      
     return (
       <Row>
-        <Table hover>
+        <Table hover className='table-ps'>
             <thead>
-            <tr className='table--head text-uppercase'> 
+            <tr className='table--head'> 
               <th><StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} /></th>
               <th>Numer</th>
               <th>Klient</th>
