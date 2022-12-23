@@ -37,11 +37,11 @@ export default function StatusIndicator({status}) {
 
     return (
         <div>
-            <span className='justify-content-center gap-2 py-1 px-2 rounded-pill' id={statusId}>
-                <div  className="d-inline status-indicator--icon">
+            <span className='justify-content-center gap-2 p-2 rounded' id={statusId}>
+                <div className="d-inline status-indicator--icon">
                     {statusIcon(status)}
                 </div>
-                <div className="d-none d-lg-inline ms-2">
+                <div className="d-none d-lg-inline ms-2 status-description">
                     {statusDescription(status)}
                 </div>
             </span>

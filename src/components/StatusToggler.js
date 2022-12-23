@@ -2,12 +2,19 @@ import React from 'react';
 import {Dropdown, Form} from 'react-bootstrap';
 import StatusIndicator from './StatusIndicator';
 
+function activeStatusCounter(filters) {
+    const allStatuses = Object.values(filters.status).length
+    const activeStatuses = (Object.values(filters.status).filter(status => status === true)).length
+    return (activeStatuses < allStatuses )? ` (${activeStatuses} / ${allStatuses})` : ''
+}
 
 export default function StatusToggler({ filters, changeStatusInFilters }) {
+
+
     return(
     <Dropdown autoClose="outside">
         <Dropdown.Toggle className='p-0 m-0' id="dropdown-basic">
-            STATUS
+            STATUS {activeStatusCounter(filters)}
         </Dropdown.Toggle>
         
             
@@ -20,7 +27,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                     className='d-flex align-items-center gap-2'
                     inline
                     checked={Object.values(filters.status).every(status => status === true)}
-                    label={<span>{Object.values(filters.status).every(status => status === true) ? 'Odznacz wszytskie' : 'Zaznacz wszytskie'}</span>}
+                    label={<span>{Object.values(filters.status).every(status => status === true) ? 'Odznacz wszystkie' : 'Zaznacz wszystkie'}</span>}
                     name="status"
                     />
             </Dropdown.Item>
@@ -31,7 +38,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                     value='0'    
                     checked={filters.status[0]}    
                     onChange={(e) => changeStatusInFilters(e.target.value)}
-                    className='d-flex align-items-center gap-2'
+                    className='d-flex align-items-center gap-2 mt-2'
                     inline
                     label={<StatusIndicator status={0} />}
                     name="status"

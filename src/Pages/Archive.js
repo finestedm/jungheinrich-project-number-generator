@@ -46,8 +46,6 @@ export default function Archive() {
         setPostToEditId(id);
     }
 
-    console.log(filters)
-
     useEffect(() => {      
         setFilteredPosts(searchPosts(posts, filters));
     }, [posts, filters])

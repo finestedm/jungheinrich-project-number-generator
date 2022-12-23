@@ -118,7 +118,6 @@ tr:hover:not(thead>tr) {
 }
 
 tr:hover:not(thead>tr):not(tfoot>tr) {
-    background-color: #e1edf5 !important;
     cursor:pointer;
 }
 
@@ -137,7 +136,7 @@ tr:hover:not(thead>tr) td {
     background-color: rgb(255, 255, 255);
     font-size: .8rem;
     letter-spacing: -.25px;
-    color: #4a5960;
+    color: hsla(199, 13%, 33%, 90%);
     border-radius: 0 0 1rem 1rem !important;
 }
 
@@ -145,12 +144,6 @@ tr:hover:not(thead>tr) td {
     background-color: hsl(0, 0%, 96%);
     line-height: 1.6rem;
 }
-/* 
-.table--foot {
-    background-color: #3c464b;
-
-} */
-
 
 .table--head>th,
 .table--head>th>*>button {
@@ -287,22 +280,22 @@ light {
 }
 
 span#status-0{
-    color:hsl(45, 100%, 30%);
-    border: 1px solid hsla(45, 100%, 30%, 0.5);
+    color:hsl(200, 92%, 35%);
+    /* border: 1px solid hsla(45, 100%, 30%, 0.5); */
     border-radius: 2rem;
-    background-color: hsla(45, 100%, 45%, 0.25);
+    background-color: hsl(200, 92%, 90%);
 }
 
 span#status-1{
     color:hsl(174, 34%, 30%);
-    border: 1px solid hsla(174, 34%, 30%, 0.5);
+    /* border: 1px solid hsla(174, 34%, 30%, 0.5); */
     border-radius: 2rem;
     background-color: hsla(174, 34%, 49%, 0.25);
 }
 
 span#status-2{
     color:hsla(1, 60%, 40%);
-    border: 1px solid hsla(1, 60%, 40%, 0.5);
+    /* border: 1px solid hsla(1, 60%, 40%, 0.5); */
     border-radius: 2rem;
     background-color: hsla(1, 60%, 46%, 0.25);
 }
@@ -391,5 +384,9 @@ button#status-2.Mui-selected{
 
 .status-indicator--icon {
     position: relative;
-    top: -1px;
+    top: -.5px;
+}
+
+.status-description {
+    font-weight: 500;
 }
