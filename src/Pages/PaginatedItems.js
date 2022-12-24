@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import ArchivedProject from '../components/ArchivedProject';
 import ArchivedProjectPlaceholder from '../components/ArchivedProjectPlaceholder';
 import StatusToggler from '../components/StatusToggler'
+import UserToggler from '../components/UserToggler';
 import NoSearchResults from '../components/NoSearchResults'
 
 
@@ -24,7 +25,7 @@ function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
   
 
 export default function PaginatedItems(props) {
-    const { toggleModalVisible, setPostToEditId, itemsPerPage, posts, filters, changeStatusInFilters} = props
+    const { toggleModalVisible, setPostToEditId, itemsPerPage, posts, filters, changeStatusInFilters, changeUserInFilters} = props
 
     // Here we use item offsets; we could also use page offsets
     // following the API or data you're working with.
@@ -54,7 +55,7 @@ export default function PaginatedItems(props) {
               <th>Klient</th>
               <th>Lokalizacja</th>
               <th className='d-none d-lg-table-cell'>Opis</th>
-              <th className='d-none d-md-table-cell'>Handlowiec</th>
+              <th className='d-none d-md-table-cell'><UserToggler changeUserInFilters={changeUserInFilters} filters={filters} /></th>
               <th className='d-none d-md-table-cell'>Utworzono</th>
             </tr>
           </thead>

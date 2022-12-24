@@ -443,4 +443,5 @@ button#status-2.Mui-selected{
 .dropdown-menu {
 	border: var(--bs-dropdown-border-width) solid var(--ps-table-border-color);
 	border-radius: var(--bs-dropdown-border-radius);
+    box-shadow: 0 0 10px 1px var(--ps-table-hover-bg);
 }

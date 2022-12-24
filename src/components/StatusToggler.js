@@ -14,7 +14,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
     return(
     <Dropdown autoClose="outside">
         <Dropdown.Toggle className='p-0 m-0' id="dropdown-basic">
-            STATUS {activeStatusCounter(filters)}
+            Status {activeStatusCounter(filters)}
         </Dropdown.Toggle>
         
             

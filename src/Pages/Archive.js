@@ -69,6 +69,10 @@ export default function Archive() {
             setFilters(filtersUpdated)
         }
     }
+
+    function changeUserInFilters(selectedUser) {
+        console.log(selectedUser)
+    }
     
     return (
         <Container className='main my-5'>
@@ -83,7 +87,7 @@ export default function Archive() {
                     </Col>
                 </Row>
                 
-                <PaginatedItems changeStatusInFilters={changeStatusInFilters} filters={filters} posts={filteredPosts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
+                <PaginatedItems changeStatusInFilters={changeStatusInFilters} changeUserInFilters={changeUserInFilters} filters={filters} posts={filteredPosts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
                 
                 {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
             </div>
