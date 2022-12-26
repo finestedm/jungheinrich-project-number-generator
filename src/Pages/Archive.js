@@ -71,7 +71,20 @@ export default function Archive() {
     }
 
     function changeUserInFilters(selectedUser) {
-        console.log(selectedUser)
+        let usersFiltered = filters.users;
+        if (selectedUser === 'all') {
+            usersFiltered.length === users.length ? usersFiltered = [] : usersFiltered = users;
+            setFilters({ ...filters, users: usersFiltered })
+        } else {
+            if ((usersFiltered.filter(user => user.value === selectedUser)).length > 0) {
+                const usersReduced = usersFiltered.filter(user => user.value !== selectedUser)
+                setFilters({ ...filters, users: usersReduced })
+            } else if ((usersFiltered.filter(user => user.value === selectedUser)).length === 0) {
+                const foundUserObject = (users.filter(user => user.value === selectedUser))
+                const usersMerged = usersFiltered.concat(foundUserObject)
+                setFilters({ ...filters, users: usersMerged })
+            }
+        }
     }
     
     return (

@@ -143,8 +143,7 @@ export default function EditPostModal(props) {
                 </Col>
                 <Col className='text-end'>
                     <Button
-                        className='mx-2'
-                        variant="warning"
+                        className='mx-2 btn-ps-accept'
                         onClick={() => {
                         dispatch(updatePost(_id, postData))
                         setPostToEditId(null)
