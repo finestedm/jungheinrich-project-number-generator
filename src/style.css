@@ -233,15 +233,32 @@ tr:hover:not(thead>tr):not(tfoot>tr) {
     background-color: transparent;
     border: none;
     color: var(--ps-table-head-color);
-    border-bottom: none;
-    border-radius: 0;
+}
+
+.table--head>th>*>button {
+    position: relative
+}
+
+.table--head>th>*>button:before {
+    content : "";
+    position: absolute;
+    left    : 0;
+    bottom  : 0;
+    height  : 1px;
+    width   : 0%; 
+    border-bottom:1px solid transparent;
+    transition: all .3s cubic-bezier(.56,.29,.19,1.75);
+}
+
+.table--head>th>*>button:hover::before {
+    height  : 1px;
+    width   : 100%; 
+    border-bottom:1px solid var(--ps-table-head-color-hover);
 }
 
 .table--head>th>*>.btn:hover {
-    border-bottom: 1px solid var(--ps-table-head-color-hover);
     color: var(--ps-table-head-color-hover);
     background-color: transparent;
-    border-radius: 0;
 }
 
 
@@ -300,7 +317,7 @@ tr>td:last-child {
     background-color: #ffffff;
     color: var(--ps-table-hover-color);
     border-radius: .5rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 
@@ -338,7 +355,6 @@ tr>td:last-child {
     color: var(--ps-color-50);
     background-color: var(--ps-table-hover-bg);
     font-weight: 600;
-  
 }
 
 .new-post-counter.active {
@@ -516,4 +532,26 @@ button#status-2.Mui-selected{
 
 .placeholder {
     opacity: .35 !important;
+}
+
+tr{
+    position: relative;
+}
+
+tr:before {
+    content : "";
+    position: absolute;
+    left    : 0;
+    bottom  : 0;
+    height  : 1px;
+    width   : 100%; 
+    border-bottom:1px solid var(--ps-table-head-color-hover);
+    transition: all .5s ease;
+    scale: 0;
+    opacity: .5
+
+}
+
+tr:hover::before {
+    scale: 1;
 }
