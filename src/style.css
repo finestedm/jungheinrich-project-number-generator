@@ -534,7 +534,7 @@ button#status-2.Mui-selected{
     opacity: .35 !important;
 }
 
-tr{
+tbody>tr{
     position: relative;
 }
 
@@ -552,6 +552,6 @@ tr:before {
 
 }
 
-tr:hover::before {
+tbody>tr:hover::before {
     scale: 1;
 }
