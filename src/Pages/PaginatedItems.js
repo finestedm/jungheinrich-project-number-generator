@@ -13,7 +13,6 @@ import NoSearchResults from '../components/NoSearchResults'
 function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
   const posts = useSelector((state) => state.posts)
   
-  console.log(currentItems, posts.length)
   if (currentItems && posts.length > 0) {
     return currentItems.map((post) =>
       (<ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />))
@@ -48,16 +47,17 @@ export default function PaginatedItems(props) {
      
     return (
       <Row>
-        <Table hover className='table-ps'>
+        <Table hover className='table-ps m-0'>
             <thead>
             <tr className='table--head'> 
               <th><StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} /></th>
               <th>Numer</th>
               <th>Klient</th>
-              <th>Lokalizacja</th>
+              <th className='d-none d-lg-table-cell'>Lokalizacja</th>
               <th className='d-none d-lg-table-cell'>Opis</th>
               <th className='d-none d-md-table-cell'><UserToggler changeUserInFilters={changeUserInFilters} filters={filters} /></th>
               <th className='d-none d-md-table-cell'>Utworzono</th>
+              <th className='edit-column'></th>
             </tr>
           </thead>
 

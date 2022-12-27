@@ -4,7 +4,8 @@ import {IoSearch, IoClose} from 'react-icons/io5'
 
 
 export default function SearchBar(props) {
-    const {searchedPhrase, changeSearchedPhrase, requestSearchedPosts} = props
+    const { searchedPhrase, changeSearchedPhrase, requestSearchedPosts } = props
+    
     return (
         <InputGroup>
             <Button variant='outline-secondary bg-white border border-none' onClick={requestSearchedPosts}><IoSearch className='search-input--search-icon' /></Button>

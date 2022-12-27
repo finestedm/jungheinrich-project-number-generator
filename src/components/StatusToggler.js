@@ -5,7 +5,7 @@ import StatusIndicator from './StatusIndicator';
 function activeStatusCounter(filters) {
     const allStatuses = Object.values(filters.status).length
     const activeStatuses = (Object.values(filters.status).filter(status => status === true)).length
-    return (activeStatuses < allStatuses )? ` (${activeStatuses} / ${allStatuses})` : ''
+    return (activeStatuses < allStatuses ) ? ` (${activeStatuses}/${allStatuses})` : ''
 }
 
 export default function StatusToggler({ filters, changeStatusInFilters }) {
@@ -14,7 +14,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
     return(
     <Dropdown autoClose="outside">
         <Dropdown.Toggle className='p-0 m-0' id="dropdown-basic">
-            Status {activeStatusCounter(filters)}
+            <span className='d-none d-lg-inline'>Status</span> <span className='d-inline d-lg-none'>St.</span> {activeStatusCounter(filters)}
         </Dropdown.Toggle>
         
             

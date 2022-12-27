@@ -17,6 +17,10 @@ export default function EditPostModal(props) {
     const { _id, customer, user, location, projectNumber, createdAt, description, status} = postData
     const dispatch = useDispatch()
 
+    function isCustomerValid() {
+        return customer.length >= 3
+    }
+
     return (
         <Modal show={showModal} onHide={() => setShowModal(false)}>
             <Modal.Header closeButton>
@@ -25,6 +29,7 @@ export default function EditPostModal(props) {
             <Modal.Body>
                 <TextField
                     fullWidth
+                    size={window.innerWidth <=500 ? 'small' : 'normal'}
                     disabled
                     className='edit-post-modal--input mb-3'
                     variant="outlined"
@@ -34,6 +39,9 @@ export default function EditPostModal(props) {
                 />
                 <TextField
                     fullWidth
+                    size={window.innerWidth <= 500 ? 'small' : 'normal'}
+                    error={!isCustomerValid()}
+                    helperText={isCustomerValid() ? '' : 'Minimum 3 znaki'}
                     className='edit-post-modal--input mb-3'
                     variant="outlined"
                     label="Nazwa klienta"
@@ -43,6 +51,7 @@ export default function EditPostModal(props) {
                 />
                 <TextField
                     fullWidth
+                    size={window.innerWidth <=500 ? 'small' : 'normal'}
                     className='edit-post-modal--input mb-3'
                     variant="outlined"
                     label="Miejscowość"
@@ -53,6 +62,7 @@ export default function EditPostModal(props) {
                 <TextField
                     fullWidth
                     multiline
+                    size={window.innerWidth <=500 ? 'small' : 'normal'}
                     className='edit-post-modal--input mb-3'
                     variant="outlined"
                     maxRows={4}
@@ -63,51 +73,40 @@ export default function EditPostModal(props) {
                 />
                 <Autocomplete
                     fullWidth
+                    size={window.innerWidth <=500 ? 'small' : 'normal'}
                     disablePortal
                     id="combo-box-demo edit-post-modal--input"
                     options={options}
                     value={user}
+                    
                     className='className="text-capitalize mb-3'
                     onInputChange={(e, newInputValue) => {
                         setPostData({...postData, user: newInputValue})
                     }}
                     isOptionEqualToValue={(option, value) => option.id === value.id}
-                    renderInput={(params) => <TextField required {...params} label="Użytkownik" />}
+                    renderInput={(params) => <TextField error={!user} helperText={user ? '' : 'Wybierz prowadzącego projekt'} required {...params} label="Użytkownik" />}
                     sx={{ backgroundColor: 'white' }}
                 />
-                {/* <div class="btn-group d-flex" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" id="btn-ofertowany" autocomplete="off" />
-                    <label class="btn btn-outline-primary" for="btn-ofertowany">Ofertowany</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btn-zamówiony" autocomplete="off" />
-                    <label class="btn btn-outline-primary" for="btn-zamówiony">Zamówiony</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btn-przegrany" autocomplete="off" />
-                    <label class="btn btn-outline-primary" for="btn-przegrany">Przegrany</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btn-zamknięty" autocomplete="off" />
-                    <label class="btn btn-outline-primary" for="btn-zamknięty">Zamknięty</label>
-                </div> */}
 
                 <ToggleButtonGroup
                     className='d-none d-sm-flex'
                     fullWidth
-                    size='medium'
+                    size={window.innerWidth <=500 ? 'small' : 'normal'}
                     value={status}
                     exclusive
                     onChange={(e, val) => {setPostData({ ...postData, status: val })}}
                     aria-label="project status"
                     >
                     <ToggleButton className='modal--status-switch' id='status-0' value={0} aria-label="ofertowany" selected={status === 0}>
-                        <IoDocumentTextOutline size='20' className='me-2' />
+                        <IoDocumentTextOutline size='1.2rem'  className='me-2' />
                         <span className='text-capitalize'>ofertowany</span>
                     </ToggleButton>
                     <ToggleButton  className='modal--status-switch' id='status-1' value={1} aria-label="realizacja" selected={status === 1}>
-                        <IoFlashOutline size='20' className='me-2' />
+                        <IoFlashOutline size='1.2rem' className='me-2' />
                         <span className='text-capitalize'>realizacja</span>
                     </ToggleButton>
                     <ToggleButton  className='modal--status-switch' id='status-2' value={2} aria-label="przegrany" selected={status === 2}>
-                        <IoCloseCircleOutline size='20' className='me-2' />
+                        <IoCloseCircleOutline size='1.2rem' className='me-2' />
                         <span className='text-capitalize'>przegrany</span>
                     </ToggleButton>
                 </ToggleButtonGroup>
@@ -116,26 +115,26 @@ export default function EditPostModal(props) {
                     className='d-flex d-sm-none'
                     fullWidth
                     orientation="vertical"
-                    size='medium'
+                    size={window.innerWidth <=500 ? 'small' : 'normal'}
                     value={status}
                     exclusive
                     onChange={(e, val) => {setPostData({ ...postData, status: val })}}
                     aria-label="project status"
                     >
                     <ToggleButton className='modal--status-switch' id='status-0' value={0} aria-label="ofertowany" selected={status === 0}>
-                        <IoDocumentTextOutline size='20' className='me-2' />
+                        <IoDocumentTextOutline size='1rem' className='me-2' />
                         <span className='text-capitalize'>ofertowany</span>
                     </ToggleButton>
                     <ToggleButton  className='modal--status-switch' id='status-1' value={1} aria-label="realizacja" selected={status === 1}>
-                        <IoFlashOutline size='20' className='me-2' />
+                        <IoFlashOutline size='1rem'  className='me-2' />
                         <span className='text-capitalize'>realizacja</span>
                     </ToggleButton>
                     <ToggleButton  className='modal--status-switch' id='status-2' value={2} aria-label="przegrany" selected={status === 2}>
-                        <IoCloseCircleOutline size='20' className='me-2' />
+                        <IoCloseCircleOutline size='1rem'  className='me-2' />
                         <span className='text-capitalize'>przegrany</span>
                     </ToggleButton>
                 </ToggleButtonGroup>
-            
+                    
             </Modal.Body>
             <Modal.Footer className='justify-content-between d-flex align-items-center'>
                 <Col xs={12} md={6} className="me-auto">
@@ -144,10 +143,13 @@ export default function EditPostModal(props) {
                 <Col className='text-end'>
                     <Button
                         className='mx-2 btn-ps-accept'
+                        disabled={!isCustomerValid() || !user}
                         onClick={() => {
-                        dispatch(updatePost(_id, postData))
-                        setPostToEditId(null)
-                        setShowModal(false)
+                            if (isCustomerValid() && user) {
+                                dispatch(updatePost(_id, postData))
+                                setPostToEditId(null)
+                                setShowModal(false)
+                            }
                     }}>
                         Zapisz zmiany
                     </Button>

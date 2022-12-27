@@ -88,8 +88,8 @@ export default function Archive() {
     }
     
     return (
-        <Container className='main my-5'>
-            <div className='table-container px-2'>
+        <Container className='main mt-4'>
+            <div className='table-container mb-4 px-2'>
                 <Row className='d-flex flex-column flex-sm-row justify-content-between search-container py-4 px-2 gap-3'>
                     <Col className='col-auto'>
                         <h2 className='mb-4'>Projekty</h2>

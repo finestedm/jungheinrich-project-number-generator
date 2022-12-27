@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
 
 body, html {
     font-family: "Roboto","Helvetica","Arial",sans-serif;
@@ -107,10 +111,14 @@ td {
         text-overflow: ellipsis;
         max-width: 15ch;
     }
+    tbody>tr::before {
+        scale: 0;
+        opacity: .5
+    }
   }
 
 tr {
-    line-height: 2.75rem;
+    line-height: 2.8rem;
 }
 
 tr:hover:not(thead>tr) {
@@ -128,6 +136,8 @@ tr:hover:not(thead>tr) {
     --ps-table-head-bg: hsl(210, 40%, 98%);
     --ps-table-head-color: hsl(215, 16%, 52%);
     --ps-table-head-color-hover: hsl(215, 55%, 45%);
+    --ps-btn-bg: var(--ps-table-hover-bg);
+    --ps-btn-bg-hover: hsl(215, 35%, 75%);
 
 }
 
@@ -186,7 +196,7 @@ tr:hover:not(thead>tr) {
 }
 
 .main--search-bar>div:hover {
-    box-shadow: 0 0 10px hsl(199, 13%, 95%);
+    box-shadow: 0 0 15px hsl(199, 13%, 92%);
 }
 
 .main--search-bar .btn:hover {
@@ -204,21 +214,21 @@ tr:hover:not(thead>tr) {
 	box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
 }
 
-tr:hover:not(thead>tr):not(tfoot>tr) {
+.project-edit-icon {
     cursor:pointer;
 }
 
 .table-container {
     /* border: 2px solid hsla(200, 11%, 26%, 0.1); */
     box-shadow: 0 0 50px rgb(0 0 0 / 10%);
-    border-radius: .5rem;
+    border-radius: .75rem;
     overflow: hidden;
 }
 
 .table {
     background-color: rgb(255, 255, 255);
-    font-size: .8rem;
-    letter-spacing: -.25px;
+    font-size: .825rem;
+    letter-spacing: -.35px;
     color: hsla(199, 13%, 33%, 90%);
     border-radius: 0 0 1rem 1rem !important;
 }
@@ -457,7 +467,7 @@ button#status-2.Mui-selected{
 .btn-ps-accept {
     --bs-btn-color: hsla(210, 50%, 35%) !important;
     --bs-btn-bg: hsl(210, 50%, 90%);
-    --bs-btn-border-color: hsla(210, 50%, 40%);
+    --bs-btn-border-color: var(--bs-btn-bg);
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg:  hsla(210, 50%, 40%);
     --bs-btn-hover-border-color: hsl(210, 70%, 45%);
@@ -471,13 +481,22 @@ button#status-2.Mui-selected{
     --bs-btn-disabled-border-color: #0d6efd;
 }
 
+.btn.disabled, .btn:disabled, fieldset:disabled .btn {
+	color: hsla(210, 45%, 80%);
+    background-color: var(--ps-table-hover-bg);
+    pointer-events: auto;
+    cursor: not-allowed !important;
+	border-color: transparent;
+	opacity: 1;
+}
+
 .form-check-input {
     position: relative;
     top: -2px
 }
 
 .no-results {
-    line-height: 10rem;
+    line-height: 12rem;
     border: none;
 }
 
@@ -534,7 +553,7 @@ button#status-2.Mui-selected{
     opacity: .35 !important;
 }
 
-tbody>tr{
+/* tbody>tr{
     position: relative;
 }
 
@@ -554,7 +573,7 @@ tr:before {
 
 tbody>tr:hover::before {
     scale: 1;
-}
+} */
 
 span.strong {
     background-color: var(--ps-table-hover-bg);
@@ -571,4 +590,16 @@ span.strong {
 .form-check-input:checked {
 	background-color: var(--ps-table-hover-color);
     border-color: hsl(210, 50%, 50%);
+}
+
+.project-edit-icon {
+    background-color: var(--ps-table-head-bg);
+    height: 2rem;
+    width: 2rem;
+    border-radius: .3rem;
+    transition: all .15s ease;
+}
+
+tr:hover .project-edit-icon {
+    background-color:hsl(210, 50%, 92%);
 }
