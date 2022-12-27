@@ -19,7 +19,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
         
             
         <Dropdown.Menu>
-                <Dropdown.Item onClick={() => changeStatusInFilters('all')} className='border-bottom pb-1 d-flex align-items-center'>
+                <Dropdown.Item onClick={() => changeStatusInFilters('all')} className='border-bottom pb-1 d-flex align-items-center status-toggle'>
                 <Form.Check
                     id='status-all' 
                     value='all'  
@@ -32,7 +32,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                     />
             </Dropdown.Item>
                 
-            <Dropdown.Item onClick={() => changeStatusInFilters(0)}>
+            <Dropdown.Item onClick={() => changeStatusInFilters(0)} className='d-flex align-items-center status-toggle'>
                 <Form.Check
                     id='status-0'
                     value='0'    
@@ -45,7 +45,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                 />
             </Dropdown.Item>
                 
-            <Dropdown.Item onClick={() => changeStatusInFilters(1)}>
+            <Dropdown.Item onClick={() => changeStatusInFilters(1)} className='d-flex align-items-center status-toggle'>
                 <Form.Check
                     id='status-1'
                     value='1'    
@@ -58,7 +58,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                 />
             </Dropdown.Item>
 
-            <Dropdown.Item onClick={() => changeStatusInFilters(2)}>
+            <Dropdown.Item onClick={() => changeStatusInFilters(2)} className='d-flex align-items-center status-toggle'>
                 <Form.Check
                     id='status-2'
                     value='2'    

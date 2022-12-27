@@ -127,6 +127,8 @@ tr:hover:not(thead>tr) {
     --ps-color-50: hsl(200, 10%, 70%);
     --ps-table-head-bg: hsl(210, 40%, 98%);
     --ps-table-head-color: hsl(215, 16%, 52%);
+    --ps-table-head-color-hover: hsl(215, 55%, 45%);
+
 }
 
 .border {
@@ -162,6 +164,7 @@ tr:hover:not(thead>tr) {
 .form-control:focus {
 	color: var(--ps-table-hover-color);
 	border: 1px solid var(--ps-border-hover-color) !important;
+    transition: all .2s ease;
 }
 
 .main--search-bar>div {
@@ -175,6 +178,7 @@ tr:hover:not(thead>tr) {
 
 .main--search-bar input::placeholder {
     color: var(--ps-color-50) ;
+    transition: all .2s ease;
 }
 
 .main--search-bar input:hover::placeholder {
@@ -185,9 +189,12 @@ tr:hover:not(thead>tr) {
     box-shadow: 0 0 10px hsl(199, 13%, 95%);
 }
 
-.btn:hover {
-	color: var(--ps-table-hover-color);
+.main--search-bar .btn:hover {
 	border-color: var(--ps-border-hover-color) !important;
+}
+
+.main--search-bar .btn:hover * {
+	color: var(--ps-table-hover-color);
 }
 
 .table > :not(caption) > * > * {
@@ -226,11 +233,41 @@ tr:hover:not(thead>tr):not(tfoot>tr) {
     background-color: transparent;
     border: none;
     color: var(--ps-table-head-color);
-
 }
 
+.table--head>th>*>button {
+    position: relative
+}
+
+.table--head>th>*>button:before {
+    content : "";
+    position: absolute;
+    left    : 0;
+    bottom  : 0;
+    height  : 1px;
+    width   : 0%; 
+    border-bottom:1px solid transparent;
+    transition: all .3s cubic-bezier(.56,.29,.19,1.75);
+}
+
+.table--head>th>*>button:hover::before {
+    height  : 1px;
+    width   : 100%; 
+    border-bottom:1px solid var(--ps-table-head-color-hover);
+}
+
+.table--head>th>*>.btn:hover {
+    color: var(--ps-table-head-color-hover);
+    background-color: transparent;
+}
+
+
+.dropdown-item {
+    font-weight: 400;
+    font-size: .75rem;
+}
 .table--head>th,
-.table--head>th * {
+.table--head>th button {
     font-weight: 500;
     font-size: .8rem;
 }
@@ -280,7 +317,7 @@ tr>td:last-child {
     background-color: #ffffff;
     color: var(--ps-table-hover-color);
     border-radius: .5rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 
@@ -315,10 +352,9 @@ tr>td:last-child {
 .new-post-counter {
     letter-spacing: -.5px;
     border-radius: .5rem;
-    color: var(--ps-table-hover-color);
+    color: var(--ps-color-50);
     background-color: var(--ps-table-hover-bg);
     font-weight: 600;
-  
 }
 
 .new-post-counter.active {
@@ -343,10 +379,10 @@ span#status-0{
 }
 
 span#status-1{
-    color:hsl(174, 34%, 40%);
+    color:hsl(156, 40%, 42%);
     /* border: 1px solid hsla(174, 34%, 30%, 0.5); */
     border-radius: 2rem;
-    background-color: hsla(174, 34%, 49%, 0.25);
+    background-color: hsla(156, 40%, 51%, 0.25);
 }
 
 span#status-2{
@@ -374,14 +410,14 @@ button#status-0.Mui-selected{
 
 button#status-1{
     /* background-color: hsla(174, 34%, 49%, 0.05); */
-    border: 1px solid hsla(174, 34%, 30%, .5);
-    color:hsla(174, 34%, 49%);
+    border: 1px solid hsla(174, 34%, 40%);
+    color:hsla(174, 34%, 40%);
     transition: all .25s ease-in;
 
 }
 
 button#status-1.Mui-selected{
-    background-color: hsla(174, 34%, 49%, 0.2);
+    background-color: hsla(174, 34%, 30%, 0.2);
     color:hsla(174, 34%, 39%, 1);
     border: 1px solid hsla(174, 34%, 49%, 1);
 }
@@ -403,18 +439,37 @@ button#status-2.Mui-selected{
 .modal--status-switch>span {
     position: relative;
     top:1px;
+    font-weight: 400;
 }
 
-.modal * :not(.modal button *):not(label){
-    color:hsl(200, 11%, 26%)
+.modal, 
+.modal textarea {
+    color:var(--ps-color)
 }
 
 .modal label{
-    color:hsla(200, 11%, 26%, 0.69)
+    color:var(--ps-color-50)
 }
 
 .modal .MuiFormControl-root * {
-    border-color: hsla(200, 11%, 26%, .25)
+    border-color: var(--ps-border-color)
+}
+
+.btn-ps-accept {
+    --bs-btn-color: hsla(210, 50%, 35%) !important;
+    --bs-btn-bg: hsl(210, 50%, 90%);
+    --bs-btn-border-color: hsla(210, 50%, 40%);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg:  hsla(210, 50%, 40%);
+    --bs-btn-hover-border-color: hsl(210, 70%, 45%);
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #0a58ca;
+    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd;
 }
 
 .form-check-input {
@@ -431,6 +486,21 @@ button#status-2.Mui-selected{
     top: -.5px;
 }
 
+.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline,
+.css-8ewcdo-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline,
+.css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: var(--ps-border-hover-color) !important;
+}
+
+.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root:focus .MuiOutlinedInput-notchedOutline,
+.css-8ewcdo-MuiInputBase-root-MuiOutlinedInput-root:focus .MuiOutlinedInput-notchedOutline,
+.css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root:focus .MuiOutlinedInput-notchedOutline {
+    border-color: var(--ps-table-hover-color) !important;
+    border-width: 2px;
+}
+
+
+
 .status-description {
     font-weight: 500;
 }
@@ -444,4 +514,44 @@ button#status-2.Mui-selected{
 	border: var(--bs-dropdown-border-width) solid var(--ps-table-border-color);
 	border-radius: var(--bs-dropdown-border-radius);
     box-shadow: 0 0 10px 1px var(--ps-table-hover-bg);
+}
+
+.dropdown-menu {
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.table--head a:not(.status-toggle) {
+    height: 1.25rem;
+    line-height: 1.25rem;
+}
+
+.user-name-toggle:nth-child(2) {
+    margin-top: .25rem;
+}
+
+.placeholder {
+    opacity: .35 !important;
+}
+
+tbody>tr{
+    position: relative;
+}
+
+tr:before {
+    content : "";
+    position: absolute;
+    left    : 0;
+    bottom  : 0;
+    height  : 1px;
+    width   : 100%; 
+    border-bottom:1px solid var(--ps-table-head-color-hover);
+    transition: all .5s ease;
+    scale: 0;
+    opacity: .5
+
+}
+
+tbody>tr:hover::before {
+    scale: 1;
 }
