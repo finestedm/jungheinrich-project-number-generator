@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/jungheinrich-project-number-generator/static/css/main.72f67945.css",
-    "main.js": "/jungheinrich-project-number-generator/static/js/main.cfd0ed8e.js",
-    "static/media/MS.png": "/jungheinrich-project-number-generator/static/media/MS.cd2d4946d2729ff5c9d6.png",
+    "main.css": "/jungheinrich-project-number-generator/static/css/main.8c84d708.css",
+    "main.js": "/jungheinrich-project-number-generator/static/js/main.d1a40f6b.js",
+    "static/media/MS.png": "/jungheinrich-project-number-generator/static/media/MS.0b53880c5dbc3c391a43.png",
     "static/media/PK.png": "/jungheinrich-project-number-generator/static/media/PK.cd4ab2452266bbccb315.png",
     "static/media/MR.png": "/jungheinrich-project-number-generator/static/media/MR.1ace7126e29221f01ea5.png",
     "static/media/MT.png": "/jungheinrich-project-number-generator/static/media/MT.75c37b9a2e53be3bce25.png",
+    "static/media/unknown.png": "/jungheinrich-project-number-generator/static/media/unknown.c3f945216dc12c9498dc.png",
     "static/media/RP.jfif": "/jungheinrich-project-number-generator/static/media/RP.cddd5227892ce7917c34.jfif",
     "static/media/KN.jfif": "/jungheinrich-project-number-generator/static/media/KN.6ca084a5ff60f697b8f4.jfif",
     "index.html": "/jungheinrich-project-number-generator/index.html",
-    "main.72f67945.css.map": "/jungheinrich-project-number-generator/static/css/main.72f67945.css.map",
-    "main.cfd0ed8e.js.map": "/jungheinrich-project-number-generator/static/js/main.cfd0ed8e.js.map"
+    "main.8c84d708.css.map": "/jungheinrich-project-number-generator/static/css/main.8c84d708.css.map",
+    "main.d1a40f6b.js.map": "/jungheinrich-project-number-generator/static/js/main.d1a40f6b.js.map"
   },
   "entrypoints": [
-    "static/css/main.72f67945.css",
-    "static/js/main.cfd0ed8e.js"
+    "static/css/main.8c84d708.css",
+    "static/js/main.d1a40f6b.js"
   ]
 }
