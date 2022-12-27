@@ -21,7 +21,7 @@ export default function ArchivedProject(props) {
             <td className='d-none d-lg-table-cell'>{description}</td>
             <td className='d-none d-md-table-cell'>
                 <div className='d-flex align-items-center'>
-                    {(searchedUser && searchedUser.photo) && <Image src={searchedUser.photo} className='me-2'roundedCircle style={{ height: '1.5rem' }} />}
+                    {(searchedUser && searchedUser.photo) && <Image src={searchedUser.photo} className='me-2' rounded style={{ height: '1.5rem' }} />}
                     {user}
                 </div>
             </td>

@@ -246,14 +246,13 @@ tr:hover:not(thead>tr):not(tfoot>tr) {
     bottom  : 0;
     height  : 1px;
     width   : 0%; 
-    border-bottom:1px solid transparent;
+    border-bottom:1px solid var(--ps-table-head-color-hover);
     transition: all .3s cubic-bezier(.56,.29,.19,1.75);
 }
 
 .table--head>th>*>button:hover::before {
     height  : 1px;
     width   : 100%; 
-    border-bottom:1px solid var(--ps-table-head-color-hover);
 }
 
 .table--head>th>*>.btn:hover {
@@ -264,7 +263,7 @@ tr:hover:not(thead>tr):not(tfoot>tr) {
 
 .dropdown-item {
     font-weight: 400;
-    font-size: .75rem;
+    font-size: .8rem;
 }
 .table--head>th,
 .table--head>th button {
@@ -352,7 +351,7 @@ tr>td:last-child {
 .new-post-counter {
     letter-spacing: -.5px;
     border-radius: .5rem;
-    color: var(--ps-color-50);
+    color: var(--ps-table-hover-color);
     background-color: var(--ps-table-hover-bg);
     font-weight: 600;
 }
@@ -479,6 +478,7 @@ button#status-2.Mui-selected{
 
 .no-results {
     line-height: 10rem;
+    border: none;
 }
 
 .status-indicator--icon {
@@ -554,4 +554,21 @@ tr:before {
 
 tbody>tr:hover::before {
     scale: 1;
+}
+
+span.strong {
+    background-color: var(--ps-table-hover-bg);
+    border-radius: .2rem;
+    padding: .25rem;
+}
+
+/* checkbox */ 
+
+.form-check-input[type="checkbox"] {
+	border-color: var(--ps-border-color);
+}
+
+.form-check-input:checked {
+	background-color: var(--ps-table-hover-color);
+    border-color: hsl(210, 50%, 50%);
 }

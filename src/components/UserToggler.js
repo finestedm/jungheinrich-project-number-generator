@@ -2,18 +2,18 @@ import React from 'react';
 import { Dropdown, Form } from 'react-bootstrap';
 import { users } from '../data/users';
 
-// function activeStatusCounter(filters) {
-//     const allStatuses = Object.values(filters.status).length
-//     const activeStatuses = (Object.values(filters.status).filter(status => status === true)).length
-//     return (activeStatuses < allStatuses )? ` (${activeStatuses} / ${allStatuses})` : ''
-// }
+function activeUserCounter(filters) {
+    const allUsers = users.length
+    const activeUsers = filters.users.length
+    return (activeUsers < allUsers ) ? ` (${activeUsers} / ${allUsers})` : ''
+}
 
 export default function UserToggler({ filters, changeUserInFilters }) {
     
     return(
         <Dropdown autoClose="outside">
         <Dropdown.Toggle className='p-0 m-0' id="dropdown-basic">
-            Handlowiec 
+            Handlowiec {activeUserCounter(filters)}
         </Dropdown.Toggle>
         
         <Dropdown.Menu>

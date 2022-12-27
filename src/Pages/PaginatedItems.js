@@ -13,10 +13,11 @@ import NoSearchResults from '../components/NoSearchResults'
 function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
   const posts = useSelector((state) => state.posts)
   
+  console.log(currentItems, posts.length)
   if (currentItems && posts.length > 0) {
     return currentItems.map((post) =>
       (<ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />))
-  } else if (currentItems && posts.length > 0) {
+  } else if (!currentItems && posts.length > 0) {
     return <NoSearchResults />
   } else {
     return Array(15).fill(<ArchivedProjectPlaceholder />)
