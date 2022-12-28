@@ -13,7 +13,7 @@ export default function ArchivedProject(props) {
     const { setPostToEdit, toggleModalVisible, post } = props
     const searchedUser = users.filter(user => user.value === post.user)[0]
     const {projectNumber, user, location, description, customer, createdAt, status} = post
-    console.log(description.length)
+
     return (
         <tr>
             <td className="table--status">{status !== null ? (<StatusIndicator status={status} />) : 'brak'} </td>
