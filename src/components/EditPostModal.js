@@ -68,6 +68,8 @@ export default function EditPostModal(props) {
                     maxRows={4}
                     label="Opis"
                     value={description}
+                    error={description.length > 250}
+                    helperText={description.length > 250 ? 'Max 250 znaków' : ''}
                     onChange={(e) => setPostData({...postData, description: e.target.value})}
                     sx={{backgroundColor: 'white'}}
                 />
@@ -78,7 +80,6 @@ export default function EditPostModal(props) {
                     id="combo-box-demo edit-post-modal--input"
                     options={options}
                     value={user}
-                    
                     className='className="text-capitalize mb-3'
                     onInputChange={(e, newInputValue) => {
                         setPostData({...postData, user: newInputValue})

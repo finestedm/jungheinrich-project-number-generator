@@ -111,6 +111,8 @@ export default function Main() {
                     fullWidth
                     variant="outlined"
                     label="Opis projektu"
+                    error={description.length > 250}
+                    helperText={description.length > 250 ? 'Max 250 znaków' : ''}
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
 
