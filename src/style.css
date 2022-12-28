@@ -131,7 +131,7 @@ tr:hover:not(thead>tr) {
     --ps-table-border-color: hsl(210, 30%, 94%);
     --ps-border-color: hsl(210, 30%, 90%);
     --ps-border-hover-color: hsl(210, 45%, 75%);
-    --ps-color: hsl(200, 11%, 26%);
+    --ps-color: hsl(200, 10%, 32%);
     --ps-color-50: hsl(200, 10%, 70%);
     --ps-table-head-bg: hsl(210, 40%, 98%);
     --ps-table-head-color: hsl(215, 16%, 52%);
@@ -229,7 +229,7 @@ tr:hover:not(thead>tr) {
     background-color: rgb(255, 255, 255);
     font-size: .825rem;
     letter-spacing: -.35px;
-    color: hsla(199, 13%, 33%, 90%);
+    color: var(--ps-color);
     border-radius: 0 0 1rem 1rem !important;
 }
 
@@ -602,4 +602,15 @@ span.strong {
 
 tr:hover .project-edit-icon {
     background-color:hsl(210, 50%, 92%);
+}
+
+/* tooltip */
+
+.ps-tooltip {
+    --bs-tooltip-bg: hsl(200, 11%, 26%);
+    --bs-tooltip-color:  white;
+    margin: 0;
+    padding: 0;
+    border-radius: .5rem;
+    box-shadow: 0 0 18px hsla(200, 8%, 15%, 0.3);
 }

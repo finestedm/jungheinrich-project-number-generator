@@ -8,9 +8,18 @@ import ArchivedProjectPlaceholder from '../components/ArchivedProjectPlaceholder
 import StatusToggler from '../components/StatusToggler'
 import UserToggler from '../components/UserToggler';
 import NoSearchResults from '../components/NoSearchResults'
+import * as bootstrap from 'bootstrap';
+window.bootstrap = bootstrap;
 
 
 function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
+  
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+
+
   const posts = useSelector((state) => state.posts)
   
   if (currentItems && posts.length > 0) {
