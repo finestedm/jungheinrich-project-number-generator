@@ -93,7 +93,7 @@ export default function Archive() {
             <div className='table-container mb-4 px-2'>
                 <Row className='d-flex flex-column flex-sm-row justify-content-between search-container py-4 px-2 gap-3'>
                     <Col className='col-auto'>
-                        <h2 className='mb-4'>Projekty</h2>
+                        <h2 className='mb-4 fs-1'>Projekty</h2>
                         <NewProjectCounter className='align' postsThisDay={postsThisDay} />
                     </Col>
                     <Col className='col-auto col-sm-4 main--search-bar mt-auto'>

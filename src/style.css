@@ -10,6 +10,7 @@ body, html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     min-height: -webkit-fill-available;
+    font-size: 13px;
 }
 
 .navbar {
@@ -101,9 +102,7 @@ td {
 }
 
 @media screen and (max-width: 500px) {
-    .table * {
-        font-size: .75rem;
-    }
+    
     td.table--customer,
     td.table--location {
         white-space: nowrap;
@@ -118,7 +117,7 @@ td {
   }
 
 tr {
-    line-height: 2.8rem;
+    line-height: 3.1rem;
 }
 
 tr:hover:not(thead>tr) {
@@ -227,7 +226,6 @@ tr:hover:not(thead>tr) {
 
 .table {
     background-color: rgb(255, 255, 255);
-    font-size: .825rem;
     letter-spacing: -.35px;
     color: var(--ps-color);
     border-radius: 0 0 1rem 1rem !important;
@@ -235,7 +233,7 @@ tr:hover:not(thead>tr) {
 
 .table--head {
     background-color: var(--ps-table-head-bg);
-    line-height: 1.6rem;
+    line-height: 1.8rem;
 }
 
 .table--head>th,
@@ -273,12 +271,12 @@ tr:hover:not(thead>tr) {
 
 .dropdown-item {
     font-weight: 400;
-    font-size: .8rem;
+    font-size: .9rem;
 }
 .table--head>th,
 .table--head>th button {
     font-weight: 500;
-    font-size: .8rem;
+    font-size: 1rem;
 }
 
 
@@ -349,7 +347,7 @@ tr>td:last-child {
 }
 
 .project-number-output>* {
-    font-size: 1.75rem;
+    font-size: 2rem;
 }
 
 
@@ -450,6 +448,7 @@ button#status-2.Mui-selected{
     top:1px;
     font-weight: 400;
 }
+
 
 .modal, 
 .modal textarea {
@@ -614,4 +613,8 @@ tr:hover .project-edit-icon {
     padding: 0;
     border-radius: .5rem;
     box-shadow: 0 0 18px hsla(200, 8%, 15%, 0.3);
+}
+
+.filter-indicator {
+    background-color: var(--ps-btn-bg);
 }
