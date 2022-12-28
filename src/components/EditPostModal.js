@@ -78,7 +78,7 @@ export default function EditPostModal(props) {
                     id="combo-box-demo edit-post-modal--input"
                     options={options}
                     value={user}
-                    
+                    ListboxProps={{style: {maxHeight: '10rem'}}}
                     className='className="text-capitalize mb-3'
                     onInputChange={(e, newInputValue) => {
                         setPostData({...postData, user: newInputValue})

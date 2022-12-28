@@ -19,7 +19,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
         
             
         <Dropdown.Menu>
-                <Dropdown.Item onClick={() => changeStatusInFilters('all')} className='border-bottom pb-1 d-flex align-items-center status-toggle'>
+                <Dropdown.Item onClick={() => changeStatusInFilters('all')} className='border-bottom py-2 d-flex align-items-center status-toggle'>
                 <Form.Check
                     id='status-all' 
                     value='all'  
@@ -38,7 +38,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                     value='0'    
                     checked={filters.status[0]}    
                     onChange={(e) => changeStatusInFilters(e.target.value)}
-                    className='d-flex align-items-center gap-2 mt-2'
+                    className='d-flex align-items-center gap-2 py-1'
                     inline
                     label={<StatusIndicator status={0} />}
                     name="status"
@@ -51,7 +51,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                     value='1'    
                     checked={filters.status[1]}    
                     onChange={(e) => changeStatusInFilters(e.target.value)}
-                    className='d-flex align-items-center gap-2 mt-1'
+                    className='d-flex align-items-center gap-2 py-1'
                     inline
                     label={<StatusIndicator status={1} />}
                     name="status"
@@ -64,7 +64,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                     value='2'    
                     checked={filters.status[2]}    
                     onChange={(e) => changeStatusInFilters(e.target.value)}
-                    className='d-flex align-items-center gap-2 mt-1'
+                    className='d-flex align-items-center gap-2 py-1'
                     inline
                     label={<StatusIndicator status={2} />}
                     name="status"

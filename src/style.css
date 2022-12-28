@@ -533,6 +533,7 @@ button#status-2.Mui-selected{
 	border: var(--bs-dropdown-border-width) solid var(--ps-table-border-color);
 	border-radius: var(--bs-dropdown-border-radius);
     box-shadow: 0 0 10px 1px var(--ps-table-hover-bg);
+    --bs-dropdown-padding-y: 0;
 }
 
 .dropdown-menu {
@@ -541,8 +542,8 @@ button#status-2.Mui-selected{
 }
 
 .table--head a:not(.status-toggle) {
-    height: 1.25rem;
-    line-height: 1.25rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
 }
 
 .user-name-toggle:nth-child(2) {

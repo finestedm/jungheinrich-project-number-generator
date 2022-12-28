@@ -8,6 +8,7 @@ import SearchBar from '../components/SearchBar';
 import searchPosts from '../components/searchPosts';
 import getPostsNotOlderThan24h from '../components/newPostsCounter';
 import NewProjectCounter from '../components/NewProjectCounter';
+import AcitveFiltersIndicator from '../components/ActiveFilterIndicator'
 import { users } from '../data/users'
 
 export default function Archive() {
@@ -95,7 +96,8 @@ export default function Archive() {
                         <h2 className='mb-4'>Projekty</h2>
                         <NewProjectCounter className='align' postsThisDay={postsThisDay} />
                     </Col>
-                    <Col  className='col-auto col-sm-4 main--search-bar mt-auto'>
+                    <Col className='col-auto col-sm-4 main--search-bar mt-auto'>
+                        <AcitveFiltersIndicator filters={filters} />
                         <SearchBar searchedPhrase={filters.searchedPhrase} changeSearchedPhrase={changeSearchedPhrase} />
                     </Col>
                 </Row>
