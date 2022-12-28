@@ -608,7 +608,7 @@ tr:hover .project-edit-icon {
 /* tooltip */
 
 .ps-tooltip {
-    --bs-tooltip-bg: hsl(200, 11%, 26%);
+    --bs-tooltip-bg: hsl(200, 15%, 26%);
     --bs-tooltip-color:  white;
     margin: 0;
     padding: 0;
