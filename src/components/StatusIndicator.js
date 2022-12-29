@@ -3,7 +3,7 @@ import { RxArchive } from 'react-icons/rx';
 import {  IoDocumentTextOutline, IoFlashOutline, IoCloseCircleOutline } from 'react-icons/io5';
 
 const statusDescription = (status) => {
-    switch (status) {
+    switch (parseInt(status)) {
         case 0:
             return 'ofertowany';
         case 1:
