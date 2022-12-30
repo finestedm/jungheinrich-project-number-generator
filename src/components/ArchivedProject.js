@@ -18,9 +18,9 @@ export default function ArchivedProject(props) {
         <tr>
             <td className="table--status">{status !== null ? (<StatusIndicator status={status} />) : 'brak'} </td>
             <td><span className="strong">{projectNumber}</span></td>
-            <td className="d-table-cell d-lg-none table--customer align-middle" style={{lineHeight: '1.4rem'}}>{customer} <br /><span style={{opacity: '.5'}}>{location}</span></td>
-            <td className="d-none d-lg-table-cell table--customer">{customer}</td>
-            <td className="d-none d-lg-table-cell table--location">{location}</td>
+            <td className="d-table-cell d-xl-none table--customer align-middle" style={{lineHeight: '1.4rem'}}>{customer} <br /><span style={{opacity: '.5'}}>{location}</span></td>
+            <td className="d-none d-xl-table-cell table--customer">{customer}</td>
+            <td className="d-none d-xl-table-cell table--location">{location}</td>
             <td className='d-none d-lg-table-cell' data-bs-toggle={description.length > 21 ? "tooltip" : 'disabled'} data-bs-placement="top" data-bs-title={description} data-bs-custom-class="ps-tooltip">{description}</td>
             <td className='d-none d-md-table-cell'>
                 <div className='d-flex align-items-center'>
@@ -28,7 +28,7 @@ export default function ArchivedProject(props) {
                     {user}
                 </div>
             </td>
-            <td className='d-none d-md-table-cell'> {moment(createdAt).fromNow()} </td>
+            <td className='d-none d-lg-table-cell'> {moment(createdAt).fromNow()} </td>
             <td><FiEdit onClick={() => toggleModalVisible(post._id)} className='p-2 m-0 project-edit-icon' /></td>
         </tr>
     )

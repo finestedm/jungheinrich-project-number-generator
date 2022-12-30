@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
 
 body, html {
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-family: "Inter","Helvetica","Arial",sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     min-height: -webkit-fill-available;
@@ -19,16 +19,54 @@ table .dropdown-item {
     font-size: 13px;
 }
 
-.navbar {
-    background-color: var(--ps-navbar-bg);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    font-family: 'Roboto Slab', serif;
+.sidebar {
+    background-color: var(--ps-table-head-bg);
+    border-right: 1px solid var(--ps-border-color);
+    height: 100%;
+    max-width: 280px;
+    /* transition: all .3s ease; */
+}
+
+.nav-link {
+	color: var( --ps-nav-color);
+    transition: all .2s ease-out;
+    position: relative;
+    width: 100%;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 0%;
+	background-color: var(--ps-table-hover-color);
+    right: -1px;
+    top: 0;
+    transition: all .7s cubic-bezier(.39,.58,.57,1);
+}
+
+.nav-link.active,
+.nav-link.active:focus,
+.nav-link.active:hover {
+	color: var(--ps-table-hover-color);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link.active::after,
+.nav-link.active:focus::after,
+.nav-link.active:hover::after {
+    height: 100%;
+}
+
+.nav-link:focus, 
+.nav-link:hover {
+	color: var(--ps-nav-color-hover);
 }
 
 .nav-main__logo {
-    fill: white;
-    height: 35px !important;
-    width: 200px !important;
+    fill: var(--ps-btn-dark-bg);
+    height: auto;
 }
 
 body{
@@ -40,7 +78,7 @@ body{
 }
 
 .main {
-    height: 90%;
+    overflow-y: scroll;
 }
 
 .card-footer {
@@ -106,8 +144,36 @@ td {
     max-width: 18ch;
 }
 
-@media screen and (max-width: 500px) {
-    
+@media screen and (max-width: 768px) {
+    .sidebar {
+        max-width: 100%;
+        font-size: 1.5rem;
+        height: 75px;
+        border-bottom: 1px solid var(--ps-table-border-color);
+        padding: 0 !important;
+    }
+    .nav-link {
+        height: 73px;
+    }
+    .nav-link::after {
+        content: '';
+        height: 2px;
+        right: 0;
+        width: 0;
+        top: 100%;
+    }
+    .nav-link.active::after,
+    .nav-link.active:focus::after,
+    .nav-link.active:hover::after {
+        height: 2px;
+        width: 100%;
+    }
+
+    .nav-main__logo {
+        fill: var(--ps-btn-dark-bg);
+        height: 50px;
+        width: 50px;
+    }
     td.table--customer,
     td.table--location {
         white-space: nowrap;
@@ -120,6 +186,12 @@ td {
         opacity: .5
     }
   }
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .sidebar {
+        max-width: 200px;
+    }
+}
 
 tr {
     line-height: 3.25rem;
@@ -135,16 +207,18 @@ tr:hover:not(thead>tr) {
     --ps-table-border-color: hsl(210, 30%, 94%);
     --ps-border-color: hsl(210, 30%, 90%);
     --ps-border-hover-color: hsl(210, 45%, 75%);
-    --ps-color: hsl(200, 10%, 32%);
-    --ps-color-50: hsl(200, 10%, 70%);
+    --ps-color: hsl(200, 20%, 32%);
+    --ps-color-50: hsl(200, 20%, 70%);
+    --ps-nav-color: hsl(200, 30%, 60%);
+    --ps-nav-color-hover: hsl(200, 30%, 35%);
     --ps-table-head-bg: hsl(210, 40%, 96%);
     --ps-table-head-color: hsl(215, 16%, 52%);
     --ps-table-head-color-hover: hsl(215, 55%, 45%);
     --ps-btn-bg: var(--ps-table-hover-bg);
     --ps-btn-bg-hover: hsl(215, 35%, 75%);
     --ps-btn-bg-active: hsl(200, 11%, 30%);
-    --ps-navbar-bg: hsl(200, 11%, 26%);
-    --ps-navbar-bg-hover: hsl(200, 11%, 35%);
+    --ps-btn-dark-bg: hsl(200, 11%, 26%);
+    --ps-btn-dark-bg-hover: hsl(200, 11%, 35%);
 
 }
 
@@ -321,7 +395,7 @@ tr>td:last-child {
     background-color: #ffffff;
     color: var(--ps-table-hover-color);
     border-radius: .5rem;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 
@@ -628,13 +702,14 @@ tr:hover .project-edit-icon {
     --bs-btn-bg: var(--ps-table-head-color);
     --bs-btn-border-color: var(--bs-btn-bg);
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: var(--ps-navbar-bg-hover);
-    --bs-btn-hover-border-color: var(--ps-navbar-bg-hover);
+    --bs-btn-hover-bg: var(--ps-btn-dark-bg-hover);
+    --bs-btn-hover-border-color: var(--ps-btn-dark-bg-hover);
     --bs-btn-focus-shadow-rgb: 49,132,253;
     --bs-btn-active-color: #fff;
-    --bs-btn-hover-bg: var(--ps-navbar-bg-hover);
-    --bs-btn-hover-border-color: var(--ps-navbar-bg-hover);
+    --bs-btn-hover-bg: var(--ps-btn-dark-bg-hover);
+    --bs-btn-hover-border-color: var(--ps-btn-dark-bg-hover);
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-font-size: 13px;
     font-weight: 500;
 }
 
@@ -642,4 +717,10 @@ tr:hover .project-edit-icon {
 	color: var(--bs-btn-active-color);
 	background-color: var(--ps-btn-bg-active);
 	border-color: var(--ps-btn-bg-active);
+}
+
+/* cards */
+
+.card-header {
+	border-bottom: none;
 }

@@ -21,7 +21,7 @@ export default function Main() {
     const [postsData, setPostsData] = useState([])
 
     function isCustomerValid() {
-        return customer.length > 3
+        return customer.length >= 3
     }
 
     const dispatch = useDispatch();
@@ -82,9 +82,8 @@ export default function Main() {
     }
 
     return (
-        <Container className='main text-center d-grid mt-3 px-4 align-items-center '>
+        <Container fluid className='main text-center d-flex flex-column justify-content-around w-75 h-100'>
             <Form id='project-details' as={Row} className='justify-content-between gap-3 mb-3 needs-validation' noValidate>
-
                 <Autocomplete
                     required
                     fullWidth
