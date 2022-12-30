@@ -10,6 +10,12 @@ body, html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     min-height: -webkit-fill-available;
+    /* font-size: 13px; */
+}
+
+table,
+table .btn,
+table .dropdown-item {
     font-size: 13px;
 }
 
@@ -116,7 +122,7 @@ td {
   }
 
 tr {
-    line-height: 3.75rem;
+    line-height: 3.25rem;
 }
 
 tr:hover:not(thead>tr) {
@@ -273,7 +279,6 @@ tr:hover:not(thead>tr) {
 .table--head>th,
 .table--head>th button {
     font-weight: 500;
-    font-size: 1rem;
 }
 
 
@@ -408,7 +413,6 @@ span#status-2{
 }
 
 .modal {
-    font-size: 16px;
 	--bs-modal-border-width: 0;
 	--bs-modal-header-border-width: 0;
 	--bs-modal-footer-border-width: 0;
@@ -461,20 +465,8 @@ button#status-2.Mui-selected{
     font-weight: 400;
 }
 
-.modal .MuiFormControl-root *,
-.modal .btn,
-.modal button {
-    font-size: 1.2rem;
-}
-
 .modal .MuiFormControl-root * {
     border-color: var(--ps-border-color);
-}
-
-
-.css-17ndd9v-MuiButtonBase-root-MuiToggleButton-root,
-.css-1xgjc5y-MuiButtonBase-root-MuiToggleButton-root {
-	line-height: 1.5   ;
 }
 
 
