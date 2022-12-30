@@ -84,20 +84,22 @@ export default function Main() {
     return (
         <Container className='main text-center d-grid mt-3 px-4 align-items-center '>
             <Form id='project-details' as={Row} className='justify-content-between gap-3 mb-3 needs-validation' noValidate>
-                <TextField
-                    required
-                    className='main--input'
-                    variant="outlined"
-                    label="Nazwa klienta"
-                    minLength={3}
-                    error={!isCustomerValid()}
-                    value={customer}
-                    onChange={(e) => {
-                        setCustomer(e.target.value)
-                    }
-                    }
-                />
 
+                <Autocomplete
+                    required
+                    fullWidth
+                    disablePortal
+                    freeSolo
+                    id="combo-box-demo"
+                    options={[...new Set(posts.map(post => post.customer))]}
+                    className='p-0'
+                    value={customer}
+                    onInputChange={(e, value) => {setCustomer(value)}}
+                    isOptionEqualToValue={(option, value) => option.id === value.id}
+                    renderInput={(params) => <TextField error={!isCustomerValid()} required {...params} label="Nazwa klienta"/>}
+                    sx={{backgroundColor: 'white'}}
+                />  
+                
                 <TextField
                     className='main--input'
                     variant="outlined"

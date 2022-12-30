@@ -7,7 +7,7 @@ import moment from 'moment'
 import 'moment/locale/pl' 
 import { users as options } from '../data/users';
 import { updatePost } from "../actions/posts";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { IoDocumentTextOutline, IoFlashOutline, IoCloseCircleOutline } from 'react-icons/io5';
 
 moment.locale('pl');
@@ -16,6 +16,8 @@ export default function EditPostModal(props) {
     const { showModal, setShowModal, postData, setPostData, setPostToEditId } = props
     const { _id, customer, user, location, projectNumber, createdAt, description, status} = postData
     const dispatch = useDispatch()
+
+    const posts = useSelector((state) => state.posts)
 
     function isCustomerValid() {
         return customer.length >= 3
@@ -37,18 +39,21 @@ export default function EditPostModal(props) {
                     value={projectNumber}
                     sx={{backgroundColor: 'white'}}
                 />
-                <TextField
+                <Autocomplete
+                    required
                     fullWidth
-                    size={window.innerWidth <= 500 ? 'small' : 'normal'}
-                    error={!isCustomerValid()}
-                    helperText={isCustomerValid() ? '' : 'Minimum 3 znaki'}
+                    disablePortal
+                    freeSolo
+                    id="combo-box-demo"
+                    options={[...new Set(posts.map(post => post.customer))]}
                     className='edit-post-modal--input mb-3'
-                    variant="outlined"
-                    label="Nazwa klienta"
                     value={customer}
-                    onChange={(e) => setPostData({...postData, customer: e.target.value})}
-                    sx={{backgroundColor: 'white'}}
-                />
+                    onInputChange={(e, value) => {setPostData({...postData, customer: value})}}
+                    isOptionEqualToValue={(option, value) => option.id === value.id}
+                    renderInput={(params) => <TextField error={!isCustomerValid()} required {...params} label="Nazwa klienta"/>}
+                    sx={{ backgroundColor: 'white' }}
+                    helperText={isCustomerValid() ? '' : 'Minimum 3 znaki'}
+                />  
                 <TextField
                     fullWidth
                     size={window.innerWidth <=500 ? 'small' : 'normal'}

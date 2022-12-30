@@ -633,7 +633,7 @@ tr:hover .project-edit-icon {
 
 .filter-indicator >.btn {
     --bs-btn-color: white;
-    --bs-btn-bg: var(--ps-navbar-bg);
+    --bs-btn-bg: var(--ps-table-head-color);
     --bs-btn-border-color: var(--bs-btn-bg);
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: var(--ps-navbar-bg-hover);
