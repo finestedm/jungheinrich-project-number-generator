@@ -94,11 +94,11 @@ export default function Archive() {
             <div className='table-container mb-4'>
                 <Row className='justify-content-between search-container py-4 gap-3'><h2>Projekty</h2></Row>
                 <Row><h5>Podsumowanie</h5></Row>
-                <Row className='d-flex align-items-stretch'>
-                    <Col className='col'><NewProjectCounter postsThisDay={postsThisDay} /></Col>
-                    <Col className='col'><UserActivity /></Col>
-
+                <Row className='mb-3'>
+                    <Col><NewProjectCounter postsThisDay={postsThisDay} /></Col>
+                    <Col><UserActivity /></Col>
                 </Row>
+                <Row><h5>Zestawienie projektów</h5></Row>
                 <Row className='d-flex gap-2'>
                     <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeUserInFilters={changeUserInFilters} />
                     <Col className='col-12 col-md-5 col-lg-3'>

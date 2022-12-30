@@ -5,7 +5,7 @@ import {IoTrendingUp} from 'react-icons/io5'
 export default function NewProjectCounter({postsThisDay}){
     return (
         postsThisDay > 0 ?
-            (<Card className='new-post-counter active'>
+            (<Card className='new-post-counter active h-100'>
                 <Card.Header>    
                     <span className='fw-normal'>Ostatnie 24h:</span>
                 </Card.Header>

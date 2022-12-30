@@ -17,7 +17,7 @@ export default function UserActivity() {
     const mostAciveUserPhoto = (usersInPosts.length > 0) ? users.filter(user => user.value === mostActiveUser(usersInPosts) && user.photo)[0].photo : ''
 
     return (
-        <Card className='user-activity-counter'>
+        <Card className='user-activity-counter h-100'>
             <Card.Header>
                 <span className='fw-normal'>Najaktywniejszy:</span>
             </Card.Header>
