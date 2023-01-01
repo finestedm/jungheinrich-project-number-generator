@@ -55,7 +55,7 @@ export default function PaginatedItems(props) {
   
      
     return (
-      <Row className='mt-4'>
+      <Row className='table-holder mt-4'>
         <Table hover className='table-ps m-0'>
             <thead>
             <tr className='table--head'> 

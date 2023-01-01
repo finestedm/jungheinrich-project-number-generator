@@ -98,7 +98,7 @@ export default function Archive() {
                     <Col><NewProjectCounter postsThisDay={postsThisDay} /></Col>
                     <Col><UserActivity /></Col>
                 </Row>
-                <Row><h5>Zestawienie projektów</h5></Row>
+                <Row><h5 className='mt-3'>Zestawienie projektów</h5></Row>
                 <Row className='d-flex gap-2'>
                     <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeUserInFilters={changeUserInFilters} />
                     <Col className='col-12 col-md-5 col-lg-3'>
