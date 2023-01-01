@@ -14,15 +14,16 @@ export default function UserActivity() {
         return Object.keys(store).sort((a, b) => store[b] - store[a])[0]
     }
 
-    const mostAciveUserPhoto = (usersInPosts.length > 0) ? users.filter(user => user.value === mostActiveUser(usersInPosts) && user.photo)[0].photo : ''
+    const mostActiveUserPhoto = (usersInPosts.length > 0) ? users.filter(user => user.value === mostActiveUser(usersInPosts) && user.photo)[0].photo : ''
 
     return (
-        <Card className='user-activity-counter h-100'>
+        <Card className='summary-cards user-activity-counter h-100'>
             <Card.Header>
-                <span className='fw-normal'>Najaktywniejszy:</span>
+                <span>Najaktywniejszy:</span>
             </Card.Header>
-            <Card.Body className="text-center d-flex gap-2 justify-content-center align-items-center fs-5">
-                <img src={mostAciveUserPhoto} style={{height: '3.25rem'}} />{mostActiveUser(usersInPosts)}
+            <Card.Body className="d-flex justify-content-between align-items-end fs-5">
+                {mostActiveUser(usersInPosts)}
+                <img src={mostActiveUserPhoto} className='card-image' style={{ height: '3.25rem' }} />
             </Card.Body>
         </Card>
     )

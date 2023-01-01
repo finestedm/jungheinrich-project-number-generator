@@ -90,7 +90,7 @@ export default function Archive() {
     }
     
     return (
-        <Container fluid className='main w-100 h-100 px-xl-5'>
+        <Container fluid className='main w-100 h-100 px-4 px-xl-5'>
             <div className='table-container mb-4'>
                 <Row className='justify-content-between search-container py-4 gap-3'><h2>Projekty</h2></Row>
                 <Row><h5>Podsumowanie</h5></Row>

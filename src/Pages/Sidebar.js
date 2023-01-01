@@ -12,8 +12,8 @@ export default function Sidebar() {
     const [selectedSite, setSelectedSite] = useState(1)
 
     return (  
-        <div className='sidebar py-3 d-flex flex-row flex-md-column flex-shrink-0 gap-3 mb-5'>
-            <div className='text-center p-3 mb-4'>
+        <div className='sidebar p-4 d-flex flex-row flex-md-column flex-shrink-0 gap-3 mb-5'>
+            <div className='text-center mt-3 mb-4'>
                 <Navbar.Brand>
                     <Link to='/'>
                         <img className="nav-main__logo d-none d-md-inline" aria-hidden="true" src={logo} alt='Jungheinrich'/>
@@ -22,9 +22,9 @@ export default function Sidebar() {
                 </Navbar.Brand>
             </div>
             <Nav
-                className="flex-row flex-md-column gap-2 ms-2">
+                className="flex-row flex-md-column gap-2">
                 <Nav.Item className='d-flex align-items-stretch'>
-                    <Nav.Link className='px-3 d-flex align-items-center' as={Link} to="/" active={selectedSite === 1} onClick={() => setSelectedSite(1)}>
+                    <Nav.Link className='p-2 d-flex align-items-center' as={Link} to="/" active={selectedSite === 1} onClick={() => setSelectedSite(1)}>
                         <Row>
                             <Col xs='auto'><AiOutlineNumber /></Col>
                             <Col className='d-none d-md-inline'><span>Generuj nowy numer projektu</span></Col>
@@ -32,7 +32,7 @@ export default function Sidebar() {
                     </Nav.Link>
                 </Nav.Item>
                 <Nav.Item className='d-flex align-items-stretch'>
-                    <Nav.Link className='px-3 d-flex align-items-center' as={Link} to="/Archive" active={selectedSite === 2} onClick={() => setSelectedSite(2)}>
+                    <Nav.Link className='p-2 d-flex align-items-center' as={Link} to="/Archive" active={selectedSite === 2} onClick={() => setSelectedSite(2)}>
                         <Row>
                             <Col xs='auto'><BiArchive /></Col>
                             <Col className='d-none d-md-inline'><span >Archiwum projektów</span></Col>
