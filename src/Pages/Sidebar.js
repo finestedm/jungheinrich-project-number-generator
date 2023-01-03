@@ -12,7 +12,7 @@ export default function Sidebar() {
     const [selectedSite, setSelectedSite] = useState(1)
 
     return (  
-        <div className='sidebar p-4 d-flex flex-row flex-md-column flex-shrink-0 gap-3 mb-5'>
+        <div className='sidebar p-4 d-flex flex-column flex-shrink-0 gap-3 mb-5'>
             <div className='mt-3 mb-4'>
                 <Navbar.Brand>
                     <Link to='/'>
@@ -22,12 +22,12 @@ export default function Sidebar() {
                 </Navbar.Brand>
             </div>
             <Nav
-                className="flex-row flex-md-column gap-2">
+                className="flex-column gap-2">
                 <Nav.Item className='d-flex align-items-stretch'>
                     <Nav.Link className='p-2 d-flex align-items-center' as={Link} to="/" active={selectedSite === 1} onClick={() => setSelectedSite(1)}>
                         <Row>
                             <Col xs='auto'><AiOutlineNumber /></Col>
-                            <Col className='d-none d-md-inline'><span>Generuj nowy numer projektu</span></Col>
+                            <Col><span>Generuj numer</span></Col>
                         </Row>
                     </Nav.Link>
                 </Nav.Item>
@@ -35,7 +35,7 @@ export default function Sidebar() {
                     <Nav.Link className='p-2 d-flex align-items-center' as={Link} to="/Archive" active={selectedSite === 2} onClick={() => setSelectedSite(2)}>
                         <Row>
                             <Col xs='auto'><BiArchive /></Col>
-                            <Col className='d-none d-md-inline'><span >Archiwum projektów</span></Col>
+                            <Col><span >Archiwum</span></Col>
                         </Row>
                     </Nav.Link>
                 </Nav.Item>

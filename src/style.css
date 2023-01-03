@@ -10,7 +10,6 @@ body, html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     min-height: -webkit-fill-available;
-    /* font-size: 13px; */
 }
 
 table,
@@ -23,7 +22,7 @@ table .dropdown-item {
 .sidebar {
     border-right: 1px solid var(--ps-border-color);
     height: 100%;
-    max-width: 280px;
+    width: 280px;
 }
 
 .nav-link {
@@ -130,27 +129,10 @@ td {
 
 @media screen and (max-width: 768px) {
     .sidebar {
-        max-width: 100%;
-        font-size: 1.5rem;
-        height: 75px;
-        border-bottom: 1px solid var(--ps-table-border-color);
-        padding: 0 !important;
-    }
-    .nav-link {
-        height: 73px;
-    }
-    .nav-link::after {
-        content: '';
-        height: 2px;
-        right: 0;
-        width: 0;
-        top: 100%;
-    }
-    .nav-link.active::after,
-    .nav-link.active:focus::after,
-    .nav-link.active:hover::after {
-        height: 2px;
-        width: 100%;
+        width: min(80%, 300px);
+        position: absolute;
+        z-index: 9999;
+        background-color: var(--ps-color);
     }
 
     .nav-main__logo {
@@ -176,7 +158,7 @@ td {
 
 @media (min-width: 769px) and (max-width: 1200px) {
     .sidebar {
-        max-width: 225px;
+        width: 225px;
     }
 }
 
@@ -196,7 +178,7 @@ tr:hover:not(thead>tr) {
     --ps-border-hover-color: hsl(210, 45%, 75%);
     --ps-color: hsl(200, 11%, 26%);
     --ps-color-50: hsl(200, 10%, 50%);
-    --ps-table-head-bg: hsl(210, 30%, 96%);
+    --ps-table-head-bg: hsl(210, 20%, 96%);
     --ps-table-head-color: hsl(215, 16%, 52%);
     --ps-table-head-color-hover: hsl(215, 55%, 45%);
     --ps-btn-bg: hsl(210, 40%, 95%);
@@ -363,7 +345,7 @@ td {
 .table-container h2 {
     color: var(--ps-color);
     font-weight: 600;
-    letter-spacing: -1px;
+    letter-spacing: 1px;
 }
 
 .table-container h5 {
@@ -660,11 +642,11 @@ span.strong {
 
 
 .filter-indicator >.btn {
-    --bs-btn-color: var(--ps-table-head-color-hover);
+    --bs-btn-color: var(--ps-btn-color);
     --bs-btn-bg: var(--ps-btn-bg);
     --bs-btn-border-color: var(--bs-btn-bg);
-    --bs-btn-hover-color: var(--ps-table-head-color-hover);;
-    --bs-btn-hover-bg: var(--ps-btn-bg);
+    --bs-btn-hover-color: var(--ps-btn-bg);;
+    --bs-btn-hover-bg: var(--ps-btn-color);
     --bs-btn-hover-border-color: var(--ps-btn-bg);
     --bs-btn-focus-shadow-rgb: 49,132,253;
     --bs-btn-active-color: #fff;

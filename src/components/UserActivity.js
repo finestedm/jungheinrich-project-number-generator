@@ -21,8 +21,8 @@ export default function UserActivity() {
             <Card.Header className='pb-0'>
                 <span>Najaktywniejszy:</span>
             </Card.Header>
-            <Card.Body className="d-flex justify-content-between align-items-end fs-5">
-                {mostActiveUser(usersInPosts)}
+            <Card.Body className="d-flex justify-content-between align-items-end">
+                <h3>{mostActiveUser(usersInPosts)}</h3>
                 <img src={mostActiveUserPhoto} className='card-image' style={{ height: '3.25rem' }} />
             </Card.Body>
         </Card>

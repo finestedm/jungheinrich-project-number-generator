@@ -26,7 +26,7 @@ export default function EditPostModal(props) {
     return (
         <Modal show={showModal} onHide={() => setShowModal(false)}>
             <Modal.Header closeButton>
-                <Modal.Title className="fs-2">Edycja danych projektu {projectNumber}</Modal.Title>
+                <Modal.Title className="fs-3">Edycja danych projektu {projectNumber}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <TextField

@@ -5,7 +5,7 @@ import moment from 'moment';
 import 'moment/locale/pl' 
 import StatusIndicator from "../components/StatusIndicator";
 import {IoOpenOutline} from 'react-icons/io5';
-import {FiEdit} from 'react-icons/fi';
+import {FiEdit3} from 'react-icons/fi';
 
 moment.locale('pl');
 
@@ -29,7 +29,7 @@ export default function ArchivedProject(props) {
                 </div>
             </td>
             <td className='d-none d-lg-table-cell'> {moment(createdAt).fromNow()} </td>
-            <td><FiEdit onClick={() => toggleModalVisible(post._id)} className='p-2 m-0 project-edit-icon' /></td>
+            <td><FiEdit3 onClick={() => toggleModalVisible(post._id)} className='p-2 m-0 project-edit-icon' /></td>
         </tr>
     )
 

@@ -14,6 +14,13 @@ export default function NewProjectCounter({postsThisDay}){
                 </Card.Body>
             </Card>)
             :
-            (<Col className='p-2 px-3 new-post-counter col-auto'>Brak nowych projektów </Col>)
+            (<Card className='summary-cards new-post-counter active h-100 p-2'>
+                <Card.Header className='pb-0'>    
+                    <span>Ostatnie 24h:</span>
+                </Card.Header>
+                <Card.Body className="d-flex justify-content-between align-items-end">
+                    <h3>Brak nowych projektów</h3>
+                </Card.Body>
+            </Card>)
     )
 }

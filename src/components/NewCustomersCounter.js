@@ -6,11 +6,9 @@ import moment from 'moment'
 export default function NewCustomersCounter() {
     
     const posts = useSelector((state) => state.posts)
-    const previousMonth = (moment().subtract(2, 'months'))
-    const postsThisMonth = posts.filter(post => moment(post.createdAt) > previousMonth)
-    posts.forEach(post => console.log(moment(post.createdAt)))
+    const postsThisMonth = posts.filter(post => moment().diff(moment(post.createdAt), 'months') <= 1)
+    const postsBeforeThisMonth = posts.filter(post => moment().diff(moment(post.createdAt), 'months') > 1)
 
-    console.log(postsThisMonth)
     const customersInPosts = posts.map(post => post.customer)
 
     return (
