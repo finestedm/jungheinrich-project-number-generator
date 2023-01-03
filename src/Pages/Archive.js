@@ -10,6 +10,7 @@ import getPostsNotOlderThan24h from '../components/newPostsCounter';
 import NewProjectCounter from '../components/NewProjectCounter';
 import UserActivity from '../components/UserActivity'
 import ActiveFiltersIndicator from '../components/ActiveFilterIndicator'
+import NewCustomersCounter from '../components/NewCustomersCounter'
 import { users } from '../data/users'
 
 export default function Archive() {
@@ -90,15 +91,14 @@ export default function Archive() {
     }
     
     return (
-        <Container fluid className='main w-100 h-100 px-4 px-xl-5'>
+        <Container fluid className='main w-100 h-100 px-4'>
             <div className='table-container mb-4'>
                 <Row className='justify-content-between search-container py-4 gap-3'><h2>Projekty</h2></Row>
-                <Row><h5>Podsumowanie</h5></Row>
                 <Row className='mb-3'>
                     <Col><NewProjectCounter postsThisDay={postsThisDay} /></Col>
                     <Col><UserActivity /></Col>
+                    <Col><NewCustomersCounter/></Col>
                 </Row>
-                <Row><h5 className='mt-3'>Zestawienie projektów</h5></Row>
                 <Row className='d-flex gap-2'>
                     <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeUserInFilters={changeUserInFilters} />
                     <Col className='col-12 col-md-5 col-lg-3'>

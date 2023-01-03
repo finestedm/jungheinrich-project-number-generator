@@ -13,7 +13,7 @@ export default function Sidebar() {
 
     return (  
         <div className='sidebar p-4 d-flex flex-row flex-md-column flex-shrink-0 gap-3 mb-5'>
-            <div className='text-center mt-3 mb-4'>
+            <div className='mt-3 mb-4'>
                 <Navbar.Brand>
                     <Link to='/'>
                         <img className="nav-main__logo d-none d-md-inline" aria-hidden="true" src={logo} alt='Jungheinrich'/>

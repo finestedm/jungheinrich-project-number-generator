@@ -16,20 +16,19 @@ body, html {
 table,
 table .btn,
 table .dropdown-item {
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .sidebar {
-    /* background-color: var(--ps-table-head-bg); */
     border-right: 1px solid var(--ps-border-color);
     height: 100%;
     max-width: 280px;
-    font-size: 1rem;
-    /* transition: all .3s ease; */
 }
 
 .nav-link {
-	color: var( --ps-nav-color);
+    font-weight: 500;
+    color: var(--ps-color-50);
     transition: all .2s ease-out;
     position: relative;
     width: 100%;
@@ -39,20 +38,19 @@ table .dropdown-item {
 .nav-link.active,
 .nav-link.active:focus,
 .nav-link.active:hover {
-	color: var(--ps-table-hover-color);
-    background-color: var(--ps-table-head-bg);
-    font-weight: 500;
+	color: var(--ps-btn-color);
+    background-color: var(--ps-btn-bg);
     position: relative;
 }
 
 .nav-link:focus, 
 .nav-link:hover {
 	color: var(--ps-nav-color-hover);
+    background-color: var(--ps-btn-bg-nav-hover);
 }
 
 .nav-main__logo {
-    fill: var(--ps-btn-dark-bg);
-    height: auto;
+    height: 80%;
 }
 
 body{
@@ -171,11 +169,14 @@ td {
         scale: 0;
         opacity: .5
     }
+    .filter-indicator * {
+        font-size: .75rem;
+    }
   }
 
 @media (min-width: 769px) and (max-width: 1200px) {
     .sidebar {
-        max-width: 200px;
+        max-width: 225px;
     }
 }
 
@@ -193,14 +194,14 @@ tr:hover:not(thead>tr) {
     --ps-table-border-color: hsl(210, 30%, 94%);
     --ps-border-color: hsl(210, 30%, 90%);
     --ps-border-hover-color: hsl(210, 45%, 75%);
-    --ps-color: #3c464b;
-    --ps-color-50: hsl(200, 20%, 70%);
-    --ps-nav-color: hsl(200, 30%, 60%);
-    --ps-nav-color-hover: hsl(200, 30%, 35%);
-    --ps-table-head-bg: hsl(210, 40%, 96%);
+    --ps-color: hsl(200, 11%, 26%);
+    --ps-color-50: hsl(200, 10%, 50%);
+    --ps-table-head-bg: hsl(210, 30%, 96%);
     --ps-table-head-color: hsl(215, 16%, 52%);
     --ps-table-head-color-hover: hsl(215, 55%, 45%);
-    --ps-btn-bg: var(--ps-table-hover-bg);
+    --ps-btn-bg: hsl(210, 40%, 95%);
+    --ps-btn-bg-nav-hover: hsl(210, 0%, 97%);
+    --ps-btn-color: hsl(215, 50%, 50%);
     --ps-btn-bg-hover: hsl(215, 35%, 75%);
     --ps-btn-bg-active: hsl(200, 11%, 30%);
     --ps-btn-dark-bg: hsl(200, 11%, 26%);
@@ -233,7 +234,8 @@ tr:hover:not(thead>tr) {
 .form-control {
 	color: var(--ps-color);
 	background-color: #fff;
-    border: 1px solid var(--ps-border-color)
+    border: 1px solid var(--ps-border-color);
+    line-height: 1.8rem;
 
 }
 
@@ -334,14 +336,9 @@ tr:hover:not(thead>tr) {
     background-color: transparent;
 }
 
-
-.dropdown-item {
-    font-weight: 400;
-}
-
 .table--head>th,
 .table--head>th button {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 
@@ -363,16 +360,6 @@ td {
     padding: .5rem .675rem !important;
 }
 
-tr>th:first-child, 
-tr>td:first-child {
-    padding-left: 1.5rem !important;
-}
-
-tr>th:last-child, 
-tr>td:last-child {
-    padding-right: 1.5rem !important;
-}
-
 .table-container h2 {
     color: var(--ps-color);
     font-weight: 600;
@@ -388,7 +375,7 @@ tr>td:last-child {
 .main--search-input {
     border-left: none !important;
     background-color: #ffffff;
-    color: var(--ps-table-hover-color);
+    color: var(--ps-btn-color);
     border-radius: .5rem;
     font-weight: 500;
 }
@@ -655,15 +642,9 @@ span.strong {
 }
 
 .project-edit-icon {
-    background-color: var(--ps-table-head-bg);
     height: 2rem;
     width: 2rem;
-    border-radius: .3rem;
     transition: all .15s ease;
-}
-
-tr:hover .project-edit-icon {
-    background-color:hsl(210, 50%, 92%);
 }
 
 /* tooltip */
@@ -680,17 +661,16 @@ tr:hover .project-edit-icon {
 
 .filter-indicator >.btn {
     --bs-btn-color: var(--ps-table-head-color-hover);
-    --bs-btn-bg: var(--ps-table-head-bg);
+    --bs-btn-bg: var(--ps-btn-bg);
     --bs-btn-border-color: var(--bs-btn-bg);
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: var(--ps-btn-dark-bg-hover);
-    --bs-btn-hover-border-color: var(--ps-btn-dark-bg-hover);
+    --bs-btn-hover-color: var(--ps-table-head-color-hover);;
+    --bs-btn-hover-bg: var(--ps-btn-bg);
+    --bs-btn-hover-border-color: var(--ps-btn-bg);
     --bs-btn-focus-shadow-rgb: 49,132,253;
     --bs-btn-active-color: #fff;
-    --bs-btn-hover-bg: var(--ps-btn-dark-bg-hover);
-    --bs-btn-hover-border-color: var(--ps-btn-dark-bg-hover);
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     font-weight: 500;
+    line-height: 1.8rem;
 }
 
 .btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
@@ -705,7 +685,6 @@ tr:hover .project-edit-icon {
     --bs-card-border-color: var(--ps-border-color);
     overflow: hidden;
     color: var(--ps-color);
-
 }
 
 .card svg {
@@ -715,10 +694,10 @@ tr:hover .project-edit-icon {
 .card-header {
 	border-bottom: none;
     background-color: transparent;
-    font-weight: 300;
-
+    font-weight: 500;
+    color: var(--ps-color-50)
 }
 
 .card-image {
-    scale: 2;
+    scale: 1.75;
 }
