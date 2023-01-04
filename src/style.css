@@ -64,7 +64,7 @@ body{
 }
 
 .main {
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 
 .card-footer {
@@ -705,4 +705,11 @@ span.strong {
 
 .card-image {
     scale: 1.75;
+}
+
+.topbar-open {
+    position: absolute;
+    top: 0px;
+    width: 10%%;
+    background-color: transparent;
 }

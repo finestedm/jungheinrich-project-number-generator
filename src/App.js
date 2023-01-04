@@ -1,4 +1,5 @@
 import Sidebar from "./Pages/Sidebar";
+import Topbar from "./Pages/Topbar";
 import React from 'react'
 import  {Container, Row, Col} from 'react-bootstrap'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -9,7 +10,8 @@ import Main from "./Pages/Main";
 export default function App() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL} as={Container} className='App'>
-      <div className='h-100 d-flex flex-column flex-md-row align-items-stretch'>
+      <div className='h-100 d-flex flex-column flex-md-row align-items-stretch '>
+        <Topbar className='topbar'/>
         <Sidebar />
         <Routes>
           <Route index element={<Main/>} />
