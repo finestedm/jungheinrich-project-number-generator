@@ -10,6 +10,7 @@ body, html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     min-height: -webkit-fill-available;
+    background-color: var(--ps-background);
 }
 
 table,
@@ -23,6 +24,7 @@ table .dropdown-item {
     border-right: 1px solid var(--ps-border-color);
     height: 100%;
     width: 280px;
+    background-color: white;
 }
 
 .nav-link {
@@ -32,6 +34,7 @@ table .dropdown-item {
     position: relative;
     width: 100%;
     border-radius: .375rem;
+    height: 3rem;
 }
 
 .nav-link.active,
@@ -140,6 +143,12 @@ td {
         height: 50px;
         width: 50px;
     }
+
+    .sidebar--close-button {
+        position: absolute;
+        right: -10px
+    }
+
     td.table--customer,
     td.table--location {
         white-space: nowrap;
@@ -171,13 +180,15 @@ tr:hover:not(thead>tr) {
 }
 
 :root{
+    --ps-background: hsl(215, 40%, 98%);
+    --ps-shadow-hover: hsl(210, 10%, 85%);
     --ps-table-hover-bg: hsl(210, 50%, 97%);
     --ps-table-hover-color: hsl(215, 36%, 50%);
     --ps-table-border-color: hsl(210, 30%, 94%);
     --ps-border-color: hsl(210, 30%, 90%);
     --ps-border-hover-color: hsl(210, 45%, 75%);
     --ps-color: hsl(200, 11%, 26%);
-    --ps-color-50: hsl(200, 10%, 50%);
+    --ps-color-50: hsl(200, 12%, 60%);
     --ps-table-head-bg: hsl(210, 20%, 96%);
     --ps-table-head-color: hsl(215, 16%, 52%);
     --ps-table-head-color-hover: hsl(215, 55%, 45%);
@@ -201,7 +212,7 @@ tr:hover:not(thead>tr) {
 
 .table-ps {
 	--bs-table-color: var(--bs-body-color);
-	--bs-table-bg: transparent;
+	--bs-table-bg: white;
 	--bs-table-border-color: var(--ps-table-border-color);
 	--bs-table-accent-bg: transparent;
 	--bs-table-striped-color: var(--bs-body-color);
@@ -224,17 +235,17 @@ tr:hover:not(thead>tr) {
 .form-control:hover,
 .form-control:focus {
 	color: var(--ps-table-hover-color);
-	border: 1px solid var(--ps-border-hover-color) !important;
     transition: all .2s ease;
 }
 
 .main--search-bar>div {
-    box-shadow: 0 0 5px hsl(199, 13%, 97%);
     border-radius: .5rem;
 }
 
-.main--search-bar * {
-    color: var(--ps-color-50) ;
+.main--search-bar {
+    color: var(--ps-color-50);
+    border-radius: .375rem;
+    transition: all .2s ease;
 }
 
 .main--search-bar input::placeholder {
@@ -242,16 +253,12 @@ tr:hover:not(thead>tr) {
     transition: all .2s ease;
 }
 
-.main--search-bar input:hover::placeholder {
+.main--search-bar:hover::placeholder {
     color: var(--ps-table-hover-color);
 }
 
-.main--search-bar>div:hover {
-    box-shadow: 0 0 15px hsl(199, 13%, 92%);
-}
-
-.main--search-bar .btn:hover {
-	border-color: var(--ps-border-hover-color) !important;
+.main--search-bar:hover {
+    box-shadow: 0 0 1rem var(--ps-shadow-hover)
 }
 
 .main--search-bar .btn:hover * {
@@ -274,6 +281,11 @@ tr:hover:not(thead>tr) {
     border-radius: 0.375rem;
     border: 1px solid var(--ps-border-color);
     margin: 1rem 0;
+    transition: all .2s ease;
+}
+
+.table-holder:hover {
+    box-shadow: 0 0 1rem var(--ps-shadow-hover);
 }
 
 .table {
@@ -282,13 +294,14 @@ tr:hover:not(thead>tr) {
 }
 
 .table--head {
-    background-color: var(--ps-table-head-bg);
+    /* background-color: ; */
     line-height: 1.8rem;
+    border-bottom: 1px solid var(--ps-border-color);
 }
 
 .table--head>th,
 .table--head>th>*>button {
-    background-color: transparent;
+    background-color: white;
     border: none;
     color: var(--ps-table-head-color);
 }
@@ -643,9 +656,9 @@ span.strong {
 
 .filter-indicator >.btn {
     --bs-btn-color: var(--ps-btn-color);
-    --bs-btn-bg: var(--ps-btn-bg);
-    --bs-btn-border-color: var(--bs-btn-bg);
-    --bs-btn-hover-color: var(--ps-btn-bg);;
+    --bs-btn-bg: white;
+    --bs-btn-border-color: var(--ps-border-color);
+    --bs-btn-hover-color: var(--ps-btn-bg);
     --bs-btn-hover-bg: var(--ps-btn-color);
     --bs-btn-hover-border-color: var(--ps-btn-bg);
     --bs-btn-focus-shadow-rgb: 49,132,253;
@@ -653,6 +666,11 @@ span.strong {
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     font-weight: 500;
     line-height: 1.8rem;
+    transition: all .2s ease;
+}
+
+.filter-indicator:hover {
+    box-shadow: 0 0 1rem var(--ps-shadow-hover);
 }
 
 .btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
@@ -667,6 +685,11 @@ span.strong {
     --bs-card-border-color: var(--ps-border-color);
     overflow: hidden;
     color: var(--ps-color);
+    transition: all .2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0 1rem var(--ps-shadow-hover);
 }
 
 .card svg {

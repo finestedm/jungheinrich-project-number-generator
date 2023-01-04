@@ -97,11 +97,11 @@ export default function Archive() {
                 <Row className='mb-5'>
                     <Col className='mb-4'><NewProjectCounter postsThisDay={postsThisDay} /></Col>
                     <Col className='mb-4'><UserActivity /></Col>
-                    <Col><NewCustomersCounter/></Col>
+                    <Col className='mb-4'><NewCustomersCounter/></Col>
                 </Row>
                 <Row className='d-flex gap-2'>
                     <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeUserInFilters={changeUserInFilters} />
-                    <Col className='col-12 col-md-5 col-lg-3'>
+                    <Col className='col-12 col-md-5 col-lg-4'>
                         <SearchBar searchedPhrase={filters.searchedPhrase} changeSearchedPhrase={changeSearchedPhrase} />
                     </Col>
                 </Row>

@@ -14,10 +14,10 @@ export default function NewCustomersCounter() {
     return (
         <Card className='summary-cards user-activity-counter h-100 p-2'>
             <Card.Header className='pb-0'>
-                <span>Najaktywniejszy:</span>
+                <span>Nowi klienci:</span>
             </Card.Header>
-            <Card.Body className="d-flex justify-content-between align-items-end fs-5">
-  
+            <Card.Body className="d-flex justify-content-between align-items-end">
+                <h4>Brak</h4>
             </Card.Body>
         </Card>
     )

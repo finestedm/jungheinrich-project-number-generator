@@ -40,6 +40,7 @@ export default function Sidebar() {
                     </Nav.Link>
                 </Nav.Item>
             </Nav>
+            <img class='sidebar--close-button d-md-none' style={{height: '2rem'}} src={logoSmall} />
         </div>
     )
 }
