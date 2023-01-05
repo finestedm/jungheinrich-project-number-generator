@@ -12,7 +12,7 @@ export default function Sidebar() {
     const [selectedSite, setSelectedSite] = useState(1)
 
     return (  
-        <div className='sidebar p-4 d-flex flex-column flex-shrink-0 gap-3 mb-5'>
+        <div data-bs-scroll="true" className='sidebar offcanvas show p-4 d-flex flex-column flex-shrink-0 gap-3 mb-5'>
             <div className='mt-3 mb-4'>
                 <Navbar.Brand>
                     <Link to='/'>

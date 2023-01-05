@@ -133,8 +133,7 @@ td {
 @media screen and (max-width: 768px) {
     .sidebar {
         width: min(80%, 300px);
-        position: absolute;
-        z-index: 9999;
+        /* position: absolute; */
         background-color: var(--ps-color);
     }
 
@@ -145,7 +144,7 @@ td {
     }
 
     .sidebar--close-button {
-        position: absolute;
+        /* position: absolute; */
         right: -10px
     }
 
@@ -707,9 +706,13 @@ span.strong {
     scale: 1.75;
 }
 
-.topbar-open {
-    position: absolute;
-    top: 0px;
-    width: 10%%;
-    background-color: transparent;
+.navbar {
+    /* position: sticky; */
+    top: 0;
+    box-shadow: 0 0 .5rem var(--ps-shadow-hover);
+    border-color: var(--ps-border-color);
+}
+
+.app-container {
+    overflow: visible;
 }

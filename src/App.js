@@ -9,8 +9,8 @@ import Main from "./Pages/Main";
 
 export default function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL} as={Container} className='App'>
-      <div className='h-100 d-flex flex-column flex-md-row align-items-stretch '>
+    <BrowserRouter basename={process.env.PUBLIC_URL} className='App'>
+      <div className='app-container d-flex flex-column flex-md-row align-items-stretch '>
         <Topbar className='topbar'/>
         <Sidebar />
         <Routes>
