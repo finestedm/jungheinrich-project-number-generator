@@ -9,18 +9,25 @@ import logoSmall from '../images/Jungheinrich-Logo-J.svg'
 
 export default function Sidebar() {
 
+    return (  
+        <div data-bs-scroll="true" responsive='md' className='sidebar offcanvas show p-4 d-flex flex-column flex-shrink-0 gap-3 mb-5'>
+            <SidebarContent className='mt-3 mb-4'/>
+        </div>
+    )
+}
+
+
+export function SidebarContent() {
     const [selectedSite, setSelectedSite] = useState(1)
 
-    return (  
-        <div data-bs-scroll="true" className='sidebar offcanvas show p-4 d-flex flex-column flex-shrink-0 gap-3 mb-5'>
-            <div className='mt-3 mb-4'>
-                <Navbar.Brand>
-                    <Link to='/'>
-                        <img className="nav-main__logo d-none d-md-inline" aria-hidden="true" src={logo} alt='Jungheinrich'/>
-                        <img className="nav-main__logo d-md-none d-inline" aria-hidden="true" src={logoSmall} alt='Jungheinrich'/>
-                    </Link>
-                </Navbar.Brand>
-            </div>
+    return (
+        <div>
+            <Navbar.Brand>
+                <Link to='/'>
+                    <img className="nav-main__logo d-none d-md-inline" aria-hidden="true" src={logo} alt='Jungheinrich'/>
+                    <img className="nav-main__logo d-md-none d-inline" aria-hidden="true" src={logoSmall} alt='Jungheinrich'/>
+                </Link>
+            </Navbar.Brand>
             <Nav
                 className="flex-column gap-2">
                 <Nav.Item className='d-flex align-items-stretch'>
@@ -39,8 +46,8 @@ export default function Sidebar() {
                         </Row>
                     </Nav.Link>
                 </Nav.Item>
+                <img class='sidebar--close-button d-md-none' style={{ height: '2rem' }} src={logoSmall} />
             </Nav>
-            <img class='sidebar--close-button d-md-none' style={{ height: '2rem' }} src={logoSmall} />
         </div>
     )
 }

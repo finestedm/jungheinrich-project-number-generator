@@ -64,7 +64,7 @@ body{
 }
 
 .main {
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
 }
 
 .card-footer {
@@ -131,21 +131,11 @@ td {
 }
 
 @media screen and (max-width: 768px) {
-    .sidebar {
-        width: min(80%, 300px);
-        /* position: absolute; */
-        background-color: var(--ps-color);
-    }
 
-    .nav-main__logo {
-        fill: var(--ps-btn-dark-bg);
-        height: 50px;
-        width: 50px;
-    }
-
-    .sidebar--close-button {
-        /* position: absolute; */
-        right: -10px
+    .navbar {
+        border-bottom: 1px solid var(--ps-border-color);
+        border-right: none;
+        box-shadow: 0 0 1rem var(--ps-shadow-hover);
     }
 
     td.table--customer,
@@ -163,12 +153,6 @@ td {
         font-size: .75rem;
     }
   }
-
-@media (min-width: 769px) and (max-width: 1200px) {
-    .sidebar {
-        width: 225px;
-    }
-}
 
 tr {
     line-height: 3.25rem;
@@ -707,12 +691,15 @@ span.strong {
 }
 
 .navbar {
-    /* position: sticky; */
-    top: 0;
-    box-shadow: 0 0 .5rem var(--ps-shadow-hover);
+    background-color: white;
+    border-right: 1px solid var(--ps-border-color);
     border-color: var(--ps-border-color);
 }
 
-.app-container {
-    overflow: visible;
+.offcanvas-header .btn-close {
+    background-color: white;
+}
+
+.offcanvas, .offcanvas-lg, .offcanvas-md, .offcanvas-sm, .offcanvas-xl, .offcanvas-xxl {
+	--bs-offcanvas-bg: var(--ps-color);
 }
