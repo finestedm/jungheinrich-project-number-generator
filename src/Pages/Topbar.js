@@ -23,7 +23,7 @@ export default function Topbar() {
                     <Offcanvas.Body>
                         <Nav className="flex-column gap-2">
                             <Nav.Item className='d-flex align-items-stretch'>
-                                <Nav.Link className='p-2 d-flex align-items-center' as={Link} to="/" active={selectedSite === 1} onClick={() => setSelectedSite(1)}>
+                                <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/" active={selectedSite === 1} onClick={() => setSelectedSite(1)}>
                                     <Row>
                                         <Col xs='auto'><AiOutlineNumber /></Col>
                                         <Col><span>Generuj numer</span></Col>
@@ -31,7 +31,7 @@ export default function Topbar() {
                                 </Nav.Link>
                             </Nav.Item>
                             <Nav.Item className='d-flex align-items-stretch'>
-                                <Nav.Link className='p-2 d-flex align-items-center' as={Link} to="/Archive" active={selectedSite === 2} onClick={() => setSelectedSite(2)}>
+                                <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/Archive" active={selectedSite === 2} onClick={() => setSelectedSite(2)}>
                                     <Row>
                                         <Col xs='auto'><BiArchive /></Col>
                                         <Col><span >Archiwum</span></Col>
@@ -39,7 +39,7 @@ export default function Topbar() {
                                 </Nav.Link>
                             </Nav.Item>
                             <Nav.Item className='d-flex align-items-stretch'>
-                                <Nav.Link className='p-2 d-flex align-items-center' as={Link} to="/Archive" active={selectedSite === 3} onClick={() => setSelectedSite(3)}>
+                                <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/Archive" active={selectedSite === 3} onClick={() => setSelectedSite(3)}>
                                     <Row>
                                         <Col xs='auto'><BiArchive /></Col>
                                         <Col><span >Placeholder #1</span></Col>
