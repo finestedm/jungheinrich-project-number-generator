@@ -25,7 +25,7 @@ export default function Topbar() {
                             <Nav.Item className='d-flex align-items-stretch'>
                                 <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/" active={selectedSite === 1} onClick={() => setSelectedSite(1)}>
                                     <Row>
-                                        <Col xs='auto'><AiOutlineNumber /></Col>
+                                        <Col className='border-end' xs='auto'><AiOutlineNumber /></Col>
                                         <Col><span>Generuj numer</span></Col>
                                     </Row>
                                 </Nav.Link>
@@ -33,7 +33,7 @@ export default function Topbar() {
                             <Nav.Item className='d-flex align-items-stretch'>
                                 <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/Archive" active={selectedSite === 2} onClick={() => setSelectedSite(2)}>
                                     <Row>
-                                        <Col xs='auto'><BiArchive /></Col>
+                                        <Col className='border-end' xs='auto'><BiArchive /></Col>
                                         <Col><span >Archiwum</span></Col>
                                     </Row>
                                 </Nav.Link>
@@ -41,7 +41,7 @@ export default function Topbar() {
                             <Nav.Item className='d-flex align-items-stretch'>
                                 <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/Archive" active={selectedSite === 3} onClick={() => setSelectedSite(3)}>
                                     <Row>
-                                        <Col xs='auto'><BiArchive /></Col>
+                                        <Col className='border-end' xs='auto'><BiArchive /></Col>
                                         <Col><span >Placeholder #1</span></Col>
                                     </Row>
                                 </Nav.Link>

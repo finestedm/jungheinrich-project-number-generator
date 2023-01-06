@@ -195,7 +195,7 @@ tr:hover:not(thead>tr) {
     --ps-table-border-color: hsl(210, 30%, 94%);
     --ps-border-color: hsl(210, 30%, 90%);
     --ps-border-hover-color: hsl(210, 45%, 75%);
-    --ps-color: hsl(200, 11%, 26%);
+    --ps-color: hsl(200, 11%, 20%);
     --ps-color-50: hsl(200, 12%, 60%);
     --ps-table-head-bg: hsl(210, 20%, 96%);
     --ps-table-head-color: hsl(215, 16%, 52%);
@@ -246,10 +246,6 @@ tr:hover:not(thead>tr) {
     transition: all .2s ease;
 }
 
-.main--search-bar>div {
-    border-radius: .5rem;
-}
-
 .main--search-bar {
     color: var(--ps-color-50);
     border-radius: .375rem;
@@ -266,10 +262,11 @@ tr:hover:not(thead>tr) {
 }
 
 .main--search-bar:hover {
-    box-shadow: 0 0 1rem var(--ps-shadow-hover)
+    box-shadow: 0 0 1rem var(--ps-shadow-hover);
+    border-color: white;
 }
 
-.main--search-bar .btn:hover * {
+.main--search-bar:hover .btn {
 	color: var(--ps-table-hover-color);
 }
 
@@ -294,6 +291,7 @@ tr:hover:not(thead>tr) {
 
 .table-holder:hover {
     box-shadow: 0 0 1rem var(--ps-shadow-hover);
+    border-color: white;
 }
 
 .table {
@@ -376,10 +374,8 @@ h5 {
 }
 
 .main--search-input {
-    border-left: none !important;
-    background-color: #ffffff;
+    border: none;
     color: var(--ps-btn-color);
-    border-radius: .5rem;
     font-weight: 500;
 }
 
@@ -409,7 +405,7 @@ h5 {
 
 .main--search-bar {
     min-width: 200px;
-
+    border: 1px solid var(--ps-border-color)
 }
 
 light {
@@ -709,6 +705,7 @@ span.strong {
 
 .card:hover {
     box-shadow: 0 0 1rem var(--ps-shadow-hover);
+    border-color: white;
 }
 
 .card svg {
@@ -735,6 +732,7 @@ span.strong {
 
 .offcanvas-header {
     border-bottom: 1px solid var(--ps-btn-dark-bg-hover);
+    height: 75px;
 }
 
 .offcanvas-header .btn-close {

@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Col, Card } from 'react-bootstrap'
 import { users } from '../data/users'
+import SummaryCard from './SummaryCard'
 
 export default function UserActivity() {
     
@@ -17,14 +18,6 @@ export default function UserActivity() {
     const mostActiveUserPhoto = (usersInPosts.length > 0) ? users.filter(user => user.value === mostActiveUser(usersInPosts) && user.photo)[0].photo : ''
 
     return (
-        <Card className='summary-cards user-activity-counter h-100 p-2'>
-            <Card.Header className='pb-0'>
-                <span>Najaktywniejszy:</span>
-            </Card.Header>
-            <Card.Body className="d-flex justify-content-between align-items-end">
-                <h4>{mostActiveUser(usersInPosts)}</h4>
-                <img src={mostActiveUserPhoto} className='card-image' style={{ height: '3.25rem' }} />
-            </Card.Body>
-        </Card>
+        <SummaryCard header='Najaktywniejszy' main={mostActiveUser(usersInPosts)} image={mostActiveUserPhoto} classAddition='user-activity-counter' />
     )
 }

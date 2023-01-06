@@ -11,6 +11,7 @@ import NewProjectCounter from '../components/NewProjectCounter';
 import UserActivity from '../components/UserActivity'
 import ActiveFiltersIndicator from '../components/ActiveFilterIndicator'
 import NewCustomersCounter from '../components/NewCustomersCounter'
+import SummaryCards from '../components/SummaryCards'
 import { users } from '../data/users'
 
 export default function Archive() {
@@ -94,11 +95,7 @@ export default function Archive() {
         <Container fluid className='main w-100 h-100 px-4'>
             <div className='table-container mb-4'>
                 <Row className='justify-content-between search-container py-4'><h2>Projekty</h2></Row>
-                <Row className='mb-5'>
-                    <Col className='mb-4'><NewProjectCounter postsThisDay={postsThisDay} /></Col>
-                    <Col className='mb-4'><UserActivity /></Col>
-                    <Col className='mb-4'><NewCustomersCounter/></Col>
-                </Row>
+                <SummaryCards />
                 <Row className='d-flex gap-2'>
                     <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeUserInFilters={changeUserInFilters} />
                     <Col className='col-12 col-md-5 col-lg-4'>
