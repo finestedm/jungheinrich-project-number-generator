@@ -64,6 +64,7 @@ body{
 
 .main {
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .card-footer {
@@ -136,11 +137,14 @@ td {
 
     .offcanvas.offcanvas-start {
         width: 225px !important
-        
     }
 
     .navbar .flex-column {
         flex-grow: 1;
+    }
+
+    .navbar-brand {
+        margin-bottom: 3rem;
     }
 }
 
@@ -151,6 +155,11 @@ td {
 
     .offcanvas.offcanvas-start {
         width: 175px !important
+    }
+
+    .navbar-brand {
+        margin-bottom: 3rem;
+        margin-left: 1rem;
     }
 }
 
@@ -708,14 +717,24 @@ span.strong {
     border-color: white;
 }
 
-.card svg {
-    filter: drop-shadow(0 0 .25rem rgb(0 0 0 / 0.4));
+.card .summary-card--image>img {
+    height: 60px;
+    aspect-ratio: 1/1;
+    border-radius: .375rem;
+    overflow: hidden;
+}
+
+.summary-card--svg {
+    background-color: var(--ps-btn-bg);
+    height: 60px;
+    width: 60px;
 }
 
 .card-header {
 	border-bottom: none;
     background-color: transparent;
     font-weight: 500;
+    font-size: 14px;
     color: var(--ps-color-50)
 }
 

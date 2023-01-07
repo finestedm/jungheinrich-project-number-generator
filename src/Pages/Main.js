@@ -82,7 +82,7 @@ export default function Main() {
     }
 
     return (
-        <Container fluid className='main d-flex flex-column justify-content-around w-75 h-75'>
+        <Container fluid className='main d-flex flex-column justify-content-around w-100 px-4 h-75'>
             <h2 className='text-start mt-3'>Generuj numer projektu</h2>
             <Form id='project-details' as={Row} className='justify-content-between gap-3 mb-3 needs-validation' noValidate>
                 <Autocomplete

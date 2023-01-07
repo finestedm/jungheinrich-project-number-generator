@@ -40,14 +40,14 @@ export default function SummaryCards() {
 
     return (
         <Row className='mb-5'>
-            <Col>
-                <SummaryCard header='Nowe projekty' main={getPostsNotOlderThan24h()} image={<AiOutlineFundProjectionScreen/>} classAddition='new-post-counter' />
+            <Col className='mb-4 col-12 col-md-6 col-lg-4'>
+                <SummaryCard header='Nowe projekty' main={getPostsNotOlderThan24h()} image={<AiOutlineFundProjectionScreen size='40px'/>} classAddition='new-post-counter' />
             </Col>
-            <Col className='mb-4'>
+            <Col className='mb-4 col-12 col-md-6 col-lg-4'>
                 <SummaryCard header='Najaktywniejszy' main={mostActiveUser(usersInPosts)} image={<img src={mostActiveUserPhoto} />} classAddition='user-activity-counter' />
             </Col>
-            <Col className='mb-4'>
-                <SummaryCard header='Nowi klienci' main={onlyNewCustomers.length} image={<AiOutlineUserAdd/>} classAddition='new-customers-counter' />
+            <Col className='mb-4 col-12 col-md-6 col-lg-4'>
+                <SummaryCard header='Nowi klienci' main={onlyNewCustomers.length} image={<AiOutlineUserAdd size='40px'/>} classAddition='new-customers-counter' />
             </Col>
         </Row>
     )
