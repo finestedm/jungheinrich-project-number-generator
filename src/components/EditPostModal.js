@@ -143,7 +143,7 @@ export default function EditPostModal(props) {
             </Modal.Body>
             <Modal.Footer className='justify-content-between d-flex align-items-center'>
                 <Col xs={12} md={6} className="me-auto">
-                    <small>Utworzono: {moment(createdAt).format("D.M.YYYY")}, {moment(createdAt).format("H:M")}</small>
+                    <small>Utworzono: {moment(createdAt).format("D.M.YYYY")}, {moment(createdAt).format("H:mm")}</small>
                 </Col>
                 <Col className='text-end'>
                     <Button

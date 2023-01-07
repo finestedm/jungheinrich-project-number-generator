@@ -8,7 +8,7 @@ export default function SummaryCard(props) {
                 <span>{props.header}:</span>
             </Card.Header>
             <Card.Body className="d-flex justify-content-stretch align-items-end py-2">
-                <div className="d-flex w-100 justify-content-between align-items-end">
+                <div className="d-flex w-100 justify-content-between align-items-end gap-2">
                     <h4>{props.main}</h4>
                     {props.image.type === 'img' ? 
                         <div className='summary-card--image'>{props.image}</div>
