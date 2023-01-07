@@ -184,7 +184,7 @@ td {
         opacity: .5
     }
     .filter-indicator * {
-        font-size: .75rem;
+        font-size: 14px;
     }
   }
 

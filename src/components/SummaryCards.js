@@ -39,7 +39,7 @@ export default function SummaryCards() {
 
 
     return (
-        <Row className='mb-5'>
+        <Row className='mb-3'>
             <Col className='mb-4 col-12 col-md-6 col-lg-4'>
                 <SummaryCard header='Nowe projekty' main={getPostsNotOlderThan24h()} image={<AiOutlineFundProjectionScreen size='40px'/>} classAddition='new-post-counter' />
             </Col>
