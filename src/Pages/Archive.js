@@ -95,8 +95,10 @@ export default function Archive() {
         <Container fluid className='main w-100 px-2 px-md-4'>
             <div className='table-container mb-4'>
                 <Row className='justify-content-between search-container py-4'><h2>Projekty</h2></Row>
+                <h4>Podsumowanie <br/>  <small class="text-muted fs-6">Najważniejsze informacje z tego tygodnia</small></h4>
                 <SummaryCards />
                 <Row className='d-flex gap-2'>
+                    <h4>Archiwum <br/>  <small class="text-muted fs-6">Szukaj istniejących projektów</small></h4>
                     <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeUserInFilters={changeUserInFilters} />
                     <Col className='col-12 col-md-5 col-lg-4'>
                         <SearchBar searchedPhrase={filters.searchedPhrase} changeSearchedPhrase={changeSearchedPhrase} />

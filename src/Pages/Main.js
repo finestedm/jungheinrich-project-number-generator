@@ -84,7 +84,7 @@ export default function Main() {
     return (
         <Container fluid className='main d-flex flex-column justify-content-around w-100 px-4 py-2'>
             <Form id='project-details' as={Row} className='justify-content-between gap-3 mb-3 needs-validation' noValidate>
-                <h2 className='text-start mt-3 mb-2'>Generuj numer projektu</h2>
+                <h2 className='text-start mt-3 mb-2'>Generuj numer projektu <br/>  <small class="text-muted fs-5 fw-normal">Wprowadź dane projektu i uzyskaj numer referencyjny</small></h2>
                 <Autocomplete
                     required
                     fullWidth
