@@ -20,14 +20,6 @@ table .dropdown-item {
     font-weight: 500;
 }
 
-.sidebar {
-    border-right: 1px solid var(--ps-border-color);
-    height: 100%;
-    /* min-height: -webkit-fill-available; */
-    width: 280px;
-    background-color: white;
-}
-
 .nav-link {
     font-weight: 500;
     color: var(--ps-color-50);
@@ -760,6 +752,7 @@ span.strong {
     border-right: 1px solid var(--ps-border-color);
     border-color: var(--ps-border-color);
     align-items: flex-start;
+    max-height: 100vh;
 }
 
 .offcanvas-header {

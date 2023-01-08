@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector, createStore } from 'react-redux'
 import { getPosts } from '../actions/posts'
+import moment from 'moment'
 import { Container, Row, Col, Spinner, Card, Table } from 'react-bootstrap'
 import EditPostModal from '../components/EditPostModal'
 import PaginatedItems from './PaginatedItems';
 import SearchBar from '../components/SearchBar';
 import searchPosts from '../components/searchPosts';
-import getPostsNotOlderThan24h from '../components/newPostsCounter';
-import NewProjectCounter from '../components/NewProjectCounter';
-import UserActivity from '../components/UserActivity'
 import ActiveFiltersIndicator from '../components/ActiveFilterIndicator'
-import NewCustomersCounter from '../components/NewCustomersCounter'
 import SummaryCards from '../components/SummaryCards'
 import { users } from '../data/users'
 
@@ -27,15 +24,10 @@ export default function Archive() {
     const [postData, setPostData] = useState(null);
     const [postToEditId, setPostToEditId] = useState(null);
     const [filteredPosts, setFilteredPosts] = useState({});
-    const [postsThisDay, setPostsThisDay] = useState(0)
 
     useEffect(() => {
         dispatch(getPosts())
     }, [dispatch]);
-
-    useEffect(() => {
-        setPostsThisDay(getPostsNotOlderThan24h(posts))
-    }, [posts])
 
     const postToEdit = useSelector((state) => postToEditId ? state.posts.find((p) => p._id === postToEditId) : null)
 
@@ -94,11 +86,11 @@ export default function Archive() {
     return (
         <Container fluid className='main w-100 px-2 px-md-4'>
             <div className='table-container mb-4'>
-                <Row className='justify-content-between search-container py-4'><h2>Projekty</h2></Row>
-                <h4>Podsumowanie <br/>  <small class="text-muted fs-6">Najważniejsze informacje z tego tygodnia</small></h4>
+                <Row className='justify-content-between search-container py-4'><h1>Projekty</h1></Row>
+                <h3 className='mb-3'>Podsumowanie <br/>  <small class="text-muted fs-6">Najważniejsze informacje z tego tygodnia</small></h3>
                 <SummaryCards />
                 <Row className='d-flex gap-2'>
-                    <h4>Archiwum <br/>  <small class="text-muted fs-6">Szukaj istniejących projektów</small></h4>
+                    <h3 className='mb-3'>Archiwum <br/>  <small class="text-muted fs-6">Szukaj istniejących projektów</small></h3>
                     <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeUserInFilters={changeUserInFilters} />
                     <Col className='col-12 col-md-5 col-lg-4'>
                         <SearchBar searchedPhrase={filters.searchedPhrase} changeSearchedPhrase={changeSearchedPhrase} />
