@@ -55,11 +55,11 @@ export default function PaginatedItems(props) {
   
      
     return (
-      <Row>
+      <Row className='mt-4'>
         <Table hover className='table-ps m-0'>
             <thead>
             <tr className='table--head'> 
-              <th><StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} /></th>
+              <th className='align-middle'><StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} /></th>
               <th>Numer</th>
               <th>Klient</th>
               <th className='d-none d-lg-table-cell'>Lokalizacja</th>
@@ -76,7 +76,7 @@ export default function PaginatedItems(props) {
 
           <tfoot className='table--foot'>
             <tr>
-              <td colSpan="7">
+              <td colSpan="8">
                 <ReactPaginate
                   className='paginator d-flex justify-content-center text-center'
                   breakLabel="..."

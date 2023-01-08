@@ -8,6 +8,7 @@ import SearchBar from '../components/SearchBar';
 import searchPosts from '../components/searchPosts';
 import getPostsNotOlderThan24h from '../components/newPostsCounter';
 import NewProjectCounter from '../components/NewProjectCounter';
+import ActiveFiltersIndicator from '../components/ActiveFilterIndicator'
 import { users } from '../data/users'
 
 export default function Archive() {
@@ -89,13 +90,14 @@ export default function Archive() {
     
     return (
         <Container className='main mt-4'>
-            <div className='table-container mb-4 px-2'>
-                <Row className='d-flex flex-column flex-sm-row justify-content-between search-container py-4 px-2 gap-3'>
-                    <Col className='col-auto'>
-                        <h2 className='mb-4'>Projekty</h2>
-                        <NewProjectCounter className='align' postsThisDay={postsThisDay} />
-                    </Col>
-                    <Col  className='col-auto col-sm-4 main--search-bar mt-auto'>
+            <div className='table-container mb-4'>
+                <Row className='justify-content-between search-container py-4 gap-3'>
+                    <Col><h2 className='mb-4'>Projekty</h2></Col>
+                    <Col className='col-auto'><NewProjectCounter postsThisDay={postsThisDay} /></Col>
+                </Row>
+                <Row className='d-flex gap-2'>
+                    <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeUserInFilters={changeUserInFilters} />
+                    <Col className='col-12 col-md-5 col-lg-3'>
                         <SearchBar searchedPhrase={filters.searchedPhrase} changeSearchedPhrase={changeSearchedPhrase} />
                     </Col>
                 </Row>

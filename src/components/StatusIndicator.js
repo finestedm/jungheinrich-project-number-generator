@@ -2,24 +2,24 @@ import React from "react";
 import { RxArchive } from 'react-icons/rx';
 import {  IoDocumentTextOutline, IoFlashOutline, IoCloseCircleOutline } from 'react-icons/io5';
 
+const statusDescription = (status) => {
+    switch (parseInt(status)) {
+        case 0:
+            return 'ofertowany';
+        case 1:
+            return 'zamówiony';
+        case 2:
+            return 'przegrany';
+        case 3:
+            return 'zamknięty';
+        default:
+            break;
+    }
+}
 
 export default function StatusIndicator({status}) {
     const statusId = `status-${status}`;
-    const statusDescription = (status) => {
-        switch (status) {
-            case 0:
-                return 'ofertowany';
-            case 1:
-                return 'zamówiony';
-            case 2:
-                return 'przegrany';
-            case 3:
-                return 'zamknięty';
-            default:
-                break;
-        }
-    }
-
+    
     const statusIcon = (status) => {
         switch (status) {
             case 0:
@@ -48,3 +48,5 @@ export default function StatusIndicator({status}) {
         </div>
     )
 }
+
+export {statusDescription}

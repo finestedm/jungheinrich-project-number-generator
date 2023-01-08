@@ -17,12 +17,12 @@ export default function UserToggler({ filters, changeUserInFilters }) {
         </Dropdown.Toggle>
         
         <Dropdown.Menu>
-                <Dropdown.Item onClick={() => changeUserInFilters('all')} className='border-bottom pb-1 d-flex align-items-center user-name-toggle'>
+                <Dropdown.Item onClick={() => changeUserInFilters('all')} className='border-bottom d-flex align-items-center user-name-toggle'>
                 <Form.Check
                     id='status-all' 
                     value='all'  
                     onChange={(e) => changeUserInFilters(e.target.value)}
-                    className='d-flex align-items-center gap-2'
+                    className='d-flex align-items-center gap-2 py-2 '
                     inline
                     checked={(filters.users).length === users.length}
                     label={<span>{(filters.users).length === users.length ? 'Odznacz wszystkie' : 'Zaznacz wszystkie'}</span>}
@@ -32,7 +32,7 @@ export default function UserToggler({ filters, changeUserInFilters }) {
             {users.map(user => {
                 ((Object.values(filters.users)).filter(key => key.value === user.value))
                 return(    
-                <Dropdown.Item onClick={() => changeUserInFilters(user.value)} className='d-flex align-items-center user-name-toggle'>
+                <Dropdown.Item onClick={() => changeUserInFilters(user.value)} className='d-flex align-items-center user-name-toggle py-1'>
                     <Form.Check
                         id={user.value}
                         value={user.value}

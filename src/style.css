@@ -10,10 +10,17 @@ body, html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     min-height: -webkit-fill-available;
+    /* font-size: 13px; */
+}
+
+table,
+table .btn,
+table .dropdown-item {
+    font-size: 13px;
 }
 
 .navbar {
-    background-color: #3c464b;
+    background-color: var(--ps-navbar-bg);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     font-family: 'Roboto Slab', serif;
 }
@@ -26,7 +33,6 @@ body, html {
 
 body{
     height: 100vh;
-    background-color: hsl(229, 80%, 99%);
 }
 
 #root {
@@ -101,9 +107,7 @@ td {
 }
 
 @media screen and (max-width: 500px) {
-    .table * {
-        font-size: .75rem;
-    }
+    
     td.table--customer,
     td.table--location {
         white-space: nowrap;
@@ -118,7 +122,7 @@ td {
   }
 
 tr {
-    line-height: 2.8rem;
+    line-height: 3.25rem;
 }
 
 tr:hover:not(thead>tr) {
@@ -133,11 +137,14 @@ tr:hover:not(thead>tr) {
     --ps-border-hover-color: hsl(210, 45%, 75%);
     --ps-color: hsl(200, 10%, 32%);
     --ps-color-50: hsl(200, 10%, 70%);
-    --ps-table-head-bg: hsl(210, 40%, 98%);
+    --ps-table-head-bg: hsl(210, 40%, 96%);
     --ps-table-head-color: hsl(215, 16%, 52%);
     --ps-table-head-color-hover: hsl(215, 55%, 45%);
     --ps-btn-bg: var(--ps-table-hover-bg);
     --ps-btn-bg-hover: hsl(215, 35%, 75%);
+    --ps-btn-bg-active: hsl(200, 11%, 30%);
+    --ps-navbar-bg: hsl(200, 11%, 26%);
+    --ps-navbar-bg-hover: hsl(200, 11%, 35%);
 
 }
 
@@ -219,23 +226,17 @@ tr:hover:not(thead>tr) {
 }
 
 .table-container {
-    /* border: 2px solid hsla(200, 11%, 26%, 0.1); */
-    box-shadow: 0 0 50px rgb(0 0 0 / 10%);
-    border-radius: .75rem;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .table {
-    background-color: rgb(255, 255, 255);
-    font-size: .825rem;
     letter-spacing: -.35px;
     color: var(--ps-color);
-    border-radius: 0 0 1rem 1rem !important;
 }
 
 .table--head {
     background-color: var(--ps-table-head-bg);
-    line-height: 1.6rem;
+    line-height: 1.8rem;
 }
 
 .table--head>th,
@@ -273,12 +274,11 @@ tr:hover:not(thead>tr) {
 
 .dropdown-item {
     font-weight: 400;
-    font-size: .8rem;
 }
+
 .table--head>th,
 .table--head>th button {
     font-weight: 500;
-    font-size: .8rem;
 }
 
 
@@ -308,11 +308,6 @@ tr>td:first-child {
 tr>th:last-child, 
 tr>td:last-child {
     padding-right: 1.5rem !important;
-}
-
-.search-container {
-    background-color: hsl(0, 0%, 100%);
-    border-bottom: 1px solid #dee2e6;
 }
 
 .search-container h2 {
@@ -349,7 +344,7 @@ tr>td:last-child {
 }
 
 .project-number-output>* {
-    font-size: 1.75rem;
+    font-size: 2rem;
 }
 
 
@@ -404,6 +399,25 @@ span#status-2{
 
 /* modal */
 
+.modal-footer {
+    background-color: var(--ps-table-head-bg);
+}
+
+.modal, 
+.modal textarea {
+    color:var(--ps-color)
+}
+
+.modal label{
+    color:var(--ps-color-50)
+}
+
+.modal {
+	--bs-modal-border-width: 0;
+	--bs-modal-header-border-width: 0;
+	--bs-modal-footer-border-width: 0;
+}
+
 button#status-0{
     /* background-color: hsla(45, 100%, 45%, 0.05); */
     border: 1px solid hsla(210, 50%, 50%);
@@ -451,18 +465,10 @@ button#status-2.Mui-selected{
     font-weight: 400;
 }
 
-.modal, 
-.modal textarea {
-    color:var(--ps-color)
-}
-
-.modal label{
-    color:var(--ps-color-50)
-}
-
 .modal .MuiFormControl-root * {
-    border-color: var(--ps-border-color)
+    border-color: var(--ps-border-color);
 }
+
 
 .btn-ps-accept {
     --bs-btn-color: hsla(210, 50%, 35%) !important;
@@ -533,6 +539,7 @@ button#status-2.Mui-selected{
 	border: var(--bs-dropdown-border-width) solid var(--ps-table-border-color);
 	border-radius: var(--bs-dropdown-border-radius);
     box-shadow: 0 0 10px 1px var(--ps-table-hover-bg);
+    --bs-dropdown-padding-y: 0;
 }
 
 .dropdown-menu {
@@ -541,8 +548,8 @@ button#status-2.Mui-selected{
 }
 
 .table--head a:not(.status-toggle) {
-    height: 1.25rem;
-    line-height: 1.25rem;
+    /* height: 1.5rem;
+    line-height: 1.5rem; */
 }
 
 .user-name-toggle:nth-child(2) {
@@ -607,10 +614,32 @@ tr:hover .project-edit-icon {
 /* tooltip */
 
 .ps-tooltip {
-    --bs-tooltip-bg: hsl(200, 11%, 26%);
+    --bs-tooltip-bg: hsl(200, 15%, 26%);
     --bs-tooltip-color:  white;
     margin: 0;
     padding: 0;
     border-radius: .5rem;
     box-shadow: 0 0 18px hsla(200, 8%, 15%, 0.3);
+}
+
+
+.filter-indicator >.btn {
+    --bs-btn-color: white;
+    --bs-btn-bg: var(--ps-table-head-color);
+    --bs-btn-border-color: var(--bs-btn-bg);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--ps-navbar-bg-hover);
+    --bs-btn-hover-border-color: var(--ps-navbar-bg-hover);
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-hover-bg: var(--ps-navbar-bg-hover);
+    --bs-btn-hover-border-color: var(--ps-navbar-bg-hover);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    font-weight: 500;
+}
+
+.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
+	color: var(--bs-btn-active-color);
+	background-color: var(--ps-btn-bg-active);
+	border-color: var(--ps-btn-bg-active);
 }
