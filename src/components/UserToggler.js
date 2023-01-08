@@ -17,7 +17,7 @@ export default function UserToggler({ filters, changeUserInFilters }) {
         </Dropdown.Toggle>
         
         <Dropdown.Menu>
-                <Dropdown.Item onClick={() => changeUserInFilters('all')} className='border-bottom d-flex align-items-center user-name-toggle'>
+                <Dropdown.Item onClick={() => changeUserInFilters('all')} className='d-flex align-items-center user-name-toggle'>
                 <Form.Check
                     id='status-all' 
                     value='all'  

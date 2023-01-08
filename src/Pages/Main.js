@@ -16,7 +16,7 @@ export default function Main() {
     const [description, setDescription] = useState('')
     const [user, setUser] = useState('')
     const [projectNumber, setProjectNumber] = useState('')
-    const [buttonText, setButtonText] = useState('Generuj nowy nr projektu')
+    const [buttonText, setButtonText] = useState('Generuj nowy numer')
     const [buttonVariant, setButtonVariant] = useState('warning')
     const [postsData, setPostsData] = useState([])
 
@@ -68,21 +68,22 @@ export default function Main() {
             setButtonText('Synchronizacja danych. Poczekaj chwilę!')
             setButtonVariant('danger')
             setTimeout(() => {
-                setButtonText('Generuj nowy nr projektu')
+                setButtonText('Generuj nowy numer')
                 setButtonVariant('warning')
             }, 2000);
         } else {
             setButtonText('Nie wpisano wymaganych danych!')
             setButtonVariant('danger')
             setTimeout(() => {
-                setButtonText('Generuj nowy nr projektu')
+                setButtonText('Generuj nowy numer')
                 setButtonVariant('warning')
             }, 2000);
         }
     }
 
     return (
-        <Container fluid className='main text-center d-flex flex-column justify-content-around w-75 h-100'>
+        <Container fluid className='main d-flex flex-column justify-content-around w-100 px-4 h-75'>
+            <h2 className='text-start mt-3'>Generuj numer projektu</h2>
             <Form id='project-details' as={Row} className='justify-content-between gap-3 mb-3 needs-validation' noValidate>
                 <Autocomplete
                     required
@@ -135,20 +136,10 @@ export default function Main() {
             </Form>
 
             <Row>
-                <Button type='submit' form='project-details' variant={buttonVariant} className='submit-button p-4 fs-4 mb-3 fw-bolder' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
+                <Button type='submit' form='project-details' variant={buttonVariant} className='submit-button p-4 fs-4 fw-bolder' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
             </Row>
             
             <Row>
-                {/* <TextField
-                    fullWidth
-                    className='main--output mb-3 '
-                    variant="outlined"
-                    label="Nr projektu"
-                    readOnly
-                    value={projectNumber}
-                    sx={{backgroundColor: 'white'}}
-                    onClick={(e) => navigator.clipboard.writeText(e.target.value)}
-                /> */}
                 <InputGroup className='project-number-output p-0' >
                     <Form.Control
                         readOnly
@@ -160,14 +151,6 @@ export default function Main() {
                     />
                     <Button variant="warning" onClick={(e) => navigator.clipboard.writeText(e.target.value)}><IoCopyOutline/></Button>
                 </InputGroup>
-            </Row>
-
-            <Row>
-                <Col>
-                    <Link  className='col-3' to='/archive'>
-                        <Button variant='outline-secondary' className='btn p-3 mb-3 '> Wyświetl archiwum projektów </Button>
-                    </Link>
-                </Col>
             </Row>
         </Container>
     )

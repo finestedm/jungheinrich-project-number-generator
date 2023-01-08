@@ -19,7 +19,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
         
             
         <Dropdown.Menu>
-                <Dropdown.Item onClick={() => changeStatusInFilters('all')} className='border-bottom py-2 d-flex align-items-center status-toggle'>
+                <Dropdown.Item onClick={() => changeStatusInFilters('all')} className='py-2 d-flex align-items-center status-toggle'>
                 <Form.Check
                     id='status-all' 
                     value='all'  

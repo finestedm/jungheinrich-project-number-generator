@@ -9,7 +9,10 @@ export default function NewCustomersCounter() {
     const postsThisMonth = posts.filter(post => moment().diff(moment(post.createdAt), 'months') <= 1)
     const postsBeforeThisMonth = posts.filter(post => moment().diff(moment(post.createdAt), 'months') > 1)
 
-    const customersInPosts = posts.map(post => post.customer)
+    const customersInPostsThisMonth = postsThisMonth.map(post => post.customer)
+    const customersInPostsBeforeThisMonth = postsBeforeThisMonth.map(post => post.customer)
+
+    const onlyNewCustomers = customersInPostsThisMonth.filter(customer => !customersInPostsBeforeThisMonth.includes(customer))
 
     return (
         <Card className='summary-cards user-activity-counter h-100 p-2'>
@@ -17,7 +20,7 @@ export default function NewCustomersCounter() {
                 <span>Nowi klienci:</span>
             </Card.Header>
             <Card.Body className="d-flex justify-content-between align-items-end">
-                <h4>Brak</h4>
+                {onlyNewCustomers.length}
             </Card.Body>
         </Card>
     )
