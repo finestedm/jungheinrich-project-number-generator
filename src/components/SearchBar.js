@@ -7,7 +7,7 @@ export default function SearchBar(props) {
     const { searchedPhrase, changeSearchedPhrase, requestSearchedPosts } = props
     
     return (
-        <InputGroup>
+        <InputGroup className='main--search-bar'>
             <Button variant='outline-secondary bg-white border border-none' onClick={requestSearchedPosts}><IoSearch className='search-input--search-icon' /></Button>
             {searchedPhrase ? <Button variant='outline-secondary bg-white border border-none' className='search-input--delete' onClick={() => changeSearchedPhrase('')}><IoClose className='search-input--delete-icon' /></Button> : ''}
             <Form.Control

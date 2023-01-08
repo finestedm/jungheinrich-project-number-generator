@@ -55,17 +55,17 @@ export default function PaginatedItems(props) {
   
      
     return (
-      <Row className='mt-4'>
+      <Row className='table-holder mt-4'>
         <Table hover className='table-ps m-0'>
             <thead>
             <tr className='table--head'> 
               <th className='align-middle'><StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} /></th>
               <th>Numer</th>
               <th>Klient</th>
-              <th className='d-none d-lg-table-cell'>Lokalizacja</th>
-              <th className='d-none d-lg-table-cell'>Opis</th>
+              <th className='d-none d-xl-table-cell'>Lokalizacja</th>
+              <th className='d-none d-xl-table-cell'>Opis</th>
               <th className='d-none d-md-table-cell'><UserToggler changeUserInFilters={changeUserInFilters} filters={filters} /></th>
-              <th className='d-none d-md-table-cell'>Utworzono</th>
+              <th className='d-none d-lg-table-cell'>Utworzono</th>
               <th className='edit-column'></th>
             </tr>
           </thead>

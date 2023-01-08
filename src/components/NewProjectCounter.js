@@ -1,12 +1,26 @@
 import React from "react";
-import {Col} from 'react-bootstrap'
+import {Col, Card} from 'react-bootstrap'
 import {IoTrendingUp} from 'react-icons/io5'
 
 export default function NewProjectCounter({postsThisDay}){
     return (
         postsThisDay > 0 ?
-            (<Col className='p-2 px-3 new-post-counter active col-auto'><span className='me-2 fw-normal'>Ostatnie 24h:</span> {postsThisDay} <IoTrendingUp style={{scale: '1.4'}}className="ms-1 new-project-counter-icon"/></Col>)
+            (<Card className='summary-cards new-post-counter active h-100 p-2'>
+                <Card.Header className='pb-0'>    
+                    <span>Ostatnie 24h:</span>
+                </Card.Header>
+                <Card.Body className="fs-1 fw-bold d-flex justify-content-between align-items-end">
+                    {postsThisDay} <IoTrendingUp size={'5rem'} className="ms-1 new-project-counter-icon" />
+                </Card.Body>
+            </Card>)
             :
-            (<Col className='p-2 px-3 fw-normal new-post-counter col-auto'>Brak nowych projektów </Col>)
+            (<Card className='summary-cards new-post-counter active h-100 p-2'>
+                <Card.Header className='pb-0'>    
+                    <span>Ostatnie 24h:</span>
+                </Card.Header>
+                <Card.Body className="d-flex justify-content-between align-items-end">
+                    <h3>Brak nowych projektów</h3>
+                </Card.Body>
+            </Card>)
     )
 }

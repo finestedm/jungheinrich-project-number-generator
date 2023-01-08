@@ -23,14 +23,14 @@ export default function ActiveFiltersIndicator({ filters, changeStatusInFilters,
         <Col className='d-flex gap-2 align-items-center'>
             {activeStatuses.length < (Object.keys(filters.status)).length ?
                 <ButtonGroup className='d-none d-md-inline filter-indicator filter-indicator-status'>
-                    <Button>Status: {getActiveStatuses()} </Button>
+                    <Button>{getActiveStatuses().length > 0 ? getActiveStatuses() : 'Status niewybrany'} </Button>
                     <Button onClick={() => changeStatusInFilters('all')}><RxCross2 /></Button>
                 </ButtonGroup>
                 : ''
             }
             {activeUsers.length < users.length ?
                 <ButtonGroup className='d-none d-md-inline filter-indicator filter-indicator-status'>
-                    <Button>Handlowcy: {getActiveUsers()} </Button>
+                    <Button>{getActiveUsers().length > 0 ? getActiveUsers() : 'Handlowciec niewybrany'} </Button>
                     <Button onClick={() => changeUserInFilters('all')}><RxCross2 /></Button>
                 </ButtonGroup>
                 : ''
