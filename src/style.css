@@ -168,8 +168,8 @@ td {
 
     .navbar-indicator {
         position: absolute;
-        top:0;
-        right: 0;
+        top:-9px;
+        right:-9px;
         scale: .7;
     }
 
