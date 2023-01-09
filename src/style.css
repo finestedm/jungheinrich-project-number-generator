@@ -154,12 +154,12 @@ td {
 
 @media (max-width: 1200px) and (min-width: 768px) {
     .navbar {
-        min-width: 225px;
+        width: 100px;
         padding-top: 1.5rem;
     }
 
     .offcanvas.offcanvas-start {
-        width: 175px !important
+        width: 100px !important
     }
 
     .navbar-brand {

@@ -6,17 +6,16 @@ import moment from 'moment'
 import SummaryCard from './SummaryCard'
 import {AiOutlineFundProjectionScreen, AiOutlineUserAdd} from 'react-icons/ai'
 
+// Nowe projekty
+export function getPostsNotOlderThan24h(posts) {
+    return posts.filter(post => moment().diff(moment(post.createdAt), 'days') <= 1).length      // returns projects not older than 1 day
+}
 
 export default function SummaryCards() {
     
     const posts = useSelector((state) => state.posts)
     const usersInPosts = posts.map(post => post.user)
     
-    // Nowe projekty
-    function getPostsNotOlderThan24h() {
-        const numberOfNewPosts = posts.filter(post => moment().diff(moment(post.createdAt), 'days') <= 1).length      // returns projects not older than 1 day
-        return numberOfNewPosts === 0 ? 'Brak nowych projektów' : numberOfNewPosts;
-    }
     
     // Najaktywniejszy handlowiec
     function mostActiveUser(arr) {
@@ -41,7 +40,7 @@ export default function SummaryCards() {
     return (
         <Row className='mb-3'>
             <Col className='mb-4 col-12 col-md-6 col-lg-4'>
-                <SummaryCard header='Nowe projekty' main={getPostsNotOlderThan24h()} image={<AiOutlineFundProjectionScreen size='40px'/>} classAddition='new-post-counter' />
+                <SummaryCard header='Nowe projekty' main={getPostsNotOlderThan24h(posts) === 0 ? 'Brak nowych projektów' : getPostsNotOlderThan24h(posts) } image={<AiOutlineFundProjectionScreen size='40px'/>} classAddition='new-post-counter' />
             </Col>
             <Col className='mb-4 col-12 col-md-6 col-lg-4'>
                 <SummaryCard header='Najaktywniejszy' main={mostActiveUser(usersInPosts)} image={<img src={mostActiveUserPhoto} />} classAddition='user-activity-counter' />
