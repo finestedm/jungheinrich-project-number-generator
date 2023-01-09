@@ -7,8 +7,8 @@ import SummaryCard from './SummaryCard'
 import {AiOutlineFundProjectionScreen, AiOutlineUserAdd} from 'react-icons/ai'
 
 // Nowe projekty
-export function getPostsNotOlderThan24h(posts) {
-    return posts.filter(post => moment().diff(moment(post.createdAt), 'days') <= 1).length      // returns projects not older than 1 day
+export function getNewPostsNumber(posts) {
+    return posts.filter(post => moment().diff(moment(post.createdAt), 'weeks') <= 1).length      // returns projects not older than 1 day
 }
 
 export default function SummaryCards() {
@@ -28,19 +28,19 @@ export default function SummaryCards() {
 
     // Nowi klienci
 
-    const postsThisMonth = posts.filter(post => moment().diff(moment(post.createdAt), 'months') <= 1)
-    const postsBeforeThisMonth = posts.filter(post => moment().diff(moment(post.createdAt), 'months') > 1)
+    const postsThisPeriod = posts.filter(post => moment().diff(moment(post.createdAt), 'weeks') <= 1)
+    const postsBeforeThisPeriod = posts.filter(post => moment().diff(moment(post.createdAt), 'weeks') > 1)
 
-    const customersInPostsThisMonth = postsThisMonth.map(post => post.customer)
-    const customersInPostsBeforeThisMonth = postsBeforeThisMonth.map(post => post.customer)
+    const customersInPostsThisPeriod = postsThisPeriod.map(post => post.customer)
+    const customersInPostsBeforeThisPeriod = postsBeforeThisPeriod.map(post => post.customer)
 
-    const onlyNewCustomers = customersInPostsThisMonth.filter(customer => !customersInPostsBeforeThisMonth.includes(customer))
+    const onlyNewCustomers = customersInPostsThisPeriod.filter(customer => !customersInPostsBeforeThisPeriod.includes(customer))
 
 
     return (
         <Row className='mb-3'>
             <Col className='mb-4 col-12 col-md-6 col-lg-4'>
-                <SummaryCard header='Nowe projekty' main={getPostsNotOlderThan24h(posts) === 0 ? 'Brak nowych projektów' : getPostsNotOlderThan24h(posts) } image={<AiOutlineFundProjectionScreen size='40px'/>} classAddition='new-post-counter' />
+                <SummaryCard header='Nowe projekty' main={getNewPostsNumber(posts) === 0 ? 'Brak nowych projektów' : getNewPostsNumber(posts) } image={<AiOutlineFundProjectionScreen size='40px'/>} classAddition='new-post-counter' />
             </Col>
             <Col className='mb-4 col-12 col-md-6 col-lg-4'>
                 <SummaryCard header='Najaktywniejszy' main={mostActiveUser(usersInPosts)} image={<img src={mostActiveUserPhoto} />} classAddition='user-activity-counter' />

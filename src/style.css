@@ -150,16 +150,31 @@ td {
     .navbar-brand {
         margin-bottom: 3rem;
     }
+    
 }
 
 @media (max-width: 1200px) and (min-width: 768px) {
     .navbar {
-        width: 100px;
+        width: 67px;
         padding-top: 1.5rem;
     }
 
+    .nav-link {
+        position:relative
+    }
+    .nav-link svg {
+        scale: 1.5;
+    }
+
+    .navbar-indicator {
+        position: absolute;
+        top:0;
+        right: 0;
+        scale: .7;
+    }
+
     .offcanvas.offcanvas-start {
-        width: 100px !important
+        width: 75px !important
     }
 
     .navbar-brand {
@@ -221,7 +236,7 @@ tr:hover:not(thead>tr) {
     --ps-btn-bg-active: hsl(200, 11%, 30%);
     --ps-btn-dark-bg: hsl(200, 11%, 26%);
     --ps-btn-dark-bg-hover: hsl(200, 11%, 35%);
-
+    --ps-accent-yellow: hsl(44, 100%, 50%);
 }
 
 .border {
@@ -753,6 +768,15 @@ span.strong {
     border-color: var(--ps-border-color);
     align-items: flex-start;
     max-height: 100vh;
+}
+
+.navbar-indicator {
+    background-color: var(--ps-accent-yellow);
+    color: var(--ps-color);
+    font-size: 12px;
+    height: 1.5rem;
+    min-width: 1.5rem;
+    border-radius: 100rem;
 }
 
 .offcanvas-header {
