@@ -39,11 +39,12 @@ export default function Topbar() {
                                     <Row className='d-flex align-items-center justify-content-between'>
                                         <Col xs='auto'><BiArchive /></Col>
                                         <Col className='border-start d-block d-md-none d-xl-block text-start'><span >Archiwum</span></Col>
-                                        <Col xs='auto' className='text-center'>
-                                            <div className='navbar-indicator d-flex justify-content-center align-items-center fw-bold'>
-                                                <span className='d-none d-xl-block'>{getNewPostsNumber(posts) !== 0 ? getNewPostsNumber(posts) : ''} </span>
-                                            </div>
-                                        </Col>
+                                        {getNewPostsNumber(posts) !== 0 ?
+                                            <Col xs='auto' className='text-center'>
+                                                <div className='navbar-indicator d-flex justify-content-center align-items-center fw-bold'>
+                                                    <span className='d-none d-xl-block'>{getNewPostsNumber(posts)} </span>
+                                                </div>
+                                        </Col> : ''}
                                     </Row>
                                 </Nav.Link>
                             </Nav.Item>
