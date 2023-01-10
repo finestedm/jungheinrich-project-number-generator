@@ -5,7 +5,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Archive from "./Pages/Archive";
 import Main from "./Pages/Main";
 
-
 export default function App() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL} className='App'>
@@ -17,6 +16,5 @@ export default function App() {
         </Routes>
       </Container>
     </BrowserRouter>
-     
   );
 }
