@@ -237,6 +237,8 @@ tr:hover:not(thead>tr) {
     --ps-btn-dark-bg: hsl(200, 11%, 26%);
     --ps-btn-dark-bg-hover: hsl(200, 11%, 35%);
     --ps-accent-yellow: hsl(44, 100%, 50%);
+    --ps-accent-yellow-bg: hsl(44, 100%, 65%);
+    --ps-accent-yellow-bg-50: hsl(44, 100%, 85%);
 }
 
 .border {
@@ -541,12 +543,13 @@ button#status-2.Mui-selected{
 
 
 .btn-ps-accept {
-    --bs-btn-color: hsla(210, 50%, 35%) !important;
-    --bs-btn-bg: hsl(210, 50%, 90%);
+    font-weight: 500;
+    --bs-btn-color: var(--ps-color);
+    --bs-btn-bg: var(--ps-accent-yellow);
     --bs-btn-border-color: var(--bs-btn-bg);
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg:  hsla(210, 50%, 40%);
-    --bs-btn-hover-border-color: hsl(210, 70%, 45%);
+    --bs-btn-hover-color: black;
+    --bs-btn-hover-bg: var(--ps-accent-yellow-bg);
+    --bs-btn-hover-border-color: var(--ps-accent-yellow-bg);
     --bs-btn-focus-shadow-rgb: 49,132,253;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #0a58ca;
@@ -745,9 +748,13 @@ span.strong {
 }
 
 .summary-card--svg {
-    background-color: var(--ps-btn-bg);
+    background-color: var(--ps-accent-yellow);
     height: 60px;
     width: 60px;
+}
+
+.summary-card--svg>svg {
+    fill: var(--ps-color);
 }
 
 .card-header {
@@ -779,7 +786,7 @@ span.strong {
     border-radius: 100rem;
 }
 
-.offcanvas-header {
+.navbar--offcanvas .offcanvas-header {
     border-bottom: 1px solid var(--ps-btn-dark-bg-hover);
     height: 75px;
 }
@@ -788,6 +795,24 @@ span.strong {
     background-color: white;
 }
 
-.offcanvas, .offcanvas-lg, .offcanvas-md, .offcanvas-sm, .offcanvas-xl, .offcanvas-xxl {
+.navbar--offcanvas {
 	--bs-offcanvas-bg: var(--ps-color);
+}
+
+.project-edit-offcanvas .offcanvas-header {
+    border-bottom: 1px solid var(--ps-border-color);
+}
+
+.offcanvas.offcanvas-end {
+	top: 0;
+	right: 0;
+	width: 500px;
+	border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+	transform: translateX(100%);
+}
+
+.status-switch-buttons>button {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis // This is where the magic happens
 }
