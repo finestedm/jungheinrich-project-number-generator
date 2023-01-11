@@ -30,7 +30,9 @@ export default function Topbar() {
                                 <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/" active={selectedSite === 1} onClick={() => setSelectedSite(1)}>
                                     <Row>
                                         <Col xs='auto'><AiOutlineNumber /></Col>
-                                        <Col className='border-start d-block d-md-none d-xl-block text-start'><span>Generuj numer</span></Col>
+                                        <Col className='nav-link--description d-block d-md-none d-xl-block text-start'>
+                                            <span>Generuj numer</span>
+                                        </Col>
                                     </Row>
                                 </Nav.Link>
                             </Nav.Item>
@@ -38,7 +40,7 @@ export default function Topbar() {
                                 <Nav.Link className='p-3 align-items-center' as={Link} to="/Archive" active={selectedSite === 2} onClick={() => setSelectedSite(2)}>
                                     <Row className='d-flex align-items-center justify-content-between'>
                                         <Col xs='auto'><BiArchive /></Col>
-                                        <Col className='border-start d-block d-md-none d-xl-block text-start'><span >Archiwum</span></Col>
+                                        <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span >Archiwum</span></Col>
                                         {getNewPostsNumber(posts) !== 0 ?
                                             <Col xs='auto' className='text-center'>
                                                 <div className='navbar-indicator d-flex justify-content-center align-items-center fw-bold'>
@@ -52,7 +54,7 @@ export default function Topbar() {
                                 <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/Archive" active={selectedSite === 3} onClick={() => setSelectedSite(3)}>
                                     <Row>
                                         <Col xs='auto'><BiArchive /></Col>
-                                        <Col className='border-start d-block d-md-none d-xl-block text-start'><span >Placeholder #1</span></Col>
+                                        <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span >Placeholder #1</span></Col>
                                     </Row>
                                 </Nav.Link>
                             </Nav.Item>

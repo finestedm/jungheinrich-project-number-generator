@@ -43,6 +43,10 @@ table .dropdown-item {
     background-color: var(--ps-btn-bg-nav-hover);
 }
 
+.nav-link--description {
+    border-left: 1px solid var(--ps-color-50);
+}
+
 .nav-main__logo {
     height: 80%;
 }
@@ -218,6 +222,7 @@ tr:hover:not(thead>tr) {
 
 :root{
     --ps-background: hsl(215, 40%, 98%);
+    --ps-navbar-bg: hsl(200, 11%, 26%);
     --ps-shadow-hover: hsl(210, 10%, 85%);
     --ps-table-hover-bg: hsl(210, 50%, 97%);
     --ps-table-hover-color: hsl(215, 36%, 50%);
@@ -770,8 +775,7 @@ span.strong {
 }
 
 .navbar {
-    background-color: white;
-    border-right: 1px solid var(--ps-border-color);
+    background-color: var(--ps-navbar-bg);
     border-color: var(--ps-border-color);
     align-items: flex-start;
     max-height: 100vh;
