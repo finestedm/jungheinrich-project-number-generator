@@ -818,5 +818,5 @@ span.strong {
 .status-switch-buttons>button {
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis // This is where the magic happens
+    text-overflow: ellipsis
 }
