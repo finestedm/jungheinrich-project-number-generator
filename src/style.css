@@ -190,9 +190,8 @@ td {
 @media screen and (max-width: 768px) {
 
     .navbar {
-        border-bottom: 1px solid var(--ps-border-color);
         border-right: none;
-        box-shadow: 0 0 1rem var(--ps-shadow-hover);
+        box-shadow: 0 .5rem 1rem #24262743;
         align-items: flex-start !important;
     }
 
