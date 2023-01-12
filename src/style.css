@@ -5,12 +5,134 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
 
+@font-face {
+    font-family: 'MuseoSans';
+    src: local('MuseoSans_100'), url(./fonts/MuseoSans_100.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'MuseoSans';
+    font-style: italic;
+    src: local('MuseoSans_100'), url(./fonts/MuseoSans_100_Italic.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'MuseoSans';
+    font-weight: 300;
+    src: local('MuseoSans_300'), url(./fonts/MuseoSans_300.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'MuseoSans';
+    font-weight: 300;
+    font-style: italic;
+    src: local('MuseoSans_300'), url(./fonts/MuseoSans_300_Italic.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'MuseoSans';
+    font-weight: 500;
+    src: local('MuseoSans_500'), url(./fonts/MuseoSans_500.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'MuseoSans';
+    font-weight: 500;
+    font-style: italic;
+    src: local('MuseoSans_500'), url(./fonts/MuseoSans_500_Italic.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'MuseoSans';
+    font-weight: 700;
+    src: local('MuseoSans_700'), url(./fonts/MuseoSans_700.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'MuseoSans';
+    font-weight: 700;
+    font-style: italic;
+    src: local('MuseoSans_700'), url(./fonts/MuseoSans_700_Italic.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Museo_Slab';
+    font-weight: 100;
+    src: local('Museo_Slab_100'), url(./fonts/Museo_Slab_100.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Museo_Slab';
+    font-weight: 100;
+    font-style: italic;
+    src: local('Museo_Slab_100'), url(./fonts/Museo_Slab_100italic.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Museo_Slab';
+    font-weight: 300;
+    src: local('Museo_Slab_300'), url(./fonts/Museo_Slab_300.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Museo_Slab';
+    font-weight: 300;
+    font-style: italic;
+    src: local('Museo_Slab_300'), url(./fonts/Museo_Slab_300italic.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Museo_Slab';
+    font-weight: 500;
+    src: local('Museo_Slab_500'), url(./fonts/Museo_Slab_500.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Museo_Slab';
+    font-weight: 500;
+    font-style: italic;
+    src: local('Museo_Slab_500'), url(./fonts/Museo_Slab_500italic.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Museo_Slab';
+    font-weight: 700;
+    src: local('Museo_Slab_700'), url(./fonts/Museo_Slab_700.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Museo_Slab';
+    font-weight: 700;
+    font-style: italic;
+    src: local('Museo_Slab_700'), url(./fonts/Museo_Slab_700italic.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Museo_Slab';
+    font-weight: 900;
+    src: local('Museo_Slab_900'), url(./fonts/Museo_Slab_900.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Museo_Slab';
+    font-weight: 900;
+    font-style: italic;
+    src: local('Museo_Slab_900'), url(./fonts/Museo_Slab_900italic.otf) format('opentype');
+}
+
+
 body, html {
     font-family: "Inter","Helvetica","Arial",sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     min-height: -webkit-fill-available;
     background-color: var(--ps-background);
+}
+
+h1, h2, h3 {
+    font-family: "Museo_Slab", "Inter","Helvetica","Arial",sans-serif;
+    letter-spacing: -.5px;
+    font-weight: 700;
 }
 
 table,
@@ -588,6 +710,7 @@ button#status-2.Mui-selected{
 .css-8ewcdo-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline,
 .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
     border-color: var(--ps-border-hover-color) !important;
+
 }
 
 .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root:focus .MuiOutlinedInput-notchedOutline,
