@@ -1,22 +1,40 @@
 {
   "files": {
-    "main.css": "/jungheinrich-project-number-generator/static/css/main.e34846f8.css",
-    "main.js": "/jungheinrich-project-number-generator/static/js/main.cec7a7b6.js",
+    "main.css": "/jungheinrich-project-number-generator/static/css/main.97a70650.css",
+    "main.js": "/jungheinrich-project-number-generator/static/js/main.e93ce854.js",
     "static/media/MS.png": "/jungheinrich-project-number-generator/static/media/MS.0b53880c5dbc3c391a43.png",
     "static/media/PK.png": "/jungheinrich-project-number-generator/static/media/PK.cd4ab2452266bbccb315.png",
     "static/media/MR.png": "/jungheinrich-project-number-generator/static/media/MR.1ace7126e29221f01ea5.png",
     "static/media/MT.png": "/jungheinrich-project-number-generator/static/media/MT.75c37b9a2e53be3bce25.png",
+    "static/media/Museo_Slab_900italic.otf": "/jungheinrich-project-number-generator/static/media/Museo_Slab_900italic.2c6c2572894cc946f82e.otf",
+    "static/media/Museo_Slab_700italic.otf": "/jungheinrich-project-number-generator/static/media/Museo_Slab_700italic.af0c962f9de784730af0.otf",
+    "static/media/MuseoSans_700_Italic.otf": "/jungheinrich-project-number-generator/static/media/MuseoSans_700_Italic.4e8803c342fb5feb9873.otf",
+    "static/media/Museo_Slab_300italic.otf": "/jungheinrich-project-number-generator/static/media/Museo_Slab_300italic.dccbb062be96315ab4c1.otf",
+    "static/media/Museo_Slab_500italic.otf": "/jungheinrich-project-number-generator/static/media/Museo_Slab_500italic.6ad8e2407daeac2afac1.otf",
+    "static/media/Museo_Slab_100italic.otf": "/jungheinrich-project-number-generator/static/media/Museo_Slab_100italic.f5e41d3704bfa9713281.otf",
+    "static/media/MuseoSans_100_Italic.otf": "/jungheinrich-project-number-generator/static/media/MuseoSans_100_Italic.902840545bda75eb62d0.otf",
+    "static/media/Museo_Slab_900.otf": "/jungheinrich-project-number-generator/static/media/Museo_Slab_900.e8565857bdb94dee6965.otf",
+    "static/media/MuseoSans_300_Italic.otf": "/jungheinrich-project-number-generator/static/media/MuseoSans_300_Italic.775a235f88c1abd3ae9d.otf",
+    "static/media/MuseoSans_500_Italic.otf": "/jungheinrich-project-number-generator/static/media/MuseoSans_500_Italic.e20850e873a84ebd9a1b.otf",
+    "static/media/MuseoSans_700.otf": "/jungheinrich-project-number-generator/static/media/MuseoSans_700.80acced0ba3630ee652b.otf",
+    "static/media/Museo_Slab_700.otf": "/jungheinrich-project-number-generator/static/media/Museo_Slab_700.327a1c4f057381d84f63.otf",
+    "static/media/MuseoSans_300.otf": "/jungheinrich-project-number-generator/static/media/MuseoSans_300.34274fbfb2f270b8d53b.otf",
+    "static/media/MuseoSans_500.otf": "/jungheinrich-project-number-generator/static/media/MuseoSans_500.8ccea4947561e7008d19.otf",
+    "static/media/MuseoSans_100.otf": "/jungheinrich-project-number-generator/static/media/MuseoSans_100.d355445ed7d61b887e58.otf",
+    "static/media/Museo_Slab_500.otf": "/jungheinrich-project-number-generator/static/media/Museo_Slab_500.12f308b8e0a39f50bc96.otf",
+    "static/media/Museo_Slab_300.otf": "/jungheinrich-project-number-generator/static/media/Museo_Slab_300.6bd9b80fb9c2b83ab21b.otf",
+    "static/media/Museo_Slab_100.otf": "/jungheinrich-project-number-generator/static/media/Museo_Slab_100.3a1d13f54296ddbe498c.otf",
     "static/media/unknown.png": "/jungheinrich-project-number-generator/static/media/unknown.c3f945216dc12c9498dc.png",
     "static/media/RP.jfif": "/jungheinrich-project-number-generator/static/media/RP.cddd5227892ce7917c34.jfif",
     "static/media/KN.jfif": "/jungheinrich-project-number-generator/static/media/KN.6ca084a5ff60f697b8f4.jfif",
     "static/media/Jungheinrich-Logo.svg": "/jungheinrich-project-number-generator/static/media/Jungheinrich-Logo.e7532f8160b404e1a1a6e7cc58fc49cc.svg",
     "index.html": "/jungheinrich-project-number-generator/index.html",
     "static/media/Jungheinrich-Logo-J.svg": "/jungheinrich-project-number-generator/static/media/Jungheinrich-Logo-J.4642bac6adc7ac6a6952be0fe13bcd95.svg",
-    "main.e34846f8.css.map": "/jungheinrich-project-number-generator/static/css/main.e34846f8.css.map",
-    "main.cec7a7b6.js.map": "/jungheinrich-project-number-generator/static/js/main.cec7a7b6.js.map"
+    "main.97a70650.css.map": "/jungheinrich-project-number-generator/static/css/main.97a70650.css.map",
+    "main.e93ce854.js.map": "/jungheinrich-project-number-generator/static/js/main.e93ce854.js.map"
   },
   "entrypoints": [
-    "static/css/main.e34846f8.css",
-    "static/js/main.cec7a7b6.js"
+    "static/css/main.97a70650.css",
+    "static/js/main.e93ce854.js"
   ]
 }
