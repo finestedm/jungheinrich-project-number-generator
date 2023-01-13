@@ -1,16 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import { Navbar, Container, Nav, Button, Row, Col, Offcanvas, Form, NavDropdown } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
 import { AiOutlineNumber } from 'react-icons/ai'
 import { BiArchive } from 'react-icons/bi'
 import logo from '../images/Jungheinrich-Logo.svg'
 import logoSmall from '../images/Jungheinrich-Logo-J.svg'
-import {getNewPostsNumber} from '../components/SummaryCards'
+import { getNewPostsNumber } from '../components/SummaryCards'
+import { logout, reset } from '../features/auth/authSlice'
+
 
 export default function Topbar() {
     const [selectedSite, setSelectedSite] = useState(1)
     const posts = useSelector((state) => state.posts)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const {user} = useSelector((state) => state.authSlice)
+
+    function onLogout() {
+        dispatch(logout())
+        dispatch(reset())
+        navigate('/login')
+    }
 
     return (    
         <Navbar collapseOnSelect key='md' expand='md' className='sticky-top'>
@@ -24,7 +35,7 @@ export default function Topbar() {
                             <img src={logo} height='30' />
                         </Offcanvas.Title>
                     </Offcanvas.Header>
-                    <Offcanvas.Body className='text-center'>
+                    <Offcanvas.Body className='text-center d-flex'>
                         <Nav className="flex-column gap-2">
                             <Nav.Item className='d-flex align-items-stretch'>
                                 <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/" active={selectedSite === 1} onClick={() => setSelectedSite(1)}>
@@ -58,6 +69,44 @@ export default function Topbar() {
                                     </Row>
                                 </Nav.Link>
                             </Nav.Item>
+
+                            {!user ? <>
+                                <Nav.Item className='mt-auto d-flex align-items-stretch'>
+                                    <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/login" active={selectedSite === 4} onClick={() => setSelectedSite(4)}>
+                                        <Row>
+                                            <Col className='nav-link--description d-block d-md-none d-xl-block text-start'>
+                                                <span>Zaloguj się</span>
+                                            </Col>
+                                        </Row>
+                                    </Nav.Link>
+                                </Nav.Item>
+
+                                <Nav.Item className='d-flex align-items-stretch'>
+                                    <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/signup" active={selectedSite === 5} onClick={() => setSelectedSite(5)}>
+                                        <Row>
+                                            <Col className='nav-link--description d-block d-md-none d-xl-block text-start'>
+                                                <span>Zarejestruj się</span>
+                                            </Col>
+                                        </Row>
+                                    </Nav.Link>
+                                </Nav.Item>
+                            </>
+                            :
+                            <>
+                                <Nav.Item className='mt-auto d-flex align-items-stretch'>
+                                    <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/login" active={selectedSite === 3} onClick={() => {
+                                        setSelectedSite(3)
+                                        onLogout()
+                                    }}>
+                                        <Row>
+                                            <Col className='nav-link--description d-block d-md-none d-xl-block text-start'>
+                                                <span>Wyloguj się</span>
+                                            </Col>
+                                        </Row>
+                                    </Nav.Link>
+                                </Nav.Item>
+                            </>
+                            }
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>
