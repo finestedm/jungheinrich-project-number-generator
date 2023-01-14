@@ -10,6 +10,7 @@ import searchPosts from '../components/searchPosts';
 import ActiveFiltersIndicator from '../components/ActiveFilterIndicator'
 import SummaryCards from '../components/SummaryCards'
 import { users } from '../data/users'
+import { useNavigate } from 'react-router-dom'
 
 export default function Archive() {
 
@@ -24,6 +25,14 @@ export default function Archive() {
     const [postData, setPostData] = useState(null);
     const [postToEditId, setPostToEditId] = useState(null);
     const [filteredPosts, setFilteredPosts] = useState({});
+    const { user } = useSelector((state => state.authSlice))
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/login')
+        }
+    }, [user, navigate])
 
     useEffect(() => {
         dispatch(getPosts())

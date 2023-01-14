@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form, FloatingLabel, Button } from 'react-bootstrap';
+import { Form, FloatingLabel, Button, Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { register, reset } from "../features/auth/authSlice";
@@ -54,74 +54,77 @@ export default function SignUp() {
     }
 
     return (
-        <Form onSubmit={onSubmit}>
-            <FloatingLabel
-                controlId="nameInput"
-                label="Imię i nazwisko"
-                className="mb-3"
-            >
-                <Form.Control
-                    name='name'
-                    placeholder="Andrzej Nowak"
-                    onChange={onChange}
-                    value={name}
-                    type='text'
-                />
-            </FloatingLabel>
-            <FloatingLabel
-                controlId="emailInput"
-                label="Email"
-                className="mb-3"
-            >
-                <Form.Control
-                    name='email'
-                    placeholder="ABC@jh.pl"
-                    onChange={onChange}
-                    value={email}
-                    type='email'
-                />
-            </FloatingLabel>
-            <FloatingLabel
-                controlId="passwordInput"
-                label="Hasło"
-            >
-                <Form.Control
-                    name='password'
-                    type="password"
-                    placeholder="Password"
-                    onChange={onChange}
-                    value={password}
-                />
-            </FloatingLabel>
-            <FloatingLabel
-                controlId="password2Input"
-                label="Potwierdź hasło"
-            >
-                <Form.Control
-                    name='password2'
-                    type="password"
-                    placeholder="Password"
-                    onChange={onChange}
-                    value={password2}
-                />
-            </FloatingLabel>
-            <FloatingLabel
-                controlId="branch"
-                label="Oddział"
-            >
-                <Form.Select
-                    name='branch'
-                    onChange={onChange}
-                    value={branch}
+        <Container fluid className='main px-4 py-2 text-center'>
+            <h1 className='mt-3 mb-4 px-0'>Zarejestruj się<br />
+                <small class="text-muted fs-5 fw-normal">Wprowadź swoje dane</small>
+            </h1>
+            <Form onSubmit={onSubmit} className='signup-form d-flex mx-auto flex-column gap-3'>
+                <FloatingLabel
+                    controlId="nameInput"
+                    label="Imię i nazwisko"
                 >
-                    <option disabled value={null}>Wybierz oddział</option>
-                    {Object.values(branches).map(branch => <option>{branch.value}</option>)}
-                </Form.Select>
-            </FloatingLabel>
-            <Form.Group>
-                <Button disabled={isLoading} type="submit">Zarejestruj się</Button>
-            </Form.Group>
-        </Form>
+                    <Form.Control
+                        name='name'
+                        placeholder="Andrzej Nowak"
+                        onChange={onChange}
+                        value={name}
+                        type='text'
+                    />
+                </FloatingLabel>
+                <FloatingLabel
+                    controlId="emailInput"
+                    label="Email"
+                >
+                    <Form.Control
+                        name='email'
+                        placeholder="ABC@jh.pl"
+                        onChange={onChange}
+                        value={email}
+                        type='email'
+                    />
+                </FloatingLabel>
+                <FloatingLabel
+                    controlId="passwordInput"
+                    label="Hasło"
+                >
+                    <Form.Control
+                        name='password'
+                        type="password"
+                        placeholder="Password"
+                        onChange={onChange}
+                        value={password}
+                    />
+                </FloatingLabel>
+                <FloatingLabel
+                    controlId="password2Input"
+                    label="Potwierdź hasło"
+                >
+                    <Form.Control
+                        name='password2'
+                        type="password"
+                        placeholder="Password"
+                        onChange={onChange}
+                        value={password2}
+                    />
+                </FloatingLabel>
+                <FloatingLabel
+                    controlId="branch"
+                    label="Oddział"
+                >
+                    <Form.Select
+                        name='branch'
+                        onChange={onChange}
+                        value={branch}
+                    >
+                        <option disabled value={null}>Wybierz oddział</option>
+                        {Object.values(branches).map(branch => <option>{branch.value}</option>)}
+                    </Form.Select>
+                </FloatingLabel>
+                <Form.Group className="mt-3">
+                    <Button className='btn-ps-accept' size="lg" disabled={isLoading} type="submit">Zarejestruj się</Button>
+                </Form.Group>
+            </Form>
+        </Container>
     )
 
 }

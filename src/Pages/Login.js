@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form, FloatingLabel, Button } from 'react-bootstrap';
+import { Form, FloatingLabel, Button, Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login, reset } from "../features/auth/authSlice";
@@ -45,36 +45,41 @@ export default function Login() {
         }
     
     return (
-        <Form onSubmit={onSubmit}>
-            <FloatingLabel
-                controlId="emailInput"
-                label="Email"
-                className="mb-3"
-            >
-                <Form.Control
-                    name='email'
-                    placeholder="ABC@jh.pl"
-                    onChange={onChange}
-                    value={email}
-                    type='email'
-                />
-            </FloatingLabel>
-            <FloatingLabel
-                controlId="passwordInput"
-                label="Hasło"
-            >
-                <Form.Control
-                    name='password'
-                    type="password"
-                    placeholder="Password"
-                    onChange={onChange}
-                    value={password}
-                />
-            </FloatingLabel>
-            <Form.Group>
-                <Button disabled={isLoading} type="submit">Zaloguj się</Button>
-            </Form.Group>
-        </Form>
+        <Container fluid className='main px-4 py-2 text-center'>
+            <h1 className='mt-3 mb-4 px-0'>Zaloguj się<br />
+                <small class="text-muted fs-5 fw-normal"></small>
+            </h1>
+            <Form onSubmit={onSubmit} className='login-form d-flex mx-auto flex-column gap-3'>
+                <FloatingLabel
+                    controlId="emailInput"
+                    label="Email"
+                    className="mb-3"
+                >
+                    <Form.Control
+                        name='email'
+                        placeholder="ABC@jh.pl"
+                        onChange={onChange}
+                        value={email}
+                        type='email'
+                    />
+                </FloatingLabel>
+                <FloatingLabel
+                    controlId="passwordInput"
+                    label="Hasło"
+                >
+                    <Form.Control
+                        name='password'
+                        type="password"
+                        placeholder="Password"
+                        onChange={onChange}
+                        value={password}
+                    />
+                </FloatingLabel>
+                <Form.Group className="mt-3">
+                    <Button className='btn-ps-accept' size="lg" disabled={isLoading} type="submit">Zaloguj się</Button>
+                </Form.Group>
+            </Form>
+        </Container>
     )
 
 }

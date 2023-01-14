@@ -32,7 +32,7 @@ table .dropdown-item {
 .nav-link.active,
 .nav-link.active:focus,
 .nav-link.active:hover {
-	color: var(--ps-btn-color);
+	color: var(--ps-btn-color) !important;
     background-color: var(--ps-btn-bg);
     position: relative;
 }
@@ -41,6 +41,12 @@ table .dropdown-item {
 .nav-link:hover {
 	color: var(--ps-nav-color-hover);
     background-color: var(--ps-btn-bg-nav-hover);
+}
+
+.nav-link.disabled {
+	color: var(--ps-btn-dark-bg-hover);
+	pointer-events: none;
+	cursor: default;
 }
 
 .nav-link--description {
@@ -159,8 +165,8 @@ td {
 
 @media (max-width: 1200px) and (min-width: 768px) {
     .navbar {
-        width: 67px;
         padding-top: 1.5rem;
+        width: 75px
     }
 
     .nav-link {
@@ -170,11 +176,8 @@ td {
         scale: 1.5;
     }
 
-    .navbar-indicator {
-        position: absolute;
-        top:-9px;
-        right:-9px;
-        scale: .7;
+    .nav-item>a {
+        justify-content: center !important;
     }
 
     .offcanvas.offcanvas-start {
@@ -818,4 +821,11 @@ span.strong {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis
+}
+
+/* signup */
+
+.signup-form,
+.login-form {
+    max-width: 500px;
 }
