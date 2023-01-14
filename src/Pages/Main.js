@@ -90,8 +90,8 @@ export default function Main() {
     }
 
     return (
-        <Container fluid className='main d-flex flex-column justify-content-between w-100 px-4 py-2 mb-5'>
-            <h1 className='text-start mt-3 mb-2 px-0'>Generuj numer projektu <br />
+        <Container fluid className='main d-flex flex-column justify-content-start w-100 px-4 py-2 mb-5'>
+            <h1 className='text-start mt-3 mb-4 px-0'>Generuj numer projektu <br />
                 <small class="text-muted fs-5 fw-normal">Wprowadź dane projektu i uzyskaj numer referencyjny</small>
             </h1>
             <Form id='project-details' as={Row} className='justify-content-between gap-3 mb-3 px-2 needs-validation' noValidate>
@@ -145,7 +145,7 @@ export default function Main() {
                 />
             </Form>
 
-            <Row className='px-2'>
+            <Row className='px-2 my-4'>
                 <Button type='submit' form='project-details' variant={buttonVariant} className='submit-button p-3 mb-3 fs-4 fw-bolder' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
             </Row>
             
