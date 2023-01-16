@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Card, Image, Button} from 'react-bootstrap';
-import {users} from '../data/users'
+import {salesPersons} from '../data/salesPersons'
 import moment from 'moment';
 import 'moment/locale/pl' 
 import StatusIndicator from "../components/StatusIndicator";
@@ -11,7 +11,7 @@ moment.locale('pl');
 
 export default function ArchivedProject(props) {
     const { setPostToEdit, toggleModalVisible, post } = props
-    const searchedUser = users.filter(user => user.value === post.user)[0]
+    const searchedSalesPerson = salesPersons.filter(user => user.value === post.user)[0]
     const {projectNumber, user, location, description, customer, createdAt, status} = post
 
     return (
@@ -24,7 +24,7 @@ export default function ArchivedProject(props) {
             <td className='d-none d-xl-table-cell' data-bs-toggle={description.length > 21 ? "tooltip" : 'disabled'} data-bs-placement="top" data-bs-title={description} data-bs-custom-class="ps-tooltip">{description}</td>
             <td className='d-none d-md-table-cell'>
                 <div className='d-flex align-items-center'>
-                    {(searchedUser && searchedUser.photo) && <Image src={searchedUser.photo} className='me-2' roundedCircle style={{ height: '2rem' }} />}
+                    {(searchedSalesPerson && searchedSalesPerson.photo) && <Image src={searchedSalesPerson.photo} className='me-2' roundedCircle style={{ height: '2rem' }} />}
                     {user}
                 </div>
             </td>

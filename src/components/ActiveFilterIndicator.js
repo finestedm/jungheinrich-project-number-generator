@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button, ButtonGroup, Col} from 'react-bootstrap'
-import { users } from '../data/users'
+import { salesPersons } from '../data/salesPersons'
 import { statusDescription } from './StatusIndicator'
 import {IoClose} from 'react-icons/io5'
 
@@ -13,10 +13,10 @@ export default function ActiveFiltersIndicator({ filters, changeStatusInFilters,
         return activeStatusesDescribed
     }
 
-    const activeUsers = ((Object.values(filters.users)).map(user => user.value))
+    const activeSalesPersons = ((Object.values(filters.salesPersons)).map(user => user.value))
 
-    function getActiveUsers() {
-        return activeUsers.length > 2 ? `${activeUsers[0] + ', ' + activeUsers[1]} , +${activeUsers.length - 2}` : activeUsers.join(', ')
+    function getActiveSalesPersons() {
+        return activeSalesPersons.length > 2 ? `${activeSalesPersons[0] + ', ' + activeSalesPersons[1]} , +${activeSalesPersons.length - 2}` : activeSalesPersons.join(', ')
     }
 
     return (
@@ -28,9 +28,9 @@ export default function ActiveFiltersIndicator({ filters, changeStatusInFilters,
                 </ButtonGroup>
                 : ''
             }
-            {activeUsers.length < users.length ?
+            {activeSalesPersons.length < salesPersons.length ?
                 <ButtonGroup className='d-none d-md-inline filter-indicator filter-indicator-status'>
-                    <Button>{getActiveUsers().length > 0 ? getActiveUsers() : 'Handlowciec niewybrany'} </Button>
+                    <Button>{getActiveSalesPersons().length > 0 ? getActiveSalesPersons() : 'Handlowciec niewybrany'} </Button>
                     <Button onClick={() => changeUserInFilters('all')}><IoClose /></Button>
                 </ButtonGroup>
                 : ''
@@ -42,7 +42,7 @@ export default function ActiveFiltersIndicator({ filters, changeStatusInFilters,
                 </ButtonGroup>
                 : ''
             }
-            {activeUsers.length < users.length ?
+            {activeSalesPersons.length < salesPersons.length ?
                 <ButtonGroup size='sm' className='d-inline d-md-none filter-indicator filter-indicator-status'>
                     <Button>Handlowcy filtrowani</Button>
                     <Button onClick={() => changeUserInFilters('all')}><IoClose /></Button>

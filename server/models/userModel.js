@@ -18,6 +18,9 @@ const userSchema = mongoose.Schema(
         branch: {
             type: String,
             required: [true, 'Choose a branch'],
+        },
+        isAdmin: {
+            type: Boolean
         }
     },
     {

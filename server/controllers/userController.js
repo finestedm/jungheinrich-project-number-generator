@@ -8,7 +8,7 @@ import User from '../models/userModel.js'
 // @route POST /api/users
 // @access Public
 const registerUser = asyncHandler(async (req, res) => {
-    const { name, email, password, branch} = req.body;
+    const { name, email, password, branch, isAdmin} = req.body;
 
     if (!name || !email || !password || !branch) {
         res.status(400)
@@ -34,7 +34,8 @@ const registerUser = asyncHandler(async (req, res) => {
             name, 
             email,
             password: hashedPassword,
-            branch
+            branch,
+            isAdmin,        
         })
     
     if (user) {
@@ -43,6 +44,7 @@ const registerUser = asyncHandler(async (req, res) => {
             name: user.name,
             email: user.email,
             branch: user.branch,
+            isAdmin: user.isAdmin,
             token: generateToken(user._id)
         })
     } else {
@@ -68,6 +70,7 @@ const loginUser= asyncHandler(async (req, res) => {
             name: user.name,
             email: user.email,
             branch: user.branch,
+            isAdmin: user.isAdmin,
             token: generateToken(user._id)
         })
     } else {

@@ -11,10 +11,11 @@ export default function SignUp() {
         email: '',
         password: '',
         password2: '',
-        branch: ''
+        branch: 'Katowice',
+        isAdmin: 0,
     })
 
-    const { name, email, password, password2, branch } = formData
+    const { name, email, password, password2, branch, isAdmin } = formData
     
     const navigate = useNavigate()
     const dispatch = useDispatch();
@@ -47,7 +48,7 @@ export default function SignUp() {
             console.log('Passwords do not match')
         } else {
             const userData = {
-                name, email, password, branch
+                name, email, password, branch, isAdmin
             }
             dispatch(register(userData))
         }

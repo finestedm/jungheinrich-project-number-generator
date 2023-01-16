@@ -9,7 +9,7 @@ import SearchBar from '../components/SearchBar';
 import searchPosts from '../components/searchPosts';
 import ActiveFiltersIndicator from '../components/ActiveFilterIndicator'
 import SummaryCards from '../components/SummaryCards'
-import { users } from '../data/users'
+import { salesPersons } from '../data/salesPersons'
 import { useNavigate } from 'react-router-dom'
 
 export default function Archive() {
@@ -19,7 +19,7 @@ export default function Archive() {
     const [filters, setFilters] = useState({
         searchedPhrase: '',
         status: { 0: true, 1: true, 2: true },
-        users: users
+        salesPersons: salesPersons
     });
     const [showModal, setShowModal] = useState(false);
     const [postData, setPostData] = useState(null);
@@ -75,19 +75,19 @@ export default function Archive() {
         }
     }
 
-    function changeUserInFilters(selectedUser) {
-        let usersFiltered = filters.users;
+    function changeSalesPersonInFilters(selectedUser) {
+        let salesPersonsFiltered = filters.salesPersons;
         if (selectedUser === 'all') {
-            usersFiltered.length === users.length ? usersFiltered = [] : usersFiltered = users;
-            setFilters({ ...filters, users: usersFiltered })
+            salesPersonsFiltered.length === salesPersons.length ? salesPersonsFiltered = [] : salesPersonsFiltered = salesPersons;
+            setFilters({ ...filters, salesPersons: salesPersonsFiltered })
         } else {
-            if ((usersFiltered.filter(user => user.value === selectedUser)).length > 0) {
-                const usersReduced = usersFiltered.filter(user => user.value !== selectedUser)
-                setFilters({ ...filters, users: usersReduced })
-            } else if ((usersFiltered.filter(user => user.value === selectedUser)).length === 0) {
-                const foundUserObject = (users.filter(user => user.value === selectedUser))
-                const usersMerged = usersFiltered.concat(foundUserObject)
-                setFilters({ ...filters, users: usersMerged })
+            if ((salesPersonsFiltered.filter(user => user.value === selectedUser)).length > 0) {
+                const salesPersonsReduced = salesPersonsFiltered.filter(user => user.value !== selectedUser)
+                setFilters({ ...filters, salesPersons: salesPersonsReduced })
+            } else if ((salesPersonsFiltered.filter(user => user.value === selectedUser)).length === 0) {
+                const foundUserObject = (salesPersons.filter(user => user.value === selectedUser))
+                const salesPersonsMerged = salesPersonsFiltered.concat(foundUserObject)
+                setFilters({ ...filters, salesPersons: salesPersonsMerged })
             }
         }
     }
@@ -100,13 +100,13 @@ export default function Archive() {
                 <SummaryCards />
                 <Row className='d-flex gap-2'>
                     <h3 className='mb-3'>Archiwum <br/>  <small class="text-muted fs-6">Szukaj istniejących projektów</small></h3>
-                    <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeUserInFilters={changeUserInFilters} />
+                    <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} />
                     <Col className='col-12 col-md-5 col-lg-4'>
                         <SearchBar searchedPhrase={filters.searchedPhrase} changeSearchedPhrase={changeSearchedPhrase} />
                     </Col>
                 </Row>
                 
-                <PaginatedItems changeStatusInFilters={changeStatusInFilters} changeUserInFilters={changeUserInFilters} filters={filters} posts={filteredPosts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
+                <PaginatedItems changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} filters={filters} posts={filteredPosts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
                 
                 {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
             </div>

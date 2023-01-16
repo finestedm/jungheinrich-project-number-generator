@@ -5,7 +5,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import {ToggleButton, ToggleButtonGroup} from '@mui/material/';
 import moment from 'moment'
 import 'moment/locale/pl' 
-import { users as options } from '../data/users';
+import { salesPersons as options } from '../data/salesPersons';
 import { updatePost } from "../actions/posts";
 import { useDispatch, useSelector } from 'react-redux'
 import { IoDocumentTextOutline, IoFlashOutline, IoCloseCircleOutline } from 'react-icons/io5';

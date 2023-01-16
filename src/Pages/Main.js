@@ -6,7 +6,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { useDispatch } from 'react-redux'
 import { getPosts, createPost } from '../actions/posts'
 import { useSelector } from 'react-redux'
-import { users as options } from '../data/users';
+import { salesPersons as options } from '../data/salesPersons';
 import { IoCopyOutline } from 'react-icons/io5';
 
 export default function Main() {
@@ -14,7 +14,8 @@ export default function Main() {
     const [customer, setCustomer] = useState('')
     const [location, setLocation] = useState('')
     const [description, setDescription] = useState('')
-    const [salesguy, setSalesguy] = useState('')
+    const [salesPerson, setSalesPerson] = useState('')
+    const [createdBy, setCreatedBy] = useState('')
     const [projectNumber, setProjectNumber] = useState('')
     const [buttonText, setButtonText] = useState('Generuj nowy numer')
     const [buttonVariant, setButtonVariant] = useState('warning')
@@ -27,6 +28,12 @@ export default function Main() {
             navigate('/login')
         }
     }, [user, navigate])
+
+    useEffect(() => {
+        if (user) {
+            setCreatedBy(user._id)
+        }
+    }, [])
 
     function isCustomerValid() {
         return customer.length >= 3
@@ -46,7 +53,7 @@ export default function Main() {
     function cleanInputs() {
         setCustomer('')
         setLocation('')
-        setSalesguy('')
+        setSalesPerson('')
         setDescription('')
     }
 
@@ -57,7 +64,7 @@ export default function Main() {
     }
 
     async function submitNewProject() {
-        if (isCustomerValid() && salesguy && (postsData.length > 0)) {
+        if (isCustomerValid() && salesPerson && (postsData.length > 0)) {
             await dispatch(getPosts());     // checking if the posts were updated since the site was loaded
             const newProjectNumber = (searchLastProjectNumber() + 1)
             setProjectNumber(newProjectNumber)
@@ -67,12 +74,13 @@ export default function Main() {
                 customer: customer,
                 location: location,
                 description: description,
-                user: salesguy,
+                user: salesPerson,
+                createdBy: user._id,
                 status: 0
             }
             dispatch(createPost({ ...newProjectData }))
             cleanInputs()
-        } else if ((isCustomerValid() && salesguy && (postsData.length === 0))) {
+        } else if ((isCustomerValid() && salesPerson && (postsData.length === 0))) {
             setButtonText('Synchronizacja danych. Poczekaj chwilę!')
             setButtonVariant('danger')
             setTimeout(() => {
@@ -136,10 +144,10 @@ export default function Main() {
                     id="combo-box-demo"
                     options={options}
                     className='p-0'
-                    value={salesguy}
+                    value={salesPerson}
                     isOptionEqualToValue={(option, value) => option.id === value.id}
-                    renderInput={(params) => <TextField error={salesguy === ''} required {...params} label="Użytkownik" />}
-                    onChange={(e, value) => value === null ? setSalesguy('') : setSalesguy(value.value)}
+                    renderInput={(params) => <TextField error={salesPerson === ''} required {...params} label="Użytkownik" />}
+                    onChange={(e, value) => value === null ? setSalesPerson('') : setSalesPerson(value.value)}
                     sx={{backgroundColor: 'white'}}
 
                 />

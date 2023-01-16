@@ -7,7 +7,7 @@ import PK from '../images/avatars/PK.png'
 import unknown from '../images/avatars/unknown.png'
 
 
-const users = [
+const salesPersons = [
     { value: 'Marcin Rączkowski', label: 'Marcin Rączkowski', photo: MR },
     { value: 'Rafał Popielarski', label: 'Rafał Popielarski', photo: RP },
     { value: 'Michał Tupacz', label: 'Michał Tupacz', photo: MT},
@@ -21,10 +21,10 @@ const users = [
 
 //sorting of the users alphabetically by last name
 
-users.sort(function(a, b){
+salesPersons.sort(function(a, b){
     if(a.value.substring(a.value.indexOf(' ')) < b.value.substring(b.value.indexOf(' '))) { return -1; }
     if(a.value.substring(a.value.indexOf(' ')) > b.value.substring(b.value.indexOf(' '))) { return 1; }
     return 0;
 })
 
-export { users }
+export { salesPersons }
