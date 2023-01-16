@@ -20,8 +20,12 @@ export default function Main() {
     const [buttonText, setButtonText] = useState('Generuj nowy numer')
     const [buttonVariant, setButtonVariant] = useState('warning')
     const [postsData, setPostsData] = useState([])
+
     const { user } = useSelector((state => state.authSlice))
     const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const posts = useSelector((state) => state.posts)
+    
 
     useEffect(() => {
         if (!user) {
@@ -32,16 +36,20 @@ export default function Main() {
     useEffect(() => {
         if (user) {
             setCreatedBy(user._id)
+
+            // checks if logged user is a sales person and sets it as creator of new project
+            const isUserSalesPerson = options.filter(salesPerson => salesPerson.value === user.name)[0]
+            if (isUserSalesPerson) {
+                setSalesPerson(isUserSalesPerson.value)
+            }
         }
     }, [])
+
 
     function isCustomerValid() {
         return customer.length >= 3
     }
 
-    const dispatch = useDispatch();
-    const posts = useSelector((state) => state.posts)
-    
     useEffect(() => {
         dispatch(getPosts())
     }, [dispatch]);
