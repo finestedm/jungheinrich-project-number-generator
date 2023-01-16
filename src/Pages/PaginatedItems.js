@@ -34,7 +34,7 @@ function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
   
 
 export default function PaginatedItems(props) {
-    const { toggleModalVisible, setPostToEditId, itemsPerPage, posts, filters, changeStatusInFilters, changeUserInFilters} = props
+    const { toggleModalVisible, setPostToEditId, itemsPerPage, posts, filters, changeStatusInFilters, changeSalesPersonInFilters} = props
 
     // Here we use item offsets; we could also use page offsets
     // following the API or data you're working with.
@@ -64,7 +64,7 @@ export default function PaginatedItems(props) {
               <th>Klient</th>
               <th className='d-none d-xl-table-cell'>Lokalizacja</th>
               <th className='d-none d-xl-table-cell'>Opis</th>
-              <th className='d-none d-md-table-cell'><UserToggler changeUserInFilters={changeUserInFilters} filters={filters} /></th>
+              <th className='d-none d-md-table-cell'><UserToggler changeSalesPersonInFilters={changeSalesPersonInFilters} filters={filters} /></th>
               <th className='d-none d-lg-table-cell'>Utworzono</th>
               <th className='edit-column'></th>
             </tr>

@@ -8,8 +8,7 @@ function activeUserCounter(filters) {
     return (activeSalesPersons < numberOfSalesPersons ) ? ` (${activeSalesPersons} / ${numberOfSalesPersons})` : ''
 }
 
-export default function UserToggler({ filters, changeUserInFilters }) {
-    
+export default function UserToggler({ filters, changeSalesPersonInFilters }) {
     return(
         <Dropdown autoClose="outside">
         <Dropdown.Toggle className='p-0 m-0' id="dropdown-basic">
@@ -17,11 +16,11 @@ export default function UserToggler({ filters, changeUserInFilters }) {
         </Dropdown.Toggle>
         
         <Dropdown.Menu>
-                <Dropdown.Item onClick={() => changeUserInFilters('all')} className='d-flex align-items-center user-name-toggle'>
+                <Dropdown.Item onClick={() => changeSalesPersonInFilters('all')} className='d-flex align-items-center user-name-toggle'>
                 <Form.Check
                     id='status-all' 
                     value='all'  
-                    onChange={(e) => changeUserInFilters(e.target.value)}
+                    onChange={(e) => changeSalesPersonInFilters(e.target.value)}
                     className='d-flex align-items-center gap-2 py-2 '
                     inline
                     checked={(filters.salesPersons).length === salesPersons.length}
@@ -32,12 +31,12 @@ export default function UserToggler({ filters, changeUserInFilters }) {
             {salesPersons.map(user => {
                 ((Object.values(filters.salesPersons)).filter(key => key.value === user.value))
                 return(    
-                <Dropdown.Item onClick={() => changeUserInFilters(user.value)} className='d-flex align-items-center user-name-toggle py-1'>
+                <Dropdown.Item onClick={() => changeSalesPersonInFilters(user.value)} className='d-flex align-items-center user-name-toggle py-1'>
                     <Form.Check
                         id={user.value}
                         value={user.value}
                         checked={(((filters.salesPersons).filter(key => key.value === user.value)).length > 0)}
-                        onChange={() => changeUserInFilters(user.value)}
+                        onChange={() => changeSalesPersonInFilters(user.value)}
                         className='d-flex align-items-center gap-2'
                         inline
                         label={user.value}
