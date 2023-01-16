@@ -233,6 +233,7 @@ tr:hover:not(thead>tr) {
     --ps-border-hover-color: hsl(210, 45%, 75%);
     --ps-color: hsl(200, 11%, 20%);
     --ps-color-50: hsl(200, 12%, 60%);
+    --ps-color-25: hsl(200, 12%, 75%);
     --ps-table-head-bg: hsl(210, 20%, 96%);
     --ps-table-head-color: hsl(215, 16%, 52%);
     --ps-table-head-color-hover: hsl(215, 55%, 45%);
@@ -497,55 +498,42 @@ span#status-2{
 	--bs-modal-footer-border-width: 0;
 }
 
-button#status-0{
-    /* background-color: hsla(45, 100%, 45%, 0.05); */
-    border: 1px solid hsla(210, 50%, 50%);
-    color: hsla(210, 50%, 50%);
-    transition: all .25s ease-in;
+.button-group {
+    background-color: var(--ps-table-head-bg);
+    /* border: 1px solid var(--ps-border-color); */
+    overflow: hidden;
+}
+
+.button-group button {
+    color: var(--ps-color-25);
+    background-color: transparent;
+    transition: all .25s ease-out;
+    border: none;
+    border-radius: .25rem !important;
 }
 
 button#status-0.Mui-selected{
-    background-color: hsla(210, 50%, 50%, 0.2);
-    border: 1px solid hsla(210, 50%, 50%);
-    color: hsla(210, 50%, 50%);
-}
-
-button#status-1{
-    /* background-color: hsla(174, 34%, 49%, 0.05); */
-    border: 1px solid hsla(174, 34%, 40%);
-    color:hsla(174, 34%, 40%);
-    transition: all .25s ease-in;
-
+    background-color: hsl(209, 49%, 95%);
+    color: hsla(210, 50%, 40%);
+    box-shadow: 0 0 1rem hsla(210, 35%, 55%);
 }
 
 button#status-1.Mui-selected{
-    background-color: hsla(174, 34%, 30%, 0.2);
-    color:hsla(174, 34%, 39%, 1);
-    border: 1px solid hsla(174, 34%, 49%, 1);
-}
-
-button#status-2{
-    /* background-color: hsla(1, 60%, 46%, 0.05); */
-    border: 1px solid hsla(1, 60%, 40%);
-    color:hsla(1, 60%, 40%);
-    transition: all .25s ease-in;
-
+    color:hsl(174, 34%, 40%);
+    background-color: hsl(174, 49%, 95%);
+    box-shadow: 0 0 1rem hsla(174, 20%, 55%);
 }
 
 button#status-2.Mui-selected{
-    background-color: hsla(1, 60%, 40%, .2);
     color:hsla(1, 60%, 40%);
-    border: 1px solid hsla(1, 60%, 40%, 0.8);
+    background-color: hsl(1, 49%, 93%);
+    box-shadow: 0 0 1rem hsla(1, 20%, 55%);
 }
 
 .modal--status-switch>span {
     position: relative;
-    top:1px;
-    font-weight: 400;
-}
-
-.modal .MuiFormControl-root * {
-    border-color: var(--ps-border-color);
+    top: 1px;
+    font-weight: 500;
 }
 
 

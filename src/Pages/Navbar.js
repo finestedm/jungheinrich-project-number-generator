@@ -19,7 +19,7 @@ export default function Topbar() {
         dispatch(logout())
         dispatch(reset())
     }
-
+    
     return (    
         <Navbar collapseOnSelect key='md' expand='md' className='sticky-top'>
             <Container fluid className='flex-row flex-md-column px-2 py-2 h-100'>

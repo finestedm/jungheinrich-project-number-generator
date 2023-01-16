@@ -119,7 +119,7 @@ export default function EditPostModal(props) {
                     </div> */}
                     
                     <ToggleButtonGroup
-                        className='d-none d-sm-flex'
+                        className='p-1 d-flex edit-modal button-group'
                         fullWidth
                         size={window.innerWidth <=500 ? 'small' : 'normal'}
                         value={status}
@@ -141,29 +141,6 @@ export default function EditPostModal(props) {
                         </ToggleButton>
                     </ToggleButtonGroup>
 
-                    <ToggleButtonGroup
-                        className='d-flex d-sm-none'
-                        fullWidth
-                        orientation="vertical"
-                        size={window.innerWidth <=500 ? 'small' : 'normal'}
-                        value={status}
-                        exclusive
-                        onChange={(e, val) => {setPostData({ ...postData, status: val })}}
-                        aria-label="project status"
-                        >
-                        <ToggleButton className='modal--status-switch' id='status-0' value={0} aria-label="ofertowany" selected={status === 0}>
-                            <IoDocumentTextOutline size='1rem' className='me-2' />
-                            <span className='text-capitalize'>ofertowany</span>
-                        </ToggleButton>
-                        <ToggleButton  className='modal--status-switch' id='status-1' value={1} aria-label="realizacja" selected={status === 1}>
-                            <IoFlashOutline size='1rem'  className='me-2' />
-                            <span className='text-capitalize'>realizacja</span>
-                        </ToggleButton>
-                        <ToggleButton  className='modal--status-switch' id='status-2' value={2} aria-label="przegrany" selected={status === 2}>
-                            <IoCloseCircleOutline size='1rem'  className='me-2' />
-                            <span className='text-capitalize'>przegrany</span>
-                        </ToggleButton>
-                    </ToggleButtonGroup>
                 </Form>
                 <Row className='text-end d-flex gap-2 mx-1'>
                     <Button
