@@ -4,7 +4,7 @@ import StatusIndicator from './StatusIndicator';
 import {MdOutlineLocalOffer} from "react-icons/md"
 
 
-function activeStatusCounter(filters) {
+export function activeStatusCounter(filters) {
     const allStatuses = Object.values(filters.status).length
     const activeStatuses = (Object.values(filters.status).filter(status => status === true)).length
     return (activeStatuses < allStatuses ) ? ` (${activeStatuses}/${allStatuses})` : ''
@@ -14,8 +14,8 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
 
 
     return(
-    <Dropdown autoClose="outside">
-        <Dropdown.Toggle className='p-0 m-0' id="dropdown-basic">
+    <Dropdown drop='end' className='dropdown-item d-flex' autoClose="outside">
+        <Dropdown.Toggle  className='btn-ps-dropdown-item' id="dropdown-basic">
             <span className='d-none d-lg-inline'><MdOutlineLocalOffer /> Status</span> <span className='d-inline d-lg-none'><MdOutlineLocalOffer /> St.</span> {activeStatusCounter(filters)}
         </Dropdown.Toggle>
         

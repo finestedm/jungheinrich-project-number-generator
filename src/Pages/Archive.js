@@ -11,6 +11,7 @@ import ActiveFiltersIndicator from '../components/ActiveFilterIndicator'
 import SummaryCards from '../components/SummaryCards'
 import { salesPersons } from '../data/salesPersons'
 import { useNavigate } from 'react-router-dom'
+import FiltersDropdown from '../components/FiltersDropdown'
 
 export default function Archive() {
 
@@ -104,10 +105,11 @@ export default function Archive() {
                     </Col>
                     <Col className='col-auto'><Button className='btn-ps-new'>Dodaj nowy projekt</Button></Col>
                 </Row>
-                <h3 className='mb-3'>Podsumowanie <br/>  <small class="text-muted fs-6">Najważniejsze informacje z tego tygodnia</small></h3>
+                <h4 className='mb-3'>Podsumowanie <br/>  <small class="text-muted fs-6">Najważniejsze informacje z tego tygodnia</small></h4>
                 <SummaryCards />
                 <Row className='d-flex gap-2'>
-                    <h3 className='mb-3'>Archiwum <br/>  <small class="text-muted fs-6">Szukaj istniejących projektów</small></h3>
+                    <h4 className='mb-3'>Archiwum <br />  <small class="text-muted fs-6">Szukaj istniejących projektów</small></h4>
+                    <FiltersDropdown changeSalesPersonInFilters={changeSalesPersonInFilters} changeStatusInFilters={changeStatusInFilters} filters={filters} />
                     <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} />
                     <Col className='col-12 col-md-5 col-lg-4'>
                         <SearchBar searchedPhrase={filters.searchedPhrase} changeSearchedPhrase={changeSearchedPhrase} />

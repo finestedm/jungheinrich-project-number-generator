@@ -574,9 +574,26 @@ button#status-2.Mui-selected{
     font-weight: 500;
     --bs-btn-color: var(--ps-color);
     --bs-btn-bg: white;
-    --bs-btn-border-color: white;
+    --bs-btn-border-color: var(--ps-border-color);
     --bs-btn-hover-color: black;
     --bs-btn-hover-bg: white;
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #0a58ca;
+    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd;
+}
+
+.btn-ps-dropdown-item {
+    font-weight: 500;
+    --bs-btn-color: var(--ps-color);
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: transparent;
+    --bs-btn-hover-color: black;
+    --bs-btn-hover-bg: transparent;
     --bs-btn-hover-border-color: transparent;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #0a58ca;
@@ -660,7 +677,7 @@ button#status-2.Mui-selected{
     padding: .5rem;
 }
 
-.dropdown-menu {
+.table .dropdown-menu {
     max-height: 220px;
     overflow-y: auto;
 }
@@ -759,10 +776,6 @@ span.strong {
 
 .filter-indicator .filter-description {
     border-left: none;
-}
-
-.filter-indicator:hover {
-    box-shadow: 0 0 1rem var(--ps-shadow-hover);
 }
 
 .btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
