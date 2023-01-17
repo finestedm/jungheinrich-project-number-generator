@@ -40,7 +40,7 @@ table .dropdown-item {
 .nav-link:focus, 
 .nav-link:hover {
 	color: var(--ps-nav-color-hover);
-    background-color: var(--ps-btn-bg-nav-hover);
+    background-color: hsl(215, 20%, 69%);
 }
 
 .nav-link.disabled {
@@ -223,30 +223,30 @@ tr:hover:not(thead>tr) {
 }
 
 :root{
-    --ps-background: hsl(215, 40%, 98%);
+    --ps-background: hsl(215, 25%, 97%);
     --ps-navbar-bg: hsl(200, 11%, 26%);
     --ps-shadow-hover: hsl(210, 10%, 85%);
     --ps-table-hover-bg: hsl(210, 50%, 97%);
     --ps-table-hover-color: hsl(215, 36%, 50%);
     --ps-table-border-color: hsl(210, 30%, 94%);
-    --ps-border-color: hsl(210, 30%, 90%);
+    --ps-border-color: hsl(210, 30%, 94%);
     --ps-border-hover-color: hsl(210, 45%, 75%);
     --ps-color: hsl(200, 11%, 20%);
     --ps-color-50: hsl(200, 12%, 60%);
     --ps-color-25: hsl(200, 12%, 75%);
     --ps-table-head-bg: hsl(210, 20%, 96%);
-    --ps-table-head-color: hsl(215, 16%, 52%);
+    --ps-table-head-color: hsl(215, 16%, 66%);
     --ps-table-head-color-hover: hsl(215, 55%, 45%);
     --ps-btn-bg: hsl(210, 40%, 95%);
-    --ps-btn-bg-nav-hover: hsl(210, 0%, 97%);
+    /* --ps-btn-bg-nav-hover: hsl(210, 0%, 97%); */
     --ps-btn-color: hsl(215, 50%, 50%);
     --ps-btn-bg-hover: hsl(215, 35%, 75%);
     --ps-btn-bg-active: hsl(200, 11%, 30%);
     --ps-btn-dark-bg: hsl(200, 11%, 26%);
     --ps-btn-dark-bg-hover: hsl(200, 11%, 35%);
-    --ps-accent-yellow: hsl(44, 100%, 50%);
+    --ps-accent-yellow: hsl(44, 100%, 47%);
     --ps-accent-yellow-bg: hsl(44, 100%, 65%);
-    --ps-accent-yellow-bg-50: hsl(44, 100%, 85%);
+    --ps-accent-yellow-bg-50: hsl(44, 100%, 90%);
 }
 
 .border {
@@ -271,8 +271,9 @@ tr:hover:not(thead>tr) {
 	color: var(--bs-table-color);
 }
 
-.form-control {
-	color: var(--ps-color);
+.form-control,
+.form-select {
+	color: var(---pscolor);
 	background-color: #fff;
     border: 1px solid var(--ps-border-color);
     line-height: 1.8rem;
@@ -291,8 +292,12 @@ tr:hover:not(thead>tr) {
     transition: all .2s ease;
 }
 
+.search-input--search-icon {
+    color: var(--ps-color-25)
+}
+
 .main--search-bar input::placeholder {
-    color: var(--ps-color-50) ;
+    color: var(--ps-color-25) ;
     transition: all .2s ease;
 }
 
@@ -349,6 +354,12 @@ tr:hover:not(thead>tr) {
     background-color: white;
     border: none;
     color: var(--ps-table-head-color);
+}
+
+.table--head>th svg {
+    position: relative;
+    top: -1px;
+    scale: 1.1;
 }
 
 .table--head>th>*>button {
@@ -499,8 +510,8 @@ span#status-2{
 }
 
 .button-group {
-    background-color: var(--ps-table-head-bg);
-    /* border: 1px solid var(--ps-border-color); */
+    /* background-color: var(--ps-table-head-bg); */
+    border: 1px solid var(--ps-border-color);
     overflow: hidden;
 }
 
@@ -513,20 +524,20 @@ span#status-2{
 }
 
 button#status-0.Mui-selected{
-    background-color: hsl(209, 49%, 95%);
+    background-color: white;
     color: hsla(210, 50%, 40%);
     box-shadow: 0 0 1rem hsla(210, 35%, 55%);
 }
 
 button#status-1.Mui-selected{
     color:hsl(174, 34%, 40%);
-    background-color: hsl(174, 49%, 95%);
+    background-color: white;
     box-shadow: 0 0 1rem hsla(174, 20%, 55%);
 }
 
 button#status-2.Mui-selected{
     color:hsla(1, 60%, 40%);
-    background-color: hsl(1, 49%, 93%);
+    background-color: white;
     box-shadow: 0 0 1rem hsla(1, 20%, 55%);
 }
 
@@ -546,6 +557,29 @@ button#status-2.Mui-selected{
     --bs-btn-hover-bg: var(--ps-accent-yellow-bg);
     --bs-btn-hover-border-color: var(--ps-accent-yellow-bg);
     --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #0a58ca;
+    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd;
+}
+
+.btn-ps-accept:hover,
+.btn-ps-new:hover {
+    box-shadow: 0 0 1rem var(--ps-shadow-hover);
+
+}
+
+.btn-ps-new {
+    font-weight: 500;
+    --bs-btn-color: var(--ps-color);
+    --bs-btn-bg: white;
+    --bs-btn-border-color: white;
+    --bs-btn-hover-color: black;
+    --bs-btn-hover-bg: white;
+    --bs-btn-hover-border-color: transparent;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #0a58ca;
     --bs-btn-active-border-color: #0a53be;
@@ -579,6 +613,11 @@ button#status-2.Mui-selected{
     top: -.5px;
 }
 
+.MuiOutlinedInput-notchedOutline {
+    border-color: var(--ps-border-color) !important;
+}
+
+
 .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline,
 .css-8ewcdo-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline,
 .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
@@ -597,8 +636,9 @@ button#status-2.Mui-selected{
 }
 
 .dropdown-item:focus, .dropdown-item:hover {
-	color: var(--bs-dropdown-link-hover-color);
-	background-color: var(--ps-table-hover-bg);
+	color: var(--ps-table-hover-color);
+	background-color: var(--ps-background);
+    border-radius: .375rem;
 }
 
 .dropdown-menu .dropdown-item:first-child {
@@ -619,6 +659,7 @@ button#status-2.Mui-selected{
 	border-radius: var(--bs-dropdown-border-radius);
     box-shadow: 0 0 1rem 1px var(--ps-shadow-hover);
     --bs-dropdown-padding-y: 0;
+    padding: .5rem;
 }
 
 .dropdown-menu {
@@ -698,8 +739,8 @@ span.strong {
 
 .filter-indicator >.btn {
     --bs-btn-color: var(--ps-btn-color);
-    --bs-btn-bg: white;
-    --bs-btn-border-color: var(--ps-border-color);
+    --bs-btn-bg: var(--ps-btn-bg);
+    --bs-btn-border-color: var(--ps-btn-color);
     --bs-btn-hover-color: var(--ps-btn-bg);
     --bs-btn-hover-bg: var(--ps-btn-color);
     --bs-btn-hover-border-color: var(--ps-btn-bg);
@@ -708,7 +749,18 @@ span.strong {
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     font-weight: 500;
     line-height: 1.8rem;
+    font-size: 14px;
     transition: all .2s ease;
+}
+
+.filter-indicator .filter-icon {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.filter-indicator .filter-description {
+    border-left: none;
 }
 
 .filter-indicator:hover {
@@ -743,13 +795,13 @@ span.strong {
 }
 
 .summary-card--svg {
-    background-color: var(--ps-accent-yellow);
+    background-color: var(--ps-accent-yellow-bg-50);
     height: 60px;
     width: 60px;
 }
 
 .summary-card--svg>svg {
-    fill: var(--ps-color);
+    fill: var(--ps-accent-yellow);
 }
 
 .card-header {

@@ -17,6 +17,11 @@ export default function EditPostModal(props) {
     const { _id, customer, user, location, projectNumber, createdAt, description, status} = postData
     const dispatch = useDispatch()
 
+    console.log(props.postData)
+
+    // const {  } = useSelector((state => state.authSlice))
+
+
     const posts = useSelector((state) => state.posts)
 
     function isCustomerValid() {
@@ -145,6 +150,7 @@ export default function EditPostModal(props) {
                 <Row className='text-end d-flex gap-2 mx-1'>
                     <Button
                         className='btn-ps-accept'
+                        size={window.innerWidth>500 && "lg"}
                         disabled={!isCustomerValid() || !user}
                         onClick={() => {
                             if (isCustomerValid() && user) {

@@ -1,6 +1,8 @@
 import React from 'react';
 import {Dropdown, Form} from 'react-bootstrap';
 import StatusIndicator from './StatusIndicator';
+import {MdOutlineLocalOffer} from "react-icons/md"
+
 
 function activeStatusCounter(filters) {
     const allStatuses = Object.values(filters.status).length
@@ -14,7 +16,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
     return(
     <Dropdown autoClose="outside">
         <Dropdown.Toggle className='p-0 m-0' id="dropdown-basic">
-            <span className='d-none d-lg-inline'>Status</span> <span className='d-inline d-lg-none'>St.</span> {activeStatusCounter(filters)}
+            <span className='d-none d-lg-inline'><MdOutlineLocalOffer /> Status</span> <span className='d-inline d-lg-none'><MdOutlineLocalOffer /> St.</span> {activeStatusCounter(filters)}
         </Dropdown.Toggle>
         
             

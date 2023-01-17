@@ -47,7 +47,7 @@ export default function Login() {
     return (
         <Container fluid className='main px-4 py-2 text-center'>
             <h1 className='mt-3 mb-4 px-0'>Zaloguj się<br />
-                <small class="text-muted fs-5 fw-normal"></small>
+                <small class="text-muted fs-5 fw-normal">Wprowadź użyty podczas rejestracji email oraz hasło</small>
             </h1>
             <Form onSubmit={onSubmit} className='login-form d-flex mx-auto flex-column gap-3'>
                 <FloatingLabel

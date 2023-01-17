@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dropdown, Form } from 'react-bootstrap';
 import { salesPersons } from '../data/salesPersons';
+import {MdOutlineCardTravel} from 'react-icons/md'
 
 function activeUserCounter(filters) {
     const numberOfSalesPersons = salesPersons.length
@@ -12,7 +13,7 @@ export default function UserToggler({ filters, changeSalesPersonInFilters }) {
     return(
         <Dropdown autoClose="outside">
         <Dropdown.Toggle className='p-0 m-0' id="dropdown-basic">
-            Handlowiec {activeUserCounter(filters)}
+            <MdOutlineCardTravel /> Handlowiec {activeUserCounter(filters)}
         </Dropdown.Toggle>
         
         <Dropdown.Menu>

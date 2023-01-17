@@ -8,6 +8,9 @@ import ArchivedProjectPlaceholder from '../components/ArchivedProjectPlaceholder
 import StatusToggler from '../components/StatusToggler'
 import UserToggler from '../components/UserToggler';
 import NoSearchResults from '../components/NoSearchResults'
+import { AiOutlineNumber } from "react-icons/ai"
+import { TbBuildingWarehouse } from "react-icons/tb"
+import {MdOutlineDescription, MdOutlineDateRange, MdOutlineLocationOn} from 'react-icons/md'
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 
@@ -60,12 +63,12 @@ export default function PaginatedItems(props) {
             <thead>
             <tr className='table--head'> 
               <th className='align-middle'><StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} /></th>
-              <th>Numer</th>
-              <th>Klient</th>
-              <th className='d-none d-xl-table-cell'>Lokalizacja</th>
-              <th className='d-none d-xl-table-cell'>Opis</th>
+              <th><AiOutlineNumber /> Numer</th>
+              <th><TbBuildingWarehouse/> Klient</th>
+              <th className='d-none d-xl-table-cell'><MdOutlineLocationOn /> Lokalizacja</th>
+              <th className='d-none d-xl-table-cell'><MdOutlineDescription/> Opis</th>
               <th className='d-none d-md-table-cell'><UserToggler changeSalesPersonInFilters={changeSalesPersonInFilters} filters={filters} /></th>
-              <th className='d-none d-lg-table-cell'>Utworzono</th>
+              <th className='d-none d-lg-table-cell'><MdOutlineDateRange/> Utworzono</th>
               <th className='edit-column'></th>
             </tr>
           </thead>

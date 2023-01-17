@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector, createStore } from 'react-redux'
 import { getPosts } from '../actions/posts'
 import moment from 'moment'
-import { Container, Row, Col, Spinner, Card, Table } from 'react-bootstrap'
+import { Container, Row, Col, Spinner, Card, Table, Button } from 'react-bootstrap'
 import EditPostModal from '../components/EditPostModal'
 import PaginatedItems from './PaginatedItems';
 import SearchBar from '../components/SearchBar';
@@ -44,6 +44,7 @@ export default function Archive() {
         if (postToEdit) {
             setPostData(postToEdit)
             setShowModal(true)
+            console.log(postToEdit)
         }
     }, [postToEdit, setPostToEditId]);
    
@@ -95,7 +96,14 @@ export default function Archive() {
     return (
         <Container fluid className='main w-100 px-2 px-md-4'>
             <div className='table-container mb-4'>
-                <Row className='justify-content-between search-container py-4'><h1>Projekty <small class="text-muted fs-5">({posts.length})</small></h1></Row>
+                <Row className='justify-content-between search-container py-4'>
+                    <Col>
+                        <h1 className='d-inline-flex'>Projekty
+                         <small class="text-muted fs-5">({posts.length})</small>
+                        </h1>
+                    </Col>
+                    <Col className='col-auto'><Button className='btn-ps-new'>Dodaj nowy projekt</Button></Col>
+                </Row>
                 <h3 className='mb-3'>Podsumowanie <br/>  <small class="text-muted fs-6">Najważniejsze informacje z tego tygodnia</small></h3>
                 <SummaryCards />
                 <Row className='d-flex gap-2'>
