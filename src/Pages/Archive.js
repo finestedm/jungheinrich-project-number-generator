@@ -94,7 +94,7 @@ export default function Archive() {
     }
     
     return (
-        <Container fluid className='main w-100 px-2 px-md-4'>
+        <Container fluid className='main w-100 px-2 px-md-5'>
             <div className='table-container mb-4'>
                 <Row className='justify-content-between search-container py-4'>
                     <Col>

@@ -106,7 +106,7 @@ export default function Main() {
     }
 
     return (
-        <Container fluid className='main d-flex flex-column justify-content-start w-100 px-4 py-2 mb-5'>
+        <Container fluid className='main d-flex flex-column justify-content-start w-100 px-2 px-md-5 mb-5'>
             <h1 className='text-start mt-3 mb-4 px-0'>Generuj numer projektu <br />
                 <small class="text-muted fs-5 fw-normal">Wprowadź dane projektu i uzyskaj numer referencyjny</small>
             </h1>

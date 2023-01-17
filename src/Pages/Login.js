@@ -45,7 +45,7 @@ export default function Login() {
         }
     
     return (
-        <Container fluid className='main px-4 py-2 text-center'>
+        <Container fluid className='main px-2 px-md-5 py-2 text-center'>
             <h1 className='mt-3 mb-4 px-0'>Zaloguj się<br />
                 <small class="text-muted fs-5 fw-normal">Wprowadź użyty podczas rejestracji email oraz hasło</small>
             </h1>

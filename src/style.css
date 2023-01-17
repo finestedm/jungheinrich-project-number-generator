@@ -230,7 +230,7 @@ tr:hover:not(thead>tr) {
     --ps-table-hover-color: hsl(215, 36%, 50%);
     --ps-table-border-color: hsl(210, 30%, 94%);
     --ps-border-color: hsl(210, 30%, 94%);
-    --ps-border-hover-color: hsl(210, 45%, 75%);
+    --ps-border-hover-color: hsl(210, 10%, 70%);
     --ps-color: hsl(200, 11%, 20%);
     --ps-color-50: hsl(200, 12%, 60%);
     --ps-color-25: hsl(200, 12%, 75%);
@@ -306,8 +306,9 @@ tr:hover:not(thead>tr) {
 }
 
 .main--search-bar:hover {
-    box-shadow: 0 0 1rem var(--ps-shadow-hover);
-    border-color: white;
+    /* box-shadow: 0 0 1rem var(--ps-shadow-hover); */
+    border: 1px solid var(--ps-border-hover-color);
+
 }
 
 .main--search-bar:hover .btn {
@@ -333,10 +334,6 @@ tr:hover:not(thead>tr) {
     transition: all .2s ease;
 }
 
-.table-holder:hover {
-    box-shadow: 0 0 1rem var(--ps-shadow-hover);
-    border-color: white;
-}
 
 .table {
     letter-spacing: -.35px;
@@ -568,7 +565,8 @@ button#status-2.Mui-selected{
 
 .btn-ps-accept:hover,
 .btn-ps-new:hover {
-    box-shadow: 0 0 1rem var(--ps-shadow-hover);
+    /* box-shadow: 0 0 1rem var(--ps-shadow-hover); */
+    border: 1px solid var(--ps-border-hover-color);
 
 }
 
@@ -783,8 +781,7 @@ span.strong {
 }
 
 .card:hover {
-    box-shadow: 0 0 1rem var(--ps-shadow-hover);
-    border-color: white;
+    border: 1px solid var(--ps-border-hover-color);
 }
 
 .card .summary-card--image>img {
