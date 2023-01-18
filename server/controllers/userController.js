@@ -88,10 +88,15 @@ const getMe = asyncHandler(async (req, res) => {
     res.status(200).json(req.user)
 })
 
+const getUsers = asyncHandler(async (req, res) => {
+    const users = await User.find();
+    res.status(200).json(users)
+})
+
 function generateToken(id) {
     return Jwt.sign({ id }, process.env.JWT_SECRET, {
         expiresIn: '30d',
     })
 }
 
-export {registerUser, loginUser, getMe}
+export {registerUser, loginUser, getMe, getUsers}

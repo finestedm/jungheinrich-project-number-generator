@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useDispatch } from 'react-redux'
 import { getPosts, createPost } from '../actions/posts'
+import { getUsers } from '../features/auth/authSlice';
 import { useSelector } from 'react-redux'
 import { salesPersons as options } from '../data/salesPersons';
 import { IoCopyOutline } from 'react-icons/io5';
@@ -21,11 +22,10 @@ export default function Main() {
     const [buttonVariant, setButtonVariant] = useState('warning')
     const [postsData, setPostsData] = useState([])
 
-    const { user } = useSelector((state => state.authSlice))
+    const { user, users } = useSelector((state => state.authSlice))
     const navigate = useNavigate()
     const dispatch = useDispatch();
-    const posts = useSelector((state) => state.posts)
-    
+    const posts = useSelector((state) => state.posts);
 
     useEffect(() => {
         if (!user) {
@@ -52,6 +52,7 @@ export default function Main() {
 
     useEffect(() => {
         dispatch(getPosts())
+        dispatch(getUsers())
     }, [dispatch]);
 
     useEffect(() => {

@@ -3,7 +3,6 @@ import { Form, FloatingLabel, Button, Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login, reset } from "../features/auth/authSlice";
-import branches from '../data/branches'
 
 export default function Login() {
     const [formData, setFormData] = useState({
