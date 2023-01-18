@@ -22,7 +22,7 @@ export default function ActiveFiltersIndicator({ filters, changeStatusInFilters,
     }
 
     return (
-        <Col className='d-flex gap-2 align-items-center'>
+        <>
             {activeStatuses.length < (Object.keys(filters.status)).length ?
                 <ButtonGroup className='d-none d-md-inline filter-indicator filter-indicator-status'>
                     <Button className='filter-icon'><MdOutlineLocalOffer/></Button>
@@ -55,7 +55,7 @@ export default function ActiveFiltersIndicator({ filters, changeStatusInFilters,
                 </ButtonGroup>
                 : ''
             }
-        </Col>
+        </>
 
 
         

@@ -22,7 +22,7 @@ table .dropdown-item {
 
 .nav-link {
     font-weight: 500;
-    color: var(--ps-color-50);
+    color: var(--ps-color-25);
     transition: all .2s ease-out;
     position: relative;
     width: 100%;
@@ -32,25 +32,21 @@ table .dropdown-item {
 .nav-link.active,
 .nav-link.active:focus,
 .nav-link.active:hover {
-	color: var(--ps-btn-color) !important;
-    background-color: var(--ps-btn-bg);
+	color: var(--ps-color) !important;
+    background-color: var(--ps-background);
     position: relative;
 }
 
 .nav-link:focus, 
 .nav-link:hover {
 	color: var(--ps-nav-color-hover);
-    background-color: hsl(215, 20%, 69%);
+    background-color: transparent;
 }
 
 .nav-link.disabled {
 	color: var(--ps-btn-dark-bg-hover);
 	pointer-events: none;
 	cursor: default;
-}
-
-.nav-link--description {
-    border-left: 1px solid var(--ps-color-50);
 }
 
 .nav-main__logo {
@@ -67,6 +63,7 @@ body,
 .main {
     overflow-y: scroll;
     min-height: 100%;
+    max-width: max(80%, 1300px);
     /* overflow-x: hidden; */
 }
 
@@ -223,23 +220,23 @@ tr:hover:not(thead>tr) {
 }
 
 :root{
-    --ps-background: hsl(215, 25%, 97%);
-    --ps-navbar-bg: hsl(200, 11%, 26%);
+    --ps-background: hsl(220, 30%, 98%);
+    --ps-navbar-bg: hsl(0, 0%, 100%);
     --ps-shadow-hover: hsl(210, 10%, 85%);
     --ps-table-hover-bg: hsl(210, 50%, 97%);
-    --ps-table-hover-color: hsl(215, 36%, 50%);
+    --ps-table-hover-color: hsl(220, 50%, 50%);
     --ps-table-border-color: hsl(210, 30%, 94%);
-    --ps-border-color: hsl(210, 30%, 94%);
+    --ps-border-color: hsl(220, 30%, 94%);
     --ps-border-hover-color: hsl(210, 10%, 70%);
-    --ps-color: hsl(200, 11%, 20%);
-    --ps-color-50: hsl(200, 12%, 60%);
-    --ps-color-25: hsl(200, 12%, 75%);
+    --ps-color: hsl(220, 80%, 15%);
+    --ps-color-50: hsl(220, 15%, 60%);
+    --ps-color-25: hsl(220, 25%, 75%);
     --ps-table-head-bg: hsl(210, 20%, 96%);
-    --ps-table-head-color: hsl(215, 16%, 66%);
+    --ps-table-head-color: var(--ps-color-50);
     --ps-table-head-color-hover: hsl(215, 55%, 45%);
-    --ps-btn-bg: hsl(210, 40%, 95%);
+    --ps-btn-bg: hsl(220, 20%, 15%);
     /* --ps-btn-bg-nav-hover: hsl(210, 0%, 97%); */
-    --ps-btn-color: hsl(215, 50%, 50%);
+    --ps-btn-color: hsl(220, 0%, 95%);
     --ps-btn-bg-hover: hsl(215, 35%, 75%);
     --ps-btn-bg-active: hsl(200, 11%, 30%);
     --ps-btn-dark-bg: hsl(200, 11%, 26%);
@@ -247,6 +244,13 @@ tr:hover:not(thead>tr) {
     --ps-accent-yellow: hsl(44, 100%, 47%);
     --ps-accent-yellow-bg: hsl(44, 100%, 65%);
     --ps-accent-yellow-bg-50: hsl(44, 100%, 90%);
+}
+.text-mute {
+    color: var(--ps-color-50)
+}
+
+.header-row {
+    border-bottom: 1px solid var(--ps-border-color);
 }
 
 .border {
@@ -727,11 +731,12 @@ span.strong {
 
 .form-check-input[type="checkbox"] {
 	border-color: var(--ps-border-color);
+    border-radius: 100%;
 }
 
 .form-check-input:checked {
 	background-color: var(--ps-table-hover-color);
-    border-color: hsl(210, 50%, 50%);
+    border-color: var(--ps-table-hover-color);
 }
 
 .project-edit-icon {
@@ -755,7 +760,7 @@ span.strong {
 .filter-indicator >.btn {
     --bs-btn-color: var(--ps-btn-color);
     --bs-btn-bg: var(--ps-btn-bg);
-    --bs-btn-border-color: var(--ps-btn-color);
+    --bs-btn-border-color: var(--ps-btn-bg);
     --bs-btn-hover-color: var(--ps-btn-bg);
     --bs-btn-hover-bg: var(--ps-btn-color);
     --bs-btn-hover-border-color: var(--ps-btn-bg);
@@ -828,7 +833,7 @@ span.strong {
 
 .navbar {
     background-color: var(--ps-navbar-bg);
-    border-color: var(--ps-border-color);
+    border-right: 1px solid var(--ps-border-color);
     align-items: flex-start;
     max-height: 100vh;
 }
@@ -840,6 +845,10 @@ span.strong {
     height: 1.5rem;
     min-width: 1.5rem;
     border-radius: 100rem;
+}
+
+.navbar--offcanvas {
+    background-color: white;
 }
 
 .navbar--offcanvas .offcanvas-header {

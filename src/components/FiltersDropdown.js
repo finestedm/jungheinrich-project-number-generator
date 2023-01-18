@@ -2,13 +2,12 @@ import UserToggler from '../components/UserToggler'
 import StatusToggler from '../components/StatusToggler'
 import { Dropdown, Form } from 'react-bootstrap'
 import { MdOutlineFilterList } from 'react-icons/md'
-import { activeStatusCounter } from '../components/StatusToggler'
 
 export default function FiltersDropdown({changeSalesPersonInFilters, changeStatusInFilters, filters}) {
     return (
-        <Dropdown autoClose="outside">
-            <Dropdown.Toggle className='btn-ps-new' id="dropdown-basic">
-                <span><MdOutlineFilterList /> Filtry </span> {activeStatusCounter(filters)}
+        <Dropdown className='p-0 m-0 h-100' autoClose="outside">
+            <Dropdown.Toggle className='btn-ps-new h-100' id="dropdown-basic">
+                <span><MdOutlineFilterList /> <span className='d-none d-md-inline'>Filtry</span> </span>
             </Dropdown.Toggle>
             
                 

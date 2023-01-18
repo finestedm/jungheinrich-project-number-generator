@@ -22,7 +22,7 @@ export default function Main() {
     const [buttonVariant, setButtonVariant] = useState('warning')
     const [postsData, setPostsData] = useState([])
 
-    const { user, users } = useSelector((state => state.authSlice))
+    const { user } = useSelector((state => state.authSlice))
     const navigate = useNavigate()
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.posts);
