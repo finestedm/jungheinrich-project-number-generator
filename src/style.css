@@ -768,7 +768,6 @@ span.strong {
     --bs-btn-active-color: #fff;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     font-weight: 500;
-    line-height: 1.8rem;
     font-size: 14px;
     transition: all .2s ease;
 }

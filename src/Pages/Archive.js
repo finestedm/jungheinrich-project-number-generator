@@ -111,7 +111,7 @@ export default function Archive() {
                 <Row className=''>
                     <h5 className='mb-3'>Archiwum <br />  <small class="text-mute fs-6">Szukaj istniejących projektów</small></h5>
                     
-                    <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} />
+                    <Col><ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} /></Col>
                     <Col className='col-auto ms-auto'>
                         <FiltersDropdown changeSalesPersonInFilters={changeSalesPersonInFilters} changeStatusInFilters={changeStatusInFilters} filters={filters} />
                     </Col>
