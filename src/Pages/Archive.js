@@ -104,7 +104,7 @@ export default function Archive() {
                             <small class="text-mute fs-5">({posts.length})</small>
                         </h1>
                     </Col>
-                    <Col className='col-auto'><Button className='btn-ps-new'><AiOutlineFileAdd /> Dodaj nowy projekt</Button></Col>
+                    <Col className='col-auto'><Button className='btn-ps-outline'><AiOutlineFileAdd /> Dodaj nowy projekt</Button></Col>
                 </Row>
                 <h5 className='mb-3'>Podsumowanie <br/>  <small class="text-mute fs-6">Najważniejsze informacje z tego tygodnia</small></h5>
                 <SummaryCards />

@@ -149,7 +149,7 @@ export default function EditPostModal(props) {
                 </Form>
                 <Row className='text-end d-flex gap-2 mx-1'>
                     <Button
-                        className='btn-ps-accept'
+                        className='btn-ps-prim'
                         size={window.innerWidth>500 && "lg"}
                         disabled={!isCustomerValid() || !user}
                         onClick={() => {
