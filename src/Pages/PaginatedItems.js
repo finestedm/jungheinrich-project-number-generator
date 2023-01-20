@@ -8,9 +8,11 @@ import ArchivedProjectPlaceholder from '../components/ArchivedProjectPlaceholder
 import StatusToggler from '../components/StatusToggler'
 import UserToggler from '../components/UserToggler';
 import NoSearchResults from '../components/NoSearchResults'
+import { activeStatusCounter } from '../components/StatusToggler';
+import { activeUserCounter } from '../components/UserToggler';
 import { AiOutlineNumber } from "react-icons/ai"
 import { TbBuildingWarehouse } from "react-icons/tb"
-import {MdOutlineDescription, MdOutlineDateRange, MdOutlineLocationOn} from 'react-icons/md'
+import {MdOutlineDescription, MdOutlineDateRange, MdOutlineLocationOn, MdOutlineLocalOffer, MdOutlineCardTravel} from 'react-icons/md'
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 
@@ -62,13 +64,13 @@ export default function PaginatedItems(props) {
         <Table hover className='table-ps m-0'>
             <thead>
             <tr className='table--head'> 
-              <th className='align-middle'><StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} /></th>
-              <th><AiOutlineNumber /> Numer</th>
-              <th><TbBuildingWarehouse/> Klient</th>
-              <th className='d-none d-xl-table-cell'><MdOutlineLocationOn /> Lokalizacja</th>
-              <th className='d-none d-xl-table-cell'><MdOutlineDescription/> Opis</th>
-              <th className='d-none d-md-table-cell'><UserToggler changeSalesPersonInFilters={changeSalesPersonInFilters} filters={filters} /></th>
-              <th className='d-none d-lg-table-cell'><MdOutlineDateRange/> Utworzono</th>
+              <th><span className='d-none d-lg-flex align-items-center gap-1'><MdOutlineLocalOffer size='1.2em'/> Status</span> <span className='d-flex d-lg-none align-items-center'><MdOutlineLocalOffer size='1.2em'/> St.</span> {activeStatusCounter(filters)}</th>
+              <th><span className='d-flex align-items-center gap-1'><AiOutlineNumber size='1.2em'/> Numer</span></th>
+              <th><span className='d-flex align-items-center gap-1'><TbBuildingWarehouse size='1.2em'/> Klient</span></th>
+              <th className='d-none d-xl-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineLocationOn size='1.2em'/> Lokalizacja</span></th>
+              <th className='d-none d-xl-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineDescription size='1.2em'/> Opis</span></th>
+              <th className='d-none d-md-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineCardTravel /> Handlowiec {activeUserCounter(filters)}</span></th>
+              <th className='d-none d-lg-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineDateRange size='1.2em'/> Utworzono</span></th>
               <th className='edit-column'></th>
             </tr>
           </thead>

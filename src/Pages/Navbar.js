@@ -37,7 +37,7 @@ export default function Topbar() {
                             <Nav.Item className='d-flex align-items-stretch'>
                                 <Nav.Link className='p-3 d-flex align-items-center' disabled={!user} as={Link} to="/" active={selectedSite === 1} onClick={() => setSelectedSite(1)}>
                                     <Row>
-                                        <Col xs='auto'><AiOutlineNumber /></Col>
+                                        <Col xs='auto' className='d-flex align-items-center'><AiOutlineNumber size='1.5em'/></Col>
                                         <Col className='nav-link--description d-block d-md-none d-xl-block text-start'>
                                             <span>Generuj numer</span>
                                         </Col>
@@ -47,7 +47,7 @@ export default function Topbar() {
                             <Nav.Item className='d-flex align-items-stretch'>
                                 <Nav.Link className='p-3 d-flex align-items-center' disabled={!user} as={Link} to="/Archive" active={selectedSite === 2} onClick={() => setSelectedSite(2)}>
                                     <Row className='d-flex align-items-center justify-content-between'>
-                                        <Col xs='auto'><BiArchive /></Col>
+                                        <Col xs='auto' className='d-flex align-items-center'><BiArchive size='1.5em'/></Col>
                                         <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span >Archiwum</span></Col>
                                     </Row>
                                 </Nav.Link>
@@ -55,7 +55,7 @@ export default function Topbar() {
                             <Nav.Item className='d-flex align-items-stretch'>
                                 <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/Archive" active={selectedSite === 3} onClick={() => setSelectedSite(3)}>
                                     <Row>
-                                        <Col xs='auto'><BiArchive /></Col>
+                                        <Col xs='auto' className='d-flex align-items-center'><BiArchive size='1.5em'/></Col>
                                         <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span >Placeholder #1</span></Col>
                                     </Row>
                                 </Nav.Link>
@@ -65,7 +65,7 @@ export default function Topbar() {
                                 <Nav.Item className='mt-auto d-flex align-items-stretch'>
                                     <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/login" active={selectedSite === 4} onClick={() => setSelectedSite(4)}>
                                         <Row className='d-flex align-items-center justify-content-between'>
-                                            <Col xs="auto"><AiOutlineLogin /></Col>
+                                            <Col xs="auto" className='d-flex align-items-center'><AiOutlineLogin size='1.5em'/></Col>
                                             <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span>Zaloguj się</span></Col>
                                         </Row>
                                     </Nav.Link>
@@ -74,7 +74,7 @@ export default function Topbar() {
                                 <Nav.Item className='d-flex align-items-stretch'>
                                     <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/signup" active={selectedSite === 5} onClick={() => setSelectedSite(5)}>
                                         <Row className='d-flex align-items-center justify-content-between'>
-                                            <Col xs="auto"><AiOutlineUserAdd /></Col>
+                                            <Col xs="auto" className='d-flex align-items-center'><AiOutlineUserAdd size='1.5em'/></Col>
                                             <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span>Zarejestruj się</span></Col>
                                         </Row>
                                     </Nav.Link>
@@ -88,7 +88,7 @@ export default function Topbar() {
                                         onLogout()
                                     }}>
                                         <Row className='d-flex align-items-center justify-content-between'>
-                                            <Col xs="auto"><AiOutlineLogout /></Col>
+                                            <Col xs="auto" className='d-flex align-items-center'><AiOutlineLogout size='1.5em'/></Col>
                                             <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span>Wyloguj się</span></Col>
                                         </Row>
                                     </Nav.Link>

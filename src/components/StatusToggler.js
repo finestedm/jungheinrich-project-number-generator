@@ -14,7 +14,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
 
 
     return(
-    <Dropdown drop='end' className='dropdown-item' autoClose="outside">
+    <Dropdown as={Dropdown.Item} drop='end' className='dropdown-item' autoClose="outside">
         <Dropdown.Toggle  className='btn-ps-dropdown-item' id="dropdown-basic">
             <span className='d-none d-lg-inline'><MdOutlineLocalOffer /> Status</span> <span className='d-inline d-lg-none'><MdOutlineLocalOffer /> St.</span> {activeStatusCounter(filters)}
         </Dropdown.Toggle>

@@ -19,7 +19,6 @@ export default function Main() {
     const [createdBy, setCreatedBy] = useState('')
     const [projectNumber, setProjectNumber] = useState('')
     const [buttonText, setButtonText] = useState('Generuj nowy numer')
-    const [buttonVariant, setButtonVariant] = useState('warning')
     const [postsData, setPostsData] = useState([])
 
     const { user } = useSelector((state => state.authSlice))
@@ -91,30 +90,25 @@ export default function Main() {
             cleanInputs()
         } else if ((isCustomerValid() && salesPerson && (postsData.length === 0))) {
             setButtonText('Synchronizacja danych. Poczekaj chwilę!')
-            setButtonVariant('danger')
             setTimeout(() => {
                 setButtonText('Generuj nowy numer')
-                setButtonVariant('warning')
             }, 2000);
         } else {
             setButtonText('Nie wpisano wymaganych danych!')
-            setButtonVariant('danger')
             setTimeout(() => {
                 setButtonText('Generuj nowy numer')
-                setButtonVariant('warning')
             }, 2000);
         }
     }
 
     return (
-        <Container fluid className='main d-flex flex-column justify-content-start w-100 px-2 px-md-5 mb-5'>
-            <h1 className='text-start mt-3 mb-4 px-0'>Generuj numer projektu <br />
+        <Container fluid className='main px-2 px-md-5 py-2 text-center'>
+            <h1 className='text-center mt-3 mb-4 px-0'>Generuj numer projektu <br />
                 <small class="text-muted fs-5 fw-normal">Wprowadź dane projektu i uzyskaj numer referencyjny</small>
             </h1>
-            <Form id='project-details' as={Row} className='justify-content-between gap-3 mb-3 px-2 needs-validation' noValidate>
+            <Form id='project-details' as={Row} className='new-project-form d-flex mx-auto flex-column gap-3 needs-validation' noValidate>
                 <Autocomplete
                     required
-                    fullWidth
                     disablePortal
                     freeSolo
                     id="combo-box-demo"
@@ -137,7 +131,6 @@ export default function Main() {
 
                 <TextField
                     className='main--input'
-                    fullWidth
                     variant="outlined"
                     label="Opis projektu"
                     error={description.length > 250}
@@ -148,7 +141,6 @@ export default function Main() {
                 />
  
                 <Autocomplete
-                    fullWidth
                     disablePortal
                     id="combo-box-demo"
                     options={options}
@@ -162,11 +154,11 @@ export default function Main() {
                 />
             </Form>
 
-            <Row className='px-2 my-4'>
-                <Button type='submit' form='project-details' variant={buttonVariant} className='submit-button p-3 mb-3 fs-4 fw-bolder' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
+            <Row className='my-4 mx-auto new-project-form'>
+                <Button type='submit' form='project-details' className='submit-button btn-ps-prim p-3 mb-3 fs-4 fw-bolder' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
             </Row>
             
-            <Row className='px-2'>
+            <Row className='mx-auto new-project-form'>
                 <InputGroup className='project-number-output p-0' >
                     <Form.Control
                         readOnly
@@ -176,7 +168,7 @@ export default function Main() {
                         placeholder='...'
                         value={projectNumber}
                     />
-                    <Button variant="warning" onClick={(e) => navigator.clipboard.writeText(e.target.value)}><IoCopyOutline/></Button>
+                    <Button className='btn-ps-prim' onClick={(e) => navigator.clipboard.writeText(e.target.value)}><IoCopyOutline/></Button>
                 </InputGroup>
             </Row>
         </Container>

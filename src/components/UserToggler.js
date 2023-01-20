@@ -3,15 +3,15 @@ import { Dropdown, Form } from 'react-bootstrap';
 import { salesPersons } from '../data/salesPersons';
 import {MdOutlineCardTravel} from 'react-icons/md'
 
-function activeUserCounter(filters) {
+export function activeUserCounter(filters) {
     const numberOfSalesPersons = salesPersons.length
     const activeSalesPersons = filters.salesPersons.length
     return (activeSalesPersons < numberOfSalesPersons ) ? ` (${activeSalesPersons} / ${numberOfSalesPersons})` : ''
 }
 
 export default function UserToggler({ filters, changeSalesPersonInFilters }) {
-    return(
-        <Dropdown drop='end' className='dropdown-item' autoClose="outside">
+    return (
+        <Dropdown as={Dropdown.Item} drop='end' className='dropdown-item' autoClose="outside">
             <Dropdown.Toggle className='btn-ps-dropdown-item' id="dropdown-basic">
             <MdOutlineCardTravel /> Handlowiec {activeUserCounter(filters)}
         </Dropdown.Toggle>
@@ -31,7 +31,7 @@ export default function UserToggler({ filters, changeSalesPersonInFilters }) {
             </Dropdown.Item>
             {salesPersons.map(user => {
                 ((Object.values(filters.salesPersons)).filter(key => key.value === user.value))
-                return(    
+                return(
                 <Dropdown.Item onClick={() => changeSalesPersonInFilters(user.value)} className='d-flex align-items-center user-name-toggle py-1'>
                     <Form.Check
                         id={user.value}
