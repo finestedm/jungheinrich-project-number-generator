@@ -50,6 +50,18 @@ body, html {
     --ps-succ-800: #05603A;
     --ps-succ-900: #054F31;
 
+    --ps-error-25: #FFFBFA;
+    --ps-error-50: #FEF3F2;
+    --ps-error-100: #FEE4E2;
+    --ps-error-200: #FECDCA;
+    --ps-error-300: #FDA29B;
+    --ps-error-400: #F97066;
+    --ps-error-500: #F04438;
+    --ps-error-600: #D92D20;
+    --ps-error-700: #B42318;
+    --ps-error-800: #912018;
+    --ps-error-900: #7A271A;
+
     --ps-accent-1-25: #F5F8FF;
     --ps-accent-1-50: #EEF4FF;
     --ps-accent-1-100: #E0EAFF;
@@ -79,6 +91,8 @@ body, html {
     --ps-text-50: var(--ps-gray-500);
     --ps-text-25: var(--ps-gray-300);
     
+    --ps-text-medium: var(500);
+    
     --ps-border-color: var(--ps-gray-200);
     --ps-border-color-50: var(--ps-gray-100);
 
@@ -89,7 +103,6 @@ body, html {
     --ps-table-hover-color: hsl(220, 50%, 50%);
     --ps-table-border-color: hsl(210, 30%, 94%);
     --ps-border-hover-color: hsl(210, 10%, 70%);
-    --ps-text-25: hsl(220, 25%, 75%);
     --ps-table-head-bg: hsl(210, 20%, 96%);
     --ps-table-head-color: var(--ps-text-50);
     --ps-table-head-color-hover: hsl(215, 55%, 45%);
@@ -106,9 +119,30 @@ body, html {
 }
 .text-mute {
     color: var(--ps-text-50);
-    font-weight: 500;
 }
 
+.error {
+    color: var(--ps-error-600);
+}
+
+small {
+    font-size: .875rem;
+}
+
+.form-label {
+    font-weight: 400;
+    color: var(--ps-gray-900)
+}
+
+.form-control {
+    font-weight: 400;
+    color: var(--ps-gray-900);
+    border: 1px solid var(--ps-gray-300)
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid {
+	border-color: var(--ps-error-300);
+}
 
 table,
 table .btn,
@@ -383,20 +417,6 @@ tr:hover:not(thead>tr) {
 	--bs-table-hover-bg: var(--ps-prim-25);
 }
 
-.form-control,
-.form-select {
-	color: var(---pscolor);
-	background-color: #fff;
-    border: 1px solid var(--ps-border-color);
-    line-height: 1.8rem;
-
-}
-
-.form-control:hover,
-.form-control:focus {
-	color: var(--ps-table-hover-color);
-    transition: all .2s ease;
-}
 
 .main--search-bar {
     color: var(--ps-text-50);
@@ -545,15 +565,6 @@ h5 {
     position: relative;
     top: -1.5px
 }
-
-.project-number-output {
-    height: 3.75rem;
-}
-
-.project-number-output>* {
-    font-size: 2rem;
-}
-
 
 .main--search-bar {
     min-width: 200px;
@@ -937,7 +948,10 @@ span.strong {
 /* signup */
 
 .signup-form,
-.login-form,
-.new-project-form {
+.login-form {
     max-width: 500px;
+}
+
+.section {
+    border-top: 1px solid var(--ps-border-color);
 }
