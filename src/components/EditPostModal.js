@@ -5,6 +5,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import {ToggleButton, ToggleButtonGroup} from '@mui/material/';
 import moment from 'moment'
 import 'moment/locale/pl' 
+import { Typeahead } from "react-bootstrap-typeahead";
 import { salesPersons as options } from '../data/salesPersons';
 import { updatePost } from "../actions/posts";
 import { useDispatch, useSelector } from 'react-redux'
@@ -28,6 +29,9 @@ export default function EditPostModal(props) {
         return customer.length >= 3
     }
 
+    console.log(postData)
+
+
     return (
         <Offcanvas className='project-edit-offcanvas' scroll={true} keyboard={true} onEscapeKeyDown={() => setShowModal(false)} onHide={() => setShowModal(false)} show={showModal} placement='end'>
             <Offcanvas.Header>
@@ -40,88 +44,62 @@ export default function EditPostModal(props) {
             </Offcanvas.Header>
             <Offcanvas.Body className="d-flex flex-column justify-content-between gap-4">
                 <Form>
-                    <TextField
-                        fullWidth
-                        size={window.innerWidth <=500 ? 'small' : 'normal'}
-                        disabled
-                        className='edit-post-modal--input mb-3'
-                        variant="outlined"
-                        label="Numer projektu"
-                        value={projectNumber}
-                        sx={{backgroundColor: 'white'}}
-                    />
-                    <Autocomplete
-                        required
-                        fullWidth
-                        size={window.innerWidth <=500 ? 'small' : 'normal'}
-                        disablePortal
-                        freeSolo
-                        id="combo-box-demo"
-                        options={[...new Set(posts.map(post => post.customer))]}
-                        className='edit-post-modal--input mb-3'
-                        value={customer}
-                        onInputChange={(e, value) => {setPostData({...postData, customer: value})}}
-                        isOptionEqualToValue={(option, value) => option.id === value.id}
-                        renderInput={(params) => <TextField error={!isCustomerValid()} required {...params} label="Nazwa klienta"/>}
-                        sx={{ backgroundColor: 'white' }}
-                        helperText={isCustomerValid() ? '' : 'Minimum 3 znaki'}
-                    />  
-                    <TextField
-                        fullWidth
-                        size={window.innerWidth <=500 ? 'small' : 'normal'}
-                        className='edit-post-modal--input mb-3'
-                        variant="outlined"
-                        label="Miejscowość"
-                        value={location}
-                        onChange={(e) => setPostData({...postData, location: e.target.value})}
-                        sx={{backgroundColor: 'white'}}
-                    />
-                    <TextField
-                        fullWidth
-                        multiline
-                        size={window.innerWidth <=500 ? 'small' : 'normal'}
-                        className='edit-post-modal--input mb-3'
-                        variant="outlined"
-                        maxRows={4}
-                        label="Opis"
-                        value={description}
-                        error={description.length > 250}
-                        helperText={description.length > 250 ? 'Max 250 znaków' : ''}
-                        onChange={(e) => setPostData({...postData, description: e.target.value})}
-                        sx={{backgroundColor: 'white'}}
-                    />
-                    <Autocomplete
-                        fullWidth
-                        size={window.innerWidth <=500 ? 'small' : 'normal'}
-                        disablePortal
-                        id="combo-box-demo edit-post-modal--input"
-                        options={options}
-                        value={user}
-                        ListboxProps={{style: {maxHeight: '13rem'}}}
-                        className='className="text-capitalize mb-3'
-                        onInputChange={(e, newInputValue) => {
-                            setPostData({...postData, user: newInputValue})
-                        }}
-                        isOptionEqualToValue={(option, value) => option.id === value.id}
-                        renderInput={(params) => <TextField error={!user} helperText={user ? '' : 'Wybierz prowadzącego projekt'} required {...params} label="Użytkownik" />}
-                        sx={{ backgroundColor: 'white' }}
-                    />
+                    <Form.Group className='px-0'>
+                        <Form.Label className='mb-1'><small>Nazwa klienta *</small></Form.Label>
+                        <Typeahead
+                            required
+                            allowNew
+                            isInvalid={customer.length < 3}
+                            options={[...new Set(posts.map(post => post.customer))]}
+                            onChange={(v) => handle(v)}
+                            onInputChange={(e) => handle( e )}
 
-                    {/* <div className="status-switch-buttons bg-dark p-2 d-flex gap-1 justify-content-around">
-                        <Button>
-                            <IoDocumentTextOutline className='me-2' />
-                            <span className='text-capitalize'>ofertowany</span>
-                        </Button>
-                        <Button>
-                            <IoFlashOutline className='me-2' />
-                            <span className='text-capitalize'>realizacja</span>
-                        </Button>
-                        <Button>
-                            <IoCloseCircleOutline className='me-2' />
-                            <span className='text-capitalize'>przegrany</span>
-                        </Button>
+                        />
+                        <Form.Text className="text-mute">
+                            <small>* Pole wymagane</small>
+                        </Form.Text>
+                    </Form.Group>
 
-                    </div> */}
+                    <Form.Group className='px-0'>
+                        <Form.Label className='mb-1'><small>Miejscowość</small></Form.Label>
+                        <Form.Control 
+                            className='main--input'
+                            type="text"
+                            value={location}
+                            onChange={(e) => setPostData({ ...postData, location: e.target.value })}
+                        />
+                        <Form.Text className="text-mute">
+                            <small> </small>
+                        </Form.Text>
+                    </Form.Group>  
+                    
+                    <Form.Group className='px-0'>
+                        <Form.Label className='mb-1'><small>Opis projektu</small></Form.Label>
+                        <Form.Control 
+                            className='main--input'
+                            type="text" 
+                            value={description}
+                            isInvalid={description.length > 250}
+                            onChange={(e) => setPostData({...postData, description: e.target.value})}
+                        />
+                        <Form.Text className="error">
+                            <small>{description.length > 250 ?  'Max 250 znaków' : ' '}</small>
+                        </Form.Text>
+                    </Form.Group> 
+
+                    <Form.Group className='px-0'>
+                        <Form.Label className='mb-1'><small>Inżynier sprzedaży *</small></Form.Label>
+                        <Typeahead
+                            required
+                            options={options.map(person => person.value)}
+                            isInvalid={(options.filter(person => person.value === user)).length === 0}
+                            onChange={(e) => setPostData({ ...postData, user: e })}
+                        />
+                        <Form.Text className="text-mute">
+                            <small>* Pole wymagane</small>
+                        </Form.Text>
+                    </Form.Group>
+                    
                     
                     <ToggleButtonGroup
                         className='p-1 d-flex edit-modal button-group'

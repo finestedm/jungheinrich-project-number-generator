@@ -121,6 +121,10 @@ body, html {
     color: var(--ps-text-50);
 }
 
+.text-mute-2 {
+    color: var(--ps-text-25);
+}
+
 .error {
     color: var(--ps-error-600);
 }
@@ -680,7 +684,6 @@ button#status-2.Mui-selected{
 }
 
 .btn-ps-outline {
-    font-weight: 500;
     --bs-btn-color: var(--ps-prim-700);
     --bs-btn-bg: var(--ps-prim-50);
     --bs-btn-border-color: var(--ps-prim-50);
@@ -694,6 +697,22 @@ button#status-2.Mui-selected{
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #0d6efd;
     --bs-btn-disabled-border-color: #0d6efd;
+}
+
+.btn-ps-outline-border {
+    --bs-btn-color: var(--ps-prim-700);
+    --bs-btn-bg: var(--ps-prim-50);
+    --bs-btn-border-color: var(--ps-prim-300);
+    --bs-btn-hover-color: var(--ps-prim-700);
+    --bs-btn-hover-bg: var(--ps-prim-100);
+    --bs-btn-hover-border-color: var(--ps-prim-300);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #0a58ca;
+    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd; 
 }
 
 .btn-ps-dropdown-item {

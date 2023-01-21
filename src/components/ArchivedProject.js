@@ -18,7 +18,7 @@ export default function ArchivedProject(props) {
         <tr>
             <td className="table--status">{status !== null ? (<StatusIndicator status={status} />) : 'brak'} </td>
             <td><span className="strong">{projectNumber}</span></td>
-            <td className="d-table-cell d-xl-none table--customer align-middle" style={{lineHeight: '1.4rem'}}>{customer} <br /><span style={{opacity: '.5'}}>{location}</span></td>
+            <td className="d-table-cell d-xl-none table--customer align-middle" style={{lineHeight: '1.4rem'}}>{customer} <br /><span className="text-mute-2">{location}</span></td>
             <td className="d-none d-xl-table-cell table--customer">{customer}</td>
             <td className="d-none d-xl-table-cell table--location">{location}</td>
             <td className='d-none d-xl-table-cell' data-bs-toggle={description.length > 21 ? "tooltip" : 'disabled'} data-bs-placement="top" data-bs-title={description} data-bs-custom-class="ps-tooltip">{description}</td>

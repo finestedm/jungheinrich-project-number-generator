@@ -108,7 +108,7 @@ export default function Main() {
             <h1 className='mt-3 mb-4 px-0'>Generuj numer projektu <br />
                 <small class="text-mute fs-5">Wprowadź dane projektu i uzyskaj numer referencyjny</small>
             </h1>
-            <Form id='project-details' className='new-project-form d-flex flex-column mx-auto gap-4 needs-validation' noValidate> 
+            <Form id='project-details' className='new-project-form d-flex flex-column mx-auto gap-4 needs-validation mb-3' noValidate> 
                 
                 <Row className='px-0 mx-0 pt-3 section'>
                     <Col xs={12} sm={6} className='px-0 mx-0'>
@@ -117,9 +117,9 @@ export default function Main() {
                             <br /><small className='text-mute'>Podstawowe informacje o kliencie</small>
                         </h6>
                     </Col>
-                    <Col className='px-0 mx-0 d-flex gap-4 flex-column'>
+                    <Col className='px-0 mx-0 d-flex gap-2 flex-column'>
                         <Form.Group className='px-0'>
-                            <Form.Label><small>Nazwa klienta *</small></Form.Label>
+                            <Form.Label className='mb-1'><small>Nazwa klienta *</small></Form.Label>
                             <Typeahead
                                 required
                                 allowNew
@@ -133,7 +133,7 @@ export default function Main() {
                         </Form.Group>
 
                         <Form.Group className='px-0'>
-                            <Form.Label><small>Miejscowość</small></Form.Label>
+                            <Form.Label className='mb-1'><small>Miejscowość</small></Form.Label>
                             <Form.Control 
                                 className='main--input'
                                 type="text" 
@@ -145,7 +145,7 @@ export default function Main() {
                             </Form.Text>
                         </Form.Group>  
                         <Form.Group className='px-0'>
-                            <Form.Label><small>Opis projektu</small></Form.Label>
+                            <Form.Label className='mb-1'><small>Opis projektu</small></Form.Label>
                             <Form.Control 
                                 className='main--input'
                                 type="text" 
@@ -159,7 +159,7 @@ export default function Main() {
                         </Form.Group> 
         
                         <Form.Group className='px-0'>
-                            <Form.Label><small>Inżynier sprzedaży *</small></Form.Label>
+                            <Form.Label className='mb-1'><small>Inżynier sprzedaży *</small></Form.Label>
                             <Typeahead
                                 required
                                 options={options.map(person => person.value)}
@@ -183,7 +183,6 @@ export default function Main() {
                     </Col>
                     <Col xs={12} sm={6} className='p-0 m-0'>
                         <InputGroup className='project-number-output p-0' >
-                            <Button type='submit' form='project-details' className='submit-button btn-ps-prim' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
                             <Form.Control
                                 readOnly
                                 className=''
@@ -191,7 +190,8 @@ export default function Main() {
                                 placeholder='...'
                                 value={projectNumber}
                             />
-                            <Button className='btn-ps-prim' onClick={(e) => navigator.clipboard.writeText(e.target.value)}><IoCopyOutline/></Button>
+                            <Button type='submit' form='project-details' className='submit-button btn-ps-outline-border' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
+                            <Button className='btn-ps-outline-border' onClick={(e) => navigator.clipboard.writeText(e.target.value)}><IoCopyOutline/></Button>
                         </InputGroup>
                     </Col>
                 </Row>
