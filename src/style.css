@@ -144,6 +144,12 @@ small {
     border: 1px solid var(--ps-gray-300)
 }
 
+.form-control:focus {
+    color: var(--ps-gray-900);
+    border: 1px solid var(--ps-prim-300);
+    box-shadow: 0 0 0 .25rem var(--ps-prim-50)
+}
+
 .form-control.is-invalid, .was-validated .form-control:invalid {
 	border-color: var(--ps-error-300);
 }

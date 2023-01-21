@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal, Button, ButtonGroup, Row, Col, Form, InputGroup, Offcanvas} from 'react-bootstrap'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -17,10 +17,25 @@ export default function EditPostModal(props) {
     const { showModal, setShowModal, postData, setPostData, setPostToEditId } = props
     const { _id, customer, user, location, projectNumber, createdAt, description, status} = postData
     const dispatch = useDispatch()
+    const [tempCustomer, setTempCustomer] = useState([])
+    const [tempUser, setTempUser] = useState([])
 
-    console.log(props.postData)
+    // because typeahead element uses array instead of single element for selected and onChange methods, below useEffects are needed.
 
-    // const {  } = useSelector((state => state.authSlice))
+    useEffect(() => {
+        setTempCustomer([customer])
+        setTempUser([user])
+    }, [])
+
+    useEffect(() => {
+        (tempCustomer[0]) && setPostData({ ...postData, customer: tempCustomer[0] });
+    }, [tempCustomer])
+
+    useEffect(() => {
+        (tempUser[0]) && setPostData({ ...postData, user: tempUser[0] });
+    }, [tempUser])
+
+    // ^^^ typeahead workaround ^^^
 
 
     const posts = useSelector((state) => state.posts)
@@ -28,9 +43,6 @@ export default function EditPostModal(props) {
     function isCustomerValid() {
         return customer.length >= 3
     }
-
-    console.log(postData)
-
 
     return (
         <Offcanvas className='project-edit-offcanvas' scroll={true} keyboard={true} onEscapeKeyDown={() => setShowModal(false)} onHide={() => setShowModal(false)} show={showModal} placement='end'>
@@ -47,12 +59,12 @@ export default function EditPostModal(props) {
                     <Form.Group className='px-0'>
                         <Form.Label className='mb-1'><small>Nazwa klienta *</small></Form.Label>
                         <Typeahead
+                            selected={tempCustomer}
                             required
                             allowNew
                             isInvalid={customer.length < 3}
                             options={[...new Set(posts.map(post => post.customer))]}
-                            onChange={(v) => handle(v)}
-                            onInputChange={(e) => handle( e )}
+                            onChange={setTempCustomer}
 
                         />
                         <Form.Text className="text-mute">
@@ -90,10 +102,11 @@ export default function EditPostModal(props) {
                     <Form.Group className='px-0'>
                         <Form.Label className='mb-1'><small>Inżynier sprzedaży *</small></Form.Label>
                         <Typeahead
+                            selected={tempUser}
                             required
                             options={options.map(person => person.value)}
                             isInvalid={(options.filter(person => person.value === user)).length === 0}
-                            onChange={(e) => setPostData({ ...postData, user: e })}
+                            onChange={setTempUser}
                         />
                         <Form.Text className="text-mute">
                             <small>* Pole wymagane</small>

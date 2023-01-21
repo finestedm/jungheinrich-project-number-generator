@@ -182,7 +182,7 @@ export default function Main() {
                         </h6>
                     </Col>
                     <Col xs={12} sm={6} className='p-0 m-0'>
-                        <InputGroup className='project-number-output p-0' >
+                        <InputGroup size='lg' className='project-number-output p-0' >
                             <Form.Control
                                 readOnly
                                 className=''

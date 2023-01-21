@@ -38,11 +38,11 @@ export default function StatusIndicator({status}) {
 
     return (
         <div>
-            <span style={{lineHeight: '1.4rem'}} className='d-inline-flex align-items-center justify-content-center gap-2 p-2 rounded' id={statusId}>
+            <span style={{lineHeight: '.7rem'}} className='d-inline-flex align-items-center justify-content-center gap-2 p-2 roundedPill' id={statusId}>
                 <div className="d-inline status-indicator--icon" >
                     {statusIcon(status)}
                 </div>
-                <div className="d-none d-lg-inline ms-2 status-description" style={{fontSize: '12px'}}>
+                <div className="d-none d-lg-inline status-description" style={{fontSize: '12px'}}>
                     {statusDescription(status)}
                 </div>
             </span>
