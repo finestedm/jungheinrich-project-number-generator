@@ -23,11 +23,6 @@ export default function EditPostModal(props) {
     // because typeahead element uses array instead of single element for selected and onChange methods, below useEffects are needed.
 
     useEffect(() => {
-        setTempCustomer([customer])
-        setTempUser([user])
-    }, [])
-
-    useEffect(() => {
         (tempCustomer[0]) && setPostData({ ...postData, customer: tempCustomer[0] });
     }, [tempCustomer])
 
@@ -42,6 +37,10 @@ export default function EditPostModal(props) {
 
     function isCustomerValid() {
         return customer.length >= 3
+    }
+
+    function isUserValid() {
+        return (options.filter(person => person.value === user)).length > 0
     }
 
     return (
@@ -59,13 +58,19 @@ export default function EditPostModal(props) {
                     <Form.Group className='px-0'>
                         <Form.Label className='mb-1'><small>Nazwa klienta *</small></Form.Label>
                         <Typeahead
-                            selected={tempCustomer}
+                            id="customer"
+                            defaultSelected={[customer]}
+                            newSelectionPrefix='Nowy klient: '
                             required
                             allowNew
                             isInvalid={customer.length < 3}
                             options={[...new Set(posts.map(post => post.customer))]}
-                            onChange={setTempCustomer}
-
+                            onChange={() => setTempCustomer}
+                            onBlur={(e) => {
+                                setPostData({ ...postData, customer: e.target.value })
+                                setTempCustomer([e.target.value])
+                            }
+                            }
                         />
                         <Form.Text className="text-mute">
                             <small>* Pole wymagane</small>
@@ -102,11 +107,17 @@ export default function EditPostModal(props) {
                     <Form.Group className='px-0'>
                         <Form.Label className='mb-1'><small>Inżynier sprzedaży *</small></Form.Label>
                         <Typeahead
-                            selected={tempUser}
+                            id="user"
+                            defaultSelected={[user]}
                             required
                             options={options.map(person => person.value)}
-                            isInvalid={(options.filter(person => person.value === user)).length === 0}
-                            onChange={setTempUser}
+                            isInvalid={!isUserValid()}
+                            onChange={() => setTempUser}
+                            onBlur={(e) => {
+                                setTempUser([e.target.value])
+                                setPostData({ ...postData, user: e.target.value })
+                            }
+                            }
                         />
                         <Form.Text className="text-mute">
                             <small>* Pole wymagane</small>
@@ -142,9 +153,9 @@ export default function EditPostModal(props) {
                     <Col>
                         <Button
                             className='btn-ps-prim w-100'
-                            disabled={!isCustomerValid() || !user}
+                            disabled={!isCustomerValid() || !isUserValid()}
                             onClick={() => {
-                                if (isCustomerValid() && user) {
+                                if (isCustomerValid() && isUserValid()) {
                                     dispatch(updatePost(_id, postData))
                                     setPostToEditId(null)
                                     setShowModal(false)

@@ -10,6 +10,8 @@ import { getUsers } from '../features/auth/authSlice';
 import { useSelector } from 'react-redux'
 import { salesPersons as options, salesPersons } from '../data/salesPersons';
 import { IoCopyOutline } from 'react-icons/io5';
+const ref1 = React.createRef();
+const ref2 = React.createRef();
 
 
 export default function Main() {
@@ -51,6 +53,10 @@ export default function Main() {
         return customer.length >= 3
     }
 
+    function isUserValid() {
+        return (options.filter(person => person.value === salesPerson)).length > 0
+    }
+
     useEffect(() => {
         dispatch(getPosts())
         dispatch(getUsers())
@@ -73,8 +79,9 @@ export default function Main() {
         return highestValue
     }
 
-    async function submitNewProject() {
-        if (isCustomerValid() && salesPerson && (postsData.length > 0)) {
+    async function submitNewProject(e) {
+        e.preventDefault()
+        if (isCustomerValid() && isUserValid() && (postsData.length > 0)) {
             await dispatch(getPosts());     // checking if the posts were updated since the site was loaded
             const newProjectNumber = (searchLastProjectNumber() + 1)
             setProjectNumber(newProjectNumber)
@@ -90,6 +97,8 @@ export default function Main() {
             }
             dispatch(createPost({ ...newProjectData }))
             cleanInputs()
+            ref1.current.clear()
+            ref2.current.clear()
         } else if ((isCustomerValid() && salesPerson && (postsData.length === 0))) {
             setButtonText('Synchronizacja danych. Poczekaj chwilę!')
             setTimeout(() => {
@@ -102,6 +111,21 @@ export default function Main() {
             }, 2000);
         }
     }
+
+    // because typeahead element uses array instead of single element for selected and onChange methods, below useEffects are needed.
+
+    const [tempCustomer, setTempCustomer] = useState([])
+    const [tempSalesPerson, setTempSalesPerson] = useState([])
+
+    useEffect(() => {
+        (tempCustomer[0]) && setCustomer(tempCustomer[0]);
+    }, [tempCustomer])
+
+    useEffect(() => {
+        (tempSalesPerson[0]) && setSalesPerson( tempSalesPerson[0] );
+    }, [tempSalesPerson])
+
+    // ^^^ typeahead workaround ^^^
 
     return (
         <Container fluid className='main px-2 px-md-5 py-2'>
@@ -121,12 +145,20 @@ export default function Main() {
                         <Form.Group className='px-0'>
                             <Form.Label className='mb-1'><small>Nazwa klienta *</small></Form.Label>
                             <Typeahead
+                                id="customer"
+                                ref={ref1}
+                                defaultSelected={[customer]}
+                                newSelectionPrefix='Nowy klient: '
                                 required
                                 allowNew
                                 isInvalid={customer.length < 3}
                                 options={[...new Set(posts.map(post => post.customer))]}
-                                onChange={(e) => setCustomer(e[0])}
-                            />
+                                onChange={() => setTempCustomer}
+                                onBlur={(e) => {
+                                    setCustomer(e.target.value)
+                                    setTempCustomer([e.target.value])
+                                }
+                            }/>
                             <Form.Text className="text-mute">
                                 <small>* Pole wymagane</small>
                             </Form.Text>
@@ -161,10 +193,18 @@ export default function Main() {
                         <Form.Group className='px-0'>
                             <Form.Label className='mb-1'><small>Inżynier sprzedaży *</small></Form.Label>
                             <Typeahead
+                                id="salesPerson"
+                                ref={ref2}
+                                defaultSelected={[salesPerson]}
                                 required
                                 options={options.map(person => person.value)}
-                                isInvalid={(salesPersons.filter(person => person.value === salesPerson)).length === 0}
-                                onChange={(e) => setSalesPerson(e[0])}
+                                isInvalid={!isUserValid()}
+                                onChange={() => setTempSalesPerson}
+                                onBlur={(e) => {
+                                    setTempSalesPerson([e.target.value])
+                                    setSalesPerson(e.target.value)
+                                }
+                                }
                             />
                             <Form.Text className="text-mute">
                                 <small>* Pole wymagane</small>
@@ -173,7 +213,7 @@ export default function Main() {
                     </Col>
                 </Row>
 
-            
+                                
                 <Row className='px-0 mx-0 pt-3 section'>
                     <Col xs={12} sm={6} className='px-0 mx-0'>
                         <h6 className='mb-3'>
@@ -190,8 +230,8 @@ export default function Main() {
                                 placeholder='...'
                                 value={projectNumber}
                             />
-                            <Button type='submit' form='project-details' className='submit-button btn-ps-outline-border' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
-                            <Button className='btn-ps-outline-border' onClick={(e) => navigator.clipboard.writeText(e.target.value)}><IoCopyOutline/></Button>
+                            <Button disabled={!isCustomerValid() || !isUserValid()} type='submit' form='project-details' className='submit-button btn-ps-outline-border' onClick={(e) => submitNewProject(e)}> {buttonText} </Button>{' '}
+                            <Button disabled={!projectNumber} className='btn-ps-outline-border' onClick={(e) => navigator.clipboard.writeText(e.target.value)}><IoCopyOutline/></Button>
                         </InputGroup>
                     </Col>
                 </Row>

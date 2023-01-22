@@ -46,7 +46,6 @@ export default function Archive() {
         if (postToEdit) {
             setPostData(postToEdit)
             setShowModal(true)
-            console.log(postToEdit)
         }
     }, [postToEdit, setPostToEditId]);
    
