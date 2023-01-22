@@ -11,7 +11,7 @@ export function activeUserCounter(filters) {
 
 export default function UserToggler({ filters, changeSalesPersonInFilters }) {
     return (
-        <Dropdown as={Dropdown.Item} drop='end' className='dropdown-item' autoClose="outside">
+        <Dropdown as={Dropdown.Item} className='dropdown-item' autoClose="outside">
             <Dropdown.Toggle className='btn-ps-dropdown-item' id="dropdown-basic">
             <MdOutlineCardTravel /> Handlowiec {activeUserCounter(filters)}
         </Dropdown.Toggle>

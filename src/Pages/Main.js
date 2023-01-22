@@ -117,7 +117,7 @@ export default function Main() {
                             <br /><small className='text-mute'>Podstawowe informacje o kliencie</small>
                         </h6>
                     </Col>
-                    <Col className='px-0 mx-0 d-flex gap-2 flex-column'>
+                    <Col className='px-0 mx-0 d-flex gap-3 flex-column'>
                         <Form.Group className='px-0'>
                             <Form.Label className='mb-1'><small>Nazwa klienta *</small></Form.Label>
                             <Typeahead

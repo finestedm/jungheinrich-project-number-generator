@@ -55,7 +55,7 @@ export default function EditPostModal(props) {
                 </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className="d-flex flex-column justify-content-between gap-4">
-                <Form>
+                <Form className="d-flex flex-column gap-3">
                     <Form.Group className='px-0'>
                         <Form.Label className='mb-1'><small>Nazwa klienta *</small></Form.Label>
                         <Typeahead
@@ -138,28 +138,32 @@ export default function EditPostModal(props) {
                     </ToggleButtonGroup>
 
                 </Form>
-                <Row className='text-end d-flex gap-2 mx-1'>
-                    <Button
-                        className='btn-ps-prim'
-                        size={window.innerWidth>500 && "lg"}
-                        disabled={!isCustomerValid() || !user}
-                        onClick={() => {
-                            if (isCustomerValid() && user) {
-                                dispatch(updatePost(_id, postData))
-                                setPostToEditId(null)
-                                setShowModal(false)
-                            }
-                    }}>
-                        Zapisz zmiany
-                    </Button>
-                    <Button
-                        variant="outline-secondary"
-                        onClick={() => {
-                            setShowModal(false)
-                            setPostToEditId(null)
+                <Row>
+                    <Col>
+                        <Button
+                            className='btn-ps-prim w-100'
+                            disabled={!isCustomerValid() || !user}
+                            onClick={() => {
+                                if (isCustomerValid() && user) {
+                                    dispatch(updatePost(_id, postData))
+                                    setPostToEditId(null)
+                                    setShowModal(false)
+                                }
                         }}>
-                        Anuluj
-                    </Button>
+                            Zapisz zmiany
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button
+                            className='w-100'
+                            variant="outline-secondary"
+                            onClick={() => {
+                                setShowModal(false)
+                                setPostToEditId(null)
+                            }}>
+                            Anuluj
+                        </Button>
+                    </Col>
                 </Row>
             </Offcanvas.Body>
         </Offcanvas>
