@@ -6,11 +6,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
 
 body, html {
-    font-family: "Inter","Helvetica","Arial",sans-serif;
+    font-family: "Inter","Helvetica","Arial",sans-serif !important;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     min-height: -webkit-fill-available;
     background-color: white;
+}
+
+body *, html * {
+    font-family: "Inter","Helvetica","Arial",sans-serif !important;
 }
 
 :root{
@@ -88,6 +92,7 @@ body, html {
 
 
     --ps-text: var(--ps-gray-900);
+    --ps-text-75: var(--ps-gray-700);
     --ps-text-50: var(--ps-gray-500);
     --ps-text-25: var(--ps-gray-300);
     
@@ -96,8 +101,11 @@ body, html {
     --ps-border-color: var(--ps-gray-200);
     --ps-border-color-50: var(--ps-gray-100);
 
+    --ps-shadow-color: hsla(220, 43%, 11%, 5%);
+    --ps-shadow: 0 1px 2px var(--ps-shadow-color);
+
     --ps-background: var(--ps-gray-25);
-    --ps-navbar-bg: var(--ps-gray-25);
+    --ps-navbar-bg: var(--ps-gray-50);
     --ps-shadow-hover: hsl(210, 10%, 85%);
     --ps-table-hover-bg: hsl(210, 50%, 97%);
     --ps-table-hover-color: hsl(220, 50%, 50%);
@@ -146,7 +154,9 @@ small {
 .form-control {
     font-weight: 400;
     color: var(--ps-gray-900);
-    border: 1px solid var(--ps-gray-300)
+    border: 1px solid var(--ps-gray-300);
+    padding: .55rem;
+    box-shadow: var(--ps-shadow)
 }
 
 .form-control:focus {
@@ -177,13 +187,12 @@ small {
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #0d6efd;
     --bs-btn-disabled-border-color: #0d6efd;
+    box-shadow: var(--ps-shadow);
 }
 
 .btn-ps-accept:hover,
 .btn-ps-new:hover {
-    /* box-shadow: 0 0 1rem var(--ps-shadow-hover); */
     border: 1px solid var(--ps-border-hover-color);
-
 }
 
 .btn-ps-outline {
@@ -200,6 +209,7 @@ small {
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #0d6efd;
     --bs-btn-disabled-border-color: #0d6efd;
+    box-shadow: var(--ps-shadow);
 }
 
 .btn-ps-outline-border {
@@ -216,6 +226,7 @@ small {
     --bs-btn-disabled-color: var(--ps-prim-300);
     --bs-btn-disabled-bg: var(--ps-prim-25);
     --bs-btn-disabled-border-color: var(--ps-prim-300); 
+    box-shadow: var(--ps-shadow);
 }
 
 .btn-ps-dropdown-item {
@@ -234,6 +245,51 @@ small {
     --bs-btn-disabled-bg: #0d6efd;
     --bs-btn-disabled-border-color: #0d6efd;
 }
+
+/* BUTTON GROUP */
+
+.button-group {
+    padding: .15rem;
+    border-radius: .375rem !important;
+    background-color: var(--ps-gray-100);
+    box-shadow: var(--ps-shadow);
+}
+
+.button-group button {
+    font-weight: 400;
+    border: 1px solid transparent;
+    border-radius: .375rem !important;
+    font-size: .875rem;
+    line-height: var(--bs-body-line-height);
+    letter-spacing: -.01rem;
+    color: var(--ps-text-25);
+    background-color: transparent;
+    transition: all .25s ease-out;
+}
+
+button#status-0.Mui-selected{
+    font-weight: 500;
+    background-color: white;
+    color: var(--ps-accent-1-600);
+    box-shadow: var(--ps-shadow);
+}
+
+button#status-1.Mui-selected{
+    font-weight: 500;
+    background-color: white;
+    color: var(--ps-succ-700);
+    box-shadow: var(--ps-shadow);
+}
+
+button#status-2.Mui-selected{
+    font-weight: 500;
+    background-color: white;
+    color: var(--ps-accent-2-700);
+    box-shadow: var(--ps-shadow);
+
+}
+
+/* //////// */
 
 table,
 table .btn,
@@ -300,7 +356,7 @@ table .dropdown-item {
 }
 
 .navbar--offcanvas {
-    background-color: white;
+    background-color: var(--ps-navbar-bg);
 }
 
 .navbar--offcanvas .offcanvas-header {
@@ -455,7 +511,7 @@ td {
 
     .navbar {
         border-right: none;
-        box-shadow: 0 0rem 1.5rem hsla(200, 4%, 15%, 0.1);
+        box-shadow: 0 0rem 1.5rem hsla(200, 4%, 12%, 0.1);
         align-items: flex-start !important;
     }
 
@@ -705,45 +761,6 @@ span#status-2{
 	--bs-modal-header-border-width: 0;
 	--bs-modal-footer-border-width: 0;
 }
-
-.button-group {
-    /* background-color: var(--ps-table-head-bg); */
-    border: 1px solid var(--ps-border-color);
-    overflow: hidden;
-}
-
-.button-group button {
-    color: var(--ps-text-25);
-    background-color: transparent;
-    transition: all .25s ease-out;
-    border: none;
-    border-radius: .25rem !important;
-}
-
-button#status-0.Mui-selected{
-    background-color: white;
-    color: hsla(210, 50%, 40%);
-    box-shadow: 0 0 1rem hsla(210, 35%, 55%);
-}
-
-button#status-1.Mui-selected{
-    color:hsl(174, 34%, 40%);
-    background-color: white;
-    box-shadow: 0 0 1rem hsla(174, 20%, 55%);
-}
-
-button#status-2.Mui-selected{
-    color:hsla(1, 60%, 40%);
-    background-color: white;
-    box-shadow: 0 0 1rem hsla(1, 20%, 55%);
-}
-
-.modal--status-switch>span {
-    position: relative;
-    top: 1px;
-    font-weight: 500;
-}
-
 
 .form-check-input {
     position: relative;

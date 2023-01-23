@@ -4,7 +4,7 @@ import MR from '../images/avatars/MR.png'
 import MS from '../images/avatars/MS.png'
 import MT from '../images/avatars/MT.png'
 import PK from '../images/avatars/PK.png'
-import unknown from '../images/avatars/unknown.png'
+import unknown from '../images/avatars/unknown.svg'
 
 
 const salesPersons = [

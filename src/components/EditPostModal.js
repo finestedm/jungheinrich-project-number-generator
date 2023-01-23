@@ -124,29 +124,31 @@ export default function EditPostModal(props) {
                         </Form.Text>
                     </Form.Group>
                     
-                    
-                    <ToggleButtonGroup
-                        className='p-1 d-flex edit-modal button-group'
-                        fullWidth
-                        size={window.innerWidth <=500 ? 'small' : 'normal'}
-                        value={status}
-                        exclusive
-                        onChange={(e, val) => {setPostData({ ...postData, status: val })}}
-                        aria-label="project status"
-                        >
-                        <ToggleButton className='modal--status-switch' id='status-0' value={0} aria-label="ofertowany" selected={status === 0}>
-                            <IoDocumentTextOutline size='1.2rem'  className='me-2' />
-                            <span className='text-capitalize'>ofertowany</span>
-                        </ToggleButton>
-                        <ToggleButton  className='modal--status-switch' id='status-1' value={1} aria-label="realizacja" selected={status === 1}>
-                            <IoFlashOutline size='1.2rem' className='me-2' />
-                            <span className='text-capitalize'>realizacja</span>
-                        </ToggleButton>
-                        <ToggleButton  className='modal--status-switch' id='status-2' value={2} aria-label="przegrany" selected={status === 2}>
-                            <IoCloseCircleOutline size='1.2rem' className='me-2' />
-                            <span className='text-capitalize'>przegrany</span>
-                        </ToggleButton>
-                    </ToggleButtonGroup>
+                    <Form.Group className='px-0'>
+                        <Form.Label className='mb-1'><small>Status projektu</small></Form.Label>
+                        <ToggleButtonGroup
+                            className='d-flex edit-modal button-group'
+                            fullWidth
+                            size={window.innerWidth <=500 ? 'small' : 'normal'}
+                            value={status}
+                            exclusive
+                            onChange={(e, val) => {setPostData({ ...postData, status: val })}}
+                            aria-label="project status"
+                            >
+                            <ToggleButton className='modal--status-switch' id='status-0' value={0} aria-label="ofertowany" selected={status === 0}>
+                                <IoDocumentTextOutline size='1.2rem'  className='me-2' />
+                                <span className='text-capitalize'>ofertowany</span>
+                            </ToggleButton>
+                            <ToggleButton  className='modal--status-switch' id='status-1' value={1} aria-label="realizacja" selected={status === 1}>
+                                <IoFlashOutline size='1.2rem' className='me-2' />
+                                <span className='text-capitalize'>realizacja</span>
+                            </ToggleButton>
+                            <ToggleButton  className='modal--status-switch' id='status-2' value={2} aria-label="przegrany" selected={status === 2}>
+                                <IoCloseCircleOutline size='1.2rem' className='me-2' />
+                                <span className='text-capitalize'>przegrany</span>
+                            </ToggleButton>
+                        </ToggleButtonGroup>
+                    </Form.Group>
 
                 </Form>
                 <Row>

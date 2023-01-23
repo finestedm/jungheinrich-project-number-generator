@@ -84,8 +84,6 @@ export default function Main() {
         if (isCustomerValid() && isUserValid() && (postsData.length > 0)) {
             await dispatch(getPosts());     // checking if the posts were updated since the site was loaded
             const newProjectNumber = (searchLastProjectNumber() + 1)
-            setProjectNumber(newProjectNumber)
-            navigator.clipboard.writeText(newProjectNumber)
             const newProjectData = {
                 projectNumber: newProjectNumber,
                 customer: customer,
@@ -99,6 +97,7 @@ export default function Main() {
             cleanInputs()
             ref1.current.clear()
             ref2.current.clear()
+            setProjectNumber(newProjectNumber)
         } else if ((isCustomerValid() && salesPerson && (postsData.length === 0))) {
             setButtonText('Synchronizacja danych. Poczekaj chwilę!')
             setTimeout(() => {
@@ -176,20 +175,7 @@ export default function Main() {
                                 <small> </small>
                             </Form.Text>
                         </Form.Group>  
-                        <Form.Group className='px-0'>
-                            <Form.Label className='mb-1'><small>Opis projektu</small></Form.Label>
-                            <Form.Control 
-                                className='main--input'
-                                type="text" 
-                                value={description}
-                                isInvalid={description.length > 250}
-                                onChange={(e) => setDescription(e.target.value)}
-                            />
-                            <Form.Text className="error">
-                                <small>{description.length > 250 ?  'Max 250 znaków' : ' '}</small>
-                            </Form.Text>
-                        </Form.Group> 
-        
+
                         <Form.Group className='px-0'>
                             <Form.Label className='mb-1'><small>Inżynier sprzedaży *</small></Form.Label>
                             <Typeahead
@@ -210,6 +196,23 @@ export default function Main() {
                                 <small>* Pole wymagane</small>
                             </Form.Text>
                         </Form.Group>
+
+                        <Form.Group className='px-0'>
+                            <Form.Label className='mb-1'><small>Opis projektu</small></Form.Label>
+                            <Form.Control 
+                                as="textarea"
+                                rows={2}
+                                className='main--input'
+                                type="text" 
+                                value={description}
+                                isInvalid={description.length > 250}
+                                onChange={(e) => setDescription(e.target.value)}
+                            />
+                            <Form.Text className="error">
+                                <small>{description.length > 250 ?  'Max 250 znaków' : ' '}</small>
+                            </Form.Text>
+                        </Form.Group> 
+        
                     </Col>
                 </Row>
 
