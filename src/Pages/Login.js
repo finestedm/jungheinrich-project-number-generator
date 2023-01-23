@@ -49,33 +49,35 @@ export default function Login() {
                 <small class="text-muted fs-5 fw-normal">Wprowadź użyty podczas rejestracji email oraz hasło</small>
             </h1>
             <Form onSubmit={onSubmit} className='login-form d-flex mx-auto flex-column gap-3'>
-                <FloatingLabel
-                    controlId="emailInput"
-                    label="Email"
-                    className="mb-3"
-                >
+                <Form.Group className="text-start">
+                    <Form.Label className='mb-1'>
+                        <small>Wpisz adres email</small>
+                    </Form.Label>
                     <Form.Control
                         name='email'
                         placeholder="ABC@jh.pl"
                         onChange={onChange}
                         value={email}
                         type='email'
+                        size="lg"
                     />
-                </FloatingLabel>
-                <FloatingLabel
-                    controlId="passwordInput"
-                    label="Hasło"
-                >
+                </Form.Group>
+                <Form.Group className="text-start">
+                    <Form.Label className='mb-1'>
+                        <small>Wpisz hasło</small>
+                    </Form.Label>
                     <Form.Control
                         name='password'
                         type="password"
                         placeholder="Password"
                         onChange={onChange}
                         value={password}
+                        size="lg"
+
                     />
-                </FloatingLabel>
+                </Form.Group>
                 <Form.Group className="mt-3">
-                    <Button className='btn-ps-accept' size="lg" disabled={isLoading} type="submit">Zaloguj się</Button>
+                    <Button className='btn-ps-prim' size="lg" disabled={isLoading} type="submit">Zaloguj się</Button>
                 </Form.Group>
             </Form>
         </Container>

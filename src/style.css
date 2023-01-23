@@ -151,7 +151,7 @@ small {
     color: var(--ps-gray-900)
 }
 
-.form-control {
+.form-control, .form-select {
     font-weight: 400;
     color: var(--ps-gray-900);
     border: 1px solid var(--ps-gray-300);

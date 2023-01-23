@@ -60,10 +60,10 @@ export default function SignUp() {
                 <small class="text-muted fs-5 fw-normal">Wprowadź swoje dane</small>
             </h1>
             <Form onSubmit={onSubmit} className='signup-form d-flex mx-auto flex-column gap-3'>
-                <FloatingLabel
-                    controlId="nameInput"
-                    label="Imię i nazwisko"
-                >
+                <Form.Group className="text-start">
+                    <Form.Label className='mb-1'>
+                        <small>Wpisz imię i nazwisko</small>
+                    </Form.Label>
                     <Form.Control
                         name='name'
                         placeholder="Andrzej Nowak"
@@ -71,11 +71,11 @@ export default function SignUp() {
                         value={name}
                         type='text'
                     />
-                </FloatingLabel>
-                <FloatingLabel
-                    controlId="emailInput"
-                    label="Email"
-                >
+                </Form.Group>
+                <Form.Group className="text-start">
+                    <Form.Label className='mb-1'>
+                        <small>Wprowadź adres email</small>
+                    </Form.Label>
                     <Form.Control
                         name='email'
                         placeholder="ABC@jh.pl"
@@ -83,11 +83,11 @@ export default function SignUp() {
                         value={email}
                         type='email'
                     />
-                </FloatingLabel>
-                <FloatingLabel
-                    controlId="passwordInput"
-                    label="Hasło"
-                >
+                </Form.Group>
+                <Form.Group className="text-start">
+                    <Form.Label className='mb-1'>
+                        <small>Wpisz hasło</small>
+                    </Form.Label>
                     <Form.Control
                         name='password'
                         type="password"
@@ -95,11 +95,11 @@ export default function SignUp() {
                         onChange={onChange}
                         value={password}
                     />
-                </FloatingLabel>
-                <FloatingLabel
-                    controlId="password2Input"
-                    label="Potwierdź hasło"
-                >
+                </Form.Group>
+                <Form.Group className="text-start">
+                    <Form.Label className='mb-1'>
+                        <small>Potwierdź hasło</small>
+                    </Form.Label>
                     <Form.Control
                         name='password2'
                         type="password"
@@ -107,22 +107,21 @@ export default function SignUp() {
                         onChange={onChange}
                         value={password2}
                     />
-                </FloatingLabel>
-                <FloatingLabel
-                    controlId="branch"
-                    label="Oddział"
-                >
+                </Form.Group>
+                <Form.Group className="text-start">
+                    <Form.Label className='mb-1'>
+                        <small>Wybierz Oddział</small>
+                    </Form.Label>
                     <Form.Select
                         name='branch'
                         onChange={onChange}
                         value={branch}
                     >
-                        <option disabled value={null}>Wybierz oddział</option>
                         {Object.values(branches).map(branch => <option>{branch.value}</option>)}
                     </Form.Select>
-                </FloatingLabel>
+                </Form.Group>
                 <Form.Group className="mt-3">
-                    <Button className='btn-ps-accept' size="lg" disabled={isLoading} type="submit">Zarejestruj się</Button>
+                    <Button className='btn-ps-prim' size="lg" disabled={isLoading} type="submit">Zarejestruj się</Button>
                 </Form.Group>
             </Form>
         </Container>
