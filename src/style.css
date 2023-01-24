@@ -96,7 +96,6 @@ body *, html * {
     --ps-text-50: var(--ps-gray-500);
     --ps-text-25: var(--ps-gray-300);
     
-    --ps-text-medium: var(500);
     
     --ps-border-color: var(--ps-gray-200);
     --ps-border-color-50: var(--ps-gray-100);
@@ -296,6 +295,96 @@ button#status-2.Mui-selected{
 
 }
 
+/* PAGINATOR */
+
+.paginator {
+    font-size: .875rem;
+    list-style: none;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .paginator {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+}
+
+.paginator>li>a {
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    color: var(--ps-text-75);
+    font-weight: 500;
+    border-radius: .5rem;
+}
+
+.paginator>li:first-child {
+    margin-right: auto;
+}
+
+.paginator>li:last-child {
+    margin-left: auto;
+}
+
+.paginator>li:first-child>a,
+.paginator>li:last-child>a  {
+    border: 1px solid var(--ps-border-color);
+    border-radius: .375rem;
+    box-shadow: var(--ps-shadow);
+}
+
+.paginator>li * {
+    text-decoration: none;
+}
+
+.paginator .selected>a {
+    background-color: var(--ps-prim-50) !important;
+    color: var(--ps-prim-600) !important;
+}
+
+.paginator .disabled>a {
+    color: var(--ps-gray-300) !important;
+    background-color: var(--ps-gray-50);
+}
+
+/* TABLE */
+
+tr>th:first-child,
+tr>td:first-child {
+    padding-left: 1.5rem;
+}
+
+tr>th:last-child,
+tr>td:last-child {
+    padding-right: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    tr>th:first-child,
+    tr>td:first-child {
+        padding-left: .5rem;
+    }
+
+    tr>th:last-child,
+    tr>td:last-child {
+        padding-right: .5rem;
+    }
+}
+
+/* every cell */
+.table > :not(caption) > * > * {
+    padding: 1rem 1rem;
+    height: 2.25rem;
+}
+
+
 /* //////// */
 
 table,
@@ -371,14 +460,6 @@ table .dropdown-item {
     height: 75px;
 }
 
-.offcanvas-header .btn-close {
-    background-color: white;
-}
-
-.navbar--offcanvas {
-	--bs-offcanvas-bg: var(--ps-text);
-}
-
 .project-edit-offcanvas .offcanvas-header {
     border-bottom: 1px solid var(--ps-border-color);
 }
@@ -416,52 +497,6 @@ body,
     background-color: white;
 }
 
-.paginator {
-    list-style: none;
-    margin: 0;
-}
-
-.paginator>li>a {
-    height: 2.25rem;
-    min-width: 2.25rem;
-    padding: .5rem;
-    display: flex;
-    justify-content: center;
-    width: auto;
-    margin: .5rem 0rem;
-    border-top: 1px solid #9096a12f;
-    border-bottom: 1px solid #9096a12f;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    color: var(--bs-dark)
-}
-
-.paginator>li:first-child>a {
-    border-left: 1px solid #9096a12f;
-    border-radius: .5rem 0 0 .5rem;
-}
-
-.paginator>li:last-child>a {
-    border-right: 1px solid #9096a12f;
-    border-radius: 0 .5rem .5rem 0;
-}
-
-
-.paginator>li * {
-    text-decoration: none;
-    color: var(--bs-dark)
-}
-
-.selected>a {
-    background-color: #e1edf5  !important;
-    color: #4a5960 !important;
-    font-weight: 700;
-}
-
-.disabled>a {
-    color: rgba(0, 0, 0, 0.164) !important
-}
 
 td {
     white-space: nowrap;
@@ -504,9 +539,6 @@ td {
         justify-content: center !important;
     }
 
-    .offcanvas.offcanvas-start {
-        width: 75px !important
-    }
 
     .navbar-brand {
         margin-bottom: 3rem;
@@ -520,6 +552,10 @@ td {
         border-right: none;
         box-shadow: 0 0rem 1.5rem hsla(200, 4%, 12%, 0.1);
         align-items: flex-start !important;
+    }
+
+    .navbar--offcanvas {
+        max-width: max(80%, 275px);
     }
 
     td.table--customer,
@@ -538,9 +574,6 @@ td {
     }
   }
 
-tr {
-    line-height: 3.25rem;
-}
 
 tr:hover:not(thead>tr) {
     transition: all .1s ;
@@ -601,14 +634,8 @@ tr:hover:not(thead>tr) {
 	color: var(--ps-table-hover-color);
 }
 
-.table > :not(caption) > * > * {
-	padding: .5rem .5rem;
-	background-color: var(--bs-table-bg);
-	border-bottom-width: 1px;
-	box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
-}
-
 .project-edit-icon {
+    transition: all .15s ease;
     cursor:pointer;
 }
 
@@ -680,11 +707,6 @@ tr:hover:not(thead>tr) {
 
 .main--card {
     border-radius: 1rem;
-}
-
-th, 
-td {
-    padding: .5rem .675rem !important;
 }
 
 h2 {
@@ -884,12 +906,6 @@ span.strong {
 .form-check-input:checked {
 	background-color: var(--ps-table-hover-color);
     border-color: var(--ps-table-hover-color);
-}
-
-.project-edit-icon {
-    height: 2rem;
-    width: 2rem;
-    transition: all .15s ease;
 }
 
 /* tooltip */

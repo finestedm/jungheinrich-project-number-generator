@@ -12,7 +12,7 @@ import { activeStatusCounter } from '../components/StatusToggler';
 import { activeUserCounter } from '../components/UserToggler';
 import { AiOutlineNumber } from "react-icons/ai"
 import { TbBuildingWarehouse } from "react-icons/tb"
-import {MdOutlineDescription, MdOutlineDateRange, MdOutlineLocationOn, MdOutlineLocalOffer, MdOutlineCardTravel} from 'react-icons/md'
+import {MdOutlineDescription, MdOutlineDateRange, MdOutlineLocationOn, MdOutlineLocalOffer, MdOutlineCardTravel, MdOutlineArrowForwardIos, MdOutlineArrowbackwardIos} from 'react-icons/md'
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 
@@ -39,7 +39,7 @@ function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
   
 
 export default function PaginatedItems(props) {
-    const { toggleModalVisible, setPostToEditId, itemsPerPage, posts, filters, changeStatusInFilters, changeSalesPersonInFilters} = props
+    const { toggleModalVisible, setPostToEditId, itemsPerPage, posts, filters} = props
 
     // Here we use item offsets; we could also use page offsets
     // following the API or data you're working with.
@@ -64,10 +64,10 @@ export default function PaginatedItems(props) {
         <Table hover className='table-ps m-0'>
             <thead>
             <tr className='table--head'> 
-              <th><span className='d-none d-lg-flex align-items-center gap-1'><MdOutlineLocalOffer size='1.2em'/> Status</span> <span className='d-flex d-lg-none align-items-center'><MdOutlineLocalOffer size='1.2em'/> St.</span> {activeStatusCounter(filters)}</th>
               <th><span className='d-flex align-items-center gap-1'><AiOutlineNumber size='1.2em'/> Numer</span></th>
+              <th><span className='d-none d-lg-flex align-items-center gap-1'><MdOutlineLocalOffer size='1.2em'/> Status</span> <span className='d-flex d-lg-none align-items-center'><MdOutlineLocalOffer size='1.2em'/> St.</span> {activeStatusCounter(filters)}</th>
               <th><span className='d-flex align-items-center gap-1'><TbBuildingWarehouse size='1.2em'/> Klient</span></th>
-              <th className='d-none d-xl-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineLocationOn size='1.2em'/> Lokalizacja</span></th>
+              <th className='d-none d-xxl-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineLocationOn size='1.2em'/> Lokalizacja</span></th>
               <th className='d-none d-xl-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineDescription size='1.2em'/> Opis</span></th>
               <th className='d-none d-md-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineCardTravel /> Handlowiec {activeUserCounter(filters)}</span></th>
               <th className='d-none d-lg-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineDateRange size='1.2em'/> Utworzono</span></th>
@@ -78,25 +78,18 @@ export default function PaginatedItems(props) {
           <tbody>
               <Items currentItems={currentItems} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} />
           </tbody>
-
-          <tfoot className='table--foot'>
-            <tr>
-              <td colSpan="8">
-                <ReactPaginate
-                  className='paginator d-flex justify-content-center text-center'
-                  breakLabel="..."
-                  nextLabel="Następna"
-                  onPageChange={handlePageClick}
-                  pageRangeDisplayed={2}
-                  marginPagesDisplayed={2}
-                  pageCount={pageCount}
-                  previousLabel="Wstecz"
-                  renderOnZeroPageCount={null}
-                />
-              </td>
-            </tr>
-          </tfoot>
         </Table>     
+        <ReactPaginate
+          className='paginator mb-0 py-3 d-flex justify-content-center text-center'
+          breakLabel="..."
+          nextLabel="Następna"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={2}
+          marginPagesDisplayed={2}
+          pageCount={pageCount}
+          previousLabel="Wstecz"
+          renderOnZeroPageCount={null}
+        />
       </Row>
     );
 }
