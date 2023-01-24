@@ -39,7 +39,7 @@ function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
 
 function PaginatorForward() {
   return (
-    <Row className='px-1'>
+    <Row className='px-1 d-flex align-items-center'>
       <Col className='d-none d-md-block px-1'>
         Dalej
       </Col>
@@ -52,7 +52,7 @@ function PaginatorForward() {
 
 function PaginatorBackward() {
   return (
-    <Row className='px-1'>
+    <Row className='px-1 d-flex align-items-center'>
       <Col className='d-flex align-items-center px-1'>
         <MdOutlineArrowBackIos />
       </Col>
@@ -105,7 +105,7 @@ export default function PaginatedItems(props) {
           </tbody>
         </Table>     
         <ReactPaginate
-          className='paginator mb-0 py-3 d-flex justify-content-center text-center'
+          className='paginator mb-0 py-3 d-flex justify-content-center align-items-center text-center'
           breakLabel="..."
           nextLabel={<PaginatorForward />}
           onPageChange={handlePageClick}
