@@ -146,12 +146,13 @@ small {
 /* INPUTS */
 
 .form-label {
-    font-weight: 400;
+    font-weight: 500;
     color: var(--ps-gray-900)
 }
 
-.form-control, .form-select {
-    font-weight: 400;
+.form-control, 
+.form-select {
+    font-weight: 500;
     color: var(--ps-gray-900);
     border: 1px solid var(--ps-gray-300);
     padding: .55rem;
@@ -324,6 +325,11 @@ button#status-2.Mui-selected{
     border-radius: .5rem;
 }
 
+
+.paginator>li>a:hover {
+    background-color: var(--ps-gray-50);
+}
+
 .paginator>li:first-child {
     margin-right: auto;
 }
@@ -384,6 +390,38 @@ tr>td:last-child {
     height: 2.25rem;
 }
 
+/* SEARCH-BAR */
+
+.main--search-bar>button {
+    border: 1px solid var(--ps-gray-300);
+    border-right: none;
+}
+
+.main--search-bar>button:hover,
+.main--search-bar>button:active {
+    border: 1px solid var(--ps-gray-300);
+    color: var(--ps-text);
+    border-right: none;
+}
+
+.search-input--delete {
+    border-left: none !important;
+}
+
+.search-input--delete:hover,
+.search-input--delete:active {
+    border-left: none !important;
+}
+
+.search-input--search-icon {
+    position: relative;
+    top: -1.5px
+}
+
+.search-input--delete-icon {
+    position: relative;
+    top: -1.5px
+}
 
 /* //////// */
 
@@ -604,36 +642,6 @@ tr:hover:not(thead>tr) {
 	--bs-table-hover-bg: var(--ps-prim-25);
 }
 
-
-.main--search-bar {
-    color: var(--ps-text-50);
-    border-radius: .375rem;
-    transition: all .2s ease;
-}
-
-.search-input--search-icon {
-    color: var(--ps-text-25)
-}
-
-.main--search-bar input::placeholder {
-    color: var(--ps-text-25) ;
-    transition: all .2s ease;
-}
-
-.main--search-bar:hover::placeholder {
-    color: var(--ps-table-hover-color);
-}
-
-.main--search-bar:hover {
-    /* box-shadow: 0 0 1rem var(--ps-shadow-hover); */
-    border: 1px solid var(--ps-border-hover-color);
-
-}
-
-.main--search-bar:hover .btn {
-	color: var(--ps-table-hover-color);
-}
-
 .project-edit-icon {
     transition: all .15s ease;
     cursor:pointer;
@@ -719,32 +727,6 @@ h5 {
     color: var(--ps-text);
     font-weight: 600;
     letter-spacing: -.75px;
-}
-
-.main--search-input {
-    border: none;
-    color: var(--ps-btn-color);
-    font-weight: 500;
-}
-
-
-.main--search-bar .btn.search-input--delete {
-    border-left: none !important;
-}
-
-.search-input--search-icon {
-    position: relative;
-    top: -1.5px
-}
-
-.search-input--delete-icon {
-    position: relative;
-    top: -1.5px
-}
-
-.main--search-bar {
-    min-width: 200px;
-    border: 1px solid var(--ps-border-color)
 }
 
 light {

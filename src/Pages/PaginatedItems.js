@@ -12,7 +12,7 @@ import { activeStatusCounter } from '../components/StatusToggler';
 import { activeUserCounter } from '../components/UserToggler';
 import { AiOutlineNumber } from "react-icons/ai"
 import { TbBuildingWarehouse } from "react-icons/tb"
-import {MdOutlineDescription, MdOutlineDateRange, MdOutlineLocationOn, MdOutlineLocalOffer, MdOutlineCardTravel, MdOutlineArrowForwardIos, MdOutlineArrowbackwardIos} from 'react-icons/md'
+import {MdOutlineDescription, MdOutlineDateRange, MdOutlineLocationOn, MdOutlineLocalOffer, MdOutlineCardTravel, MdOutlineArrowForwardIos, MdOutlineArrowBackIos} from 'react-icons/md'
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 
@@ -36,7 +36,32 @@ function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
     return Array(15).fill(<ArchivedProjectPlaceholder />)
   }
 }
-  
+
+function PaginatorForward() {
+  return (
+    <Row className='px-1'>
+      <Col className='d-none d-md-block px-1'>
+        Dalej
+      </Col>
+      <Col className='d-flex align-items-center px-1'>
+        <MdOutlineArrowForwardIos />
+      </Col>
+    </Row>
+  )
+}
+
+function PaginatorBackward() {
+  return (
+    <Row className='px-1'>
+      <Col className='d-flex align-items-center px-1'>
+        <MdOutlineArrowBackIos />
+      </Col>
+      <Col className='d-none d-md-block px-1'>
+        Wstecz
+      </Col>
+    </Row>
+  )
+}
 
 export default function PaginatedItems(props) {
     const { toggleModalVisible, setPostToEditId, itemsPerPage, posts, filters} = props
@@ -82,12 +107,12 @@ export default function PaginatedItems(props) {
         <ReactPaginate
           className='paginator mb-0 py-3 d-flex justify-content-center text-center'
           breakLabel="..."
-          nextLabel="Następna"
+          nextLabel={<PaginatorForward />}
           onPageChange={handlePageClick}
           pageRangeDisplayed={2}
           marginPagesDisplayed={2}
           pageCount={pageCount}
-          previousLabel="Wstecz"
+          previousLabel={<PaginatorBackward />}
           renderOnZeroPageCount={null}
         />
       </Row>
