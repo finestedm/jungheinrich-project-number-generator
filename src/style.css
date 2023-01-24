@@ -249,7 +249,7 @@ small {
 /* BUTTON GROUP */
 
 .button-group {
-    padding: .15rem;
+    padding: .2rem;
     border-radius: .375rem !important;
     background-color: var(--ps-gray-100);
     box-shadow: var(--ps-shadow);
@@ -258,13 +258,14 @@ small {
 .button-group button {
     font-weight: 400;
     border: 1px solid transparent;
-    border-radius: .375rem !important;
+    border-radius: .3rem !important;
     font-size: .875rem;
     line-height: var(--bs-body-line-height);
     letter-spacing: -.01rem;
     color: var(--ps-text-25);
     background-color: transparent;
     transition: all .25s ease-out;
+    
 }
 
 button#status-0.Mui-selected{
@@ -272,6 +273,8 @@ button#status-0.Mui-selected{
     background-color: white;
     color: var(--ps-accent-1-600);
     box-shadow: var(--ps-shadow);
+    border: 1px solid var(--ps-border-color);
+
 }
 
 button#status-1.Mui-selected{
@@ -279,6 +282,8 @@ button#status-1.Mui-selected{
     background-color: white;
     color: var(--ps-succ-700);
     box-shadow: var(--ps-shadow);
+    border: 1px solid var(--ps-border-color);
+
 }
 
 button#status-2.Mui-selected{
@@ -286,6 +291,8 @@ button#status-2.Mui-selected{
     background-color: white;
     color: var(--ps-accent-2-700);
     box-shadow: var(--ps-shadow);
+    border: 1px solid var(--ps-border-color);
+
 
 }
 
