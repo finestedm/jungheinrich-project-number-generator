@@ -168,7 +168,7 @@ export default function EditPostModal(props) {
                     </Col>
                     <Col>
                         <Button
-                            className='w-100'
+                            className='w-100 btn-ps-basic'
                             variant="outline-secondary"
                             onClick={() => {
                                 setShowModal(false)
