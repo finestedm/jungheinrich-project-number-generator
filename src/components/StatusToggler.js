@@ -33,7 +33,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                     name="status"
                     />
             </Dropdown.Item>
-                
+            <Dropdown.Divider />
             <Dropdown.Item onClick={() => changeStatusInFilters(0)} className='d-flex align-items-center status-toggle'>
                 <Form.Check
                     id='status-0'

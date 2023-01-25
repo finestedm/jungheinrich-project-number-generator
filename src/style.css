@@ -496,7 +496,7 @@ table .dropdown-item {
 }
 
 .navbar--offcanvas .offcanvas-header {
-    border-bottom: 1px solid var(--ps-btn-dark-bg-hover);
+    border-bottom: 1px solid var(--ps-border-color);
     height: 75px;
 }
 
@@ -815,15 +815,6 @@ span#status-2{
 
 .dropdown-menu .dropdown-item:first-child {
     position:relative;
-}
-
-.dropdown-menu .dropdown-item:first-child::after {
-    content: '';
-    width: 80%;
-    bottom: 0;
-    position:absolute;
-    height: 1px;
-    background-color: var(--ps-border-color);
 }
 
 .dropdown-menu {

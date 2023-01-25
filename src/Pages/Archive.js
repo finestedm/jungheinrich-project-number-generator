@@ -106,11 +106,14 @@ export default function Archive() {
                     <Col className='col-auto'><Button className='btn-ps-outline'><AiOutlineFileAdd /> Dodaj nowy projekt</Button></Col>
                 </Row>
                 <h6 className='mb-3'>Podsumowanie <br/>  <small class="text-mute">Najważniejsze informacje z tego tygodnia</small></h6>
+                
                 <SummaryCards />
-                <Row className=''>
-                    <h6 className='mb-3'>Archiwum <br />  <small class="text-mute">Szukaj istniejących projektów</small></h6>
-                    
+                
+                <h6 className='mb-3'>Archiwum <br />  <small class="text-mute">Szukaj istniejących projektów</small></h6>
+                
                     <Col><ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} /></Col>
+                <Row >
+                    
                     <Col className='col-auto ms-auto'>
                         <FiltersDropdown changeSalesPersonInFilters={changeSalesPersonInFilters} changeStatusInFilters={changeStatusInFilters} filters={filters} />
                     </Col>

@@ -17,7 +17,7 @@ export default function UserToggler({ filters, changeSalesPersonInFilters }) {
         </Dropdown.Toggle>
         
         <Dropdown.Menu>
-                <Dropdown.Item onClick={() => changeSalesPersonInFilters('all')} className='d-flex align-items-center user-name-toggle'>
+            <Dropdown.Item onClick={() => changeSalesPersonInFilters('all')} className='d-flex align-items-center user-name-toggle'>
                 <Form.Check
                     id='status-all' 
                     value='all'  
@@ -29,6 +29,9 @@ export default function UserToggler({ filters, changeSalesPersonInFilters }) {
                     name="status"
                     />
             </Dropdown.Item>
+                
+            <Dropdown.Divider />
+                
             {salesPersons.map(user => {
                 ((Object.values(filters.salesPersons)).filter(key => key.value === user.value))
                 return(
