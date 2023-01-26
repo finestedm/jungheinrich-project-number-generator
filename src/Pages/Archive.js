@@ -12,7 +12,7 @@ import SummaryCards from '../components/SummaryCards'
 import { salesPersons } from '../data/salesPersons'
 import { useNavigate } from 'react-router-dom'
 import FiltersDropdown from '../components/FiltersDropdown'
-import {AiOutlineFileAdd} from 'react-icons/ai'
+import {HiOutlineDocumentPlus} from 'react-icons/hi2'
 
 export default function Archive() {
 
@@ -97,23 +97,26 @@ export default function Archive() {
     return (
         <Container fluid className='main w-100 px-2 px-md-5'>
             <div className='table-container mb-4'>
-                <Row className='justify-content-between header-row py-4 mb-5'>
+                <Row className='header-row py-4 mb-5'>
                     <Col>
                         <h1 className='d-inline-flex'>Projekty
                             <small class="text-mute fs-5">({posts.length})</small>
                         </h1>
                     </Col>
-                    <Col className='col-auto'><Button className='btn-ps-outline'><AiOutlineFileAdd /> Dodaj nowy projekt</Button></Col>
+                    <Col className='col-auto'><Button className='btn-ps-outline d-flex gap-2 align-items-center'><HiOutlineDocumentPlus size='1.25em' /> <span>Dodaj projekt</span></Button></Col>
                 </Row>
-                <h6 className='mb-3'>Podsumowanie <br/>  <small class="text-mute">Najważniejsze informacje z tego tygodnia</small></h6>
+                <h5 className='mb-3'>Podsumowanie <br/>  <small class="text-mute">Najważniejsze informacje z tego tygodnia</small></h5>
                 
                 <SummaryCards />
                 
-                <h6 className='mb-3'>Archiwum <br />  <small class="text-mute">Szukaj istniejących projektów</small></h6>
-                
-                <Col><ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} /></Col>
-                <Row >
+                <h5 className='mb-3'>Archiwum <br />  <small class="text-mute">Szukaj istniejących projektów</small></h5>
+
+
+                <Row className='mt-3' >
                     
+                    <Col>
+                        <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} />
+                    </Col>
                     <Col className='col-auto ms-auto'>
                         <FiltersDropdown changeSalesPersonInFilters={changeSalesPersonInFilters} changeStatusInFilters={changeStatusInFilters} filters={filters} />
                     </Col>

@@ -19,7 +19,7 @@ body *, html * {
 
 :root{
     --ps-gray-25: hsl(240, 20%, 99%);
-    --ps-gray-50: hwb(210 98% 2%);
+    --ps-gray-50: hsl(210, 20%, 98%);
     --ps-gray-100: hsl(216, 24%, 96%);
     --ps-gray-200: hsl(218, 17%, 91%);
     --ps-gray-300: hsl(217, 16%, 84%);
@@ -171,6 +171,10 @@ small {
 
 /* BUTTONS */
 
+.btn {
+    box-shadow: none;
+}
+
 .btn-ps-prim {
     font-weight: 500;
     --bs-btn-color: white;
@@ -196,6 +200,7 @@ small {
 }
 
 .btn-ps-outline {
+    font-weight: 500;
     --bs-btn-color: var(--ps-prim-700);
     --bs-btn-bg: var(--ps-prim-50);
     --bs-btn-border-color: var(--ps-prim-50);
@@ -213,6 +218,7 @@ small {
 }
 
 .btn-ps-outline-border {
+    font-weight: 500;
     --bs-btn-color: var(--ps-prim-700);
     --bs-btn-bg: var(--ps-prim-50);
     --bs-btn-border-color: var(--ps-prim-300);
@@ -251,6 +257,7 @@ small {
 .button-group {
     padding: .125rem;
     border-radius: .375rem !important;
+    border: 1px solid var(--ps-border-color);
     background-color: var(--ps-gray-100);
     box-shadow: var(--ps-shadow);
 }
@@ -615,7 +622,8 @@ td {
         border-right: none;
         box-shadow: 0 0rem 1rem hsla(200, 4%, 12%, 0.1);
         align-items: flex-start !important;
-        background-color: hsla(0, 0%, 100%, 0.6);
+        background-color: hsla(216, 24%, 94%, 0.6);
+        border-bottom: 1px solid var(--ps-border-color);
         backdrop-filter: blur(10px);
     }
 
@@ -633,9 +641,6 @@ td {
     tbody>tr::before {
         scale: 0;
         opacity: .5
-    }
-    .filter-indicator * {
-        font-size: 14px;
     }
   }
 
@@ -919,7 +924,7 @@ span.strong {
     --bs-btn-active-color: #fff;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 12px;
     transition: all .2s ease;
 }
 
@@ -933,11 +938,6 @@ span.strong {
     border-left: none;
 }
 
-.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
-	color: var(--bs-btn-active-color);
-	background-color: var(--ps-btn-bg-active);
-	border-color: var(--ps-btn-bg-active);
-}
 
 /* cards */
 
