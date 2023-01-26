@@ -249,7 +249,7 @@ small {
 /* BUTTON GROUP */
 
 .button-group {
-    padding: .2rem;
+    padding: .125rem;
     border-radius: .375rem !important;
     background-color: var(--ps-gray-100);
     box-shadow: var(--ps-shadow);
@@ -592,6 +592,8 @@ td {
         border-right: none;
         box-shadow: 0 0rem 1.5rem hsla(200, 4%, 12%, 0.1);
         align-items: flex-start !important;
+        background-color: hsla(0, 0%, 100%, 0.6);
+        backdrop-filter: blur(10px);
     }
 
     .navbar--offcanvas {
@@ -973,8 +975,7 @@ span.strong {
 	top: 0;
 	right: 0;
 	width: 500px;
-	border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-	transform: translateX(100%);
+	border-left: 1px solid var(--ps-border-color);
 }
 
 .status-switch-buttons>button {

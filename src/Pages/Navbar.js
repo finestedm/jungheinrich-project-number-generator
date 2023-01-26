@@ -23,11 +23,11 @@ export default function Topbar() {
     return (    
         <Navbar collapseOnSelect key='md' expand='md' className='sticky-top'>
             <Container fluid className='flex-row flex-md-column px-2 py-2 h-100'>
-                <Navbar.Brand className='d-block d-xl-none'><img src={logoSmall} height='30' /></Navbar.Brand>
-                <Navbar.Brand className='d-none d-xl-block'><img src={logo} height='26' /></Navbar.Brand>
+                <Navbar.Brand className='d-none d-md-flex d-xl-none'><img src={logoSmall} height='30' /></Navbar.Brand>
+                <Navbar.Brand className='d-flex d-md-none d-xl-flex'><img src={logo} height='26' /></Navbar.Brand>
                 <Navbar.Toggle/>
                 <Navbar.Offcanvas placement="start" collapseOnSelect className='navbar--offcanvas'>
-                    <Offcanvas.Header closeButton>
+                    <Offcanvas.Header className='d-flex align-items-center' closeButton>
                         <Offcanvas.Title>
                             <img src={logo} height='30' />
                         </Offcanvas.Title>

@@ -44,7 +44,7 @@ export default function EditPostModal(props) {
     }
 
     return (
-        <Offcanvas className='project-edit-offcanvas' scroll={true} keyboard={true} onEscapeKeyDown={() => setShowModal(false)} onHide={() => setShowModal(false)} show={showModal} placement='end'>
+        <Offcanvas className='project-edit-offcanvas' keyboard={true} onEscapeKeyDown={() => setShowModal(false)} onHide={() => setShowModal(false)} show={showModal} placement='end'>
             <Offcanvas.Header>
                 <Offcanvas.Title>
                     <h3 className="mb-0">Edycja danych projektu {projectNumber}
