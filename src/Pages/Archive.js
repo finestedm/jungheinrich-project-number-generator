@@ -111,7 +111,7 @@ export default function Archive() {
                 
                 <h6 className='mb-3'>Archiwum <br />  <small class="text-mute">Szukaj istniejących projektów</small></h6>
                 
-                    <Col><ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} /></Col>
+                <Col><ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} /></Col>
                 <Row >
                     
                     <Col className='col-auto ms-auto'>
