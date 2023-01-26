@@ -27,7 +27,7 @@ export default function Topbar() {
                 <Navbar.Brand className='d-flex d-md-none d-xl-flex'><img src={logo} height='26' /></Navbar.Brand>
                 <Navbar.Toggle/>
                 <Navbar.Offcanvas placement="start" collapseOnSelect className='navbar--offcanvas'>
-                    <Offcanvas.Header className='d-flex align-items-center' closeButton>
+                    <Offcanvas.Header closeButton>
                         <Offcanvas.Title>
                             <img src={logo} height='30' />
                         </Offcanvas.Title>

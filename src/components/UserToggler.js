@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, Form } from 'react-bootstrap';
+import { Dropdown, Form, Image } from 'react-bootstrap';
 import { salesPersons } from '../data/salesPersons';
 import {MdOutlineCardTravel} from 'react-icons/md'
 
@@ -22,7 +22,7 @@ export default function UserToggler({ filters, changeSalesPersonInFilters }) {
                     id='status-all' 
                     value='all'  
                     onChange={(e) => changeSalesPersonInFilters(e.target.value)}
-                    className='d-flex align-items-center gap-2 py-2 '
+                    className='d-flex align-items-center gap-3 py-2 '
                     inline
                     checked={(filters.salesPersons).length === salesPersons.length}
                     label={<span>{(filters.salesPersons).length === salesPersons.length ? 'Odznacz wszystkie' : 'Zaznacz wszystkie'}</span>}
@@ -41,9 +41,9 @@ export default function UserToggler({ filters, changeSalesPersonInFilters }) {
                         value={user.value}
                         checked={(((filters.salesPersons).filter(key => key.value === user.value)).length > 0)}
                         onChange={() => changeSalesPersonInFilters(user.value)}
-                        className='d-flex align-items-center gap-2'
+                        className='d-flex align-items-center gap-3'
                         inline
-                        label={user.value}
+                        label={<div className='d-flex gap-2 align-items-center'> <Image style={{height: '1.75rem'}} roundedCircle src={user.photo} /> <span>{user.value}</span> </div>}
                         name="user"
                     />
                 </Dropdown.Item>)

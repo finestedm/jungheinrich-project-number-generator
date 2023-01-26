@@ -185,8 +185,8 @@ small {
     --bs-btn-active-border-color: #0a53be;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: #0d6efd;
-    --bs-btn-disabled-border-color: #0d6efd;
+    --bs-btn-disabled-bg: var(--ps-prim-200);
+    --bs-btn-disabled-border-color: var(--ps-prim-200);
     box-shadow: var(--ps-shadow);
 }
 
@@ -425,6 +425,29 @@ tr>td:last-child {
     top: -1.5px
 }
 
+/* DROPDOWNS */
+
+.dropdown-item {
+    font-weight: 500;
+}
+
+/* CHECKBOXES */
+
+.form-check-input[type="checkbox"] {
+	border-color: var(--ps-border-color);
+}
+
+.form-check-input:checked {
+	background-color: var(--ps-prim-500);
+    border-color: var(--ps-prim-500);
+}
+
+.form-check-input:focus {
+    border-color: var(--ps-prim-500);
+    box-shadow: 0 0 0 .25rem var(--ps-prim-100);
+}
+
+
 /* //////// */
 
 table,
@@ -590,7 +613,7 @@ td {
 
     .navbar {
         border-right: none;
-        box-shadow: 0 0rem 1.5rem hsla(200, 4%, 12%, 0.1);
+        box-shadow: 0 0rem 1rem hsla(200, 4%, 12%, 0.1);
         align-items: flex-start !important;
         background-color: hsla(0, 0%, 100%, 0.6);
         backdrop-filter: blur(10px);
@@ -871,18 +894,6 @@ span.strong {
     background-color: var(--ps-table-hover-bg);
     border-radius: .2rem;
     padding: .25rem;
-}
-
-/* checkbox */ 
-
-.form-check-input[type="checkbox"] {
-	border-color: var(--ps-border-color);
-    border-radius: 100%;
-}
-
-.form-check-input:checked {
-	background-color: var(--ps-table-hover-color);
-    border-color: var(--ps-table-hover-color);
 }
 
 /* tooltip */
