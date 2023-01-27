@@ -225,10 +225,10 @@ small {
     --bs-btn-hover-color: var(--ps-prim-700);
     --bs-btn-hover-bg: var(--ps-prim-100);
     --bs-btn-hover-border-color: var(--ps-prim-300);
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #0a58ca;
-    --bs-btn-active-border-color: #0a53be;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-active-color: var(--ps-prim-700);
+    --bs-btn-active-bg: var(--ps-prim-100);
+    --bs-btn-active-border-color: var(--ps-prim-300);
+    --bs-btn-active-shadow: inset 0 3px 5px var(--ps-prim-25);
     --bs-btn-disabled-color: var(--ps-prim-300);
     --bs-btn-disabled-bg: var(--ps-prim-25);
     --bs-btn-disabled-border-color: var(--ps-prim-300); 
