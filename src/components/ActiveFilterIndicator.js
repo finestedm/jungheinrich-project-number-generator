@@ -24,18 +24,18 @@ export default function ActiveFiltersIndicator({ filters, changeStatusInFilters,
     return (
         <div className='h-100'>
             {activeStatuses.length < (Object.keys(filters.status)).length ?
-                <ButtonGroup className='d-none h-100 d-md-inline filter-indicator filter-indicator-status'>
-                    <Button className='h-100 filter-icon'><MdOutlineLocalOffer/></Button>
-                    <Button className='h-100 filter-description'>{getActiveStatuses().length > 0 ? getActiveStatuses() : 'Status niewybrany'} </Button>
-                    <Button className='h-100' onClick={() => changeStatusInFilters('all')}><IoClose /></Button>
+                <ButtonGroup className='d-none d-md-inline filter-indicator filter-indicator-status'>
+                    <Button className='filter-icon'><MdOutlineLocalOffer/></Button>
+                    <Button className='filter-description'>{getActiveStatuses().length > 0 ? getActiveStatuses() : 'Status niewybrany'} </Button>
+                    <Button onClick={() => changeStatusInFilters('all')}><IoClose /></Button>
                 </ButtonGroup>
                 : ''
             }
             {activeSalesPersons.length < salesPersons.length ?
-                <ButtonGroup className='d-none h-100 d-md-inline filter-indicator filter-indicator-status'>
-                    <Button className='h-100 filter-icon'><BiUser/></Button>
-                    <Button className='h-100 filter-description'>{getActiveSalesPersons().length > 0 ? getActiveSalesPersons() : 'Handlowciec niewybrany'} </Button>
-                    <Button className='h-100' onClick={() => changeSalesPersonInFilters('all')}><IoClose /></Button>
+                <ButtonGroup className='d-none d-md-inline filter-indicator filter-indicator-status'>
+                    <Button className='filter-icon'><BiUser/></Button>
+                    <Button className='filter-description'>{getActiveSalesPersons().length > 0 ? getActiveSalesPersons() : 'Handlowciec niewybrany'} </Button>
+                    <Button onClick={() => changeSalesPersonInFilters('all')}><IoClose /></Button>
                 </ButtonGroup>
                 : ''
             }

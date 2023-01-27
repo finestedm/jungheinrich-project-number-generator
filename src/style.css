@@ -445,15 +445,13 @@ tr>td:last-child {
 
 .expendable-item:hover,
 .expendable-item:focus  {
-    background-color: var(--ps-prim-50);    
-    color: var(--ps-prim-600);
+    background-color: var(--ps-gray-100);    
 }
 
 .btn-collapsable {
     overflow: hidden;
     border: 1px solid var(--ps-border-color);
     border-radius: .375rem;
-
     box-shadow: var(--ps-shadow);
 }
 
@@ -461,20 +459,16 @@ tr>td:last-child {
     font-weight: 500;
 }
 
-.btn-collapsable:hover {
-    border-color: var(--ps-prim-100);
-}
-
 .btn-ps-collapsing {
     --bs-btn-color: var(--ps-text-50);
     --bs-btn-bg: transparent;
     --bs-btn-border-color: transparent;
-    --bs-btn-hover-color: var(--ps-prim-600);
-    --bs-btn-hover-bg: var(--ps-prim-100);
-    --bs-btn-hover-border-color: var(--ps-prim-100);
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #0a58ca;
-    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-hover-color: var(--ps-text-75);
+    --bs-btn-hover-bg: var(--ps-gray-100);
+    --bs-btn-hover-border-color: var(--ps-gray-100);
+    --bs-btn-active-color: var(--ps-text-75);
+    --bs-btn-active-bg: var(--ps-gray-100);
+    --bs-btn-active-border-color: var(--ps-gray-100);
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #0d6efd;

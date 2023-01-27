@@ -112,18 +112,21 @@ export default function Archive() {
                 <h5 className='mb-3'>Archiwum <br />  <small class="text-mute">Szukaj istniejących projektów</small></h5>
 
 
-                <Row className='mt-3' >
+                <Row className='mb-3' >
                     
-                    <Col>
-                        <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} />
-                    </Col>
-                    <Col className='col-auto ms-auto'>
+                    <Col className='col-auto'>
                         <FiltersDropdown changeSalesPersonInFilters={changeSalesPersonInFilters} changeStatusInFilters={changeStatusInFilters} filters={filters} />
                     </Col>
-                    <Col className='col-md-5 col-lg-4'>
+                    <Col className='col-md-5 col-lg-4 col-xxl-3'>
                         <SearchBar searchedPhrase={filters.searchedPhrase} changeSearchedPhrase={changeSearchedPhrase} />
                     </Col>
                 </Row>
+                <Row>
+                    <Col>
+                        <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} />
+                    </Col>
+                </Row>
+                    
                 
                 <PaginatedItems changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} filters={filters} posts={filteredPosts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
                 

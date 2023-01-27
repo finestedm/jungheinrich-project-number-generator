@@ -20,27 +20,31 @@ export default function UserToggler({ filters, changeSalesPersonInFilters }) {
                     <MdOutlineArrowDropDown size='1.25em'/>
                 </span>
             </Button>
-        
-            <div className='expandable-dropdown collapse' id='collapsable-salesperson'>
-                <div className='expendable-item d-flex align-items-center px-3 py-2 mt-2 user-name-toggle'>
+            
+
+            <div className='expandable-dropdown collapse w-100' id='collapsable-salesperson'>
+                
+                <Dropdown.Divider className='mt-0 p-0' />
+                
+                <div className='expendable-item d-flex align-items-center px-3 py-1 user-name-toggle'>
                     <Form.Check
                         onChange={(e) => changeSalesPersonInFilters(e.target.value)}
                         id='salesperson-all' 
                         value='all'  
-                        className='d-flex align-items-center gap-3 py-2 '
+                        className='d-flex align-items-center gap-3'
                         inline
                         checked={(filters.salesPersons).length === salesPersons.length}
-                        label={<span>{(filters.salesPersons).length === salesPersons.length ? 'Odznacz wszystkie' : 'Zaznacz wszystkie'}</span>}
+                        label={<span className='fw-bolder'>{(filters.salesPersons).length === salesPersons.length ? 'Odznacz wszystkie' : 'Zaznacz wszystkie'}</span>}
                         name="salesperson"
                         />
                 </div>
                     
-                <Dropdown.Divider style={{borderTop: '1px solid var(--ps-border-color-50)'}}/>
+                <Dropdown.Divider className='mt-0 p-0' style={{borderTop: '1px solid var(--ps-border-color-50)'}}/>
                     
                 {salesPersons.map(user => {
                     ((Object.values(filters.salesPersons)).filter(key => key.value === user.value))
                     return(
-                    <div className='expendable-item d-flex align-items-center py-2  px-3 user-name-toggle py-1'>
+                    <div className='expendable-item d-flex align-items-center px-3 user-name-toggle py-1'>
                         <Form.Check
                             onChange={(e) => changeSalesPersonInFilters(e.target.value)}
                             id={user.value}
