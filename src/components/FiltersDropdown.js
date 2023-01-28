@@ -6,8 +6,8 @@ import { MdOutlineFilterList } from 'react-icons/md'
 export default function FiltersDropdown({changeSalesPersonInFilters, changeStatusInFilters, filters}) {
     return (
         <Dropdown className='p-0 m-0 h-100' autoClose="outside">
-            <Dropdown.Toggle className='btn-ps-new h-prim' id="dropdown-basic">
-                <span><MdOutlineFilterList /> <span className='d-none d-md-inline'>Filtry</span> </span>
+            <Dropdown.Toggle className='btn-ps-outline-border h-100 d-flex justify-content-between align-items-center' id="dropdown-basic">
+                <MdOutlineFilterList size={'1.25em'} /><span className='d-none d-md-inline ms-2'>Filtry</span>
             </Dropdown.Toggle>
             
                 

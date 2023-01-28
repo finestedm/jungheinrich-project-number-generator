@@ -44,7 +44,7 @@ export default function EditPostModal(props) {
     }
 
     return (
-        <Offcanvas className='project-edit-offcanvas' scroll={true} keyboard={true} onEscapeKeyDown={() => setShowModal(false)} onHide={() => setShowModal(false)} show={showModal} placement='end'>
+        <Offcanvas className='project-edit-offcanvas' keyboard={true} onEscapeKeyDown={() => setShowModal(false)} onHide={() => setShowModal(false)} show={showModal} placement='end'>
             <Offcanvas.Header>
                 <Offcanvas.Title>
                     <h3 className="mb-0">Edycja danych projektu {projectNumber}
@@ -125,7 +125,7 @@ export default function EditPostModal(props) {
                     </Form.Group>
                     
                     <Form.Group className='px-0'>
-                        <Form.Label className='mb-1'><small>Status projektu</small></Form.Label>
+                        <Form.Label className='mb-1'><small>Status projektu *</small></Form.Label>
                         <ToggleButtonGroup
                             className='d-flex edit-modal button-group'
                             fullWidth
@@ -148,6 +148,9 @@ export default function EditPostModal(props) {
                                 <span className='text-capitalize'>przegrany</span>
                             </ToggleButton>
                         </ToggleButtonGroup>
+                        <Form.Text className="text-mute">
+                            <small>* Pole wymagane</small>
+                        </Form.Text>
                     </Form.Group>
 
                 </Form>
@@ -155,9 +158,9 @@ export default function EditPostModal(props) {
                     <Col>
                         <Button
                             className='btn-ps-prim w-100'
-                            disabled={!isCustomerValid() || !isUserValid()}
+                            disabled={!isCustomerValid() || !isUserValid() || (status === null)}
                             onClick={() => {
-                                if (isCustomerValid() && isUserValid()) {
+                                if (isCustomerValid() && isUserValid() && (status !== null)) {
                                     dispatch(updatePost(_id, postData))
                                     setPostToEditId(null)
                                     setShowModal(false)

@@ -190,6 +190,10 @@ small {
     box-shadow: var(--ps-shadow);
 }
 
+.btn {
+    box-shadow: none;
+}
+
 .btn-ps-prim {
     font-weight: 500;
     --bs-btn-color: white;
@@ -204,8 +208,8 @@ small {
     --bs-btn-active-border-color: #0a53be;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: #0d6efd;
-    --bs-btn-disabled-border-color: #0d6efd;
+    --bs-btn-disabled-bg: var(--ps-prim-200);
+    --bs-btn-disabled-border-color: var(--ps-prim-200);
     box-shadow: var(--ps-shadow);
 }
 
@@ -215,6 +219,7 @@ small {
 }
 
 .btn-ps-outline {
+    font-weight: 500;
     --bs-btn-color: var(--ps-prim-700);
     --bs-btn-bg: var(--ps-prim-50);
     --bs-btn-border-color: var(--ps-prim-50);
@@ -232,16 +237,17 @@ small {
 }
 
 .btn-ps-outline-border {
+    font-weight: 500;
     --bs-btn-color: var(--ps-prim-700);
     --bs-btn-bg: var(--ps-prim-50);
     --bs-btn-border-color: var(--ps-prim-300);
     --bs-btn-hover-color: var(--ps-prim-700);
     --bs-btn-hover-bg: var(--ps-prim-100);
     --bs-btn-hover-border-color: var(--ps-prim-300);
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #0a58ca;
-    --bs-btn-active-border-color: #0a53be;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-active-color: var(--ps-prim-700);
+    --bs-btn-active-bg: var(--ps-prim-100);
+    --bs-btn-active-border-color: var(--ps-prim-300);
+    --bs-btn-active-shadow: inset 0 3px 5px var(--ps-prim-25);
     --bs-btn-disabled-color: var(--ps-prim-300);
     --bs-btn-disabled-bg: var(--ps-prim-25);
     --bs-btn-disabled-border-color: var(--ps-prim-300); 
@@ -268,8 +274,9 @@ small {
 /* BUTTON GROUP */
 
 .button-group {
-    padding: .2rem;
+    padding: .125rem;
     border-radius: .375rem !important;
+    border: 1px solid var(--ps-border-color);
     background-color: var(--ps-gray-100);
     box-shadow: var(--ps-shadow);
 }
@@ -444,6 +451,29 @@ tr>td:last-child {
     top: -1.5px
 }
 
+/* DROPDOWNS */
+
+.dropdown-item {
+    font-weight: 500;
+}
+
+/* CHECKBOXES */
+
+.form-check-input[type="checkbox"] {
+	border-color: var(--ps-border-color);
+}
+
+.form-check-input:checked {
+	background-color: var(--ps-prim-500);
+    border-color: var(--ps-prim-500);
+}
+
+.form-check-input:focus {
+    border-color: var(--ps-prim-500);
+    box-shadow: 0 0 0 .25rem var(--ps-prim-100);
+}
+
+
 /* //////// */
 
 table,
@@ -612,6 +642,9 @@ td {
         border-bottom: 1px solid var(--ps-border-color);
         box-shadow: 0 0rem 1.5rem hsla(200, 4%, 12%, 0.1);
         align-items: flex-start !important;
+        background-color: hsla(216, 24%, 94%, 0.6);
+        border-bottom: 1px solid var(--ps-border-color);
+        backdrop-filter: blur(10px);
     }
 
     .navbar--offcanvas {
@@ -628,9 +661,6 @@ td {
     tbody>tr::before {
         scale: 0;
         opacity: .5
-    }
-    .filter-indicator * {
-        font-size: 14px;
     }
   }
 
@@ -891,18 +921,6 @@ span.strong {
     padding: .25rem;
 }
 
-/* checkbox */ 
-
-.form-check-input[type="checkbox"] {
-	border-color: var(--ps-border-color);
-    border-radius: 100%;
-}
-
-.form-check-input:checked {
-	background-color: var(--ps-table-hover-color);
-    border-color: var(--ps-table-hover-color);
-}
-
 /* tooltip */
 
 .ps-tooltip {
@@ -926,7 +944,7 @@ span.strong {
     --bs-btn-active-color: #fff;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 12px;
     transition: all .2s ease;
 }
 
@@ -940,11 +958,6 @@ span.strong {
     border-left: none;
 }
 
-.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
-	color: var(--bs-btn-active-color);
-	background-color: var(--ps-btn-bg-active);
-	border-color: var(--ps-btn-bg-active);
-}
 
 /* cards */
 
@@ -993,8 +1006,7 @@ span.strong {
 	top: 0;
 	right: 0;
 	width: 500px;
-	border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-	transform: translateX(100%);
+	border-left: 1px solid var(--ps-border-color);
 }
 
 .status-switch-buttons>button {
