@@ -609,6 +609,7 @@ td {
 
     .navbar {
         border-right: none;
+        border-bottom: 1px solid var(--ps-border-color);
         box-shadow: 0 0rem 1.5rem hsla(200, 4%, 12%, 0.1);
         align-items: flex-start !important;
     }
