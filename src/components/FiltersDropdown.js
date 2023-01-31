@@ -12,7 +12,7 @@ export default function FiltersDropdown({changeSalesPersonInFilters, changeStatu
             
                 
             <Dropdown.Menu>
-                <h6>Filtruj przez:</h6>
+                <h6 className='py-2'>Dostępne filtry:</h6>
                 <div className='d-flex flex-column gap-2'>
                     <UserToggler changeSalesPersonInFilters={changeSalesPersonInFilters} filters={filters} />
                     <StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} />

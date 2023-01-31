@@ -38,14 +38,14 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
                 <div onClick={() => changeStatusInFilters(0)} className='expendable-item d-flex align-items-center px-3 py-2 status-toggle'>
                     <div className='d-flex gap-2 w-100 align-items-center justify-content-stretch'>
                         <span><StatusIndicator status={0} /></span>
-                        {(filters.status[2]) ? <MdOutlineCheck size='1.25em' className='filter-check-icon ms-auto' /> : ''}
+                        {(filters.status[0]) ? <MdOutlineCheck size='1.25em' className='filter-check-icon ms-auto' /> : ''}
                     </div>
                 </div>
 
                 <div onClick={() => changeStatusInFilters(1)} className='expendable-item d-flex align-items-center px-3 py-2 status-toggle'>
                     <div className='d-flex gap-2 w-100 align-items-center justify-content-stretch'>
                         <span><StatusIndicator status={1} /></span>
-                        {(filters.status[2]) ? <MdOutlineCheck size='1.25em' className='filter-check-icon ms-auto' /> : ''}
+                        {(filters.status[1]) ? <MdOutlineCheck size='1.25em' className='filter-check-icon ms-auto' /> : ''}
                     </div>
                 </div>
 
