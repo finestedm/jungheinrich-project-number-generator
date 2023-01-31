@@ -1,7 +1,7 @@
-import React from 'react';
-import { Dropdown, Form, Image } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Dropdown, Form, Image, Button, ButtonGroup } from 'react-bootstrap';
 import { salesPersons } from '../data/salesPersons';
-import {MdOutlineCardTravel} from 'react-icons/md'
+import {MdOutlineCardTravel, MdOutlineArrowDropDown, MdOutlineCheck} from 'react-icons/md'
 
 export function activeUserCounter(filters) {
     const numberOfSalesPersons = salesPersons.length
@@ -11,45 +11,44 @@ export function activeUserCounter(filters) {
 
 export default function UserToggler({ filters, changeSalesPersonInFilters }) {
     return (
-        <Dropdown as={Dropdown.Item} className='dropdown-item' autoClose="outside">
-            <Dropdown.Toggle className='btn-ps-dropdown-item' id="dropdown-basic">
-            <MdOutlineCardTravel /> Handlowiec {activeUserCounter(filters)}
-        </Dropdown.Toggle>
-        
-        <Dropdown.Menu>
-            <Dropdown.Item onClick={() => changeSalesPersonInFilters('all')} className='d-flex align-items-center user-name-toggle'>
-                <Form.Check
-                    id='status-all' 
-                    value='all'  
-                    onChange={(e) => changeSalesPersonInFilters(e.target.value)}
-                    className='d-flex align-items-center gap-3 py-2 '
-                    inline
-                    checked={(filters.salesPersons).length === salesPersons.length}
-                    label={<span>{(filters.salesPersons).length === salesPersons.length ? 'Odznacz wszystkie' : 'Zaznacz wszystkie'}</span>}
-                    name="status"
-                    />
-            </Dropdown.Item>
+        <ButtonGroup vertical className='btn-ps-blank btn-collapsable w-100'>
+            <Button className='btn-ps-collapsing py-2' data-bs-toggle="collapse" data-bs-target="#collapsable-salesperson">
+                <span className='d-flex align-items-center gap-2'>
+                    <MdOutlineCardTravel size='1.5em'/>
+                    <span>Handlowiec</span> 
+                    <span className='ms-auto'>{activeUserCounter(filters)}</span> 
+                    <MdOutlineArrowDropDown size='1.25em'/>
+                </span>
+            </Button>
+            
+
+            <div className='expandable-dropdown collapse w-100' id='collapsable-salesperson'>
                 
-            <Dropdown.Divider />
+                <Dropdown.Divider className='my-0 p-0' />
                 
-            {salesPersons.map(user => {
-                ((Object.values(filters.salesPersons)).filter(key => key.value === user.value))
-                return(
-                <Dropdown.Item onClick={() => changeSalesPersonInFilters(user.value)} className='d-flex align-items-center user-name-toggle py-1'>
-                    <Form.Check
-                        id={user.value}
-                        value={user.value}
-                        checked={(((filters.salesPersons).filter(key => key.value === user.value)).length > 0)}
-                        onChange={() => changeSalesPersonInFilters(user.value)}
-                        className='d-flex align-items-center gap-3'
-                        inline
-                        label={<div className='d-flex gap-2 align-items-center'> <Image style={{height: '1.75rem'}} roundedCircle src={user.photo} /> <span>{user.value}</span> </div>}
-                        name="user"
-                    />
-                </Dropdown.Item>)
-            })}
-                
-        </Dropdown.Menu>
-    </Dropdown>
+                <div onClick={() => changeSalesPersonInFilters('all')} className='expendable-item d-flex align-items-center px-3 py-2 user-name-toggle'>
+                    <div className='d-flex gap-2 w-100 align-items-center justify-content-stretch'>
+                        {<span>{(filters.salesPersons).length === salesPersons.length ? 'Odznacz wszystkie' : 'Zaznacz wszystkie'}</span>}
+                        {(filters.salesPersons).length === salesPersons.length ? <MdOutlineCheck size='1.25em' className='filter-check-icon ms-auto' /> : ''}
+                    </div>
+                </div>
+                    
+                <Dropdown.Divider className='mt-0 p-0' style={{borderTop: '1px solid var(--ps-border-color-50)'}}/>
+                    
+                {salesPersons.map(user => {
+                    ((Object.values(filters.salesPersons)).filter(key => key.value === user.value))
+                    return(
+                        <div onClick={() => changeSalesPersonInFilters(user.value)} className='expendable-item d-flex align-items-center px-3 py-2 user-name-toggle'>
+                            <div className='d-flex gap-2 w-100 align-items-center justify-content-stretch'>
+                                <Image style={{ height: '1.5rem' }} roundedCircle src={user.photo} />
+                                <span>{user.value}</span>
+                                {(((filters.salesPersons).filter(key => key.value === user.value)).length > 0) ? <MdOutlineCheck size='1.25em' className='filter-check-icon ms-auto' /> : ''}
+                            </div>
+                        </div>
+                    )
+                })}
+                    
+            </div>
+        </ButtonGroup>
     )
 }

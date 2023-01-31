@@ -1,6 +1,6 @@
 import UserToggler from '../components/UserToggler'
 import StatusToggler from '../components/StatusToggler'
-import { Dropdown, Form } from 'react-bootstrap'
+import { Dropdown, Form, Stack } from 'react-bootstrap'
 import { MdOutlineFilterList } from 'react-icons/md'
 
 export default function FiltersDropdown({changeSalesPersonInFilters, changeStatusInFilters, filters}) {
@@ -12,8 +12,11 @@ export default function FiltersDropdown({changeSalesPersonInFilters, changeStatu
             
                 
             <Dropdown.Menu>
-                <UserToggler changeSalesPersonInFilters={changeSalesPersonInFilters} filters={filters} />
-                <StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} />
+                <h6 className='py-2'>Dostępne filtry:</h6>
+                <div className='d-flex flex-column gap-2'>
+                    <UserToggler changeSalesPersonInFilters={changeSalesPersonInFilters} filters={filters} />
+                    <StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} />
+                </div>
             </Dropdown.Menu>
     </Dropdown>
     )
