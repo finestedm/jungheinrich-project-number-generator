@@ -413,6 +413,10 @@ tr>td:last-child {
     }
 }
 
+.table--status * {
+    font-weight: 600 !important;
+}
+
 /* every cell */
 .table > :not(caption) > * > * {
     padding: 1rem 1rem;
@@ -456,6 +460,7 @@ tr>td:last-child {
 
 .dropdown-menu {
     width: 17rem;
+    /* font-size: 14px; */
 }
 
 .expendable-item {

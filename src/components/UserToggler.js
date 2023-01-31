@@ -28,7 +28,7 @@ export default function UserToggler({ filters, changeSalesPersonInFilters }) {
                 
                 <div onClick={() => changeSalesPersonInFilters('all')} className='expendable-item d-flex align-items-center px-3 py-2 user-name-toggle'>
                     <div className='d-flex gap-2 w-100 align-items-center justify-content-stretch'>
-                        {<span className='fw-bolder'>{(filters.salesPersons).length === salesPersons.length ? 'Odznacz wszystkie' : 'Zaznacz wszystkie'}</span>}
+                        {<span>{(filters.salesPersons).length === salesPersons.length ? 'Odznacz wszystkie' : 'Zaznacz wszystkie'}</span>}
                         {(filters.salesPersons).length === salesPersons.length ? <MdOutlineCheck size='1.25em' className='filter-check-icon ms-auto' /> : ''}
                     </div>
                 </div>
