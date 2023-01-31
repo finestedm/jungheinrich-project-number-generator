@@ -12,7 +12,6 @@ export function activeStatusCounter(filters) {
 
 export default function StatusToggler({ filters, changeStatusInFilters }) {
 
-
     return(
         <ButtonGroup vertical className='btn-ps-blank btn-collapsable w-100'>
             <Button className='btn-ps-collapsing py-2' data-bs-toggle="collapse" data-bs-target="#collapsable-status">

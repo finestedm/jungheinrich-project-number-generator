@@ -10,7 +10,6 @@ import { logout, reset } from '../features/auth/authSlice'
 
 
 export default function Topbar() {
-    const [selectedSite, setSelectedSite] = useState(1)
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {user} = useSelector((state) => state.authSlice)
@@ -19,6 +18,8 @@ export default function Topbar() {
         dispatch(logout())
         dispatch(reset())
     }
+
+
     
     return (    
         <Navbar collapseOnSelect key='md' expand='md' className='sticky-top'>
@@ -35,7 +36,7 @@ export default function Topbar() {
                     <Offcanvas.Body className="d-flex flex-grow-1">
                         <Nav className="flex-column flex-grow-1 gap-2">
                             <Nav.Item className='d-flex align-items-stretch'>
-                                <Nav.Link className='p-3 d-flex align-items-center' disabled={!user} as={Link} to="/" active={selectedSite === 1} onClick={() => setSelectedSite(1)}>
+                                <Nav.Link className='p-3 d-flex align-items-center' disabled={!user} as={Link} to="/" active={window.location.pathname === '/jungheinrich-project-number-generator'}>
                                     <Row>
                                         <Col xs='auto' className='d-flex align-items-center'><AiOutlineNumber size='1.5em'/></Col>
                                         <Col className='nav-link--description d-block d-md-none d-xl-block text-start'>
@@ -45,7 +46,7 @@ export default function Topbar() {
                                 </Nav.Link>
                             </Nav.Item>
                             <Nav.Item className='d-flex align-items-stretch'>
-                                <Nav.Link className='p-3 d-flex align-items-center' disabled={!user} as={Link} to="/Archive" active={selectedSite === 2} onClick={() => setSelectedSite(2)}>
+                                <Nav.Link className='p-3 d-flex align-items-center' disabled={!user} as={Link} to="/Archive" active={window.location.pathname === '/jungheinrich-project-number-generator/Archive'}>
                                     <Row className='d-flex align-items-center justify-content-between'>
                                         <Col xs='auto' className='d-flex align-items-center'><BiArchive size='1.5em'/></Col>
                                         <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span >Archiwum</span></Col>
@@ -53,7 +54,7 @@ export default function Topbar() {
                                 </Nav.Link>
                             </Nav.Item>
                             <Nav.Item className='d-flex align-items-stretch'>
-                                <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/Archive" active={selectedSite === 3} onClick={() => setSelectedSite(3)}>
+                                <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/Archive">
                                     <Row>
                                         <Col xs='auto' className='d-flex align-items-center'><BiArchive size='1.5em'/></Col>
                                         <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span >Placeholder #1</span></Col>
@@ -63,7 +64,7 @@ export default function Topbar() {
 
                             {!user ? <>
                                 <Nav.Item className='mt-auto d-flex align-items-stretch'>
-                                    <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/login" active={selectedSite === 4} onClick={() => setSelectedSite(4)}>
+                                    <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/login">
                                         <Row className='d-flex align-items-center justify-content-between'>
                                             <Col xs="auto" className='d-flex align-items-center'><AiOutlineLogin size='1.5em'/></Col>
                                             <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span>Zaloguj się</span></Col>
@@ -72,7 +73,7 @@ export default function Topbar() {
                                 </Nav.Item>
 
                                 <Nav.Item className='d-flex align-items-stretch'>
-                                    <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/signup" active={selectedSite === 5} onClick={() => setSelectedSite(5)}>
+                                    <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/signup">
                                         <Row className='d-flex align-items-center justify-content-between'>
                                             <Col xs="auto" className='d-flex align-items-center'><AiOutlineUserAdd size='1.5em'/></Col>
                                             <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span>Zarejestruj się</span></Col>
@@ -83,10 +84,7 @@ export default function Topbar() {
                             :
                             <>
                                 <Nav.Item className='mt-auto d-flex align-items-stretch'>
-                                    <Nav.Link className='p-3 d-flex align-items-center' active={selectedSite === 6} onClick={() => {
-                                        setSelectedSite(6)
-                                        onLogout()
-                                    }}>
+                                    <Nav.Link className='p-3 d-flex align-items-center' onClick={() => onLogout()}>
                                         <Row className='d-flex align-items-center justify-content-between'>
                                             <Col xs="auto" className='d-flex align-items-center'><AiOutlineLogout size='1.5em'/></Col>
                                             <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span>Wyloguj się</span></Col>

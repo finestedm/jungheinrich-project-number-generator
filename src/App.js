@@ -11,10 +11,11 @@ export default function App() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL} className='App'>
       <Container fluid className='app-container h-100 d-flex flex-column flex-md-row align-items-stretch p-0 m-0'>
-        <Navbar className='topbar'/>
+        <Navbar className='topbar' />
+        {/* {window.location.pathname !== '/jungheinrich-project-number-generator/login' && <Navbar className='topbar' />} */}
         <Routes>
-          <Route path='/signup' element={<SignUp />}/>
           <Route path='/login' element={<Login />}/>
+          <Route path='/signup' element={<SignUp />}/>
           <Route index element={<Main/>} />
           <Route path='/archive' element={<Archive />} />
         </Routes>
