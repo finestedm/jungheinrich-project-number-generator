@@ -3,6 +3,7 @@ import { useDispatch, useSelector, createStore } from 'react-redux'
 import { getPosts } from '../actions/posts'
 import moment from 'moment'
 import { Container, Row, Col, Spinner, Card, Table, Button } from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 import EditPostModal from '../components/EditPostModal'
 import PaginatedItems from './PaginatedItems';
 import SearchBar from '../components/SearchBar';
@@ -103,7 +104,11 @@ export default function Archive() {
                             <small class="text-mute fs-5">({posts.length})</small>
                         </h1>
                     </Col>
-                    <Col className='col-auto'><Button className='btn-ps-outline d-flex gap-2 align-items-center'><HiOutlineDocumentPlus size='1.25em' /> <span>Dodaj projekt</span></Button></Col>
+                    <Col className='col-auto'>
+                        <Button as={Link} to="/" className='btn-ps-outline d-flex gap-2 align-items-center'>
+                            <HiOutlineDocumentPlus size='1.25em' /> <span>Dodaj projekt</span>
+                        </Button>
+                    </Col>
                 </Row>
                 <h5 className='mb-3'>Podsumowanie <br/>  <small class="text-mute">Najważniejsze informacje z tego tygodnia</small></h5>
                 
