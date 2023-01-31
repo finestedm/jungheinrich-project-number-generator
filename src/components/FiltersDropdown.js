@@ -11,9 +11,11 @@ export default function FiltersDropdown({changeSalesPersonInFilters, changeStatu
             </Dropdown.Toggle>
             
                 
-            <Dropdown.Menu className='d-flex flex-column gap-3'>
-                <UserToggler changeSalesPersonInFilters={changeSalesPersonInFilters} filters={filters} />
-                <StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} />
+            <Dropdown.Menu>
+                <div className='d-flex flex-column gap-3'>
+                    <UserToggler changeSalesPersonInFilters={changeSalesPersonInFilters} filters={filters} />
+                    <StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} />
+                </div>
             </Dropdown.Menu>
     </Dropdown>
     )
