@@ -48,7 +48,7 @@ export default function Login() {
     return (
         <Container fluid className='login text-center min-vw-100 overflow-hidden'>
             <Row className="h-100">
-                <Col className='h-100' xs={12} lg={5}>
+                <Col className='h-100'>
                     <Form onSubmit={onSubmit} className='login-form d-flex mx-auto flex-column justify-content-center h-100 gap-3 w-75 pb-5'>
                         <h1 className='mt-3 mb-4 px-0'>Zaloguj się<br />
                             <small class="text-muted fs-5 fw-normal">Wprowadź użyty podczas rejestracji email oraz hasło</small>
@@ -95,7 +95,7 @@ export default function Login() {
                         </span>
                     </Form>
                 </Col>
-                <Col xs={6} className='d-none d-lg-block'>
+                <Col lg={7} xl={8} className='d-none d-lg-block'>
                     <Image src={background} className='login-background h-100' />
                 </Col>
             </Row>
