@@ -15,6 +15,7 @@ body, html {
 
 body *, html * {
     font-family: "Inter","Helvetica","Arial",sans-serif !important;
+    font-weight: 500;
 }
 
 :root{
@@ -542,6 +543,12 @@ tr>td:last-child {
 }
 
 
+/* LOGIN PAGE */
+
+.login-background {
+    /* border-radius: 5rem; */
+}
+
 /* //////// */
 
 table,
@@ -1007,6 +1014,7 @@ span.strong {
     font-weight: 500;
     font-size: 12px;
     transition: all .2s ease;
+    border-radius: 50rem;
 }
 
 .filter-indicator .filter-icon {

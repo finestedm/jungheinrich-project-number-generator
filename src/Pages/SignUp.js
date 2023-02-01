@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { register, reset } from "../features/auth/authSlice";
 import branches from '../data/branches'
+import { Link } from "react-router-dom";
 
 export default function SignUp() {
     const [formData, setFormData] = useState({
@@ -121,8 +122,18 @@ export default function SignUp() {
                     </Form.Select>
                 </Form.Group>
                 <Form.Group className="mt-3">
-                    <Button className='btn-ps-prim' size="lg" disabled={isLoading} type="submit">Zarejestruj się</Button>
+                    <Button className='btn-ps-prim w-100' size="lg" disabled={isLoading} type="submit">Zarejestruj się</Button>
                 </Form.Group>
+                <span>
+                    <span className="text-muted fw-normal">
+                        {'Masz już konto? '}
+                    </span>
+                    <Link to="/login/" style={{ color: 'var(--ps-prim-700)', fontWeight: '500' }}>
+                        <span>
+                            Zaloguj się.
+                        </span>
+                    </Link>
+                </span>
             </Form>
         </Container>
     )
