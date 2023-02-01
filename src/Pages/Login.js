@@ -95,9 +95,7 @@ export default function Login() {
                         </span>
                     </Form>
                 </Col>
-                <Col lg={7} xl={8} className='d-none d-lg-block'>
-                    <Image src={background} className='login-background h-100' />
-                </Col>
+                <Col lg={7} xl={8} className='d-none d-lg-block bg-image h-100' style={{ backgroundImage: `url(${background})` }}></Col>
             </Row>
         </Container>
     )
