@@ -543,10 +543,12 @@ tr>td:last-child {
 }
 
 
-/* LOGIN PAGE */
+/* LOGIN & SIGNUP PAGE */
 
-.login-background {
-    /* border-radius: 5rem; */
+.bg-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* //////// */
