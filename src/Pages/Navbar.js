@@ -7,6 +7,7 @@ import { BiArchive } from 'react-icons/bi'
 import logo from '../images/Jungheinrich-Logo.svg'
 import logoSmall from '../images/Jungheinrich-Logo-J.svg'
 import { logout, reset } from '../features/auth/authSlice'
+import { salesPersons } from '../data/salesPersons'
 
 
 export default function Topbar() {
@@ -34,7 +35,11 @@ export default function Topbar() {
                         </Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body className="d-flex flex-grow-1">
+
                         <Nav className="flex-column flex-grow-1 gap-2">
+                            {salesPersons.map(salesPerson => (
+                                <Nav.Item><Nav.Link as={Link} to={'team/' + salesPerson.id} >{salesPerson.value}</Nav.Link></Nav.Item>)
+                            )}
                             <Nav.Item className='d-flex align-items-stretch'>
                                 <Nav.Link className='p-3 d-flex align-items-center' disabled={!user} as={Link} to="/" active={window.location.pathname === '/jungheinrich-project-number-generator'}>
                                     <Row>

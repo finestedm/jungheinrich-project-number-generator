@@ -8,15 +8,15 @@ import unknown from '../images/avatars/unknown.svg'
 
 
 const salesPersons = [
-    { id: 1, value: 'Marcin Rączkowski', label: 'Marcin Rączkowski', photo: MR },
-    { id: 2, value: 'Rafał Popielarski', label: 'Rafał Popielarski', photo: RP },
-    { id: 3, value: 'Michał Tupacz', label: 'Michał Tupacz', photo: MT},
-    { id: 4, value: 'Marcin Golasiński', label: 'Marcin Golasiński', photo: unknown },
-    { id: 5, value: 'Krzysztof Grubka', label: 'Krzysztof Grubka', photo: unknown },
-    { id: 6, value: 'Mariusz Ślusarek', label: 'Mariusz Ślusarek', photo: MS },
-    { id: 7, value: 'Piotr Kruk', label: 'Piotr Kruk', photo: PK},
-    { id: 8, value: 'Krystian Nowak', label: 'Krystian Nowak', photo: KN },
-    { id: 9, value: 'Bartosz Marszula', label: 'Bartosz Marszula', photo: unknown },
+    { id: '1', value: 'Marcin Rączkowski', label: 'Marcin Rączkowski', photo: MR },
+    { id: '2', value: 'Rafał Popielarski', label: 'Rafał Popielarski', photo: RP },
+    { id: '3', value: 'Michał Tupacz', label: 'Michał Tupacz', photo: MT},
+    { id: '4', value: 'Marcin Golasiński', label: 'Marcin Golasiński', photo: unknown },
+    { id: '5', value: 'Krzysztof Grubka', label: 'Krzysztof Grubka', photo: unknown },
+    { id: '6', value: 'Mariusz Ślusarek', label: 'Mariusz Ślusarek', photo: MS },
+    { id: '7', value: 'Piotr Kruk', label: 'Piotr Kruk', photo: PK},
+    { id: '8', value: 'Krystian Nowak', label: 'Krystian Nowak', photo: KN },
+    { id: '9', value: 'Bartosz Marszula', label: 'Bartosz Marszula', photo: unknown },
 ]
 
 //sorting of the users alphabetically by last name
