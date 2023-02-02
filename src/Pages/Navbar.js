@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Navbar, Container, Nav, Button, Row, Col, Offcanvas, Form, NavDropdown } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { AiOutlineNumber, AiOutlineLogin, AiOutlineLogout, AiOutlineUserAdd } from 'react-icons/ai'
+import { AiOutlineNumber, AiOutlineLogin, AiOutlineLogout, AiOutlineTeam } from 'react-icons/ai'
 import { BiArchive } from 'react-icons/bi'
 import logo from '../images/Jungheinrich-Logo.svg'
 import logoSmall from '../images/Jungheinrich-Logo-J.svg'
@@ -37,9 +37,6 @@ export default function Topbar() {
                     <Offcanvas.Body className="d-flex flex-grow-1">
 
                         <Nav className="flex-column flex-grow-1 gap-2">
-                            {salesPersons.map(salesPerson => (
-                                <Nav.Item><Nav.Link as={Link} to={'team/' + salesPerson.id} >{salesPerson.value}</Nav.Link></Nav.Item>)
-                            )}
                             <Nav.Item className='d-flex align-items-stretch'>
                                 <Nav.Link className='p-3 d-flex align-items-center' disabled={!user} as={Link} to="/" active={window.location.pathname === '/jungheinrich-project-number-generator'}>
                                     <Row>
@@ -59,10 +56,10 @@ export default function Topbar() {
                                 </Nav.Link>
                             </Nav.Item>
                             <Nav.Item className='d-flex align-items-stretch'>
-                                <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/Archive">
+                                <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/Team">
                                     <Row>
-                                        <Col xs='auto' className='d-flex align-items-center'><BiArchive size='1.5em'/></Col>
-                                        <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span >Placeholder #1</span></Col>
+                                        <Col xs='auto' className='d-flex align-items-center'><AiOutlineTeam size='1.5em'/></Col>
+                                        <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span >Team</span></Col>
                                     </Row>
                                 </Nav.Link>
                             </Nav.Item>
@@ -80,7 +77,7 @@ export default function Topbar() {
                                 <Nav.Item className='d-flex align-items-stretch'>
                                     <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/signup">
                                         <Row className='d-flex align-items-center justify-content-between'>
-                                            <Col xs="auto" className='d-flex align-items-center'><AiOutlineUserAdd size='1.5em'/></Col>
+                                            <Col xs="auto" className='d-flex align-items-center'><AiOutlineTeam size='1.5em'/></Col>
                                             <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span>Zarejestruj się</span></Col>
                                         </Row>
                                     </Nav.Link>

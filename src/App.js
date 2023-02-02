@@ -7,6 +7,7 @@ import Main from "./Pages/Main";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import SalesPerson from "./Pages/SalesPerson";
+import Team from "./Pages/Team";
 import { useDispatch, useSelector } from "react-redux";
 import { salesPersons } from "./data/salesPersons";
 import { getPosts } from './actions/posts'
@@ -32,7 +33,7 @@ export default function App() {
           <Route path='/signup' element={<SignUp />}/>
           <Route index element={<Main/>} />
           <Route path='/archive' element={<Archive />} />
-          <Route path='/team' >
+          <Route path='/team' element={<Team />} >
             <Route path=':id' element={<SalesPerson />} />
           </Route>
         </Routes>
