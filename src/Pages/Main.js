@@ -58,7 +58,6 @@ export default function Main() {
     }
 
     useEffect(() => {
-        dispatch(getPosts())
         dispatch(getUsers())
     }, [dispatch]);
 
