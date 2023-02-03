@@ -102,6 +102,8 @@ body *, html * {
     --ps-border-color-50: var(--ps-gray-100);
 
     --ps-shadow-color: hsla(220, 43%, 11%, 5%);
+    --ps-shadow-color-x2: hsla(220, 43%, 11%, 10%);
+
     --ps-shadow: 0 1px 2px var(--ps-shadow-color);
 
     --ps-background: var(--ps-gray-25);
@@ -548,6 +550,13 @@ tr>td:last-child {
 .login-background {
     /* border-radius: 5rem; */
 }
+
+/* TEAM PAGE */
+.team--salesperson-photo {
+    border: .25rem solid white;
+    box-shadow: 0 .5rem 1rem .25rem var(--ps-shadow-color-x2);
+}
+
 
 /* //////// */
 

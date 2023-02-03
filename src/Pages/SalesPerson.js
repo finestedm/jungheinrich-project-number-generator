@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { ListGroup, Table, Image } from "react-bootstrap";
+import { ListGroup, Table, Image, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Items } from "./PaginatedItems";
 import { AiOutlineNumber } from "react-icons/ai"
 import { TbBuildingWarehouse } from "react-icons/tb"
-import {MdOutlineDescription, MdOutlineDateRange, MdOutlineLocationOn, MdOutlineLocalOffer, MdOutlineCardTravel, MdOutlineArrowForwardIos, MdOutlineArrowBackIos} from 'react-icons/md'
+import { MdOutlineDescription, MdOutlineDateRange, MdOutlineLocationOn, MdOutlineLocalOffer, MdOutlineCardTravel, MdOutlineArrowForwardIos, MdOutlineArrowBackIos } from 'react-icons/md'
+import moment from 'moment'
 
 export default function SalesPerson({ currentSalesPerson }) {
     const [postsData, setPostsData] = useState([])
@@ -17,18 +18,26 @@ export default function SalesPerson({ currentSalesPerson }) {
     useEffect(() => {
         setCurrentSalesPersonsPosts(postsData.filter(post => post.user === currentSalesPerson.value))
     }, [currentSalesPerson]);
-    
-    useEffect(() => {
-        console.log(currentSalesPersonsPosts)
-        
-    }, [currentSalesPersonsPosts])
 
-    // postsData.forEach(post => console.log((currentSalesPerson.value).includes(post.user)))
-    // console.log(salesPersonPosts)
+    useEffect(() => {
+        let newest=  (currentSalesPersonsPosts.map(post => post.createdAt)).sort().reverse()[0]
+    }, [currentSalesPersonsPosts])
+    
+    function findNewestSalesPersonPosts() {
+        return ((currentSalesPersonsPosts.map(post => post.createdAt)).sort().reverse())[0]
+    }
 
     return (
         <>
-            <h3>Projekty użytkownika: <Image style={{height: '2rem'}} src={currentSalesPerson.photo}/> {currentSalesPerson.value} </h3>
+            <Row className="d-flex align-items-center">
+                <Col xs={12} md='auto'>
+                    <Image className='team--salesperson-photo' style={{ height: '8rem' }} roundedCircle src={currentSalesPerson.photo} />
+                </Col>
+                <Col xs={12} md='auto'>
+                    <h3>{currentSalesPerson.value}</h3>
+                    <small className='text-muted'>Najnowszy projekt dodano: {moment(findNewestSalesPersonPosts()).format("DD.MM.YYYY, H:mm")}  </small>
+                </Col>
+            </Row>
 
             <Table hover className='table-ps m-0'>
                 <thead>
