@@ -38,14 +38,12 @@ export default function SalesPerson({ currentSalesPerson }) {
                         <th><span className='d-flex align-items-center gap-1'><TbBuildingWarehouse size='1.2em'/> Klient</span></th>
                         <th className='d-none d-xxl-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineLocationOn size='1.2em'/> Lokalizacja</span></th>
                         <th className='d-none d-xl-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineDescription size='1.2em'/> Opis</span></th>
-                        <th className='d-none d-md-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineCardTravel /> Handlowiec</span></th>
                         <th className='d-none d-lg-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineDateRange size='1.2em' /> Utworzono</span></th>
-                        <th className='edit-column'></th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <Items currentItems={currentSalesPersonsPosts} />
+                    <Items currentItems={currentSalesPersonsPosts} minimalMode={true} />
                 </tbody>
             </Table>
         </>

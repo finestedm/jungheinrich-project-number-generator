@@ -17,7 +17,7 @@ import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 
 
-export function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
+export function Items({ currentItems, toggleModalVisible, setPostToEditId, minimalMode }) {
   
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -29,7 +29,7 @@ export function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
   
   if (currentItems && posts.length > 0) {
     return currentItems.map((post) =>
-      (<ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />))
+      (<ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} minimalMode={minimalMode} />))
   } else if (!currentItems && posts.length > 0) {
     return <NoSearchResults />
   } else {
