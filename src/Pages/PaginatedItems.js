@@ -17,7 +17,7 @@ import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 
 
-function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
+export function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
   
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
