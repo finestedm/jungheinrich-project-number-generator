@@ -14,7 +14,7 @@ export default function UserToggler({ filters, changeSalesPersonInFilters }) {
         <ButtonGroup vertical className='btn-ps-blank btn-collapsable w-100'>
             <Button className='btn-ps-collapsing py-2' data-bs-toggle="collapse" data-bs-target="#collapsable-salesperson">
                 <span className='d-flex align-items-center gap-2'>
-                    <MdOutlineCardTravel size='1.5em'/>
+                    <MdOutlineCardTravel size='1.5em' className='p-1'/>
                     <span>Handlowiec</span> 
                     <span className='ms-auto'>{activeUserCounter(filters)}</span> 
                     <MdOutlineArrowDropDown size='1.25em'/>

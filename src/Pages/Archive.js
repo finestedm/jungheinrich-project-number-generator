@@ -96,12 +96,12 @@ export default function Archive() {
     }
     
     return (
-        <Container fluid className='main w-100 px-2 px-md-5'>
+        <Container fluid className='main w-100 px-md-5'>
             <div className='table-container mb-4'>
                 <Row className='header-row py-4 mb-5'>
                     <Col>
                         <h1 className='d-inline-flex'>Projekty
-                            <small class="text-mute fs-5">({posts.length})</small>
+                            <small className="text-mute fs-5">({posts.length})</small>
                         </h1>
                     </Col>
                     <Col className='col-auto'>
@@ -110,11 +110,11 @@ export default function Archive() {
                         </Button>
                     </Col>
                 </Row>
-                <h5 className='mb-3'>Podsumowanie <br/>  <small class="text-mute">Najważniejsze informacje z tego tygodnia</small></h5>
+                <h5 className='mb-3'>Podsumowanie <br/>  <small className="text-mute">Najważniejsze informacje z tego tygodnia</small></h5>
                 
                 <SummaryCards />
                 
-                <h5 className='mb-3'>Archiwum <br />  <small class="text-mute">Szukaj istniejących projektów</small></h5>
+                <h5 className='mb-3'>Archiwum <br />  <small className="text-mute">Szukaj istniejących projektów</small></h5>
 
 
                 <Row className='mb-3' >

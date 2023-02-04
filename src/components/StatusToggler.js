@@ -16,7 +16,7 @@ export default function StatusToggler({ filters, changeStatusInFilters }) {
         <ButtonGroup vertical className='btn-ps-blank btn-collapsable w-100'>
             <Button className='btn-ps-collapsing py-2' data-bs-toggle="collapse" data-bs-target="#collapsable-status">
                 <span className='d-flex align-items-center gap-1'>
-                    <MdOutlineLocalOffer size='1.5em'/>
+                    <MdOutlineLocalOffer size='1.5em' className='p-1'/>
                     <span>Status</span> 
                     <span className='ms-auto'>{activeStatusCounter(filters)}</span> 
                     <MdOutlineArrowDropDown size='1.25em'/>

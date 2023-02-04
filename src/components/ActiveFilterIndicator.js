@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, ButtonGroup, Col} from 'react-bootstrap'
+import {Button, ButtonGroup, Col, Stack} from 'react-bootstrap'
 import { salesPersons } from '../data/salesPersons'
 import { statusDescription } from './StatusIndicator'
 import { IoClose } from 'react-icons/io5'
@@ -22,7 +22,7 @@ export default function ActiveFiltersIndicator({ filters, changeStatusInFilters,
     }
 
     return (
-        <div className='h-100'>
+        <Stack direction="horizontal" gap={2}>
             {activeStatuses.length < (Object.keys(filters.status)).length ?
                 <ButtonGroup className='d-none d-md-inline filter-indicator filter-indicator-status'>
                     <Button className='filter-icon'><MdOutlineLocalOffer/></Button>
@@ -55,10 +55,6 @@ export default function ActiveFiltersIndicator({ filters, changeStatusInFilters,
                 </ButtonGroup>
                 : ''
             }
-        </div>
-
-
-        
+        </Stack>
     )
-
 }

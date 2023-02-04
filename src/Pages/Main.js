@@ -126,9 +126,9 @@ export default function Main() {
     // ^^^ typeahead workaround ^^^
 
     return (
-        <Container fluid className='main px-2 px-md-5 py-2'>
+        <Container fluid className='main px-md-5 py-2'>
             <h1 className='mt-3 mb-4 px-0'>Generuj numer projektu <br />
-                <small class="text-mute fs-5">Wprowadź dane projektu i uzyskaj numer referencyjny</small>
+                <small className="text-mute fs-5">Wprowadź dane projektu i uzyskaj numer referencyjny</small>
             </h1>
             <Form id='project-details' className='new-project-form d-flex flex-column mx-auto gap-4 needs-validation mb-3' noValidate> 
                 

@@ -17,10 +17,10 @@ export default function SalesPerson({ currentSalesPerson }) {
 
     useEffect(() => {
         setCurrentSalesPersonsPosts(postsData.filter(post => post.user === currentSalesPerson.value))
-    }, [currentSalesPerson]);
+    }, [currentSalesPerson, postsData]);
 
     useEffect(() => {
-        let newest=  (currentSalesPersonsPosts.map(post => post.createdAt)).sort().reverse()[0]
+        const newest = (currentSalesPersonsPosts.map(post => post.createdAt)).sort().reverse()[0]
     }, [currentSalesPersonsPosts])
     
     function findNewestSalesPersonPosts() {
@@ -29,9 +29,9 @@ export default function SalesPerson({ currentSalesPerson }) {
 
     return (
         <>
-            <Row className="d-flex align-items-center">
+            <Row className="d-flex align-items-center m-0 gap-3">
                 <Col xs={12} md='auto'>
-                    <Image className='team--salesperson-photo' style={{ height: '8rem' }} roundedCircle src={currentSalesPerson.photo} />
+                    <Image className='team--salesperson-avatar' style={{ height: '8rem', aspectRatio: '1/1', objectFit: 'cover' }} roundedCircle src={currentSalesPerson.photo} />
                 </Col>
                 <Col xs={12} md='auto'>
                     <h3>{currentSalesPerson.value}</h3>

@@ -24,11 +24,11 @@ export default function Topbar() {
     
     return (    
         <Navbar collapseOnSelect key='md' expand='md' className='sticky-top'>
-            <Container fluid className='flex-row flex-md-column px-2 py-2 h-100'>
+            <Container fluid className='flex-row flex-md-column py-2 h-100'>
                 <Navbar.Brand className='d-none d-md-flex d-xl-none'><img src={logoSmall} height='30' /></Navbar.Brand>
                 <Navbar.Brand className='d-flex d-md-none d-xl-flex'><img src={logo} height='26' /></Navbar.Brand>
                 <Navbar.Toggle/>
-                <Navbar.Offcanvas placement="start" collapseOnSelect className='navbar--offcanvas'>
+                <Navbar.Offcanvas placement="start" className='navbar--offcanvas'>
                     <Offcanvas.Header closeButton>
                         <Offcanvas.Title>
                             <img src={logo} height='30' />
@@ -56,7 +56,7 @@ export default function Topbar() {
                                 </Nav.Link>
                             </Nav.Item>
                             <Nav.Item className='d-flex align-items-stretch'>
-                                <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/Team">
+                                <Nav.Link className='p-3 d-flex align-items-center' disabled={!user} as={Link} to="/Team" active={window.location.pathname.includes('/jungheinrich-project-number-generator/Team')}>
                                     <Row>
                                         <Col xs='auto' className='d-flex align-items-center'><AiOutlineTeam size='1.5em'/></Col>
                                         <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span >Team</span></Col>

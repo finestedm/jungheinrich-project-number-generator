@@ -102,9 +102,10 @@ body *, html * {
     --ps-border-color-50: var(--ps-gray-100);
 
     --ps-shadow-color: hsla(220, 43%, 11%, 5%);
-    --ps-shadow-color-x2: hsla(220, 43%, 11%, 10%);
+    --ps-shadow-color-lg: hsla(220, 43%, 11%, 8%);
 
     --ps-shadow: 0 1px 2px var(--ps-shadow-color);
+    --ps-shadow-lg: 0 .75rem 1rem var(--ps-shadow-color-lg);
 
     --ps-background: var(--ps-gray-25);
     --ps-navbar-bg: var(--ps-gray-50);
@@ -552,9 +553,9 @@ tr>td:last-child {
 }
 
 /* TEAM PAGE */
-.team--salesperson-photo {
-    border: .25rem solid white;
-    box-shadow: 0 .5rem 1rem .25rem var(--ps-shadow-color-x2);
+.team--salesperson-avatar {
+    border: .2rem solid white;
+    box-shadow: var(--ps-shadow-lg);
 }
 
 
@@ -700,7 +701,6 @@ td {
 @media (max-width: 1200px) and (min-width: 768px) {
     .navbar {
         padding-top: 1.5rem;
-        width: 75px
     }
 
     .nav-link {
@@ -797,7 +797,7 @@ tr:hover:not(thead>tr) {
 }
 
 .table--head {
-    line-height: 1.8rem;
+    line-height: 1rem;
     border-bottom: 1px solid var(--ps-border-color);
 }
 
