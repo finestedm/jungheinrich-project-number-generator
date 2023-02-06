@@ -558,6 +558,33 @@ tr>td:last-child {
     box-shadow: var(--ps-shadow-lg);
 }
 
+/* modals */
+
+.modal, 
+.modal textarea {
+    color:var(--ps-text)
+}
+
+.modal label{
+    color:var(--ps-text-50)
+}
+
+.modal {
+	--bs-modal-border-width: 0;
+	--bs-modal-header-border-width: 0;
+	--bs-modal-footer-border-width: 0;
+}
+
+
+/* OFFCANVAS */
+
+.offcanvas.offcanvas-end {
+	top: 0;
+	right: 0;
+	width: 500px;
+	border-left: none;
+}
+
 
 /* //////// */
 
@@ -891,23 +918,6 @@ span#status-2{
 }
 
 
-/* modal */
-
-.modal, 
-.modal textarea {
-    color:var(--ps-text)
-}
-
-.modal label{
-    color:var(--ps-text-50)
-}
-
-.modal {
-	--bs-modal-border-width: 0;
-	--bs-modal-header-border-width: 0;
-	--bs-modal-footer-border-width: 0;
-}
-
 .form-check-input {
     position: relative;
     top: -2px
@@ -1077,14 +1087,6 @@ span.strong {
 
 .card-image {
     scale: 1.75;
-}
-
-
-.offcanvas.offcanvas-end {
-	top: 0;
-	right: 0;
-	width: 500px;
-	border-left: 1px solid var(--ps-border-color);
 }
 
 .status-switch-buttons>button {
