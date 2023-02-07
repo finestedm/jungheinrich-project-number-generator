@@ -8,11 +8,16 @@ import ArchivedProjectPlaceholder from '../components/ArchivedProjectPlaceholder
 import StatusToggler from '../components/StatusToggler'
 import UserToggler from '../components/UserToggler';
 import NoSearchResults from '../components/NoSearchResults'
+import { activeStatusCounter } from '../components/StatusToggler';
+import { activeUserCounter } from '../components/UserToggler';
+import { AiOutlineNumber } from "react-icons/ai"
+import { TbBuildingWarehouse } from "react-icons/tb"
+import {MdOutlineDescription, MdOutlineDateRange, MdOutlineLocationOn, MdOutlineLocalOffer, MdOutlineCardTravel, MdOutlineArrowForwardIos, MdOutlineArrowBackIos} from 'react-icons/md'
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 
 
-function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
+export function Items({ currentItems, toggleModalVisible, setPostToEditId, minimalMode }) {
   
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -24,17 +29,42 @@ function Items({ currentItems, toggleModalVisible, setPostToEditId }) {
   
   if (currentItems && posts.length > 0) {
     return currentItems.map((post) =>
-      (<ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} />))
+      (<ArchivedProject toggleModalVisible={toggleModalVisible} key={post._id} setPostToEditId={setPostToEditId} post={post} minimalMode={minimalMode} />))
   } else if (!currentItems && posts.length > 0) {
     return <NoSearchResults />
   } else {
     return Array(15).fill(<ArchivedProjectPlaceholder />)
   }
 }
-  
+
+function PaginatorForward() {
+  return (
+    <Row className='px-1 d-flex align-items-center'>
+      <Col className='d-none d-md-block px-1'>
+        Dalej
+      </Col>
+      <Col className='d-flex align-items-center px-1'>
+        <MdOutlineArrowForwardIos />
+      </Col>
+    </Row>
+  )
+}
+
+function PaginatorBackward() {
+  return (
+    <Row className='px-1 d-flex align-items-center'>
+      <Col className='d-flex align-items-center px-1'>
+        <MdOutlineArrowBackIos />
+      </Col>
+      <Col className='d-none d-md-block px-1'>
+        Wstecz
+      </Col>
+    </Row>
+  )
+}
 
 export default function PaginatedItems(props) {
-    const { toggleModalVisible, setPostToEditId, itemsPerPage, posts, filters, changeStatusInFilters, changeUserInFilters} = props
+    const { toggleModalVisible, setPostToEditId, itemsPerPage, posts, filters} = props
 
     // Here we use item offsets; we could also use page offsets
     // following the API or data you're working with.
@@ -55,17 +85,17 @@ export default function PaginatedItems(props) {
   
      
     return (
-      <Row className='table-holder mt-4'>
+      <Row className='table-holder'>
         <Table hover className='table-ps m-0'>
             <thead>
             <tr className='table--head'> 
-              <th className='align-middle'><StatusToggler changeStatusInFilters={changeStatusInFilters} filters={filters} /></th>
-              <th>Numer</th>
-              <th>Klient</th>
-              <th className='d-none d-xl-table-cell'>Lokalizacja</th>
-              <th className='d-none d-xl-table-cell'>Opis</th>
-              <th className='d-none d-md-table-cell'><UserToggler changeUserInFilters={changeUserInFilters} filters={filters} /></th>
-              <th className='d-none d-lg-table-cell'>Utworzono</th>
+              <th><span className='d-flex align-items-center gap-1'><AiOutlineNumber size='1.2em'/> Numer</span></th>
+              <th><span className='d-none d-lg-flex align-items-center gap-1'><MdOutlineLocalOffer size='1.2em'/> Status</span> <span className='d-flex d-lg-none align-items-center'><MdOutlineLocalOffer size='1.2em'/> St.</span></th>
+              <th><span className='d-flex align-items-center gap-1'><TbBuildingWarehouse size='1.2em'/> Klient</span></th>
+              <th className='d-none d-xxl-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineLocationOn size='1.2em'/> Lokalizacja</span></th>
+              <th className='d-none d-xl-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineDescription size='1.2em'/> Opis</span></th>
+              <th className='d-none d-md-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineCardTravel /> Handlowiec </span></th>
+              <th className='d-none d-lg-table-cell'><span className='d-flex align-items-center gap-1'><MdOutlineDateRange size='1.2em'/> Utworzono</span></th>
               <th className='edit-column'></th>
             </tr>
           </thead>
@@ -73,25 +103,18 @@ export default function PaginatedItems(props) {
           <tbody>
               <Items currentItems={currentItems} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} />
           </tbody>
-
-          <tfoot className='table--foot'>
-            <tr>
-              <td colSpan="8">
-                <ReactPaginate
-                  className='paginator d-flex justify-content-center text-center'
-                  breakLabel="..."
-                  nextLabel="Następna"
-                  onPageChange={handlePageClick}
-                  pageRangeDisplayed={2}
-                  marginPagesDisplayed={2}
-                  pageCount={pageCount}
-                  previousLabel="Wstecz"
-                  renderOnZeroPageCount={null}
-                />
-              </td>
-            </tr>
-          </tfoot>
         </Table>     
+        <ReactPaginate
+          className='paginator mb-0 py-3 d-flex justify-content-center align-items-center text-center'
+          breakLabel="..."
+          nextLabel={<PaginatorForward />}
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={2}
+          marginPagesDisplayed={2}
+          pageCount={pageCount}
+          previousLabel={<PaginatorBackward />}
+          renderOnZeroPageCount={null}
+        />
       </Row>
     );
 }

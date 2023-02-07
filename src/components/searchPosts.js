@@ -1,5 +1,5 @@
 import * as JsSearch from 'js-search';
-import { users } from '../data/users';
+import { salesPersons } from '../data/salesPersons';
 
 export default function searchPosts(posts, filters) {
 
@@ -12,9 +12,9 @@ export default function searchPosts(posts, filters) {
 	let activePosts = posts.filter(post => post.status !== undefined)
 	activePosts = activePosts.filter(post => activeStatuses.includes((post.status).toString()))
 
-	// filter by activeUsers
-	const activeUsers = (filters.users).map(user => user.value)
-	activePosts = activePosts.filter(post => activeUsers.includes(post.user))
+	// filter by activesalesPersons
+	const activeSalesPersons = (filters.salesPersons).map(user => user.value)
+	activePosts = activePosts.filter(post => activeSalesPersons.includes(post.user))
 
 	// filter by searchedPhrase
 	if (!filters.searchedPhrase) {  

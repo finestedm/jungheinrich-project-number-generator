@@ -2,14 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector, createStore } from 'react-redux'
 import { getPosts } from '../actions/posts'
 import moment from 'moment'
-import { Container, Row, Col, Spinner, Card, Table } from 'react-bootstrap'
+import { Container, Row, Col, Spinner, Card, Table, Button } from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 import EditPostModal from '../components/EditPostModal'
 import PaginatedItems from './PaginatedItems';
 import SearchBar from '../components/SearchBar';
 import searchPosts from '../components/searchPosts';
 import ActiveFiltersIndicator from '../components/ActiveFilterIndicator'
 import SummaryCards from '../components/SummaryCards'
-import { users } from '../data/users'
+import { salesPersons } from '../data/salesPersons'
+import { useNavigate } from 'react-router-dom'
+import FiltersDropdown from '../components/FiltersDropdown'
+import {HiOutlineDocumentPlus} from 'react-icons/hi2'
 
 export default function Archive() {
 
@@ -18,12 +22,20 @@ export default function Archive() {
     const [filters, setFilters] = useState({
         searchedPhrase: '',
         status: { 0: true, 1: true, 2: true },
-        users: users
+        salesPersons: salesPersons
     });
     const [showModal, setShowModal] = useState(false);
     const [postData, setPostData] = useState(null);
     const [postToEditId, setPostToEditId] = useState(null);
     const [filteredPosts, setFilteredPosts] = useState({});
+    const { user } = useSelector((state => state.authSlice))
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/login')
+        }
+    }, [user, navigate])
 
     useEffect(() => {
         dispatch(getPosts())
@@ -66,38 +78,62 @@ export default function Archive() {
         }
     }
 
-    function changeUserInFilters(selectedUser) {
-        let usersFiltered = filters.users;
+    function changeSalesPersonInFilters(selectedUser) {
+        let salesPersonsFiltered = filters.salesPersons;
         if (selectedUser === 'all') {
-            usersFiltered.length === users.length ? usersFiltered = [] : usersFiltered = users;
-            setFilters({ ...filters, users: usersFiltered })
+            salesPersonsFiltered.length === salesPersons.length ? salesPersonsFiltered = [] : salesPersonsFiltered = salesPersons;
+            setFilters({ ...filters, salesPersons: salesPersonsFiltered })
         } else {
-            if ((usersFiltered.filter(user => user.value === selectedUser)).length > 0) {
-                const usersReduced = usersFiltered.filter(user => user.value !== selectedUser)
-                setFilters({ ...filters, users: usersReduced })
-            } else if ((usersFiltered.filter(user => user.value === selectedUser)).length === 0) {
-                const foundUserObject = (users.filter(user => user.value === selectedUser))
-                const usersMerged = usersFiltered.concat(foundUserObject)
-                setFilters({ ...filters, users: usersMerged })
+            if ((salesPersonsFiltered.filter(user => user.value === selectedUser)).length > 0) {
+                const salesPersonsReduced = salesPersonsFiltered.filter(user => user.value !== selectedUser)
+                setFilters({ ...filters, salesPersons: salesPersonsReduced })
+            } else if ((salesPersonsFiltered.filter(user => user.value === selectedUser)).length === 0) {
+                const foundUserObject = (salesPersons.filter(user => user.value === selectedUser))
+                const salesPersonsMerged = salesPersonsFiltered.concat(foundUserObject)
+                setFilters({ ...filters, salesPersons: salesPersonsMerged })
             }
         }
     }
     
     return (
-        <Container fluid className='main w-100 px-2 px-md-4'>
+        <Container fluid className='main w-100 px-md-5'>
             <div className='table-container mb-4'>
-                <Row className='justify-content-between search-container py-4'><h1>Projekty <small class="text-muted fs-5">({posts.length})</small></h1></Row>
-                <h3 className='mb-3'>Podsumowanie <br/>  <small class="text-muted fs-6">Najważniejsze informacje z tego tygodnia</small></h3>
+                <Row className='header-row py-4 mb-5'>
+                    <Col>
+                        <h1 className='d-inline-flex'>Projekty
+                            <small className="text-mute fs-5">({posts.length})</small>
+                        </h1>
+                    </Col>
+                    <Col className='col-auto'>
+                        <Button as={Link} to="/" className='btn-ps-outline d-flex gap-2 align-items-center'>
+                            <HiOutlineDocumentPlus size='1.25em' /> <span>Dodaj projekt</span>
+                        </Button>
+                    </Col>
+                </Row>
+                <h5 className='mb-3'>Podsumowanie <br/>  <small className="text-mute">Najważniejsze informacje z tego tygodnia</small></h5>
+                
                 <SummaryCards />
-                <Row className='d-flex gap-2'>
-                    <h3 className='mb-3'>Archiwum <br/>  <small class="text-muted fs-6">Szukaj istniejących projektów</small></h3>
-                    <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeUserInFilters={changeUserInFilters} />
-                    <Col className='col-12 col-md-5 col-lg-4'>
+                
+                <h5 className='mb-3'>Archiwum <br />  <small className="text-mute">Szukaj istniejących projektów</small></h5>
+
+
+                <Row className='mb-3' >
+                    
+                    <Col className='col-auto'>
+                        <FiltersDropdown changeSalesPersonInFilters={changeSalesPersonInFilters} changeStatusInFilters={changeStatusInFilters} filters={filters} />
+                    </Col>
+                    <Col className='col-md-5 col-lg-4 col-xxl-3'>
                         <SearchBar searchedPhrase={filters.searchedPhrase} changeSearchedPhrase={changeSearchedPhrase} />
                     </Col>
                 </Row>
+                <Row>
+                    <Col>
+                        <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} />
+                    </Col>
+                </Row>
+                    
                 
-                <PaginatedItems changeStatusInFilters={changeStatusInFilters} changeUserInFilters={changeUserInFilters} filters={filters} posts={filteredPosts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
+                <PaginatedItems changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} filters={filters} posts={filteredPosts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
                 
                 {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
             </div>

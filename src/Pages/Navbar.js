@@ -1,61 +1,100 @@
 import React, { useEffect, useState } from 'react'
 import { Navbar, Container, Nav, Button, Row, Col, Offcanvas, Form, NavDropdown } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { AiOutlineNumber } from 'react-icons/ai'
+import { useSelector, useDispatch } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { AiOutlineNumber, AiOutlineLogin, AiOutlineLogout, AiOutlineTeam } from 'react-icons/ai'
 import { BiArchive } from 'react-icons/bi'
 import logo from '../images/Jungheinrich-Logo.svg'
 import logoSmall from '../images/Jungheinrich-Logo-J.svg'
-import {getNewPostsNumber} from '../components/SummaryCards'
+import { logout, reset } from '../features/auth/authSlice'
+import { salesPersons } from '../data/salesPersons'
+
 
 export default function Topbar() {
-    const [selectedSite, setSelectedSite] = useState(1)
-    const posts = useSelector((state) => state.posts)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const {user} = useSelector((state) => state.authSlice)
 
+    function onLogout() {
+        dispatch(logout())
+        dispatch(reset())
+    }
+
+
+    
     return (    
         <Navbar collapseOnSelect key='md' expand='md' className='sticky-top'>
-            <Container fluid className='flex-row flex-md-column px-2 py-2'>
-                <Navbar.Brand className='d-block d-xl-none'><img src={logoSmall} height='30' /></Navbar.Brand>
-                <Navbar.Brand className='d-none d-xl-block'><img src={logo} height='26' /></Navbar.Brand>
+            <Container fluid className='flex-row flex-md-column py-2 h-100'>
+                <Navbar.Brand className='d-none d-md-flex d-xl-none'><img src={logoSmall} height='30' /></Navbar.Brand>
+                <Navbar.Brand className='d-flex d-md-none d-xl-flex'><img src={logo} height='26' /></Navbar.Brand>
                 <Navbar.Toggle/>
-                <Navbar.Offcanvas placement="start" collapseOnSelect className='navbar--offcanvas'>
+                <Navbar.Offcanvas placement="start" className='navbar--offcanvas'>
                     <Offcanvas.Header closeButton>
                         <Offcanvas.Title>
                             <img src={logo} height='30' />
                         </Offcanvas.Title>
                     </Offcanvas.Header>
-                    <Offcanvas.Body className='text-center'>
-                        <Nav className="flex-column gap-2">
+                    <Offcanvas.Body className="d-flex flex-grow-1">
+
+                        <Nav className="flex-column flex-grow-1 gap-2">
                             <Nav.Item className='d-flex align-items-stretch'>
-                                <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/" active={selectedSite === 1} onClick={() => setSelectedSite(1)}>
+                                <Nav.Link className='p-3 d-flex align-items-center' disabled={!user} as={Link} to="/" active={window.location.pathname === '/jungheinrich-project-number-generator'}>
                                     <Row>
-                                        <Col xs='auto'><AiOutlineNumber /></Col>
-                                        <Col className='border-start d-block d-md-none d-xl-block text-start'><span>Generuj numer</span></Col>
+                                        <Col xs='auto' className='d-flex align-items-center'><AiOutlineNumber size='1.5em'/></Col>
+                                        <Col className='nav-link--description d-block d-md-none d-xl-block text-start'>
+                                            <span>Generuj numer</span>
+                                        </Col>
                                     </Row>
                                 </Nav.Link>
                             </Nav.Item>
                             <Nav.Item className='d-flex align-items-stretch'>
-                                <Nav.Link className='p-3 align-items-center' as={Link} to="/Archive" active={selectedSite === 2} onClick={() => setSelectedSite(2)}>
+                                <Nav.Link className='p-3 d-flex align-items-center' disabled={!user} as={Link} to="/Archive" active={window.location.pathname === '/jungheinrich-project-number-generator/Archive'}>
                                     <Row className='d-flex align-items-center justify-content-between'>
-                                        <Col xs='auto'><BiArchive /></Col>
-                                        <Col className='border-start d-block d-md-none d-xl-block text-start'><span >Archiwum</span></Col>
-                                        {getNewPostsNumber(posts) !== 0 ?
-                                            <Col xs='auto' className='text-center'>
-                                                <div className='navbar-indicator d-flex justify-content-center align-items-center fw-bold'>
-                                                    <span className='d-none d-xl-block'>{getNewPostsNumber(posts)} </span>
-                                                </div>
-                                        </Col> : ''}
+                                        <Col xs='auto' className='d-flex align-items-center'><BiArchive size='1.5em'/></Col>
+                                        <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span >Archiwum</span></Col>
                                     </Row>
                                 </Nav.Link>
                             </Nav.Item>
                             <Nav.Item className='d-flex align-items-stretch'>
-                                <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/Archive" active={selectedSite === 3} onClick={() => setSelectedSite(3)}>
+                                <Nav.Link className='p-3 d-flex align-items-center' disabled={!user} as={Link} to="/Team" active={window.location.pathname.includes('/jungheinrich-project-number-generator/Team')}>
                                     <Row>
-                                        <Col xs='auto'><BiArchive /></Col>
-                                        <Col className='border-start d-block d-md-none d-xl-block text-start'><span >Placeholder #1</span></Col>
+                                        <Col xs='auto' className='d-flex align-items-center'><AiOutlineTeam size='1.5em'/></Col>
+                                        <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span >Team</span></Col>
                                     </Row>
                                 </Nav.Link>
                             </Nav.Item>
+
+                            {!user ? <>
+                                <Nav.Item className='mt-auto d-flex align-items-stretch'>
+                                    <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/login">
+                                        <Row className='d-flex align-items-center justify-content-between'>
+                                            <Col xs="auto" className='d-flex align-items-center'><AiOutlineLogin size='1.5em'/></Col>
+                                            <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span>Zaloguj się</span></Col>
+                                        </Row>
+                                    </Nav.Link>
+                                </Nav.Item>
+
+                                <Nav.Item className='d-flex align-items-stretch'>
+                                    <Nav.Link className='p-3 d-flex align-items-center' as={Link} to="/signup">
+                                        <Row className='d-flex align-items-center justify-content-between'>
+                                            <Col xs="auto" className='d-flex align-items-center'><AiOutlineTeam size='1.5em'/></Col>
+                                            <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span>Zarejestruj się</span></Col>
+                                        </Row>
+                                    </Nav.Link>
+                                </Nav.Item>
+                            </>
+                            :
+                            <>
+                                <Nav.Item className='mt-auto d-flex align-items-stretch'>
+                                    <Nav.Link className='p-3 d-flex align-items-center' onClick={() => onLogout()}>
+                                        <Row className='d-flex align-items-center justify-content-between'>
+                                            <Col xs="auto" className='d-flex align-items-center'><AiOutlineLogout size='1.5em'/></Col>
+                                            <Col className='nav-link--description d-block d-md-none d-xl-block text-start'><span>Wyloguj się</span></Col>
+                                        </Row>
+                                    </Nav.Link>
+                                </Nav.Item>
+                            </>
+                            }
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>
