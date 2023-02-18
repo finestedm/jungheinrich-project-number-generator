@@ -5,11 +5,11 @@ import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux'
 import ArchivedProject from '../components/ArchivedProject';
 import ArchivedProjectPlaceholder from '../components/ArchivedProjectPlaceholder';
-import StatusToggler from '../components/StatusToggler'
-import UserToggler from '../components/UserToggler';
+import StatusToggler from '../components/Filters/StatusToggler'
+import UserToggler from '../components/Filters/UserToggler';
 import NoSearchResults from '../components/NoSearchResults'
-import { activeStatusCounter } from '../components/StatusToggler';
-import { activeUserCounter } from '../components/UserToggler';
+import { activeStatusCounter } from '../components/Filters/StatusToggler';
+import { activeUserCounter } from '../components/Filters/UserToggler';
 import { AiOutlineNumber } from "react-icons/ai"
 import { TbBuildingWarehouse } from "react-icons/tb"
 import {MdOutlineDescription, MdOutlineDateRange, MdOutlineLocationOn, MdOutlineLocalOffer, MdOutlineCardTravel, MdOutlineArrowForwardIos, MdOutlineArrowBackIos} from 'react-icons/md'
