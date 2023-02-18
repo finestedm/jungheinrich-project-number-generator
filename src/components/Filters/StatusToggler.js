@@ -1,6 +1,6 @@
 import React from 'react';
 import {Dropdown, Form, ButtonGroup, Button} from 'react-bootstrap';
-import StatusIndicator from './StatusIndicator';
+import StatusIndicator from '../StatusIndicator';
 import {MdOutlineLocalOffer, MdOutlineArrowDropDown, MdOutlineCheck} from "react-icons/md"
 
 

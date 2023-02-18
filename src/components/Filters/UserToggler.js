@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Dropdown, Form, Image, Button, ButtonGroup } from 'react-bootstrap';
-import { salesPersons } from '../data/salesPersons';
+import { salesPersons } from '../../data/salesPersons';
 import {MdOutlineCardTravel, MdOutlineArrowDropDown, MdOutlineCheck} from 'react-icons/md'
 
 export function activeUserCounter(filters) {
