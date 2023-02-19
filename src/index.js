@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
+import "react-datepicker/dist/react-datepicker.css";
 import css from "./style.css";
 import React from 'react';
 import ReactDOM from 'react-dom/client';

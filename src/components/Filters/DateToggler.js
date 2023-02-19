@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Dropdown, Form, ButtonGroup, Button } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Dropdown, Form, ButtonGroup, Button, Modal } from 'react-bootstrap';
 import StatusIndicator from '../StatusIndicator';
-import { MdOutlineLocalOffer, MdOutlineArrowDropDown, MdOutlineCheck } from "react-icons/md"
+import { MdOutlineLocalOffer, MdOutlineArrowDropDown, MdClose } from "react-icons/md"
 import DatePicker, { CalendarContainer } from "react-datepicker";
 
 export function activeStatusCounter(filters) {
@@ -10,26 +10,32 @@ export function activeStatusCounter(filters) {
     return (activeStatuses < allStatuses) ? ` (${activeStatuses}/${allStatuses})` : ''
 }
 
-export default function DateToggler({ filters, changeStatusInFilters }) {
+const MyContainer = ({ className, children }) => {
+    return (
+        <div style={{ padding: "1rem", color: "#fff" }}>
+            <CalendarContainer className={className}>
+                <div style={{ background: "#f0f0f0" }}>
+                    What is your favorite day?
+                </div>
+                <div style={{ position: "relative" }}>{children}</div>
+            </CalendarContainer>
+        </div>
+    );
+};
 
-    const [startDate, setStartDate] = useState(new Date());
+export default function DateToggler({ filters, changeDateRangeInFilters }) {
 
-    const MyContainer = ({ className, children }) => {
-        return (
-            <div style={{ padding: "16px", background: "#216ba5", color: "#fff" }}>
-                <CalendarContainer className={className}>
-                    <div style={{ background: "#f0f0f0" }}>
-                        What is your favorite day?
-                    </div>
-                    <div style={{ position: "relative" }}>{children}</div>
-                </CalendarContainer>
-            </div>
-        );
-    };
+    const [startDate, setStartDate] = useState(filters.startDate);
+    const [endDate, setEndDate] = useState(filters.endDate);
+
+    useEffect(() => {
+        console.log(startDate)
+        changeDateRangeInFilters(startDate, endDate)
+    }, [startDate, endDate])
 
     return (
         <ButtonGroup vertical className='btn-ps-blank btn-collapsable w-100'>
-            <Button className='btn-ps-collapsing py-2' data-bs-toggle="collapse" data-bs-target="#collapsable-status">
+            <Button className='btn-ps-collapsing py-2' data-bs-toggle="collapse" data-bs-target="#collapsable-date">
                 <span className='d-flex align-items-center gap-1'>
                     <MdOutlineLocalOffer size='1.5em' className='p-1' />
                     <span>Data</span>
@@ -38,23 +44,42 @@ export default function DateToggler({ filters, changeStatusInFilters }) {
                 </span>
             </Button>
 
-            <div className='expandable-dropdown collapse w-100' id='collapsable-status'>
+            <div className='expandable-dropdown collapse w-100' id='collapsable-date'>
 
-                <div onClick={() => changeStatusInFilters('all')} className='expendable-item d-flex align-items-center px-3 py-2 status-toggle'>
+                <div onClick={() => changeDateRangeInFilters(new Date(2022, 1, 1), new Date())} className='expendable-item d-flex align-items-center px-3 py-2 date-toggle'>
                     <div className='d-flex gap-2 w-100 align-items-center justify-content-stretch'>
-                        {<span>{Object.values(filters.status).every(status => status === true) ? 'Odznacz wszystkie' : 'Zaznacz wszystkie'}</span>}
-                        {(Object.values(filters.status).every(status => status === true)) ? <MdOutlineCheck size='1.25em' className='filter-check-icon ms-auto' /> : ''}
+                        Resetuj daty
+                        <MdClose />
                     </div>
                 </div>
 
                 <Dropdown.Divider className='mt-0 p-0' style={{ borderTop: '1px solid var(--ps-border-color-50)' }} />
 
                 <DatePicker
-                    selected={startDate}
+                    className='datepicker-start'
+                    selected={filters.startDate}
                     onChange={(date) => setStartDate(date)}
-                    onCalendarOpen={(e) => console.log('opened')}
-                    onCalendarClose={(e) => console.log('closed')}
+                    withPortal
+                    calendarContainer={MyContainer}
+                    showMonthDropdown
+                    showYearDropdown
+                    calendarStartDay={1}
+                    dateFormat="dd/MM/yyyy"
+                    excludeDateIntervals={[{ start: new Date(), end: new Date(2050, 1, 1) }]}
                 />
+                <DatePicker
+                    className='datepicker-end'
+                    selected={filters.endDate}
+                    onChange={(date) => setEndDate(date)}
+                    withPortal
+                    calendarContainer={MyContainer}
+                    showMonthDropdown
+                    showYearDropdown
+                    calendarStartDay={1}
+                    dateFormat="dd/MM/yyyy"
+                    excludeDateIntervals={[{ start: new Date(1900, 1, 1), end: filters.startDate }]}
+                />
+
             </div>
         </ButtonGroup>
     )

@@ -3,7 +3,7 @@ import { useDispatch, useSelector, createStore } from 'react-redux'
 import { getPosts } from '../actions/posts'
 import moment from 'moment'
 import { Container, Row, Col, Spinner, Card, Table, Button } from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import EditPostModal from '../components/EditPostModal'
 import PaginatedItems from './PaginatedItems';
 import SearchBar from '../components/SearchBar';
@@ -13,7 +13,7 @@ import SummaryCards from '../components/SummaryCards'
 import { salesPersons } from '../data/salesPersons'
 import { useNavigate } from 'react-router-dom'
 import FiltersDropdown from '../components/FiltersDropdown'
-import {HiOutlineDocumentPlus} from 'react-icons/hi2'
+import { HiOutlineDocumentPlus } from 'react-icons/hi2'
 
 export default function Archive() {
 
@@ -22,7 +22,9 @@ export default function Archive() {
     const [filters, setFilters] = useState({
         searchedPhrase: '',
         status: { 0: true, 1: true, 2: true },
-        salesPersons: salesPersons
+        salesPersons: salesPersons,
+        startDate: new Date(2022, 1, 1),
+        endDate: new Date(2030, 1, 1)
     });
     const [showModal, setShowModal] = useState(false);
     const [postData, setPostData] = useState(null);
@@ -49,17 +51,17 @@ export default function Archive() {
             setShowModal(true)
         }
     }, [postToEdit, setPostToEditId]);
-   
+
     function toggleModalVisible(id) {
         setPostToEditId(id);
     }
 
-    useEffect(() => {      
+    useEffect(() => {
         setFilteredPosts(searchPosts(posts, filters));
     }, [posts, filters])
-    
+
     function changeSearchedPhrase(text) {
-        setFilters({...filters, searchedPhrase: text});
+        setFilters({ ...filters, searchedPhrase: text });
     }
 
     function changeStatusInFilters(selectedStatus) {
@@ -72,7 +74,7 @@ export default function Archive() {
             let filtersUpdated = { ...filters, status: statusObject }
             setFilters(filtersUpdated)
         } else {
-            statusObject = {...statusObject, [selectedStatus]: true}
+            statusObject = { ...statusObject, [selectedStatus]: true }
             let filtersUpdated = { ...filters, status: statusObject }
             setFilters(filtersUpdated)
         }
@@ -94,7 +96,11 @@ export default function Archive() {
             }
         }
     }
-    
+
+    function changeDateRangeInFilters(newStartDate, newEndDate) {
+        setFilters({ ...filters, startDate: newStartDate, endDate: newEndDate });
+    }
+
     return (
         <Container fluid className='main w-100 px-md-5'>
             <div className='table-container mb-4'>
@@ -110,17 +116,17 @@ export default function Archive() {
                         </Button>
                     </Col>
                 </Row>
-                <h5 className='mb-3'>Podsumowanie <br/>  <small className="text-mute">Najważniejsze informacje z tego tygodnia</small></h5>
-                
+                <h5 className='mb-3'>Podsumowanie <br />  <small className="text-mute">Najważniejsze informacje z tego tygodnia</small></h5>
+
                 <SummaryCards />
-                
+
                 <h5 className='mb-3'>Archiwum <br />  <small className="text-mute">Szukaj istniejących projektów</small></h5>
 
 
                 <Row className='mb-3' >
-                    
+
                     <Col className='col-auto'>
-                        <FiltersDropdown changeSalesPersonInFilters={changeSalesPersonInFilters} changeStatusInFilters={changeStatusInFilters} filters={filters} />
+                        <FiltersDropdown changeSalesPersonInFilters={changeSalesPersonInFilters} changeStatusInFilters={changeStatusInFilters} changeDateRangeInFilters={changeDateRangeInFilters} filters={filters} />
                     </Col>
                     <Col className='col-md-5 col-lg-4 col-xxl-3'>
                         <SearchBar searchedPhrase={filters.searchedPhrase} changeSearchedPhrase={changeSearchedPhrase} />
@@ -131,10 +137,10 @@ export default function Archive() {
                         <ActiveFiltersIndicator filters={filters} changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} />
                     </Col>
                 </Row>
-                    
-                
+
+
                 <PaginatedItems changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} filters={filters} posts={filteredPosts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
-                
+
                 {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
             </div>
         </Container>

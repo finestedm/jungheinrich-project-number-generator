@@ -16,15 +16,20 @@ export default function searchPosts(posts, filters) {
 	const activeSalesPersons = (filters.salesPersons).map(user => user.value)
 	activePosts = activePosts.filter(post => activeSalesPersons.includes(post.user))
 
+	// filter by dates
+	activePosts = activePosts.filter(post => new Date(post.createdAt) >= filters.startDate)
+	activePosts = activePosts.filter(post => new Date(post.createdAt) <= filters.endDate)
+
+
 	// filter by searchedPhrase
-	if (!filters.searchedPhrase) {  
+	if (!filters.searchedPhrase) {
 		return activePosts
 	} else {
 		var search = new JsSearch.Search('_id');
 		search.addIndex('customer');
 		search.addIndex('location');
 		search.addIndex('description')
-	
+
 		search.addDocuments(activePosts);
 
 		JsSearch.PrefixIndexStrategy()
