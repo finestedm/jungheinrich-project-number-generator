@@ -24,7 +24,7 @@ export default function Archive() {
         status: { 0: true, 1: true, 2: true },
         salesPersons: salesPersons,
         startDate: new Date(2022, 1, 1),
-        endDate: new Date(2030, 1, 1)
+        endDate: new Date()
     });
     const [showModal, setShowModal] = useState(false);
     const [postData, setPostData] = useState(null);

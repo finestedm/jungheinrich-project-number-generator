@@ -14,9 +14,6 @@ const MyContainer = ({ className, children }) => {
     return (
         <div style={{ padding: "1rem", color: "#fff" }}>
             <CalendarContainer className={className}>
-                <div style={{ background: "#f0f0f0" }}>
-                    What is your favorite day?
-                </div>
                 <div style={{ position: "relative" }}>{children}</div>
             </CalendarContainer>
         </div>
@@ -48,7 +45,7 @@ export default function DateToggler({ filters, changeDateRangeInFilters }) {
 
                 <div onClick={() => changeDateRangeInFilters(new Date(2022, 1, 1), new Date())} className='expendable-item d-flex align-items-center px-3 py-2 date-toggle'>
                     <div className='d-flex gap-2 w-100 align-items-center justify-content-stretch'>
-                        Resetuj daty
+                        Resetuj zakres dat
                         <MdClose />
                     </div>
                 </div>
