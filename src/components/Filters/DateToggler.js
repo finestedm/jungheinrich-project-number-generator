@@ -52,31 +52,45 @@ export default function DateToggler({ filters, changeDateRangeInFilters }) {
 
                 <Dropdown.Divider className='mt-0 p-0' style={{ borderTop: '1px solid var(--ps-border-color-50)' }} />
 
-                <DatePicker
-                    className='datepicker-start'
-                    selected={filters.startDate}
-                    onChange={(date) => setStartDate(date)}
-                    withPortal
-                    calendarContainer={MyContainer}
-                    showMonthDropdown
-                    showYearDropdown
-                    calendarStartDay={1}
-                    dateFormat="dd/MM/yyyy"
-                    excludeDateIntervals={[{ start: new Date(), end: new Date(2050, 1, 1) }]}
-                />
-                <DatePicker
-                    className='datepicker-end'
-                    selected={filters.endDate}
-                    onChange={(date) => setEndDate(date)}
-                    withPortal
-                    calendarContainer={MyContainer}
-                    showMonthDropdown
-                    showYearDropdown
-                    calendarStartDay={1}
-                    dateFormat="dd/MM/yyyy"
-                    excludeDateIntervals={[{ start: new Date(1900, 1, 1), end: filters.startDate }]}
-                />
+                <div className='expendable-item d-flex align-items-center px-3 py-2 status-toggle'>
+                    <div className='d-flex gap-2 w-100 align-items-center justify-content-stretch'>
+                        <span>
+                            <DatePicker
+                                className='datepicker-start w-100 rbt-input-main form-control rbt-input'
+                                selected={filters.startDate}
+                                onChange={(date) => setStartDate(date)}
+                                portalId="App"
+                                withPortal
+                                calendarContainer={MyContainer}
+                                showMonthDropdown
+                                showYearDropdown
+                                calendarStartDay={1}
+                                dateFormat="dd/MM/yyyy"
+                                excludeDateIntervals={[{ start: new Date(), end: new Date(2050, 1, 1) }]}
+                            />
+                        </span>
+                    </div>
+                </div>
 
+                <div className='expendable-item d-flex align-items-center px-3 py-2 status-toggle'>
+                    <div className='d-flex gap-2 w-100 align-items-center justify-content-stretch'>
+                        <span>
+                            <DatePicker
+                                className='datepicker-end w-100 rbt-input-main form-control rbt-input'
+                                selected={filters.endDate}
+                                onChange={(date) => setEndDate(date)}
+                                portalId="App"
+                                withPortal
+                                calendarContainer={MyContainer}
+                                showMonthDropdown
+                                showYearDropdown
+                                calendarStartDay={1}
+                                dateFormat="dd/MM/yyyy"
+                                excludeDateIntervals={[{ start: new Date(1900, 1, 1), end: filters.startDate }]}
+                            />
+                        </span>
+                    </div>
+                </div>
             </div>
         </ButtonGroup>
     )

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector, createStore } from 'react-redux'
 import { getPosts } from '../actions/posts'
 import moment from 'moment'
-import { Container, Row, Col, Spinner, Card, Table, Button } from 'react-bootstrap'
+import { Container, Row, Col, Spinner, Card, Table, Button, Offcanvas } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import EditPostModal from '../components/EditPostModal'
 import PaginatedItems from './PaginatedItems';
@@ -142,6 +142,7 @@ export default function Archive() {
                 <PaginatedItems changeStatusInFilters={changeStatusInFilters} changeSalesPersonInFilters={changeSalesPersonInFilters} filters={filters} posts={filteredPosts} toggleModalVisible={toggleModalVisible} setPostToEditId={setPostToEditId} itemsPerPage={15} />
 
                 {showModal && <EditPostModal postData={postData} setPostData={setPostData} setShowModal={setShowModal} showModal={showModal} setPostToEditId={setPostToEditId} />}
+                <div show  ></div>
             </div>
         </Container>
     )

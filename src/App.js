@@ -25,7 +25,7 @@ export default function App() {
   }, [dispatch]);
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL} className='App'>
+    <BrowserRouter basename={process.env.PUBLIC_URL} className='App' id='App'>
       <Container fluid className='app-container h-100 d-flex flex-column flex-md-row align-items-stretch p-0 m-0'>
         {user && <Navbar className='topbar' />}
         <Routes>
