@@ -3,6 +3,10 @@ import { Dropdown, Form, ButtonGroup, Button, Modal } from 'react-bootstrap';
 import StatusIndicator from '../StatusIndicator';
 import { MdOutlineLocalOffer, MdOutlineArrowDropDown, MdClose } from "react-icons/md"
 import DatePicker, { CalendarContainer } from "react-datepicker";
+import { registerLocale } from "react-datepicker";
+import pl from 'date-fns/locale/pl';
+registerLocale('pl', pl)
+
 
 export function activeStatusCounter(filters) {
     const allStatuses = Object.values(filters.status).length
@@ -12,7 +16,7 @@ export function activeStatusCounter(filters) {
 
 const MyContainer = ({ className, children }) => {
     return (
-        <div style={{ padding: "1rem", color: "#fff" }}>
+        <div style={{ padding: "1rem", color: "#fff"}}>
             <CalendarContainer className={className}>
                 <div style={{ position: "relative" }}>{children}</div>
             </CalendarContainer>
@@ -26,7 +30,6 @@ export default function DateToggler({ filters, changeDateRangeInFilters }) {
     const [endDate, setEndDate] = useState(filters.endDate);
 
     useEffect(() => {
-        console.log(startDate)
         changeDateRangeInFilters(startDate, endDate)
     }, [startDate, endDate])
 
@@ -36,8 +39,7 @@ export default function DateToggler({ filters, changeDateRangeInFilters }) {
                 <span className='d-flex align-items-center gap-1'>
                     <MdOutlineLocalOffer size='1.5em' className='p-1' />
                     <span>Data</span>
-                    <span className='ms-auto'>{activeStatusCounter(filters)}</span>
-                    <MdOutlineArrowDropDown size='1.25em' />
+                    <MdOutlineArrowDropDown className='ms-auto' size='1.25em' />
                 </span>
             </Button>
 
@@ -60,13 +62,13 @@ export default function DateToggler({ filters, changeDateRangeInFilters }) {
                                 selected={filters.startDate}
                                 onChange={(date) => setStartDate(date)}
                                 portalId="App"
-                                withPortal
                                 calendarContainer={MyContainer}
-                                showMonthDropdown
-                                showYearDropdown
                                 calendarStartDay={1}
+                                // monthsShown={3}
                                 dateFormat="dd/MM/yyyy"
                                 excludeDateIntervals={[{ start: new Date(), end: new Date(2050, 1, 1) }]}
+                                maxDate={new Date()}
+                                locale='pl'
                             />
                         </span>
                     </div>
@@ -80,13 +82,12 @@ export default function DateToggler({ filters, changeDateRangeInFilters }) {
                                 selected={filters.endDate}
                                 onChange={(date) => setEndDate(date)}
                                 portalId="App"
-                                withPortal
                                 calendarContainer={MyContainer}
-                                showMonthDropdown
-                                showYearDropdown
                                 calendarStartDay={1}
                                 dateFormat="dd/MM/yyyy"
                                 excludeDateIntervals={[{ start: new Date(1900, 1, 1), end: filters.startDate }]}
+                                minDate={filters.startDate}
+                                locale='pl'
                             />
                         </span>
                     </div>

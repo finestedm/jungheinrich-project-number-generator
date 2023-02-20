@@ -630,7 +630,7 @@ tr>td:last-child {
 }
 
 .btn-ps-collapsing {
-    --bs-btn-color: var(--ps-text-50);
+    --bs-btn-color: var(--ps-text-75);
     --bs-btn-bg: transparent;
     --bs-btn-border-color: transparent;
     --bs-btn-hover-color: var(--ps-text-75);
@@ -714,6 +714,10 @@ tr>td:last-child {
 
 .react-datepicker__portal {
     background-color: var(--ps-shadow-color-lg);
+}
+
+.react-datepicker-popper {
+    z-index: 9999;
 }
 
 .react-datepicker {
