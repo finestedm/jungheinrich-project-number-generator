@@ -4,7 +4,7 @@ import { Col, Row } from 'react-bootstrap'
 import { salesPersons } from '../data/salesPersons'
 import moment from 'moment'
 import SummaryCard from './SummaryCard'
-import {AiOutlineFundProjectionScreen, AiOutlineUserAdd} from 'react-icons/ai'
+import { AiOutlineFundProjectionScreen, AiOutlineUserAdd } from 'react-icons/ai'
 
 // Nowe projekty
 export function getNewPostsNumber(posts) {
@@ -12,11 +12,11 @@ export function getNewPostsNumber(posts) {
 }
 
 export default function SummaryCards() {
-    
+
     const posts = useSelector((state) => state.posts)
     const salesPersonsInPosts = posts.map(post => post.user)
-    
-    
+
+
     // Najaktywniejszy handlowiec
     function mostActiveSalesPerson(arr) {
         const store = {}
@@ -40,13 +40,13 @@ export default function SummaryCards() {
     return (
         <Row className='mb-3'>
             <Col className='mb-4 col-12 col-md-6 col-lg-4'>
-                <SummaryCard header='Nowe projekty' main={getNewPostsNumber(posts) === 0 ? 'Brak nowych projektów' : getNewPostsNumber(posts) } image={<AiOutlineFundProjectionScreen size='40px'/>} classAddition='new-post-counter' />
+                <SummaryCard header='Nowe projekty' main={getNewPostsNumber(posts) === 0 ? 'Brak nowych projektów' : getNewPostsNumber(posts)} image={<AiOutlineFundProjectionScreen size='40px' />} classAddition='new-post-counter' />
             </Col>
             <Col className='mb-4 col-12 col-md-6 col-lg-4'>
                 <SummaryCard header='Najaktywniejszy' main={mostActiveSalesPerson(salesPersonsInPosts)} image={<img src={mostActiveSalesPersonPhoto} />} classAddition='user-activity-counter' />
             </Col>
             <Col className='mb-4 col-12 col-md-6 col-lg-4'>
-                <SummaryCard header='Nowi klienci' main={onlyNewCustomers.length} image={<AiOutlineUserAdd size='40px'/>} classAddition='new-customers-counter' />
+                <SummaryCard header='Nowi klienci' main={onlyNewCustomers.length} image={<AiOutlineUserAdd size='40px' />} classAddition='new-customers-counter' />
             </Col>
         </Row>
     )
