@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const postSchema = mongoose.Schema({
     customer: String,
@@ -11,7 +11,8 @@ const postSchema = mongoose.Schema({
         type: Date,
         default: new Date()
     },
-    createdBy: String
+    createdBy: {type: Schema.Types.ObjectId, ref: 'User' }
+    
 });
 
 const PostMessage = mongoose.model('PostMessage', postSchema)

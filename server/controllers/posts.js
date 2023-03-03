@@ -14,6 +14,7 @@ export async function getPosts (req, res) {
 export async function createPost(req, res) {
     const post = req.body;
     const newPost = new PostMessage(post)
+    newPost.populate('CreatedBy')
     try {
         await newPost.save()
         res.status(201).json(newPost)
